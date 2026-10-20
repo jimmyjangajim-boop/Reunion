@@ -43,3 +43,11 @@ Domain services validate new records with Zod and prepared statements. SQLite en
 Initial import validates manifest checksums and is idempotent by pack digest. Future imports stage raw text/binary originals, bound ZIP extraction, reject traversal/symlinks, and dedupe repeated batches. No semantic extraction runs automatically. Review-approved sourced claims inherit a source batch association for rollback. Rolling back marks associated assertions rejected; evidence remains.
 
 Online backups use SQLite's backup API. Restore verifies integrity and expected schema tables and saves the former database first. Evidence bytes must be backed up separately.
+
+## National reports and reviewed source import, migration 003
+
+`national_reports` references an immutable original source, a content/context digest, record/scenario mode, original date context, correction link and review revision. `report_actions` contains typed movement-order, arrival or archive-entry proposals with exact source lines and applied target IDs. `report_reviews` stores append-only proposal/approval decisions. Approved domain mutations, action states, timeline entries and audit rows share one transaction. A scenario can never use domain approval.
+
+Movement provenance follows `report_actions.target_id → movements.id`, `report_actions.report_id → national_reports.source_id → sources`. Existing department rows remain in the same database. Completed movement rows preserve location history and order date; the order is never converted into a second duplicate arrival row.
+
+`source_artifacts` associates each imported review text with its original container/path, binary hash/byte count and extraction status. `sources.sha256` and bytes cover the extracted UTF-8 text stored in that row; the original artifact has a separate hash. Checksummed immutable JSON and source archives reproduce the reviewed baseline without committing a live database.

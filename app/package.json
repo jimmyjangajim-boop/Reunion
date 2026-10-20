@@ -9,6 +9,7 @@
   "scripts": {
     "setup": "node scripts/setup.mjs",
     "db:migrate": "node --experimental-strip-types scripts/migrate.ts",
+    "db:check": "node --experimental-strip-types scripts/check-integrity.ts",
     "db:import": "node --experimental-strip-types scripts/import.ts",
     "dev": "next dev --hostname 0.0.0.0",
     "build": "next build",
@@ -17,6 +18,7 @@
     "test": "vitest run",
     "test:ui": "playwright test",
     "backup": "node --experimental-strip-types scripts/backup.ts",
+    "backup:portable": "node --experimental-strip-types scripts/export-portable.ts",
     "restore": "node --experimental-strip-types scripts/restore.ts",
     "check:sources": "node scripts/verify-sources.mjs"
   },

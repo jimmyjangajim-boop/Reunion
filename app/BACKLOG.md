@@ -1,3 +1,9 @@
+# Current next task
+
+Finish a sourced parliamentary legislation report action through the existing National Report Center. Keep enactment, votes, appropriations and spending separate. See docs/ROADMAP.md and docs/SESSION_HANDOFF.md.
+
+The older backlog follows for preserved context.
+
 # Development backlog
 
 ## Next vertical slice: archive curation

@@ -1220,3 +1220,33 @@ input[type="file"] {
     display: none;
   }
 }
+/* National reports share the same archive and review styling as department records. */
+.report-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 16px;
+}
+.report-form label {
+  display: grid;
+  gap: 7px;
+}
+.report-form textarea {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+}
+.report-form input,
+.report-form select {
+  max-width: 100%;
+}
+.report-center details {
+  margin: 14px 0;
+}
+.report-center summary {
+  cursor: pointer;
+}
+.report-center input[type="checkbox"] {
+  width: auto;
+  min-height: auto;
+  margin-right: 8px;
+}

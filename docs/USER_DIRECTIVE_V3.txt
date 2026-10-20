@@ -1,0 +1,1432 @@
+
+# REUNION NATIONAL ADMINISTRATION SYSTEM (RNAS)
+## MASTER CONTINUATION DIRECTIVE V3
+### Historical Canon Recovery, National Administration, Interactive Government, Military Management, and AI-Assisted Simulation
+
+You are the lead software engineer, database architect, and systems designer continuing development of the **Reunion National Administration System (RNAS)**.
+
+RNAS is a persistent, interactive national administration and alternate-history geopolitical roleplay platform.
+
+It manages the fictional nation of Reunion, including its historical canon, government, Parliament, monarchy, presidency, cabinet, military forces, economy, treasury, diplomatic relations, territory, domestic security, and national events.
+
+The application must eventually support AI-assisted political, economic, military, and diplomatic simulations.
+
+**This is an ongoing project. Do not restart development, recreate the repository, discard working code, or replace existing databases without first inspecting and preserving what has already been built.**
+
+The immediate priority is:
+
+**Recover and organize Reunion's existing history, ensure the application and database work reliably, and establish the foundation for a report-first national administration system.**
+
+The long-term goal is a sophisticated application that is easy for one person to operate.
+
+The user should spend most of their time making interesting political and military decisions, roleplaying events, and describing what happened, rather than manually maintaining dozens of database tables.
+
+---
+
+# PART I. IMMEDIATE PROJECT CONTINUATION
+
+## 1. Audit existing development before making changes
+
+The project is currently being developed through Codex Cloud and may already have a functioning web application preview.
+
+Before changing anything:
+
+1. Inspect the existing Git repository.
+2. Determine the current Git branch and working tree status.
+3. Read the README, AGENTS.md, implementation notes, architecture documentation, and development plans.
+4. Inspect the complete application structure.
+5. Examine existing database schemas, migrations, source imports, and seed data.
+6. Determine which features are fully functional, partially implemented, broken, or absent.
+7. Identify any uncommitted work or changes that have not been pushed to GitHub.
+8. Determine how the current application preview is started.
+9. Verify whether it runs and whether database changes persist.
+10. Identify the most important unfinished task.
+
+Preserve working code.
+
+Do not begin another implementation simply because the current structure differs from an ideal architecture.
+
+Refactor only where the existing implementation presents a real technical or data-integrity problem.
+
+Avoid unnecessary package changes, framework migrations, and dependency additions.
+
+If the repository contains partially completed features, assess whether they should be finished before creating new ones.
+
+### Required initial output
+
+Provide a concise assessment of:
+
+- What exists.
+- What works.
+- What is broken.
+- What data has been imported.
+- What historical information is missing.
+- Whether the app preview is functional.
+- Whether the database is persistent.
+- What you will implement during this session.
+
+Then proceed with implementation.
+
+Do not stop after producing the assessment.
+
+## 2. Cloud development and persistent data
+
+Continue using Codex Cloud unless there is a concrete reason that a particular task requires a local environment.
+
+A working Cloud browser preview is valuable and should be preserved.
+
+However, the development environment must not be treated as permanent storage.
+
+Audit the current SQLite database and determine whether it survives:
+
+- Application restarts.
+- Development-server restarts.
+- New Codex tasks.
+- Environment recreation.
+- Repository checkout or restoration.
+
+Never assume temporary development storage is permanent.
+
+Implement:
+
+- Database backup.
+- Database restoration.
+- Database integrity checks.
+- Migration verification.
+- A portable database export.
+- Documented local installation instructions.
+
+Maintain separation between:
+
+**Source-controlled assets:** Application source code, migrations, configuration examples, documentation, canonical seed datasets, and reproducible import scripts.
+
+**Mutable data:** Runtime SQLite databases, uploaded files, backups, private configurations, and API credentials.
+
+Do not commit secrets or mutable production databases to GitHub.
+
+If a checked-in canonical seed dataset is appropriate, make it reproducible and clearly distinguish it from the live application database.
+
+The user must eventually be able to transfer the complete system and its data to a local computer without losing history.
+
+## 3. Permanent repository documentation
+
+Create or maintain:
+
+- `AGENTS.md`
+- `docs/ROADMAP.md`
+- `docs/IMPLEMENTATION_STATUS.md`
+- `docs/SESSION_HANDOFF.md`
+- `docs/CANON_AUTHORITY.md`
+- `docs/SOURCE_COVERAGE.md`
+- `docs/CANON_GAPS.md`
+- `docs/DATA_MODEL.md`
+- `docs/REPORT_PIPELINE.md`
+- `docs/SIMULATION_DESIGN.md`
+- `docs/BACKUP_AND_RESTORE.md`
+
+These files must reflect the actual codebase.
+
+Every development session must update implementation status and handoff notes.
+
+A fresh Codex conversation should be able to continue work by reading these files without needing the entire previous conversation.
+
+Do not mark a feature complete merely because its screen or database table exists.
+
+A working feature must have functional behavior, persistence, validation, and appropriate tests.
+
+---
+
+# PART II. PRIMARY PRODUCT DESIGN
+
+## 4. The central principle: REPORT FIRST, ADMINISTRATION SECOND
+
+**This is the most important usability requirement in the entire project.**
+
+The user does not want to operate Reunion like an excessively complicated management game.
+
+The user does not want to manually update Parliament, the cabinet, the military, treasury, diplomatic relations, and the national timeline after every roleplay event.
+
+Instead, RNAS must be designed around a natural-language reporting workflow.
+
+### Primary workflow
+
+**Write Report → Review Changes → Approve → Update Reunion**
+
+Example report:
+
+"October 7, 1992. President Donahue authorized the deployment of 4,000 troops to Dalmatia. Parliament passed a 2 billion RMC defense appropriation. Finance Minister Curro redirected 500 million RMC from existing programs to military infrastructure. Croatia condemned the military buildup."
+
+RNAS should interpret this report and propose changes to:
+
+- Historical timeline.
+- Presidency.
+- Military deployment records.
+- Parliament.
+- Treasury.
+- Ministry budgets.
+- Diplomatic relations.
+- National event registry.
+
+The user should not have to open each department manually.
+
+The system should show a consolidated review:
+
+**Proposed changes:**
+- One presidential authorization.
+- One military movement order.
+- One parliamentary legislative action.
+- One defense appropriation.
+- One treasury reallocation.
+- One diplomatic event.
+
+**Unresolved information:**
+- Which specific formations supply the 4,000 troops?
+- Was the deployment merely ordered or confirmed completed?
+- Which appropriations fund Curro's reallocation?
+
+The user must be allowed to leave nonessential details unresolved.
+
+The application should create explicit missing-information records rather than forcing immediate answers or inventing details.
+
+### Critical distinction
+
+Do not confuse an event being reported with an event being proposed.
+
+For example:
+
+"Parliament approved the appropriation" means an approval is being reported.
+
+"Parliament is considering an appropriation" means no approval has yet occurred.
+
+"The President orders a brigade to Dalmatia" means a movement has been ordered, not necessarily completed.
+
+"The brigade arrived in Dalmatia" means the movement has been completed.
+
+The difference must be represented in the database.
+
+## 5. The National Report Center
+
+Create a primary application section called:
+
+**National Report Center**
+
+It should support:
+
+- Freeform text reports.
+- Long historical reports.
+- Military after-action reports.
+- Parliamentary session summaries.
+- Economic reports.
+- Cabinet meeting reports.
+- Diplomatic reports.
+- Pasted Discord conversations.
+- Imported documents.
+- Corrective reports that amend prior canon.
+
+The user should be able to paste thousands of words when necessary.
+
+Preserve original submitted material unchanged.
+
+### Report processing pipeline
+
+1. Accept and preserve the original report.
+2. Identify dates and historical periods.
+3. Identify entities and references to existing records.
+4. Extract events and factual assertions.
+5. Determine whether each action was proposed, ordered, completed, or canceled.
+6. Retrieve relevant existing canonical records.
+7. Prepare structured proposed database mutations.
+8. Validate affected relationships, totals, and institutional rules.
+9. Identify missing data and contradictions.
+10. Show a readable review.
+11. Allow bulk approval of valid changes.
+12. Commit accepted changes transactionally.
+13. Update all affected departments.
+14. Add changes to the national timeline.
+15. Preserve complete audit history.
+
+### Make the interface convenient
+
+Routine updates should take very few clicks.
+
+Provide:
+
+- Bulk approval.
+- Individual exceptions.
+- An expandable detailed-change preview.
+- Inline corrections.
+- Suggestions for missing records.
+- An undo or correction workflow.
+- Report history.
+- Source links.
+- Conflict warnings.
+- Processing status.
+
+Do not require every field to be completed before a report can be recorded.
+
+Allow the system to record a real event while retaining uncertainty about its details.
+
+### Architectural requirement
+
+The Report Center must use the same underlying database as every national subsystem.
+
+Do not maintain disconnected copies of parliamentary, military, economic, or diplomatic information.
+
+Do not permit AI to execute arbitrary database writes.
+
+AI may propose structured actions, but the application's validated domain services must execute approved changes.
+
+---
+
+# PART III. RECOVER REUNION'S HISTORY FIRST
+
+## 6. Source import and preservation
+
+The historical recovery archive is:
+
+`Reunion_Canon_Recovery_2026-10-18.zip`
+
+Locate and inspect it if available in the repository or current development environment.
+
+The archive contains original Reunion source documents, structured data, historical notes, recovered conversation material, and canon-conflict information.
+
+Preserve every original source.
+
+Read its manifest, starting instructions, confirmed user overrides, conflict files, and source indexes.
+
+Do not assume that a preexisting import is complete.
+
+Verify what is actually present in the database.
+
+### Source preservation requirements
+
+Every document should have:
+
+- Stable source ID.
+- Original filename.
+- SHA-256 checksum.
+- Source type.
+- Import timestamp.
+- Historical period.
+- Source authority.
+- Extraction status.
+- Linked assertions.
+- Original text or preserved binary source.
+- Provenance information.
+
+Preserve multiple document versions separately.
+
+A later political baseline may not fully replace an earlier one.
+
+Different documents may accurately describe different historical periods.
+
+Never silently discard an older source because a newer source exists.
+
+## 7. Thorough historical extraction
+
+Recover as much information as the available sources actually support.
+
+Prioritize:
+
+### Political history
+
+- National founding and constitutional development.
+- Presidents and elections.
+- Monarchy and succession.
+- Governments and cabinet changes.
+- Political parties.
+- Parliamentary compositions.
+- Constitutional controversies.
+- Legislation.
+- Political crises.
+- Domestic political movements.
+
+### Military history
+
+- Historical wars.
+- Naval engagements.
+- Land campaigns.
+- Battles.
+- Orders of battle.
+- Command appointments.
+- Military bases.
+- Equipment holdings.
+- Procurement.
+- Military reforms.
+- Deployment movements.
+- Casualties.
+- War settlements.
+
+### Economic history
+
+- Population.
+- GDP.
+- Budgets.
+- Revenue.
+- Expenditure.
+- Treasury.
+- Public debt.
+- Industrial production.
+- Infrastructure projects.
+- Military-industrial development.
+- Government economic programs.
+- Economic policy changes.
+
+### Diplomacy and territory
+
+- Alliances.
+- Treaties.
+- Diplomacy.
+- Territorial changes.
+- Borders.
+- Occupation.
+- Demilitarized zones.
+- Foreign crises.
+- Foreign military activity.
+
+### Individuals and institutions
+
+- Monarchs.
+- Presidents.
+- Vice Presidents.
+- Ministers.
+- Commanders.
+- Diplomats.
+- Political leaders.
+- Government agencies.
+- Military organizations.
+
+Every significant historical assertion must retain source provenance.
+
+## 8. Established canon that must be protected
+
+ historical anchors, not a complete dataset.
+
+Recover any of the remaining information from the documents.
+
+## 9. Canon authority and contradictions
+
+Build around an evidence-based canon model.
+
+Every historical assertion must include:
+
+- Subject.
+- Relationship or property.
+- Value.
+- Source.
+- Relevant date.
+- Date precision.
+- Approval status.
+- Confidence.
+- Supersession history.
+- Conflicts.
+
+Separate:
+
+**Canon status:** Confirmed, provisional, disputed, superseded, rejected.
+
+**Operational status:** Proposed, planned, ordered, contracted, delivered, completed, canceled, etc.
+
+**Source confidence:** How strongly the evidence supports the assertion.
+
+These concepts must not be combined into one status field.
+
+### Canon Review Center
+
+Create a functional review interface with three inboxes:
+
+1. Contradictions.
+2. Missing information.
+3. Proposed additions or changes.
+
+For contradictions, show competing claims and their original sources.
+
+Allow the user to:
+
+- Accept either source.
+- Merge compatible details.
+- Replace both with a corrected fact.
+- Preserve both for different dates.
+- Reject an incorrect assertion.
+- Leave the issue unresolved.
+- Reopen previously resolved issues.
+
+For missing information:
+
+- Allow exact dates.
+- Approximate dates.
+- Date ranges.
+- Month or year only.
+- Relative chronology.
+- Explicit unknown values.
+- Deferred decisions.
+
+Avoid generating hundreds of low-value questions.
+
+Prioritize issues that affect national continuity or multiple departments.
+
+For example, uncertainty over a major war's end date matters more than a missing middle name.
+
+## 10. Historical navigation
+
+Build a searchable national archive.
+
+Include:
+
+- Historical timeline.
+- Encyclopedia.
+- People.
+- Government.
+- Elections.
+- Wars and battles.
+- Military formations.
+- Economy.
+- Treaties.
+- Territory.
+- National events.
+
+Every entry should link back to its sources.
+
+Create historical date selection.
+
+The user must be able to view Reunion as it existed on a particular in-world date.
+
+A later cabinet appointment must not appear in an earlier historical snapshot.
+
+An equipment delivery from 1993 must not appear in a 1992 operational inventory.
+
+Support unknown and imprecise dates honestly.
+
+### Historical recovery dashboard
+
+Show:
+
+- Sources available.
+- Sources processed.
+- Historical assertions extracted.
+- Confirmed records.
+- Provisional records.
+- Conflicting claims.
+- Missing dates.
+- Unprocessed materials.
+- Coverage by historical period and subject.
+
+Distinguish source-processing completion from actual historical completeness.
+
+The application must acknowledge that additional Discord histories and old ChatGPT records may be imported later.
+
+---
+
+# PART IV. NATIONAL ADMINISTRATION SYSTEMS
+
+These systems should be built in connected, working phases.
+
+Their data models should be considered early so recovered history can populate them.
+
+## 11. Parliament
+
+Implement Reunion's parliamentary system, beginning with its canonical 400 seats.
+
+Track:
+
+- Parliamentary sessions.
+- Elections.
+- Individual members where known.
+- Parties.
+- Coalitions.
+- Vacancies.
+- Electoral districts.
+- Party leadership.
+- Parliamentary committees.
+- Legislation.
+- Amendments.
+- Debates.
+- Votes.
+- Confidence motions.
+- Constitutional procedures.
+
+### Interactive Parliament
+
+Provide an actual visual parliamentary chamber with clickable seats and party colors.
+
+Make it possible to:
+
+- Introduce legislation.
+- Assign a sponsor.
+- Debate a bill.
+- Propose amendments.
+- Simulate party responses.
+- Record individual and party-bloc votes.
+- Override simulated votes.
+- Calculate results.
+- Record presidential action.
+- Add enacted legislation to canon.
+
+### Political vote simulation
+
+Use available information about:
+
+- Party ideology.
+- Party interests.
+- Coalition agreements.
+- Parliamentary leadership.
+- Past voting behavior.
+- Political circumstances.
+- Government stability.
+- Issue importance.
+- Public pressure where documented.
+
+If relevant political information is missing, expose the assumptions instead of pretending that the simulated vote is historically established.
+
+Distinguish between a predicted vote and a user-approved actual vote.
+
+All vote totals must reconcile with occupied seats and applicable procedural rules.
+
+Do not invent constitutional voting thresholds.
+
+## 12. Presidency and cabinet
+
+Implement presidential administrations, elections, executive orders, appointments, succession, and constitutional powers.
+
+Ministries must be configurable.
+
+Each ministry should have:
+
+- Minister.
+- Deputies where known.
+- Historical officeholders.
+- Legal responsibilities.
+- Departments.
+- Budget.
+- Policies.
+- Projects.
+- Decisions.
+- Relevant legislation.
+
+### Interactive cabinet meetings
+
+The user should be able to open a cabinet session and describe an issue in natural language.
+
+Example:
+
+"President Donahue requests recommendations for funding an expansion of the armed forces."
+
+The application should retrieve relevant cabinet members, treasury resources, existing military requirements, and political conditions.
+
+When AI is enabled, ministers may generate provisional recommendations or objections grounded in their established positions and responsibilities.
+
+The user should be able to:
+
+- Review recommendations.
+- Ask follow-up questions.
+- Modify proposals.
+- Accept or reject recommendations.
+- Issue presidential directions.
+- Create budget requests.
+- Submit proposals to Parliament.
+
+Cabinet outcomes must not automatically become canon until approved.
+
+### Monarchy and institutions
+
+Maintain royal succession, reigning monarchs, constitutional powers, and relevant historical events.
+
+Support the judiciary, intelligence services, administrative agencies, and provincial authorities as institutional records.
+
+## 13. Armed Forces
+
+Build a detailed military command and order-of-battle system.
+
+Support:
+
+- Army.
+- Navy.
+- Air Force.
+- Marines.
+- Reserves.
+- Special operations.
+- Territorial commands.
+- Joint commands.
+- Military intelligence.
+- Historical organizations.
+
+### OOB structure
+
+Use permanent unit identities and flexible command hierarchies.
+
+Track:
+
+- Name and designation.
+- Branch.
+- Parent unit.
+- Subordinate units.
+- Commander.
+- Authorized personnel.
+- Actual personnel.
+- Equipment.
+- Readiness.
+- Supply status.
+- Base or garrison.
+- Current location.
+- Mission.
+- Attachments.
+- Casualties.
+- Historical deployments.
+- Formation and disbandment dates.
+
+Support army, naval, and air force organizational structures without forcing all three into the same rigid hierarchy.
+
+### Interactive OOB
+
+Provide expandable organization trees.
+
+Clicking a formation should show all relevant information.
+
+Allow the user to:
+
+- Assign commanders.
+- Transfer subordinate units.
+- Reorganize formations.
+- Adjust strength.
+- Record casualties.
+- Assign equipment.
+- Create deployment orders.
+- Request reinforcements.
+- Change readiness.
+- Record completed movements.
+
+Maintain historical records of every approved change.
+
+### Procurement
+
+Track procurement through:
+
+Proposed → Approved → Contracted → Produced → Delivered → Accepted → Operational → Retired or Lost.
+
+Support partial deliveries, delayed deliveries, damaged equipment, repair, and replacements.
+
+Never count unreceived equipment as operational.
+
+Never assign individually tracked equipment to more than one formation simultaneously.
+
+### Combat records
+
+Track battles and operations, participating formations, commanders, losses, objectives, outcomes, and territorial effects.
+
+Keep KIA, WIA, MIA, POW, and unspecified casualties separate.
+
+## 14. Interactive national maps
+
+Use Leaflet or MapLibre GL JS.
+
+The user has existing screenshots from a QGIS project whose editable source data may have been lost.
+
+Support:
+
+- Screenshot upload.
+- Raster image overlays.
+- Manual georeferencing.
+- Control points.
+- Boundary tracing.
+- GeoJSON.
+- Editable markers.
+- Military formations.
+- Front lines.
+- Territorial control.
+- Political borders.
+- Military bases.
+- Airfields.
+- Ports.
+- Industrial facilities.
+- Supply routes.
+- Demilitarized zones.
+
+Do not assume that a screenshot contains recoverable geographic coordinates.
+
+Allow the user to correct or manually calibrate the geography.
+
+### Military map interactions
+
+Clicking a unit marker should open its OOB record.
+
+Dragging a marker should propose a movement order rather than silently changing completed deployment history.
+
+Clicking a territory should show administrative, population, economic, diplomatic, and military information.
+
+The map must support historical date selection.
+
+Map features should reference the existing national database, not a disconnected copy.
+
+## 15. Economy and treasury
+
+Implement consistent national economic accounting.
+
+Track:
+
+- GDP.
+- National population.
+- Sector production.
+- Tax revenue.
+- Government receipts.
+- Ministry budgets.
+- Appropriations.
+- Expenditures.
+- Treasury.
+- Deficit and surplus.
+- Public debt.
+- Inflation.
+- Employment.
+- Industrial production.
+- International trade.
+- Military spending.
+- Economic projects.
+- Infrastructure.
+
+### Interactive budgets
+
+Allow the user to:
+
+- Create budgets.
+- Allocate funds.
+- Approve appropriations.
+- Amend ministry budgets.
+- Redirect funding.
+- Record contracts.
+- Record payments.
+- Monitor deficits.
+- Track debt.
+- View spending charts.
+
+Distinguish proposed, authorized, appropriated, committed, disbursed, and actual expenditures.
+
+Avoid double-counting transfers.
+
+Record financial decisions that may be politically disputed or concealed from other officials without confusing legal authority, knowledge, and accounting validity.
+
+### National projects
+
+Track economic and infrastructure projects by funding, location, responsible ministry, capacity, milestones, contractors, risks, and completion.
+
+## 16. Foreign relations
+
+Track foreign governments, alliances, relations, treaties, wars, diplomatic communications, military agreements, trade, sanctions, and disputes.
+
+Treaty provisions should be represented as structured obligations where practical.
+
+A deployment into a DMZ or restricted area should raise a relevant warning.
+
+### Diplomatic interaction
+
+Support diplomatic scenarios where the user submits a proposal or policy.
+
+An optional AI model may simulate foreign-government responses based on known relations, interests, and historical conditions.
+
+Generated responses remain provisional until accepted.
+
+## 17. Domestic security and administration
+
+Track domestic unrest, security agencies, intelligence reporting, insurgencies, emergency measures, law enforcement, and territorial administration.
+
+Separate confirmed events from government allegations, intelligence assessments, and rumors.
+
+---
+
+# PART V. AI ASSISTANCE AND SIMULATION
+
+## 18. Two separate user actions
+
+RNAS must clearly distinguish:
+
+### Record What Happened
+
+The user describes an event that occurred in the roleplay.
+
+The system extracts and records what the user reported.
+
+It must not reinterpret the report as a hypothetical simulation.
+
+### Simulate What Might Happen
+
+The user requests a possible outcome.
+
+Examples:
+
+- How would Parliament vote on a proposed bill?
+- How would cabinet ministers respond to a major budget deficit?
+- What diplomatic response might Croatia make?
+- What are the likely economic consequences of mobilization?
+- How might an election unfold?
+- How might a military crisis develop?
+
+The simulation creates a scenario, not immediate canon.
+
+The user may accept all, part, or none of the outcome.
+
+## 19. Three simulation modes
+
+### Manual mode
+
+The user determines the result directly.
+
+RNAS validates the administrative consequences and records the approved outcome.
+
+### Assisted mode
+
+The system proposes possible outcomes based on the available records, rules, and assumptions.
+
+The user makes the final decision.
+
+**This should be the default mode for significant political, diplomatic, military, and economic simulations.**
+
+### Simulation mode
+
+The system uses documented deterministic rules, seeded probabilities, and optional AI reasoning to generate hypothetical outcomes.
+
+Simulations should be reproducible from a starting state, rules version, assumptions, and random seed.
+
+Do not present predictions as established facts.
+
+## 20. AI model integration
+
+Build an optional, provider-independent AI layer.
+
+Possible backends:
+
+- OpenAI API.
+- Locally hosted models through Ollama.
+- Other compatible providers in the future.
+
+The core application must work without an API key.
+
+Budget calculations, record retrieval, vote arithmetic, historical snapshots, validations, and administrative actions must not require AI.
+
+Use AI primarily for:
+
+- Natural-language report interpretation.
+- Entity matching where ambiguous.
+- Historical document extraction.
+- Political analysis.
+- Parliamentary debate.
+- Cabinet discussions.
+- Diplomatic negotiations.
+- Scenario generation.
+- Narrative explanations.
+
+### AI context
+
+Never assume the AI model automatically knows Reunion's history.
+
+For every task, retrieve the relevant approved canon and structured national state from the database.
+
+Provide:
+
+- Relevant historical period.
+- Applicable institutions.
+- Important people.
+- Existing political positions.
+- Financial data.
+- Military resources.
+- Active treaties.
+- Prior events.
+- Known uncertainties.
+
+Avoid sending the entire database with every request.
+
+Use targeted retrieval.
+
+### AI safety and validation
+
+- Store API keys securely on the server.
+- Never commit keys to Git.
+- Never expose keys in client-side code.
+- Provide configurable spending limits and request logs.
+- Validate structured AI outputs.
+- Never allow arbitrary AI-generated SQL.
+- Never allow the AI to bypass canon approval.
+- Provide an AI-disabled mode.
+- Handle provider errors without corrupting data.
+
+## 21. National Decision Engine
+
+Build a shared process for actions affecting multiple institutions.
+
+Example:
+
+"President Donahue proposes 5 billion RMC in military appropriations and orders national mobilization."
+
+The engine must identify:
+
+- Presidential authority.
+- Required parliamentary action.
+- Relevant cabinet ministries.
+- Financial requirements.
+- Treasury availability.
+- Military formations.
+- Mobilization requirements.
+- Diplomatic consequences.
+- Applicable laws and treaties.
+
+It should produce a set of proposed actions.
+
+Display deterministic consequences separately from uncertain predictions.
+
+Use transactional database writes so one failed action does not leave part of the nation changed.
+
+Maintain a National Decision Register with initiator, date, legal authority, approvals, assumptions, results, and linked events.
+
+## 22. In-world time advancement
+
+Support advancing Reunion's date.
+
+Allow daily, weekly, monthly, and custom intervals.
+
+The system should identify upcoming elections, procurement deliveries, military orders, cabinet appointments, construction milestones, treaty deadlines, and fiscal obligations.
+
+Scheduled activities do not automatically count as completed.
+
+Preview the changes before applying them.
+
+Do not invent political reactions or war outcomes merely because time has advanced.
+
+---
+
+# PART VI. USABILITY AND INTERACTIVITY
+
+## 23. The application must not become a tedious management game
+
+Avoid requiring constant manual maintenance.
+
+The Report Center should be the most convenient way to update the nation.
+
+Detailed dashboards are secondary interfaces for inspection, analysis, and precise corrections.
+
+The user should normally be able to manage Reunion through:
+
+1. Writing reports.
+2. Asking questions.
+3. Running simulations.
+4. Reviewing outcomes.
+5. Approving changes.
+
+All departments should remain connected.
+
+### Global interaction
+
+Provide a unified search and command interface where the user can ask:
+
+- "Show the army's current OOB."
+- "Where is the 2nd Infantry Division?"
+- "Who is serving in the cabinet?"
+- "How much money remains in the defense budget?"
+- "What happened during the last parliamentary session?"
+- "What historical information is missing from the Croatian War?"
+- "Simulate Parliament's vote on this bill."
+- "Record the following military report."
+
+The interface should retrieve real database records.
+
+If natural-language understanding is unavailable, provide searchable structured alternatives.
+
+## 24. Functional dashboard expectations
+
+The main dashboard should display the nation at a selected in-world date.
+
+Include relevant available information on:
+
+- President and Vice President.
+- Monarch.
+- Cabinet.
+- Parliament.
+- Population.
+- GDP.
+- Treasury and budget.
+- Armed forces.
+- Military readiness.
+- Active deployments.
+- Diplomatic crises.
+- National projects.
+- Pending decisions.
+- Missing canon.
+
+Never fabricate dashboard data for appearance.
+
+An unknown value should visibly remain unknown.
+
+Use links to open the relevant records.
+
+## 25. Real functionality over visual mockups
+
+Interactive controls must perform real actions.
+
+Examples:
+
+- A parliamentary vote must be saved in the legislative record.
+- A cabinet appointment must update officeholder history.
+- A military movement must update deployment history when completed.
+- A procurement delivery must update the correct inventories.
+- A budget reallocation must update fiscal records.
+- A treaty approval must update diplomatic records.
+- A national report must generate actual proposed database changes.
+
+Do not label a feature complete if it only displays an interface.
+
+Every important workflow must have validation, persistent data, history preservation, and tests.
+
+---
+
+# PART VII. DEVELOPMENT ROADMAP
+
+Work in manageable phases.
+
+Do not attempt to finish the entire application in one conversation.
+
+## Phase 0: Canon recovery and foundation
+
+**CURRENT PRIORITY**
+
+- Audit existing implementation.
+- Verify database persistence.
+- Inventory all available historical sources.
+- Import source material.
+- Extract important historical assertions.
+- Link people, institutions, units, events, and figures.
+- Preserve original source text.
+- Resolve clear duplicates.
+- Identify contradictions.
+- Build Canon Review Center.
+- Build source search.
+- Build historical timeline.
+- Produce source coverage report.
+- Test imports and migrations.
+
+Also establish the fundamental data architecture for the National Report Center.
+
+## Phase 1: National Report Center and core administration
+
+- Working natural-language report submission interface.
+- Original report preservation.
+- Initial structured action schemas.
+- Proposed-change review.
+- Approval workflow.
+- Cross-system event model.
+- Historical snapshots.
+- National dashboard.
+- Basic report ingestion without AI.
+- Optional AI extraction behind a provider interface.
+
+Deliver a complete report-to-database workflow for at least one real historical domain.
+
+## Phase 2: Parliament, presidency, and cabinet
+
+- Actual parliamentary records.
+- Working 400-seat chamber.
+- Bill creation.
+- Vote recording.
+- Legislation.
+- Executive orders.
+- Cabinet appointments.
+- Cabinet administration.
+- Royal administration.
+- Government reports.
+- First political simulation tools.
+
+## Phase 3: Armed Forces
+
+- Complete military data model.
+- Interactive OOB.
+- Command hierarchies.
+- Deployment history.
+- Equipment inventories.
+- Readiness.
+- Personnel.
+- Procurement.
+- Battle reports.
+- Casualty reporting.
+- Military report ingestion.
+
+## Phase 4: Maps and geography
+
+- Screenshot import.
+- Raster map overlays.
+- Georeferencing.
+- Boundary editing.
+- Territory records.
+- Historical geography.
+- Military unit markers.
+- Movement orders.
+- Operational maps.
+
+## Phase 5: Economy and development
+
+- National economic records.
+- Government budgets.
+- Treasury accounting.
+- Ministry allocations.
+- Public debt.
+- Industrial production.
+- Infrastructure projects.
+- Economic report ingestion.
+- Economic simulations.
+
+## Phase 6: Diplomacy and domestic security
+
+- Foreign-state records.
+- Treaties.
+- Diplomatic actions.
+- Domestic security.
+- Intelligence.
+- International crises.
+- Diplomatic scenarios.
+
+## Phase 7: Integrated simulations
+
+- Parliamentary vote simulation.
+- Cabinet deliberation.
+- Diplomatic simulation.
+- Economic policy simulation.
+- Military readiness and logistics simulation.
+- Cross-system National Decision Engine.
+- Time advancement.
+- Reproducible scenarios.
+
+## Phase 8: Deployment, expansion, and quality
+
+- Performance.
+- Data integrity auditing.
+- Mobile responsiveness.
+- Long-term hosting.
+- Backup and restore.
+- Expanded importing.
+- Discord history integration.
+- ChatGPT archive integration.
+- User experience improvements.
+
+---
+
+# PART VIII. QUALITY AND ACCEPTANCE REQUIREMENTS
+
+## 26. Historical integrity
+
+The system must demonstrate:
+
+- Historical facts retain source references.
+- Later changes do not erase earlier history.
+- Rejected material is not silently deleted.
+- Conflicting sources remain available.
+- Unknown dates remain unknown.
+- Historical state can be reconstructed by date.
+- Original source files remain intact.
+- Canon corrections are auditable.
+
+## 27. Administrative integrity
+
+The system must demonstrate:
+
+- Parliamentary vote totals cannot exceed eligible seats.
+- The constitutional 400-seat discrepancy remains visible.
+- Office appointments maintain correct historical terms.
+- Military equipment cannot be double-assigned.
+- Ordered deployments are distinct from completed deployments.
+- Procurement orders do not create operational equipment.
+- Treasury transfers are not counted as new government revenue.
+- Appropriations and actual expenditure remain distinct.
+- Treaty restrictions produce relevant warnings.
+- Failed transactions do not partially update national records.
+
+## 28. Report workflow acceptance tests
+
+Create tests covering reports such as:
+
+### Report A: Parliamentary legislation
+
+A user reports that Parliament approved a bill.
+
+The system proposes a legislative record and associated government updates without requiring the user to manually open the parliamentary subsystem.
+
+### Report B: Military deployment
+
+A user reports that a division was ordered to deploy.
+
+The system creates an order but does not immediately mark the unit as having arrived.
+
+### Report C: Completed military movement
+
+A user reports that a previously ordered deployment was completed.
+
+The system links the completion to the existing order and updates the unit's location history.
+
+### Report D: Government expenditure
+
+A user reports an approved appropriation and a separate spending transaction.
+
+The system records the two correctly without treating the appropriation as actual expenditure.
+
+### Report E: Contradictory history
+
+A user submits a historical account contradicting an approved record.
+
+The system preserves the report and raises a review issue instead of silently rewriting canon.
+
+### Report F: Partial information
+
+A user reports an event without an exact date or complete list of participants.
+
+The system preserves supported information and records missing details without manufacturing them.
+
+### Report G: Multi-department event
+
+A single report describes military, financial, parliamentary, and diplomatic actions.
+
+The system prepares coordinated changes and allows the user to approve them together.
+
+### Report H: Duplicate submission
+
+The same source report is imported twice.
+
+The system must avoid creating duplicate historical events or duplicate financial transactions.
+
+### Report I: Simulation
+
+The user requests a hypothetical parliamentary vote.
+
+The result remains a scenario until explicitly adopted.
+
+### Report J: Database persistence
+
+A report is approved, the application is restarted, and the approved records remain intact.
+
+These tests should be implemented progressively as the relevant domains become functional.
+
+---
+
+# PART IX. SESSION MANAGEMENT
+
+## 29. Context management
+
+This project is too large to depend on a single Codex conversation.
+
+Do not rely on the current chat history as the sole source of implementation knowledge.
+
+Use the repository documentation and source code as persistent project memory.
+
+When nearing a session boundary:
+
+1. Finish the current coherent task.
+2. Save and test changes.
+3. Update implementation status.
+4. Update session handoff.
+5. Document unresolved work.
+6. Commit changes when appropriate.
+7. Push to GitHub if authorized and available.
+
+Do not claim a push was completed unless it actually succeeded.
+
+The next session should be able to resume from these files.
+
+Avoid enormous development sessions attempting several major phases simultaneously.
+
+## 30. End-of-session report
+
+At the end of each session, provide:
+
+**Implemented:** What actually changed.
+
+**Verified:** What tests passed and what was manually tested.
+
+**Database:** Current schema and data status.
+
+**Canon recovery:** Source processing progress and important unresolved questions.
+
+**Issues:** Known failures or limitations.
+
+**Git:** Commit and push status.
+
+**Next task:** The next concrete development objective.
+
+Keep this report concise and factual.
+
+---
+
+# PART X. IMMEDIATE INSTRUCTIONS FOR THIS SESSION
+
+Continue from the existing project state.
+
+**Do not restart RNAS.**
+
+### Step 1: Inspect
+
+Examine the existing application, Git repository, imported files, database, and Cloud preview.
+
+Identify which components are functional.
+
+### Step 2: Preserve
+
+Ensure no important data or completed code is at risk from a temporary development environment.
+
+Implement or verify backups and restoration before destructive migrations.
+
+### Step 3: Recover history
+
+Confirm exactly how much of Reunion's historical source material has been imported and structured.
+
+Finish important unfinished import and extraction work.
+
+Prioritize recovering the political, military, and economic historical records.
+
+### Step 4: Review canon
+
+Verify that major historical anchors and explicit user overrides are represented correctly.
+
+Identify contradictions and missing information.
+
+Ensure the Canon Review Center can actually display and resolve issues.
+
+### Step 5: Establish the Report Center
+
+Inspect whether a natural-language National Report Center already exists.
+
+If absent, establish the fundamental database and workflow for preserving original reports, generating proposed actions, validating changes, and obtaining approval.
+
+Do not let work on this feature displace unfinished critical historical recovery.
+
+A minimal, tested report-to-database workflow is preferable to a large incomplete AI interface.
+
+### Step 6: Test the application
+
+Run the relevant tests and ensure the application starts.
+
+Use the Cloud preview when possible.
+
+Verify that existing functioning features remain intact.
+
+### Step 7: Document and preserve progress
+
+Update AGENTS.md and the project documentation.
+
+Record a clear next task.
+
+Commit the work and push to the configured GitHub repository when permitted.
+
+---
+
+# FINAL GOVERNING PRINCIPLES
+
+**1. Reunion's established history belongs to the user.** Never rewrite or invent canon to make data entry easier.
+
+**2. Reports are the primary interface.** The user should describe what happened and let RNAS handle the administrative updates.
+
+**3. Simulations are proposals, not facts.** The user decides which simulated outcomes become historical reality.
+
+**4. All national systems must be connected.** Parliament, cabinet, military, treasury, territory, and diplomacy must share the same historical records.
+
+**5. Interactivity must be real.** Buttons, maps, votes, orders, and budgets must have working behavior and persistent data.
+
+**6. Development must survive new Codex sessions.** Keep source code, documentation, and handoff information current.
+
+**7. Prioritize a reliable working application over maximum feature count.**
+
+**8. Finish historical recovery before attempting comprehensive geopolitical simulations.**
+
+The ultimate goal is for the user to run Reunion naturally, through roleplay, decisions, reports, and simulations, while RNAS maintains a consistent, searchable, living national history.
+
+Begin by inspecting the existing implementation and continuing the highest-priority unfinished work.

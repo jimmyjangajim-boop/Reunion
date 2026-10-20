@@ -53,6 +53,7 @@ test("review side-by-side evidence, reasoned decision, and normal entity entry",
 }) => {
   await page.goto("/");
   await navigate(page, "Canon Review Center");
+  await page.getByLabel("Issue status").selectOption("all");
   await page
     .getByRole("button", {
       name: "Current King Zo III and young heir Zo III both stated with same regnal numeral",

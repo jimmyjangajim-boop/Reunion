@@ -33,3 +33,8 @@ python3 validate_review.py
 The validation script checks supplied upload hashes using the original conversation upload tree when present, or the packaged originals when extracted separately. A full rebuild uses `build_evidence.py` and `prepare_review.py`, requires the supplied upload/project_sources tree, and uses lxml for HTML/OOXML parsing. The extraction script never executes workbook macros. Rebuilding creates review artifacts only, not app changes.
 
 Future answers should be recorded as explicit decisions with explanations and source links. `decision_log` is append-only. Answering a question must not delete competing evidence or automatically rewrite the database’s original blobs. No answers have been recorded yet.
+
+
+## Current application storage
+
+This is the earlier review package. Its archival SQLite files were delivered separately in Reunion_Repository_Files_2026-10-20.zip. The current application imports this review through the checksummed JSON seed at app/evidence/canon-review-2026-10-20/seed.json. Original ZIPs and workbook are also preserved there. Live app databases and runtime backups are excluded from Git under the newer V3 directive. Read app/docs/SESSION_HANDOFF.md for subsequent implementation work.

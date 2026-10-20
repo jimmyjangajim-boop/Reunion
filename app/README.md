@@ -8,7 +8,7 @@ This delivery implements the Stage 1 archive and canon review workflows, plus bo
 
 Requirements: **Node.js 24 or newer**, npm, and **Python 3.10+** on PATH (`python3`; needed for ZIP import). An internet connection is needed to install dependencies. Normal operation after installation is offline.
 
-Unzip the delivery, open a terminal in the `rnas` directory, then run:
+Clone the Reunion repository, open a terminal in its `app` directory, then run:
 
 ```sh
 npm ci
@@ -16,7 +16,7 @@ npm run setup
 npm run dev
 ```
 
-Open **http://localhost:3000**. The supplied dataset is already in `data/reunion.sqlite`; setup verifies sources, applies outstanding migrations, and imports only if that recovery pack has not already been imported. It does not reset an existing database.
+Open **http://localhost:3000**. A new Git checkout creates `data/reunion.sqlite` from immutable evidence and the reviewed JSON seed. Setup verifies sources, applies outstanding migrations, and imports each pack only once. It does not reset an existing database.
 
 For production mode on the same laptop:
 
@@ -41,6 +41,7 @@ npx next dev --hostname 127.0.0.1
 
 ## Daily use
 
+- **National Report Center:** preserve the exact report, review typed movement orders or arrivals, correct proposed details, then approve selected changes together. Other prose can be retained as archive events with unresolved administrative effects. Hypothetical reports remain scenarios; AI generation is not implemented.
 - **Dashboard:** choose an in-world date. A 3 October 1992 observation does not fill an undocumented date in 1993. Date comparisons show Unknown where evidence is insufficient.
 - **Historical Archive:** browse normalized claims, original sources, and filtered chronology. Global search uses SQLite FTS5 across original documents and user entries. Citations open numbered source lines.
 - **Add sourced fact:** choose an entity, field, value, canon approval, operational state, and date precision. Choose original lines or write a decision preserved as a new source. Explicit ongoing intervals require an earliest validity bound.
@@ -57,15 +58,15 @@ The audit distinguishes real-world recording timestamps from historical validity
 
 ## Canon safeguards
 
-- King Zo III and the young heir Zo III have separate stable IDs. The naming issue remains open.
+- King Zo III reigns. No heir is designated. Henry Steiner is his cousin and Inferno commander. Legacy heir assertions remain superseded, with their stable IDs preserved.
 - Darius Younger overrides Jack Younger. Original wording is retained.
-- Rehn died in a car accident days after appointment, and Curro succeeded her. Exact dates are not invented.
+- Rehn died and Curro succeeded her on June 25, 1992. The election/inauguration and current-date proposals remain unconfirmed.
 - The Šibenik DMZ is an explicit deployment restriction with unresolved boundaries/effective date. An undated restriction generates a precautionary warning.
 - The 400-seat expansion is preserved alongside the constitutional 300-seat maximum. No amendment was fabricated.
 - Recovered assistant summaries remain secondary evidence. A label inside a recovery does not grant primary-source reliability.
 - Ordered, contracted, and undelivered equipment does not become operational through time advancement.
 - Competing casualty reports and categories remain separate.
-- The 1725 baseline and 1993 Altis report are dated historical records. No subsequent outcome was filled in.
+- The 1725 baseline and corrected 1992 Altis report are dated historical records. No subsequent outcome was filled in.
 
 ## Files and storage
 
@@ -76,7 +77,7 @@ src/lib/                 SQLite repository, validation, canon and domain service
 migrations/              Numbered, transactional schema migrations
 scripts/                 Setup, import, backup/restore, checksum verification
  tests/                  Vitest domain tests and Playwright flows
- data/reunion.sqlite     Persistent application database
+ data/reunion.sqlite     Mutable local application database, never committed to Git
  evidence/recovery/      Complete, unmodified extracted recovery pack
  evidence/original_recovery.zip  Original uploaded ZIP
  evidence/staged/        Original future import bytes, keyed by SHA-256
@@ -135,6 +136,10 @@ RNAS_BROWSER_PATH=/absolute/path/to/chromium npm run test:ui
 ```
 
 The included `@sparticuz/chromium` dev dependency provides a Linux browser fallback for constrained test environments. It is not part of the application runtime. See `scripts/prepare-test-browser.mjs` if the normal browser download is unavailable.
+
+## Portable backup and integrity
+
+Run `npm run db:check` to verify SQLite integrity, foreign keys and applied migration versions without changing the database. Run `npm run backup:portable -- /absolute/path/reunion-portable.zip` for a verified online SQLite snapshot plus the complete evidence directory and a SHA-256 manifest. Store this runtime backup outside Git. Restore instructions are included in the archive and `docs/BACKUP_AND_RESTORE.md`.
 
 ## Known limits and next work
 

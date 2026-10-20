@@ -1,19 +1,11 @@
-# Reunion
+# Reunion National Administration System
 
-Reunion National Administration System source, canon review, decisions and extracted source texts.
+GitHub is the main store for application source, original evidence, canonical JSON seeds, migrations and project documentation. Live SQLite data and runtime backups are stored separately.
 
-**Upload status:** app source and text review files are present. Database files, original ZIP archives and Excel workbooks are blocked pending specific upload approval. See `PENDING_BINARY_UPLOADS.md` for exact filenames and checksums.
+Start with [session handoff](app/docs/SESSION_HANDOFF.md), [implementation status](app/docs/IMPLEMENTATION_STATUS.md) and the [governing V3 directive](docs/USER_DIRECTIVE_V3.txt). The latest user canon review is under canon/2026-10-20/revised/.
 
-- `app/`: the existing RNAS application source and recovery archive. Its database remains separate from the revised canon review.
-- `canon/2026-10-20/revised/`: latest review database, all 27 user answers, reconciled financial planning, procurement assumptions, validation and two remaining calendar questions.
-- `canon/2026-10-20/initial_review/`: historical intake database, source extraction and original questionnaire. It predates the user's answers.
-- `sources/`: supplied exports, campaign trackers and original project source texts.
-- `backups/`: original delivery seed database.
+From app/: install Node 24+, Python 3.10+ and dependencies with npm ci, then run npm run setup, npm run db:check, and npm run dev. Open localhost:3000. Setup recreates the reviewed baseline from immutable evidence and JSON; restore a portable backup to recover later live reports.
 
-## Restore databases
+The National Report Center supports original report preservation, reviewed movement orders/arrivals, archive entries, partial approval, duplicates and scenarios kept outside canon. Further report domains remain planned. The hosted Site is a separate existing publication and has not been updated by this source commit.
 
-After the pending binary files are uploaded, run `python3 restore_binary_files.py` from this repository. It verifies the compressed parts and restored SHA-256 hashes before writing the exact original database files. Then run `python3 canon/2026-10-20/revised/validate_revision.py`; all 35 checks pass.
-
-The latest campaign tracker and explicit user answers take precedence over older sources. Estimates and unconfirmed calendar proposals remain labeled. The app source has not been changed to import this revised canon. The hosted app has not been updated.
-
-Generated ZIP delivery packages are represented by their extracted contents here. Runtime dependencies, build caches and temporary QA images are omitted.
+The older pending SQLite upload plan is retired under the newer V3 storage rule. No live database is committed. See app/docs/BACKUP_AND_RESTORE.md.

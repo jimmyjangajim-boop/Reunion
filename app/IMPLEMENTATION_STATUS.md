@@ -1,3 +1,7 @@
+# Current session status
+
+See `docs/IMPLEMENTATION_STATUS.md`, `docs/SESSION_HANDOFF.md` and `docs/VALIDATION.md` for the current reviewed canon and Report Center. The previous delivery status below is retained as historical implementation context; its heir, Rehn-date, source-coverage and Altis-year limitations are superseded by the current documents.
+
 # Implementation status
 
 Delivery: RNAS v0.1, 18 October 2026. This file distinguishes working workflows from the larger requested system. The initial import is deliberately conservative. It does not claim that every statement in the original corpus has been normalized.

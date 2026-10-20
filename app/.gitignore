@@ -5,3 +5,6 @@ test-results/
 data/*.sqlite*
 backups/
 *.tsbuildinfo
+evidence/staged/
+.env*
+!.env.example

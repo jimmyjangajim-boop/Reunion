@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
+import ReportCenter from "./ReportCenter";
 type R = Record<string, any>;
 const nav = [
   ["Dashboard", "◈"],
+  ["National Report Center", "▤"],
   ["Historical Archive", "▤"],
   ["Government", "♜"],
   ["Parliament", "▥"],
@@ -609,6 +611,18 @@ export default function Console() {
             <>
               {section === "Dashboard" && (
                 <>
+                  <section className="panel split">
+                    <div>
+                      <h2>Record what happened</h2>
+                      <p>
+                        Submit one report, review the proposed changes, and
+                        update Reunion together.
+                      </p>
+                    </div>
+                    <button onClick={() => go("National Report Center")}>
+                      Write a national report
+                    </button>
+                  </section>
                   <div className="date-band">
                     <div>
                       <span className="status-dot" />
@@ -789,7 +803,7 @@ export default function Console() {
                           <span>Royal heir</span>
                           <strong>
                             {get("crown", "Heir")?.value ??
-                              "Unknown for this date; Zo III designation is undated"}
+                              "Unknown for this historical date"}
                           </strong>
                         </div>
                       </div>
@@ -959,6 +973,9 @@ export default function Console() {
                   </div>
                   <div className="toolbar">
                     <div className="tabs">
+                      <button onClick={() => go("National Report Center")}>
+                        Proposed additions and changes
+                      </button>
                       {["conflict", "missing"].map((t) => (
                         <button
                           key={t}
@@ -1076,17 +1093,17 @@ export default function Console() {
                       .map(factCard)}
                   </div>
                   <section className="panel">
-                    <h2>Royal identity warning</h2>
+                    <h2>Royal canon correction</h2>
                     <p>
-                      King Zo III and the young heir Zo III have different
-                      permanent IDs. Their identical designation remains
-                      unresolved.
+                      King Zo III reigns. No heir is designated. Henry Steiner
+                      is his cousin and commands Inferno. Earlier heir records
+                      remain archived as superseded evidence.
                     </p>
                     <button
                       className="text-button"
                       onClick={() => openIssue("C001")}
                     >
-                      Review naming issue →
+                      View recorded decision →
                     </button>
                   </section>
                 </>
@@ -1473,9 +1490,10 @@ export default function Console() {
                       .map(factCard)}
                   </div>
                   <div className="alert">
-                    The reported $250B expenditure envelope and $255B allocation
-                    list conflict. Project costs are not assumed appropriations;
-                    subprojects are not summed into a national total.
+                    The reviewed annual framework is $255B, including $82B for
+                    defense. At the retained $160B revenue estimate, the
+                    projected deficit is $95B. Allocations, multi-year
+                    commitments, and actual cash spending remain separate.
                   </div>
                   <h2>Appropriation ledger</h2>
                   <Table
@@ -1633,6 +1651,15 @@ export default function Console() {
                     added now.
                   </Empty>
                 </>
+              )}
+              {section === "National Report Center" && (
+                <ReportCenter
+                  date={date}
+                  units={d.units}
+                  locations={d.locations}
+                  onChanged={refresh}
+                  openSource={openSource}
+                />
               )}
               {section === "Events & Time" && (
                 <>
