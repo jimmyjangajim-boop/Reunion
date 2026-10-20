@@ -319,7 +319,13 @@ export default function Console() {
       <div className="tags">
         <Badge>{r.operation}</Badge>
         <span>{dateLabel(r)}</span>
-        <span>Evidence tier {r.tier}</span>
+        {r.tier != null && <span>Evidence tier {r.tier}</span>}
+        {r.archive_only && <Badge>Archive only</Badge>}
+        {r.register_context === "undated_canon" && (
+          <span>
+            Undated canon; applicability to this date is not established
+          </span>
+        )}
       </div>
       {r.notes && <p className="muted small">{r.notes}</p>}
       {r.evidence?.map((e: R) => (
@@ -415,10 +421,12 @@ export default function Console() {
     value: l.id,
     label: l.name,
   }));
-  const filtered = d.records.filter(
+  const filtered = (
+    section === "Historical Archive" ? d.records : d.administrationRecords
+  ).filter(
     (r: R) =>
       (category === "all" || r.category === category) &&
-      [r.entity_name, r.predicate, r.value, r.canon]
+      [r.entity_name, r.predicate, r.value, r.canon, dateLabel(r)]
         .join(" ")
         .toLowerCase()
         .includes(filter.toLowerCase()),
@@ -634,7 +642,7 @@ export default function Console() {
                       </strong>
                       <span>
                         {date.startsWith("1725")
-                          ? "Kingdom campaign baseline"
+                          ? "Historical records only"
                           : date === "1992-10-03"
                             ? "Authoritative national baseline"
                             : date.startsWith("1993")
@@ -644,6 +652,21 @@ export default function Console() {
                     </div>
                     <Badge>{selected.length} dated claims</Badge>
                   </div>
+                  {date.startsWith("1725") && (
+                    <div className="alert">
+                      1725 material is kept in historical records and excluded
+                      from active administration.{" "}
+                      <button
+                        className="text-button"
+                        onClick={() => {
+                          go("Historical Archive");
+                          setFilter("1725");
+                        }}
+                      >
+                        Open historical records
+                      </button>
+                    </div>
+                  )}
                   {date !== "1992-10-03" && (
                     <div className="alert">
                       Baseline observations are specific to 3 October 1992. Gaps
@@ -802,8 +825,11 @@ export default function Console() {
                         <div>
                           <span>Royal heir</span>
                           <strong>
-                            {get("crown", "Heir")?.value ??
-                              "Unknown for this historical date"}
+                            {d.government.find(
+                              (r: R) =>
+                                r.entity_id === "crown" &&
+                                r.predicate === "Heir",
+                            )?.value ?? "Unknown for this historical date"}
                           </strong>
                         </div>
                       </div>
@@ -1074,38 +1100,19 @@ export default function Console() {
               {section === "Government" && (
                 <>
                   <div className="section-heading">
-                    <h2>Presidency & royal register</h2>
+                    <h2>Government register</h2>
                     <button onClick={() => setForm("assertion")}>
                       + Record decision
                     </button>
                   </div>
                   <div className="record-grid">
-                    {d.records
-                      .filter((r: R) =>
-                        [
-                          "President",
-                          "Vice President",
-                          "Reigning monarch",
-                          "Heir",
-                          "Designation",
-                        ].includes(r.predicate),
-                      )
-                      .map(factCard)}
+                    {d.government.map(factCard)}
                   </div>
-                  <section className="panel">
-                    <h2>Royal canon correction</h2>
-                    <p>
-                      King Zo III reigns. No heir is designated. Henry Steiner
-                      is his cousin and commands Inferno. Earlier heir records
-                      remain archived as superseded evidence.
-                    </p>
-                    <button
-                      className="text-button"
-                      onClick={() => openIssue("C001")}
-                    >
-                      View recorded decision →
-                    </button>
-                  </section>
+                  <p className="muted">
+                    One entry per office. Earlier officeholders and superseded
+                    designations remain in the Historical Archive. Undated canon
+                    is labeled separately from dated office history.
+                  </p>
                 </>
               )}
               {section === "Cabinet & Institutions" && (
@@ -2493,7 +2500,7 @@ export default function Console() {
                   <Field
                     name="person_id"
                     label="Person"
-                    options={d.entities
+                    options={d.currentEntities
                       .filter((e: R) => e.kind === "person")
                       .map((e: R) => ({ value: e.id, label: e.name }))}
                     required

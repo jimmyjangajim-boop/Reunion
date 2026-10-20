@@ -194,3 +194,44 @@ it("approves an appropriation and payment through the API into Treasury with lin
       ),
   ).toBe(true);
 });
+it("returns one resolved government register and keeps 1725 records archived", async () => {
+  const overview = await import("../src/app/api/rnas/route.ts");
+  const result = await overview.GET(
+    new NextRequest("http://localhost/api/rnas?date=1992-10-03"),
+  );
+  expect(result.status).toBe(200);
+  const data = await result.json();
+  expect(
+    data.government.filter((r: Record<string, any>) => r.predicate === "Heir"),
+  ).toHaveLength(1);
+  expect(
+    data.government.filter(
+      (r: Record<string, any>) => r.predicate === "Vice President",
+    ),
+  ).toHaveLength(1);
+  expect(
+    data.government.find(
+      (r: Record<string, any>) => r.predicate === "Vice President",
+    ).value,
+  ).toBe("Darius Younger");
+  expect(
+    data.government.find((r: Record<string, any>) => r.predicate === "Heir")
+      .value,
+  ).toBe("No designated heir");
+  expect(
+    data.records.find((r: Record<string, any>) => r.id === "1725-crown")
+      .archive_only,
+  ).toBe(true);
+  expect(
+    data.administrationRecords.some((r: Record<string, any>) => r.archive_only),
+  ).toBe(false);
+  expect(data.timeline.some((r: Record<string, any>) => r.id === "T009")).toBe(
+    true,
+  );
+  const historic = await (
+    await overview.GET(
+      new NextRequest("http://localhost/api/rnas?date=1725-01-01"),
+    )
+  ).json();
+  expect(historic.snapshot).toEqual([]);
+});

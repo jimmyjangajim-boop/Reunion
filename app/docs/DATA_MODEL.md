@@ -71,3 +71,10 @@ Append-only `bill_events` holds stage/date/effective-date and real recording tim
 `budget_adjustments` stores previous/new limits for explicit additional appropriations, linked to the same immutable ledger transaction and report evidence. Known future increases can be subtracted from the current limit for historical authorization checks/display. Base-limit commencement remains unknown unless sourced separately; fiscal year is not silently converted into an exact enactment date. The existing budget’s original source is preserved.
 
 Migration 005 rebuilds report actions and dependent legislative evidence together, preserving original IDs, states, targets and FK links. Reference/evidence/adjustment records are append-only; report-linked ledger entries cannot be edited or deleted. Manual legacy entries remain compatible and are not automatically deduplicated or reinterpreted.
+
+
+## Administration display projection
+
+`administration-view.ts` derives the active overview without changing stored canon. `records` keeps all claims with an `archive_only` display flag for explicit 1725 date context. `administrationRecords` excludes that campaign and superseded/rejected claims; active `snapshot` excludes the campaign while the underlying historical `snapshot()`/exports remain unchanged. Historical-only/obsolete identities are omitted from `currentEntities` appointment choices but remain in the full entity register. `archiveIssues` retains historical review rows outside the active issue list.
+
+`government` contains one slot per President, VP, monarch and heir. A resolved dated claim is preferred. Confirmed undated canon is labeled `undated_canon`, not assigned a date or used as a dated office term. Equal-rank contradictory register values stay disputed. When no dated or undated knowledge exists, one unknown placeholder represents that office. Generic person designations and superseded aliases do not become extra office slots.

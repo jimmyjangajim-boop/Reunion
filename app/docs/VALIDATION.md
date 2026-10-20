@@ -28,3 +28,12 @@ Financial tests cover submission without financial effects, source-linked disbur
 The API test confirms the same Treasury overview returns the approved payment, transaction reference and original source evidence, and distinguishes the limit before/after a dated additional appropriation. The first run hit a hook timeout while repeatedly importing the full archive; the financial unit fixtures were reduced to the needed budget/unit/location records, and the complete suite then passed. Full reviewed-canon integration remains covered by the API fixtures.
 
 No browser or hosted deployment verification was performed for this slice. The managed-preview limitation remains in effect; hosted Site version 1 is unchanged. Transfers, returns/cancellations, automatic reversals, fractional currency and complete fiscal reconstruction remain outside this slice.
+
+
+## Government/archive display correction
+
+89 tests passed across seven files, including five direct API tests. TypeScript and the production build passed. All 14 original source hashes matched; read-only database integrity and foreign keys passed with migrations 1–5. There is no new migration or data rewrite in this correction.
+
+Regression tests verify exactly one government slot per office, Darius as the single baseline VP, one undated “No designated heir” entry, preservation of old Jack/royal aliases and source evidence, 1725 archive availability without active-snapshot leakage, omission of obsolete/historical-only people from current appointment choices, no dated officeholder carry-forward, date-context classification rather than matching arbitrary prose, and separate preserved historical review issues. The API test checks the same projection returned to Government and the archive.
+
+A Playwright regression flow was added for the four cards and historical archive lookup. It was not executed: the managed-preview browser restriction remains unchanged. No browser QA or hosted deployment success is claimed. The user’s Windows copy must receive the updated `app/src` and restart/reload; its data folder does not need replacement.

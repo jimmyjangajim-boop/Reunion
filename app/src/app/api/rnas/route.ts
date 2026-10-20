@@ -17,6 +17,7 @@ import {
   dateValue,
 } from "../../../lib/dates.ts";
 import { z } from "zod";
+import { administrationView } from "../../../lib/administration-view.ts";
 import { appropriationAt } from "../../../lib/financial-reports.ts";
 import { rollbackImport } from "../../../lib/importer.ts";
 export const runtime = "nodejs";
@@ -142,20 +143,27 @@ export async function GET(req: NextRequest) {
       ...r,
       evidence: evidenceFor(db, r.id),
     }));
+    const entities = all(db, "SELECT * FROM entities ORDER BY name");
+    const issues = all(
+      db,
+      "SELECT * FROM issues ORDER BY CASE priority WHEN 'HIGH' THEN 0 WHEN 'MEDIUM' THEN 1 ELSE 2 END,id",
+    );
+    const viewData = administrationView(
+      records,
+      snapshot(db, date),
+      entities,
+      issues,
+    );
     return NextResponse.json({
       date,
-      snapshot: snapshot(db, date),
-      records,
+      ...viewData,
       sources,
-      entities: all(db, "SELECT * FROM entities ORDER BY name"),
+      entities,
       timeline: all(
         db,
         "SELECT t.*,s.filename,s.tier FROM timeline t LEFT JOIN sources s ON s.id=t.source_id",
       ),
-      issues: all(
-        db,
-        "SELECT * FROM issues ORDER BY CASE priority WHEN 'HIGH' THEN 0 WHEN 'MEDIUM' THEN 1 ELSE 2 END,id",
-      ),
+
       audit: all(db, "SELECT * FROM audit ORDER BY id DESC LIMIT 150"),
       imports: all(
         db,

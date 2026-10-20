@@ -26,3 +26,5 @@ The user is the final authority over canon. Read README.md, IMPLEMENTATION_STATU
 21. The governing product directive is ../docs/USER_DIRECTIVE_V3.txt. Reports preserve originals, propose typed actions, and require review before transactional domain writes. Scenarios never update canon.
 22. GitHub jimmyjangajim-boop/Reunion is the main project store. Commit source, migrations, docs, immutable originals and reproducible reviewed JSON seeds. Never commit live SQLite files, runtime backups, staged future uploads, credentials or dependency/build directories. Back up mutable data separately.
 23. Read docs/SESSION_HANDOFF.md and docs/CANON_AUTHORITY.md before continuing. Update handoff/status each session.
+
+24. Government renders one resolved entry per office, never all raw office/designation claims. Superseded aliases remain archive evidence. The user requested 1725 campaign data be archive-only: preserve records/sources/timeline, exclude it from active snapshots, department cards, current appointment choices and current review inbox. Use administration-view.ts rather than deleting old lore or modifying historical snapshot semantics.

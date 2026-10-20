@@ -164,3 +164,31 @@ test("disputed financial observations are visibly labeled", async ({
     }),
   ).toBeVisible();
 });
+test("government has one resolved entry per office and preserves 1725 in the archive", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await navigate(page, "Government");
+  const cards = page.locator(".record-grid > article.record");
+  await expect(cards).toHaveCount(4);
+  await expect(
+    cards.filter({
+      has: page.getByRole("heading", { name: "Vice President", exact: true }),
+    }),
+  ).toHaveCount(1);
+  await expect(
+    cards.filter({
+      has: page.getByRole("heading", { name: "Heir", exact: true }),
+    }),
+  ).toHaveCount(1);
+  await expect(page.locator(".record-grid")).not.toContainText("Jack Younger");
+  await expect(page.locator(".record-grid")).not.toContainText("Aurelios");
+  await expect(
+    page.getByText("No designated heir", { exact: true }),
+  ).toBeVisible();
+  await navigate(page, "Historical Archive");
+  await page.getByLabel("Filter records").fill("1725");
+  await expect(
+    page.getByText("King Aurelios Leandros Steiner I", { exact: true }).first(),
+  ).toBeVisible();
+});

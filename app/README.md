@@ -16,6 +16,8 @@ npm run setup
 npm run dev
 ```
 
+On Windows PowerShell, use `npm.cmd` instead of `npm` if execution policy blocks `npm.ps1`; changing the system execution policy is not required. For an isolated test copy, set `$env:RNAS_DB="data/test.sqlite"` in that terminal before setup/start.
+
 Open **http://localhost:3000**. A new Git checkout creates `data/reunion.sqlite` from immutable evidence and the reviewed JSON seed. Setup verifies sources, applies outstanding migrations, and imports each pack only once. It does not reset an existing database.
 
 For production mode on the same laptop:

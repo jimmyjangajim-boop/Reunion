@@ -31,6 +31,13 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - Treasury shows references, source lines and limits adjusted for known dated increases. Original base-limit commencement can remain unknown. This is a bounded stage ledger, not full cash/accrual accounting or historical fiscal reconstruction.
 - The six reattached source texts match the stored originals byte for byte; no duplicate sources or obsolete-canon overrides were created. No financial fixtures or synthetic spending were inserted into production data.
 
+## Government display correction
+
+- Government now renders one resolved President, Vice President, monarch and heir card. Superseded VP/heir claims and generic royal designations remain in the archive rather than appearing as additional officeholders.
+- The heir decision is displayed as “No designated heir” with its undated status; no applicability or appointment date is invented. Dashboard heir wording uses the same register.
+- The 1725 campaign is archive-only per the latest user request. Its claims, sources, timeline and identities remain preserved/searchable. Active snapshots, department record views, appointment choices and the current review inbox exclude those historical entries.
+- Historical snapshot/export functions retain their records; the active overview is a separate read model. No canon text, date, identity, source or live database row was changed.
+
 ## Remaining limits
 
 - Report extraction supports movement orders/arrivals, explicit bill stages and six financial stages. Appointments, balanced reallocations, reversals, diplomacy and semantic contradiction extraction remain unfinished.

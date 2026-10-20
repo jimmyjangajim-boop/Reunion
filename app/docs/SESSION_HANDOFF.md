@@ -6,13 +6,13 @@ The user's governing file is repository `docs/USER_DIRECTIVE_V3.txt`. Ignore ear
 
 Latest user canon decisions are in `canon/2026-10-20/revised/` and the checksummed `app/evidence/canon-review-2026-10-20/seed.json`. The newer 27 answers supersede conflicting recovery instructions. Read CANON_AUTHORITY.md.
 
-## Completed coherent slice
+## Completed correction
 
-Reviewed financial reports now use the National Report Center and existing Treasury ledger. Supported stages are proposed/authorized/appropriated/committed/disbursed/actual. Reports require a known budget, explicit currency/whole-unit amount/date and transaction reference. Only an explicit additional appropriation raises a limit. Repeated references add evidence, not money; conflicts/stale state block approval. Earlier selected additional appropriations can fund selected payments in one atomic approval. Read REPORT_PIPELINE.md and VALIDATION.md for boundaries.
+The user found four heir-related cards and two VP cards in Government. The screen was mapping raw claims, including superseded rows and duplicate person designations. It now uses `administration-view.ts` to return one resolved entry for each of President, Vice President, monarch and heir. The current baseline VP is Darius Younger; the heir register says “No designated heir,” explicitly undated. Sparse dated snapshots remain sparse.
 
-Migration 005 preserves preexisting actions and legislative evidence, and adds report-linked financial references/evidence and appropriation adjustments. A pre-migration backup was taken. The live database has migrations 1–5, no synthetic report/financial fixtures, and unchanged prior national data. The six reattached source texts match the stored originals exactly; no duplicates were imported.
+The user also requested 1725 data remain records only. Preserve all original records/sources/timeline and stable identities. The active overview filters dated/relative 1725 context out of active snapshots, department cards, appointment choices and current review issues. Historical Archive/search/export retain the history; no old lore is deleted or silently retconned. The API exposes separate archive issues alongside active issues.
 
-The preceding reviewed-canon import, military reports, parliamentary reports and backup tools remain intact. Git stores reproducible sources and JSON; runtime database backups remain separate.
+No schema change: migrations 1–5 remain current. Previous financial, parliamentary and movement workflows remain intact. Read VALIDATION.md for test and browser limits. The user is running a downloaded Windows copy with a separate `data/test.sqlite`; PowerShell requires `npm.cmd` on their machine. Source changes must be copied or pulled onto that PC; they do not automatically update its running server.
 
 ## Operate
 
@@ -34,4 +34,4 @@ The old request to upload runtime SQLite files was superseded by V3's instructio
 
 ## Git checkpoint
 
-Parliamentary reports were saved in remote commit `3db6b7c960862a334908256e7aae8de323b49a0e`. This handoff accompanies the financial-report commit following it; use repository history for its final SHA. Hosted publication remains separate and unchanged.
+Financial reports are remote commit `4dacacfa623f0a0a95794b1473a2b05f94dd6eca`. This handoff accompanies the government/archive correction following it; use repository history for the final SHA. Hosted publication remains unchanged.

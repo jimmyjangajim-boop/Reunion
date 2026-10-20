@@ -9,3 +9,6 @@ Current corrections: King Zo III reigns; no heir is designated; Henry Steiner is
 Annual spending is $255B and defense $82B. The $95B difference from retained $160B revenue is a budget projection, not realized cash deficit or automatically increased debt. Procurement orders, funding coverage, projected oil production and actual delivery/production remain distinct.
 
 Calendar proposals remain questions. The 400-seat practice and constitutional 300-seat maximum are both retained; no amendment is invented. Treaty maps and missing attachments remain absent. Original recovery files are never rewritten to conceal obsolete lore.
+
+
+Latest display instruction: 1725 campaign material is retained as historical records only. This changes active-view inclusion, not the truth status or bytes of the preserved records. Government must show one resolved office entry, with old VP/heir aliases confined to archive evidence.
