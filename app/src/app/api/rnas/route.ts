@@ -17,6 +17,7 @@ import {
   dateValue,
 } from "../../../lib/dates.ts";
 import { z } from "zod";
+import { cabinetView } from "../../../lib/cabinet-view.ts";
 import { administrationView } from "../../../lib/administration-view.ts";
 import { appropriationAt } from "../../../lib/financial-reports.ts";
 import { rollbackImport } from "../../../lib/importer.ts";
@@ -154,29 +155,45 @@ export async function GET(req: NextRequest) {
       entities,
       issues,
     );
+    const offices = all(db, "SELECT * FROM offices");
+    const appointments = all(
+      db,
+      "SELECT a.*,e.name person,o.name office FROM appointments a JOIN entities e ON e.id=a.person_id JOIN offices o ON o.id=a.office_id ORDER BY a.sequence,a.start_date",
+    );
+    const timeline = all(
+      db,
+      "SELECT t.*,s.filename,s.tier FROM timeline t LEFT JOIN sources s ON s.id=t.source_id",
+    );
+    const bills = all(db, "SELECT * FROM bills");
+    const cabinet = cabinetView({
+      date,
+      records: viewData.records,
+      snapshot: viewData.snapshot,
+      government: viewData.government,
+      entities,
+      offices,
+      appointments,
+      timeline,
+      bills,
+    });
     return NextResponse.json({
       date,
       ...viewData,
+      cabinet,
       sources,
       entities,
-      timeline: all(
-        db,
-        "SELECT t.*,s.filename,s.tier FROM timeline t LEFT JOIN sources s ON s.id=t.source_id",
-      ),
+      timeline,
 
       audit: all(db, "SELECT * FROM audit ORDER BY id DESC LIMIT 150"),
       imports: all(
         db,
         "SELECT * FROM import_batches ORDER BY recorded_at DESC",
       ),
-      appointments: all(
-        db,
-        "SELECT a.*,e.name person,o.name office FROM appointments a JOIN entities e ON e.id=a.person_id JOIN offices o ON o.id=a.office_id ORDER BY a.sequence,a.start_date",
-      ),
-      offices: all(db, "SELECT * FROM offices"),
+      appointments,
+      offices,
       chambers: all(db, "SELECT * FROM chambers"),
       parties: all(db, "SELECT * FROM party_seats"),
-      bills: all(db, "SELECT * FROM bills"),
+      bills,
       billEvents: all(
         db,
         "SELECT e.*,b.identifier FROM bill_events e JOIN bills b ON b.id=e.bill_id ORDER BY e.date,e.recorded_at,e.rowid",

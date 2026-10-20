@@ -2,24 +2,93 @@
 import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import ReportCenter from "./ReportCenter";
+import CabinetWorkspace from "./CabinetWorkspace";
 type R = Record<string, any>;
-const nav = [
-  ["Dashboard", "◈"],
-  ["National Report Center", "▤"],
-  ["Historical Archive", "▤"],
-  ["Government", "♜"],
-  ["Parliament", "▥"],
-  ["Cabinet & Institutions", "▦"],
-  ["Armed Forces", "⚑"],
-  ["Military Map", "⌖"],
-  ["Economy & Treasury", "▧"],
-  ["Territory & Population", "◎"],
-  ["Foreign Relations", "◇"],
-  ["Domestic Security", "◉"],
-  ["Events & Time", "◷"],
-  ["Canon Review Center", "✓"],
-  ["Imports & Backups", "⇅"],
+const navGroups = [
+  {
+    title: "National overview",
+    items: [
+      ["Dashboard", "◈"],
+      ["National Report Center", "▤"],
+    ],
+  },
+  {
+    title: "Administration",
+    items: [
+      ["Government", "♜"],
+      ["Cabinet & Institutions", "▦"],
+      ["Parliament", "▥"],
+      ["Economy & Treasury", "▧"],
+      ["Territory & Population", "◎"],
+    ],
+  },
+  {
+    title: "Security & external affairs",
+    items: [
+      ["Armed Forces", "⚑"],
+      ["Military Map", "⌖"],
+      ["Foreign Relations", "◇"],
+      ["Domestic Security", "◉"],
+    ],
+  },
+  {
+    title: "Records & decisions",
+    items: [
+      ["Historical Archive", "▤"],
+      ["Events & Time", "◷"],
+      ["Canon Review Center", "✓"],
+      ["Imports & Backups", "⇅"],
+    ],
+  },
 ];
+const pageDescriptions: Record<string, string> = {
+  Dashboard: "Leadership, national priorities, and decisions awaiting review.",
+  Government:
+    "National leadership and royal succession, with earlier records kept in profiles.",
+  "Cabinet & Institutions":
+    "Ministries, officeholders, and the institutions of government.",
+  Parliament: "The Assembly, legislation, and recorded votes.",
+  "Armed Forces": "Formations, readiness, deployments, and combat records.",
+  "Economy & Treasury":
+    "Funding limits, financial transactions, and major projects.",
+  "Historical Archive":
+    "Find historical records, original sources, and the national timeline.",
+  "National Report Center":
+    "Write what happened, review the changes, and approve them together.",
+  "Canon Review Center":
+    "Resolve contradictions, answer gaps, and review proposed changes.",
+};
+function readableLabel(text: string) {
+  return (
+    (
+      {
+        "Baseline minister": "Minister",
+        existence_in_canon: "Canon status",
+        current_disposition: "Current situation",
+      } as R
+    )[text] ?? text.replaceAll("_", " ").replace(/^./, (c) => c.toUpperCase())
+  );
+}
+function structuredValue(raw: string): Record<string, unknown> | null {
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed)
+      ? parsed
+      : null;
+  } catch {
+    return null;
+  }
+}
+function readableValue(value: unknown): string {
+  if (value === null || value === undefined) return "Not recorded";
+  if (typeof value === "boolean") return value ? "Yes" : "No";
+  if (Array.isArray(value)) return value.map(readableValue).join("; ");
+  if (typeof value === "object")
+    return Object.entries(value)
+      .map(([key, v]) => `${readableLabel(key)}: ${readableValue(v)}`)
+      .join(" · ");
+  return String(value);
+}
 const categories = [
   "history",
   "political",
@@ -301,7 +370,7 @@ export default function Console() {
       <div className="split">
         <div>
           <span className="eyebrow">{r.entity_name}</span>
-          <h3>{r.predicate}</h3>
+          <h3>{readableLabel(r.predicate)}</h3>
         </div>
         <Badge
           tone={
@@ -315,22 +384,42 @@ export default function Console() {
           {r.canon}
         </Badge>
       </div>
-      <p>{r.value}</p>
-      <div className="tags">
-        <Badge>{r.operation}</Badge>
-        <span>{dateLabel(r)}</span>
-        {r.tier != null && <span>Evidence tier {r.tier}</span>}
-        {r.archive_only && <Badge>Archive only</Badge>}
-        {r.register_context === "undated_canon" && (
-          <span>
-            Undated canon; applicability to this date is not established
-          </span>
+      {structuredValue(r.value) ? (
+        <dl className="claim-summary">
+          {Object.entries(structuredValue(r.value)!).map(([key, value]) => (
+            <div key={key}>
+              <dt>{readableLabel(key)}</dt>
+              <dd>{readableValue(value)}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : (
+        <p>{r.value}</p>
+      )}
+      <p className="record-context">
+        {dateLabel(r)}
+        {r.archive_only ? " · Archive only" : ""}
+        {r.register_context === "undated_canon"
+          ? " · Undated canon decision"
+          : ""}
+      </p>
+      <details className="record-evidence">
+        <summary>Evidence and history</summary>
+        <p className="muted small">
+          {r.operation}
+          {r.tier != null ? ` · Evidence tier ${r.tier}` : ""}
+        </p>
+        {r.notes && <p className="muted small">{r.notes}</p>}
+        {structuredValue(r.value) && (
+          <details>
+            <summary>Stored record</summary>
+            <pre className="excerpt">{r.value}</pre>
+          </details>
         )}
-      </div>
-      {r.notes && <p className="muted small">{r.notes}</p>}
-      {r.evidence?.map((e: R) => (
-        <div key={e.id}>{sourceLink(e)}</div>
-      ))}
+        {r.evidence?.map((e: R) => (
+          <div key={e.id}>{sourceLink(e)}</div>
+        ))}
+      </details>
     </article>
   );
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -465,7 +554,7 @@ export default function Console() {
   );
   return (
     <div className="app">
-      <aside className={menu ? "sidebar open" : "sidebar"}>
+      <aside id="main-sidebar" className={menu ? "sidebar open" : "sidebar"}>
         <a
           className="brand"
           href="#"
@@ -479,18 +568,27 @@ export default function Console() {
             REUNION<small>NATIONAL ADMINISTRATION</small>
           </div>
         </a>
-        <div className="sidebar-label">STATE RECORDS</div>
-        <nav>
-          {nav.map(([name, icon], i) => (
-            <button
-              key={name}
-              className={section === name ? "active" : ""}
-              onClick={() => go(name)}
-            >
-              <span className="nav-icon">{icon}</span>
-              {name}
-              {name === "Canon Review Center" && <b>{openIssues.length}</b>}
-            </button>
+        <nav aria-label="Main navigation">
+          {navGroups.map((group) => (
+            <section className="nav-group" key={group.title}>
+              <p className="nav-group-label">{group.title}</p>
+              {group.items.map(([name, icon]) => (
+                <button
+                  key={name}
+                  className={section === name ? "active" : ""}
+                  aria-current={section === name ? "page" : undefined}
+                  onClick={() => go(name)}
+                >
+                  <span className="nav-icon" aria-hidden="true">
+                    {icon}
+                  </span>
+                  {name}
+                  {name === "Canon Review Center" && openIssues.length > 0 && (
+                    <b>{openIssues.length}</b>
+                  )}
+                </button>
+              ))}
+            </section>
           ))}
         </nav>
         <div className="sidebar-bottom">
@@ -504,6 +602,8 @@ export default function Console() {
           <button
             className="mobile-toggle secondary"
             aria-label="Toggle navigation"
+            aria-controls="main-sidebar"
+            aria-expanded={menu}
             onClick={() => setMenu(!menu)}
           >
             ☰
@@ -541,12 +641,13 @@ export default function Console() {
               <h1>
                 {section === "Dashboard"
                   ? "The state of the republic"
-                  : section}
+                  : section === "Cabinet & Institutions"
+                    ? "Cabinet"
+                    : section}
               </h1>
               <p>
-                {section === "Dashboard"
-                  ? "A dated view of the country. Every claim keeps its evidence."
-                  : "Historical records, original evidence, and explicit decisions."}
+                {pageDescriptions[section] ??
+                  "Manage records and decisions for this department."}
               </p>
             </div>
             <label className="date-selector">
@@ -1098,64 +1199,22 @@ export default function Console() {
                 </>
               )}
               {section === "Government" && (
-                <>
-                  <div className="section-heading">
-                    <h2>Government register</h2>
-                    <button onClick={() => setForm("assertion")}>
-                      + Record decision
-                    </button>
-                  </div>
-                  <div className="record-grid">
-                    {d.government.map(factCard)}
-                  </div>
-                  <p className="muted">
-                    One entry per office. Earlier officeholders and superseded
-                    designations remain in the Historical Archive. Undated canon
-                    is labeled separately from dated office history.
-                  </p>
-                </>
+                <CabinetWorkspace
+                  cabinet={d.cabinet}
+                  leadershipOnly
+                  onAppoint={() => setForm("appointment")}
+                  onOffice={() => setForm("office")}
+                  onDecision={() => setForm("assertion")}
+                  onSource={openSource}
+                />
               )}
               {section === "Cabinet & Institutions" && (
-                <>
-                  <div className="section-heading">
-                    <h2>Ministerial succession</h2>
-                    <button onClick={() => setForm("appointment")}>
-                      + Appoint minister
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("office")}
-                    >
-                      + Ministry / office
-                    </button>
-                  </div>
-                  <Table
-                    headers={[
-                      "Office",
-                      "Person",
-                      "Sequence",
-                      "Appointment / departure",
-                      "Canon",
-                      "Evidence",
-                    ]}
-                    rows={d.appointments.map((a: R) => [
-                      a.office,
-                      a.person,
-                      a.sequence ?? "Unspecified",
-                      a.start_date
-                        ? `${a.start_date} → ${a.end_date ?? "No recorded departure"}`
-                        : dateLabel(a),
-                      <Badge>{a.canon}</Badge>,
-                      sourceLink(a),
-                    ])}
-                  />
-                  <div className="alert">
-                    Rehn’s death and Curro’s succession are confirmed. Exact
-                    appointment dates remain unknown. A sequence does not
-                    establish a calendar date.
-                  </div>
-                  {categoriesView(["political", "constitutional"])}
-                </>
+                <CabinetWorkspace
+                  cabinet={d.cabinet}
+                  onAppoint={() => setForm("appointment")}
+                  onOffice={() => setForm("office")}
+                  onSource={openSource}
+                />
               )}
               {section === "Parliament" && (
                 <>
@@ -1410,7 +1469,14 @@ export default function Console() {
                     headers={["Battle", "Date", "Outcome", "Canon"]}
                     rows={d.battles.map((b: R) => [
                       b.name,
-                      dateLabel(b),
+                      <span>
+                        {dateLabel(b)}
+                        {/altis/i.test(b.name) && /1993/.test(b.date_json) && (
+                          <small className="roster-uncertainty">
+                            Year correction pending: 1992, not 1993
+                          </small>
+                        )}
+                      </span>,
                       b.outcome,
                       <Badge>{b.canon}</Badge>,
                     ])}
@@ -2500,10 +2566,18 @@ export default function Console() {
                   <Field
                     name="person_id"
                     label="Person"
-                    options={d.currentEntities
-                      .filter((e: R) => e.kind === "person")
-                      .map((e: R) => ({ value: e.id, label: e.name }))}
-                    required
+                    options={[
+                      { value: "", label: "Select an existing person" },
+                      ...d.currentEntities
+                        .filter((e: R) => e.kind === "person")
+                        .map((e: R) => ({ value: e.id, label: e.name })),
+                    ]}
+                    value=""
+                  />
+                  <Field
+                    name="new_person_name"
+                    label="Or create a person for this appointment"
+                    help="Enter their supplied name and leave the existing person blank. The person and appointment save together after validation."
                   />
                   <Field
                     name="date"

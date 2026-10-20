@@ -78,3 +78,10 @@ Migration 005 rebuilds report actions and dependent legislative evidence togethe
 `administration-view.ts` derives the active overview without changing stored canon. `records` keeps all claims with an `archive_only` display flag for explicit 1725 date context. `administrationRecords` excludes that campaign and superseded/rejected claims; active `snapshot` excludes the campaign while the underlying historical `snapshot()`/exports remain unchanged. Historical-only/obsolete identities are omitted from `currentEntities` appointment choices but remain in the full entity register. `archiveIssues` retains historical review rows outside the active issue list.
 
 `government` contains one slot per President, VP, monarch and heir. A resolved dated claim is preferred. Confirmed undated canon is labeled `undated_canon`, not assigned a date or used as a dated office term. Equal-rank contradictory register values stay disputed. When no dated or undated knowledge exists, one unknown placeholder represents that office. Generic person designations and superseded aliases do not become extra office slots.
+
+
+## Cabinet presentation and inline appointment creation
+
+`cabinet-view.ts` projects ministry observations, dated snapshots, offices/appointments and evidence into one ministry/office roster with leadership, deputies, institutions and term history. It adds no canonical rows. Office titles are presentation labels; observation dates do not become appointment dates, and sparse dated coverage remains sparse. Source identities/evidence and prior officeholders remain available in profiles. Only applicable dated confirmed affiliations appear as current profile facts.
+
+An explicit `new_person_name` on the existing appointment action creates a person inside `adminAction`'s transaction. The appointment's source records the supplied name; duplicate names or simultaneous existing-person selection reject. Appointment validation still checks office/person type, dates, overlaps and arrangement. Failure rolls back the new person and related source/audit rows together.

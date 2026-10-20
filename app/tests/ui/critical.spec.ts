@@ -169,20 +169,24 @@ test("government has one resolved entry per office and preserves 1725 in the arc
 }) => {
   await page.goto("/");
   await navigate(page, "Government");
-  const cards = page.locator(".record-grid > article.record");
+  const cards = page.locator(".government-register .office-tile");
   await expect(cards).toHaveCount(4);
   await expect(
     cards.filter({
-      has: page.getByRole("heading", { name: "Vice President", exact: true }),
+      has: page.getByText("Vice President", { exact: true }),
     }),
   ).toHaveCount(1);
   await expect(
     cards.filter({
-      has: page.getByRole("heading", { name: "Heir", exact: true }),
+      has: page.getByText("Heir", { exact: true }),
     }),
   ).toHaveCount(1);
-  await expect(page.locator(".record-grid")).not.toContainText("Jack Younger");
-  await expect(page.locator(".record-grid")).not.toContainText("Aurelios");
+  await expect(page.locator(".government-register")).not.toContainText(
+    "Jack Younger",
+  );
+  await expect(page.locator(".government-register")).not.toContainText(
+    "Aurelios",
+  );
   await expect(
     page.getByText("No designated heir", { exact: true }),
   ).toBeVisible();
@@ -191,4 +195,33 @@ test("government has one resolved entry per office and preserves 1725 in the arc
   await expect(
     page.getByText("King Aurelios Leandros Steiner I", { exact: true }).first(),
   ).toBeVisible();
+});
+test("Cabinet roster opens a source-backed minister profile with progressive evidence", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await navigate(page, "Cabinet & Institutions");
+  await expect(
+    page.getByRole("heading", { name: "Cabinet", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Baseline minister", { exact: true }),
+  ).toHaveCount(0);
+  await page.getByLabel("Search Cabinet").fill("Defense");
+  await page
+    .getByRole("button", { name: "Gen. Marcus Thaler", exact: true })
+    .click();
+  const profile = page.getByRole("dialog");
+  await expect(
+    profile.getByRole("heading", { name: "Gen. Marcus Thaler", exact: true }),
+  ).toBeVisible();
+  await expect(
+    profile.getByText("Minister of Defense", { exact: true }),
+  ).toBeVisible();
+  await profile.getByText(/Sources and evidence \(/).click();
+  await expect(
+    profile.getByRole("button", { name: /Original source|BASELINE/ }).first(),
+  ).toBeVisible();
+  await profile.getByRole("button", { name: "Close", exact: true }).click();
+  await expect(profile).toHaveCount(0);
 });

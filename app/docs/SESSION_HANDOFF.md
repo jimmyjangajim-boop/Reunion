@@ -2,17 +2,17 @@
 
 ## Start here
 
-The user's governing file is repository `docs/USER_DIRECTIVE_V3.txt`. Ignore earlier pasted continuation directives. GitHub `jimmyjangajim-boop/Reunion` is the main project store. Main application source is `app/` in Git and `rnas/` in the current cloud workspace. Do not restart or replace it.
+The base governing file is repository `docs/USER_DIRECTIVE_V3.txt`; the latest usability refinement is `docs/USER_USABILITY_DIRECTIVE.txt` (Pasted text(10).txt). Ignore earlier pasted continuation directives. GitHub `jimmyjangajim-boop/Reunion` is the main project store. Main application source is `app/` in Git and `rnas/` in the current cloud workspace. Do not restart or replace it.
 
 Latest user canon decisions are in `canon/2026-10-20/revised/` and the checksummed `app/evidence/canon-review-2026-10-20/seed.json`. The newer 27 answers supersede conflicting recovery instructions. Read CANON_AUTHORITY.md.
 
-## Completed correction
+## Completed usability slice
 
-The user found four heir-related cards and two VP cards in Government. The screen was mapping raw claims, including superseded rows and duplicate person designations. It now uses `administration-view.ts` to return one resolved entry for each of President, Vice President, monarch and heir. The current baseline VP is Darius Younger; the heir register says “No designated heir,” explicitly undated. Sparse dated snapshots remain sparse.
+Implemented steps 1–2 of the latest usability directive without rebuilding the application. Shared navigation is grouped; section descriptions and compact spacing improve hierarchy; claim metadata/raw JSON move into expandable evidence. Cabinet/Government now use the read-only `cabinet-view.ts` projection and `CabinetWorkspace.tsx`: national leadership, compact searchable ministries, separate deputies/institutions/history and clickable source-backed profiles. No unknown appearance, affiliation, responsibilities or term dates were invented.
 
-The user also requested 1725 data remain records only. Preserve all original records/sources/timeline and stable identities. The active overview filters dated/relative 1725 context out of active snapshots, department cards, appointment choices and current review issues. Historical Archive/search/export retain the history; no old lore is deleted or silently retconned. The API exposes separate archive issues alongside active issues.
+Appoint Minister can select a person or create a supplied new person in the same existing transaction. Invalid appointments roll back person/source/audit creation. No financial values or live records were changed: all 48 table contents matched the pre-change fingerprints. Migrations remain 1–5. The user's Windows copy needs updated app/src, while its data/test.sqlite and RNAS_DB selection must be retained.
 
-No schema change: migrations 1–5 remain current. Previous financial, parliamentary and movement workflows remain intact. Read VALIDATION.md for test and browser limits. The user is running a downloaded Windows copy with a separate `data/test.sqlite`; PowerShell requires `npm.cmd` on their machine. Source changes must be copied or pulled onto that PC; they do not automatically update its running server.
+Two provisional battle rows B026/B027 still use relative “October 1993” labels. They are visibly flagged for correction to 1992; the next battle slice must persist that narrow, audited correction without inventing days. Already superseded timeline/original source wording remains intact. Read USABILITY_REFINEMENT.md and VALIDATION.md for precise completion/QA boundaries.
 
 ## Operate
 
@@ -22,7 +22,9 @@ The hosted Site is `https://reunion-national-administration.superfig3.chatgpt.si
 
 ## Next task
 
-Add reviewed balanced budget reallocations through the Report Center. Require explicit source/destination accounts, currency, amount/date/reference and authority. Reduce the source limit and raise the destination atomically, check committed/spent amounts and dated availability, preserve both sides and provenance, and do not classify the transfer as new revenue or spending. Extend known-date limit reconstruction to signed adjustment deltas. Keep the current six stage ledger compatible. Returns/cancellations and corrections remain separate future work.
+Step 3: build a complete New Battle / After-Action Report workflow directly in Battles. Create or select a battle and formation, preserve an ordinary-language report, stage participants and known categorized casualties/equipment losses/outcomes, review and approve one transaction. Unknown fields must remain unknown; KIA/WIA/MIA/POW/unspecified remain separate. Fix B026/B027's legacy Altis year labels with source/audit preservation. Do not insert the directive's example report as canon.
+
+Then continue the searchable Archive redesign and Parliament/Treasury usability steps. The earlier balanced budget-reallocation backlog remains deferred behind this user-selected order. Existing Report Center and domain services should be extended, not replaced.
 
 ## Open canon decisions
 
@@ -34,4 +36,4 @@ The old request to upload runtime SQLite files was superseded by V3's instructio
 
 ## Git checkpoint
 
-Financial reports are remote commit `4dacacfa623f0a0a95794b1473a2b05f94dd6eca`. This handoff accompanies the government/archive correction following it; use repository history for the final SHA. Hosted publication remains unchanged.
+Government/archive cleanup was remote commit `5242b6e46a191e61c58781af17ddf7682332d335`. This handoff accompanies the usability steps 1–2 commit following it; use repository history for the final SHA. The separate hosted publication is unchanged.

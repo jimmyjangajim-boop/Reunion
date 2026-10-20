@@ -1,6 +1,6 @@
 # Current next task
 
-Add sourced balanced budget reallocations through the existing National Report Center. Preserve both funding accounts, references and dated limits atomically; transfers are neither revenue nor new expenditure. See docs/ROADMAP.md and docs/SESSION_HANDOFF.md.
+Implement the latest usability directive's Step 3: New Battle / After-Action Report with inline battle/formation creation, categorized casualties, equipment losses, original report preservation, preview and atomic approval. Narrowly correct the flagged provisional Altis battle dates with audit/source preservation. See docs/USABILITY_REFINEMENT.md. Balanced budget reallocations remain a later task; do not alter economic canon during the UI refinement.
 
 The older backlog follows for preserved context.
 

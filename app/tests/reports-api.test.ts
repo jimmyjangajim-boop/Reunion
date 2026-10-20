@@ -235,3 +235,40 @@ it("returns one resolved government register and keeps 1725 records archived", a
   ).json();
   expect(historic.snapshot).toEqual([]);
 });
+it("serves a sourced Cabinet roster without changing accepted financial canon", async () => {
+  const db = storage.getDb();
+  const before = storage.all(
+    db,
+    "SELECT id,value,canon FROM assertions WHERE category='economic' ORDER BY id",
+  );
+  const overview = await import("../src/app/api/rnas/route.ts");
+  const response = await overview.GET(
+    new NextRequest("http://localhost/api/rnas?date=1992-10-03"),
+  );
+  expect(response.status).toBe(200);
+  const data = await response.json();
+  expect(
+    data.cabinet.ministries.find(
+      (r: Record<string, any>) => r.ministry === "Ministry of Defense",
+    ),
+  ).toMatchObject({
+    name: "Gen. Marcus Thaler",
+    office: "Minister of Defense",
+  });
+  expect(
+    data.cabinet.leadership.find(
+      (r: Record<string, any>) => r.office === "Vice President",
+    ).name,
+  ).toBe("Darius Younger");
+  expect(
+    data.cabinet.ministries
+      .find((r: Record<string, any>) => r.ministry === "Ministry of Finance")
+      .history.map((t: Record<string, any>) => t.person),
+  ).toEqual(["Dr. Amalia Rehn", "Emilio Curro"]);
+  expect(
+    storage.all(
+      db,
+      "SELECT id,value,canon FROM assertions WHERE category='economic' ORDER BY id",
+    ),
+  ).toEqual(before);
+});

@@ -1,0 +1,320 @@
+# RNAS: USABILITY, INFORMATION ARCHITECTURE, AND WORKFLOW REFINEMENT
+
+You are continuing the existing Reunion National Administration System.
+
+The application has made progress importing historical canon and establishing its database. However, the current interface has become overly cluttered, technical, and cumbersome.
+
+**Your task is to turn the existing application into a coherent, usable national administration system.**
+
+Do not rebuild the application from scratch. Do not discard historical records, existing data, or working features.
+
+## 1. Preserve established economic canon
+
+**Do not change the existing national budget, defense allocation, treasury figures, or other financial values as part of this task.**
+
+The currently reviewed and accepted budget framework must remain as assigned.
+
+Do not reintroduce earlier economic figures because an older source disagrees.
+
+Preserve historical revisions and source evidence without silently replacing current canon.
+
+### Historical date correction
+
+Some Altis events are still dated October 1993 because 1993 was a mistype in previous roleplay records.
+
+Flag and correct these records according to the user's established intended chronology. Where the corrected date is not sufficiently established, present it for review.
+
+Preserve the original source wording and audit history.
+
+Do not apply a blanket date replacement to unrelated historical events.
+
+## 2. Information architecture: reduce clutter
+
+RNAS must support a large amount of historical information without displaying everything simultaneously.
+
+Organize the interface into three levels:
+
+### National overview
+
+Display essential information for managing Reunion:
+
+- Current government and leadership.
+- Parliamentary composition.
+- Military readiness and major deployments.
+- Treasury summary.
+- Active conflicts and diplomatic situations.
+- Major economic projects.
+- Recent historical events.
+- Pending decisions and warnings.
+
+Keep this level concise, visually organized, and useful.
+
+### Department workspaces
+
+Each major subsystem should have a dedicated, purpose-built interface.
+
+Government should look like a government roster.
+
+Parliament should look like a legislative workspace.
+
+Military should look like a military command and recordkeeping system.
+
+Treasury should look like a financial administration dashboard.
+
+Historical Archive should look like a searchable historical library.
+
+Do not use the same generic assertion-card layout for every subsystem.
+
+### Evidence and technical records
+
+Original sources, import details, raw JSON, evidence tiers, source line numbers, and audit trails should be accessible through an expandable evidence panel or dedicated historical record view.
+
+Keep this information available, but do not let it dominate ordinary pages.
+
+Use progressive disclosure: show important information first, additional details when requested.
+
+## 3. Redesign the Cabinet interface
+
+The current government interface displays labels such as `Baseline minister`, which are internal data classifications, not useful public-facing job titles.
+
+Replace these labels with the actual offices.
+
+For example:
+
+**Ministry of Defense**
+General Marcus Thaler
+Minister of Defense
+
+**Ministry of Education and Culture**
+Mira Linde
+Minister of Education and Culture
+
+Show the President and Vice President in their proper leadership positions.
+
+Use distinct layouts for:
+
+- President and Vice President.
+- Cabinet ministers.
+- Deputy ministers.
+- Vacant offices.
+- Government institutions.
+
+Provide a cabinet roster with photographs or portraits when supplied, but do not invent appearances.
+
+Each officeholder should be clickable to open a profile with:
+
+- Full name.
+- Office and ministry.
+- Appointment date, if known.
+- Political affiliation, if known.
+- Term history.
+- Responsibilities.
+- Important decisions.
+- Linked legislation and national events.
+- Source evidence.
+
+Use readable labels and titles throughout the interface.
+
+**Internal field names such as `baseline_minister`, `existence_in_canon`, and `current_disposition` should never be displayed as ordinary page headings.**
+
+Keep source status and historical uncertainty visible where relevant, without making the page look like a database debugger.
+
+Maintain the confirmed correction identifying Darius Younger as Vice President rather than allowing superseded Jack Younger records to appear as current canon.
+
+## 4. Fix disconnected workflows
+
+The application must be organized around what the user wants to accomplish, not around the order in which database tables were created.
+
+Every major action should be possible from the section where a reasonable user would expect it.
+
+### Military battles and casualties
+
+The current casualty-report workflow requires selecting a battle that already exists.
+
+This is inadequate.
+
+Implement a complete **New Battle / After-Action Report** workflow.
+
+The user must be able to:
+
+1. Open the Battles section.
+2. Click New Battle or New After-Action Report.
+3. Create a battle or select an existing battle.
+4. Enter the name, date, location, belligerents, and participating units.
+5. Describe the engagement in ordinary English.
+6. Enter casualties when known.
+7. Enter equipment losses and operational outcomes.
+8. Leave unknown fields empty or explicitly unknown.
+9. Review the resulting record.
+10. Save it and update relevant military records.
+
+The system must create a new battle and its associated casualty reports together when necessary.
+
+Do not require users to visit unrelated pages to create prerequisite records.
+
+Maintain distinctions between KIA, WIA, MIA, POW, and unspecified casualties.
+
+Use validated database transactions.
+
+### Apply the same principle throughout RNAS
+
+Examples:
+
+- Cabinet: Appoint Minister should let the user find or create the relevant person.
+- Parliament: Record Vote should let the user select or create the relevant bill.
+- Military: Record Deployment should let the user find or create the relevant formation.
+- Treasury: New Expenditure should let the user select or create its relevant program.
+- Diplomacy: New Treaty should allow the user to establish missing participating-state records.
+- Archive: New Historical Event should support creating related entities without abandoning the event.
+
+Provide inline creation dialogs or guided workflows where appropriate.
+
+Never create fictional historical facts automatically to fill these gaps.
+
+## 5. Report-first interaction
+
+The user prefers to describe events in ordinary language rather than manually maintain every subsystem.
+
+Prioritize a convenient National Report Center.
+
+The user should be able to submit a report such as:
+
+"On October 8, a battle broke out near the Croatian frontier. The 4th Infantry Brigade engaged enemy positions, suffered 32 killed and 114 wounded, and withdrew after six hours."
+
+The system should preserve the original report, identify the engagement, propose a new battle record, resolve the brigade against the existing OOB, prepare casualty records, and ask for approval.
+
+Do not require the user to create a battle, then manually create participants, then separately enter casualties and historical events.
+
+**The primary workflow is: Write Report → Review → Approve.**
+
+The example above is illustrative, not Reunion canon.
+
+AI-assisted extraction can be implemented through the optional provider layer, but the basic structured report workflow must function even without AI.
+
+## 6. Page layout and visual hierarchy
+
+Use a consistent design system, but different layouts for different tasks.
+
+Examples:
+
+**Cabinet:** Leadership section and compact minister roster.
+
+**Parliament:** Visual chamber, party composition, legislative register, current bills, voting actions.
+
+**Armed Forces:** OOB hierarchy, readiness overview, deployments, unit records, battles.
+
+**Treasury:** Financial metrics, budget charts, allocation tables, projects.
+
+**Historical Archive:** Timeline, searchable events, linked entities, source evidence.
+
+**Canon Review:** Conflict inbox, missing-data inbox, proposed-change queue.
+
+Avoid large numbers of nearly identical cards.
+
+Prefer compact tables for extensive inventories, clear charts for statistics, hierarchical trees for organizations, and timelines for events.
+
+Provide search and filtering within major sections.
+
+Keep tables and controls responsive on mobile.
+
+Do not use excessive badges for ordinary metadata.
+
+## 7. Visual identity
+
+Preserve a serious, professional design influenced by Reunion's Mediterranean and European institutional character.
+
+Preferred palette:
+
+- Deep institutional navy.
+- Muted green.
+- Warm limestone and ivory.
+- Restrained brass accents.
+
+Use elegant serif headings with modern, readable body typography.
+
+The application should resemble a polished national administration system with some of the clarity of a grand-strategy interface.
+
+Avoid excessive ornamentation, large decorative panels, generic corporate dashboard aesthetics, or overwhelming statistical displays.
+
+Prioritize clarity and efficiency.
+
+## 8. More useful actions, fewer clicks
+
+Each department should have one prominent primary action appropriate to the page.
+
+Examples:
+
+- Cabinet: Appoint Minister.
+- Parliament: Introduce Bill.
+- Battles: New Battle.
+- Armed Forces: New Formation or Record Deployment.
+- Treasury: Record Transaction.
+- Diplomacy: Record Diplomatic Event.
+- Archive: Add Historical Record.
+- National Reports: Submit Report.
+
+Place secondary actions in menus or detail views.
+
+Users should not have to understand the underlying database relationships to perform routine tasks.
+
+## 9. Historical integrity and approvals
+
+No UI redesign or workflow change may silently alter established canon.
+
+Preserve:
+
+- Original historical sources.
+- Effective dates.
+- Canon approval.
+- Proposed versus completed actions.
+- Prior officeholders.
+- Military unit history.
+- Parliamentary votes.
+- Financial records.
+- Audit history.
+
+All modifications must pass through the existing validation and approval systems.
+
+## 10. Implementation order
+
+Inspect the current UI, components, and database services before making changes.
+
+Implement in manageable steps:
+
+**Step 1:** Improve shared navigation, typography, spacing, and information density.
+
+**Step 2:** Redesign the Cabinet into a real government roster, removing exposed technical labels.
+
+**Step 3:** Repair the Battles and Casualty Reports workflow, including the ability to create a battle and report together.
+
+**Step 4:** Improve the National Archive so extensive records are searchable and readable rather than presented as endless cards.
+
+**Step 5:** Improve Parliament and Treasury views without changing their established data.
+
+**Step 6:** Establish the foundation for a central report-first submission and approval workflow.
+
+Complete and test each step before moving on.
+
+Do not attempt all six steps if the development session cannot support them.
+
+## 11. Acceptance tests
+
+Verify that:
+
+- The Cabinet displays proper ministry and office titles.
+- Historical officeholders are not confused with current ones.
+- Superseded records do not appear as current canon.
+- The user can create a new battle directly from the Battles page.
+- The user can create a new battle together with a casualty report.
+- Missing or unknown casualty information is supported.
+- Treasury figures remain unchanged.
+- The 1993 Altis dating issue remains visible for correction until properly resolved.
+- The underlying historical evidence remains accessible.
+- New records persist after application restart.
+- Existing features and approved canon remain intact.
+
+Update implementation status and session handoff documentation.
+
+Continue the existing project. Do not restart it.
+
+**Success means the user can navigate Reunion's government, military, and economy naturally without needing to understand the internal database.**

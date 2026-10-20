@@ -386,9 +386,47 @@ export function adminAction(db: DB, input: RInput): any {
         );
         result = { id };
         break;
-      case "appointment":
-        result = appoint(db, input);
+      case "appointment": {
+        let appointmentInput = input;
+        const name = nullable(input.new_person_name);
+        if (name) {
+          text.parse(name);
+          if (input.person_id?.trim())
+            throw Error(
+              "Select an existing person or supply a new name, not both.",
+            );
+          if (
+            one(
+              db,
+              "SELECT id FROM entities WHERE lower(name)=lower(?) AND kind='person'",
+              name,
+            )
+          )
+            throw Error(
+              "A person with this name already exists. Select that person.",
+            );
+          const personId = randomUUID();
+          db.prepare(
+            "INSERT INTO entities(id,name,kind,description) VALUES(?,?,'person',?)",
+          ).run(personId, name, "Created from a user-approved appointment");
+          appointmentInput = {
+            ...input,
+            person_id: personId,
+            explanation:
+              text.parse(input.explanation) + "\nNamed appointee: " + name,
+          };
+          audit(
+            db,
+            "create_appointment_person",
+            personId,
+            null,
+            { name, kind: "person" },
+            input.explanation,
+          );
+        }
+        result = appoint(db, appointmentInput);
         break;
+      }
       case "bill": {
         const src = createUserSource(db, text.parse(input.source_text));
         db.prepare(

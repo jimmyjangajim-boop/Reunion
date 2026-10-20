@@ -38,6 +38,16 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - The 1725 campaign is archive-only per the latest user request. Its claims, sources, timeline and identities remain preserved/searchable. Active snapshots, department record views, appointment choices and the current review inbox exclude those historical entries.
 - Historical snapshot/export functions retain their records; the active overview is a separate read model. No canon text, date, identity, source or live database row was changed.
 
+## Usability refinement: shared layout and Cabinet
+
+- Implemented the first two steps of the new usability directive, preserved verbatim in repository docs/USER_USABILITY_DIRECTIVE.txt. See USABILITY_REFINEMENT.md for the phased status.
+- Grouped navigation into overview/administration/security/records; added useful section descriptions, compact spacing and responsive roster controls. Shared claim metadata/raw values move into expandable evidence/history, with readable labels and values in normal content.
+- Replaced Government/Cabinet claim grids with leadership tiles and a compact ministry roster. Separate deputy/institution/history tabs and a local search replace the unrelated political-card feed.
+- Source-backed officeholder profiles expose term history, supplied personal records and evidence on demand. Unknown affiliations/dates/responsibilities remain unknown; no portraits were invented. RIA director stays separate from ministries, and Rehn is historical rather than a second current Finance Minister.
+- Appoint Minister can create a supplied person inline within the existing appointment transaction. Validation failure rolls back all related creation.
+- Accepted financial canon and every row of the 48 live tables remain unchanged. Two provisional legacy Altis battle dates are flagged visibly; their stored year correction is a documented next-slice task.
+- Browser interaction/visual QA remains pending under the managed-preview restriction. The combined battle/casualty workflow and broader Archive/Parliament/Treasury redesign were not implemented or claimed complete.
+
 ## Remaining limits
 
 - Report extraction supports movement orders/arrivals, explicit bill stages and six financial stages. Appointments, balanced reallocations, reversals, diplomacy and semantic contradiction extraction remain unfinished.

@@ -368,3 +368,49 @@ describe("Bounded administration integrity", () => {
     ).toBe("1992-01-31");
   });
 });
+describe("Inline appointment person creation", () => {
+  it("creates a named person and sourced appointment in the existing transaction", () => {
+    const office = adminAction(db, {
+      action: "office",
+      name: "Fixture minister",
+      authority: "Fixture authority",
+    }).id;
+    adminAction(db, {
+      action: "appointment",
+      office_id: office,
+      person_id: "",
+      new_person_name: "New fixture appointee",
+      date: "1992-10-04",
+      arrangement: "exclusive",
+      explanation: "User explicitly appoints the supplied new person",
+    });
+    const p = one(
+      db,
+      "SELECT * FROM entities WHERE name='New fixture appointee'",
+    )!;
+    expect(p.kind).toBe("person");
+    const term = one(db, "SELECT * FROM appointments WHERE person_id=?", p.id)!;
+    expect(term.office_id).toBe(office);
+    expect(
+      one(db, "SELECT content FROM sources WHERE id=?", term.source_id)!
+        .content,
+    ).toContain("Named appointee: New fixture appointee");
+  });
+  it("rolls back the new person and evidence if appointment validation fails", () => {
+    const count = all(db, "SELECT * FROM entities").length;
+    expect(() =>
+      adminAction(db, {
+        action: "appointment",
+        office_id: "missing-office",
+        new_person_name: "Do not retain this person",
+        date: "1992-10-04",
+        arrangement: "exclusive",
+        explanation: "Fixture invalid appointment",
+      }),
+    ).toThrow("Record not found");
+    expect(all(db, "SELECT * FROM entities")).toHaveLength(count);
+    expect(
+      one(db, "SELECT id FROM entities WHERE name='Do not retain this person'"),
+    ).toBeUndefined();
+  });
+});
