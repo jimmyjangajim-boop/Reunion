@@ -17,6 +17,7 @@ import {
   dateValue,
 } from "../../../lib/dates.ts";
 import { z } from "zod";
+import { appropriationAt } from "../../../lib/financial-reports.ts";
 import { rollbackImport } from "../../../lib/importer.ts";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -195,8 +196,21 @@ export async function GET(req: NextRequest) {
       locations: all(db, "SELECT * FROM locations"),
       treaties: all(db, "SELECT * FROM treaties"),
       restrictions: all(db, "SELECT * FROM restrictions"),
-      budgets: all(db, "SELECT * FROM budgets"),
-      ledger: all(db, "SELECT * FROM ledger"),
+      budgets: all(db, "SELECT * FROM budgets").map((b) => ({
+        ...b,
+        appropriated_asof: appropriationAt(db, b, date),
+      })),
+      ledger: all(
+        db,
+        "SELECT l.*,r.reference FROM ledger l LEFT JOIN ledger_report_records r ON r.ledger_id=l.id",
+      ).map((l) => ({
+        ...l,
+        evidence: all(
+          db,
+          "SELECT * FROM ledger_report_evidence WHERE ledger_id=?",
+          l.id,
+        ),
+      })),
       projects: all(db, "SELECT * FROM projects"),
       battles: all(db, "SELECT * FROM battles"),
       casualties: all(db, "SELECT * FROM casualties"),

@@ -60,3 +60,14 @@ Movement provenance follows `report_actions.target_id → movements.id`, `report
 `bills` remains Parliament’s shared register. Its stage is the furthest reported stage; explicit introduction/effective dates are materialized without fabricating missing steps. The existing NOT NULL title stores an empty string when no title was reported, displayed as “Title not reported.” This register is not a date-specific national snapshot.
 
 Append-only `bill_events` holds stage/date/effective-date and real recording time. `bill_event_evidence` joins each event to original source lines and a unique report action. Repeated equivalent reports add evidence to an existing event. `report_actions.target_id` is the bill ID; evidence links identify its particular event. A single `bill-event-{event_id}` timeline row avoids duplicate national events. There are no implicit writes to votes, budgets or ledger.
+
+
+## Financial report records, migration 005
+
+`report_actions.kind=financial` carries a selected/reported known budget, financial stage, exact whole-unit amount/currency/date, transaction reference, optional memo, explicit additional-appropriation interpretation and a server-captured budget/ledger state hash. The report pipeline uses existing `ledgerEntry()` with its recorded source ID; no second ledger is created.
+
+`ledger_report_records` gives each report-created ledger entry a stable budget/stage/reference key and currency. `ledger_report_evidence` joins every supporting original source/line range and unique report action to that transaction. `report_actions.target_id` is the ledger ID. `ledger-event-{ledger_id}` is its single national timeline event. Identical references at different financial stages remain distinct records; amounts from those stages are not combined.
+
+`budget_adjustments` stores previous/new limits for explicit additional appropriations, linked to the same immutable ledger transaction and report evidence. Known future increases can be subtracted from the current limit for historical authorization checks/display. Base-limit commencement remains unknown unless sourced separately; fiscal year is not silently converted into an exact enactment date. The existing budget’s original source is preserved.
+
+Migration 005 rebuilds report actions and dependent legislative evidence together, preserving original IDs, states, targets and FK links. Reference/evidence/adjustment records are append-only; report-linked ledger entries cannot be edited or deleted. Manual legacy entries remain compatible and are not automatically deduplicated or reinterpreted.

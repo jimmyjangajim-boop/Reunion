@@ -10,10 +10,10 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - All selected effects and timeline/audit writes share one transaction and existing domain services. Duplicate submissions and repeat approvals cannot duplicate movements.
 - Scenario reports persist separately and cannot update national records. No AI or generated simulation engine is implemented.
 - Reproducible reviewed JSON import: 88 source metadata records, 82 nonempty extracted texts, 40 reviewed facts and 27 user answers. Existing rows are preserved. Eight old assertion aliases and three Altis chronology rows are explicitly superseded/corrected.
-- Current local database: migrations 1–4; 123 source rows, 157 assertions, 47 timeline rows including three superseded chronology rows, and 29 decision rows. No production/test reports were inserted into national data.
+- Current local database: migrations 1–5; 123 source rows, 157 assertions, 47 timeline rows including three superseded chronology rows, and 29 decision rows. No production/test reports were inserted into national data.
 - Online database backup, read-only integrity/migration-version check, and complete portable database-plus-evidence ZIP with verified hashes.
 
-## Current completed slice: parliamentary reports
+## Parliamentary reports
 
 - Migration 004 preserves existing report actions and adds append-only legislative events and source evidence.
 - Bounded explicit bill syntax proposes consideration, introduction, passage or enactment. Review supports existing-bill matching, unknown titles/dates, reported effective dates and reasoned corrections.
@@ -22,9 +22,18 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - Bulk approval supports several stages of one bill and rolls back all department effects if any action fails.
 - Parliament shows sourced legislative history. The register is the furthest reported stage, not a date-filtered reconstruction. No production legislation or fixture records were added.
 
+## Current completed slice: financial reports
+
+- Migration 005 preserves existing actions/legislative evidence and adds immutable report-linked ledger references, supporting sources and appropriation-adjustment history.
+- Review supports proposed, authorized, appropriated, committed, disbursed and actual records, requiring a known budget, exact currency/whole-unit amount/date and transaction reference. Explicit additional appropriations raise limits; ordinary appropriation prose requires a reviewed interpretation.
+- Financial actions reuse Treasury’s existing ledger service. Repeated references corroborate without duplicate money or limit increases. Conflicting references, stale budget state, missing funding and currency mismatch block approval.
+- A selected earlier additional appropriation can fund a later selected payment in the same atomic approval. Failure anywhere rolls back every selected department change. Over-authorization requires a recorded explicit override; checks account for dated increases and backdated spending.
+- Treasury shows references, source lines and limits adjusted for known dated increases. Original base-limit commencement can remain unknown. This is a bounded stage ledger, not full cash/accrual accounting or historical fiscal reconstruction.
+- The six reattached source texts match the stored originals byte for byte; no duplicate sources or obsolete-canon overrides were created. No financial fixtures or synthetic spending were inserted into production data.
+
 ## Remaining limits
 
-- Report extraction supports movement orders/arrivals and explicit bill stages. Appointments, financial transactions, diplomacy and semantic contradiction extraction are not automated.
+- Report extraction supports movement orders/arrivals, explicit bill stages and six financial stages. Appointments, balanced reallocations, reversals, diplomacy and semantic contradiction extraction remain unfinished.
 - Unsupported prose can be recorded honestly; it does not update ministries, budgets or forces. One deferred detail issue per report avoids flooding the inbox.
 - Corrective reports link to earlier reports; automatic reversal/undo of already-applied department effects is not implemented.
 - Latest procurement/funding review remains available as reviewed evidence and canonical claims. Full domain-table reconciliation and lifecycle controls are unfinished; no equipment deliveries or actual spending were invented.

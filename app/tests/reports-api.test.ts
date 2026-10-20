@@ -129,3 +129,68 @@ it("approves sourced bill passage through the API into Parliament without financ
     ),
   ).toBe(true);
 });
+it("approves an appropriation and payment through the API into Treasury with linked sources", async () => {
+  const db = storage.getDb();
+  const { adminAction } = await import("../src/lib/admin.ts");
+  const budget = adminAction(db, {
+    action: "budget",
+    name: "API finance fixture",
+    fiscal_year: 1992,
+    currency: "USD",
+    appropriated: 100,
+    source_text: "API fixture budget authority",
+  }).id;
+  const response = await route.POST(
+    request({
+      action: "submit",
+      title: "API financial fixture",
+      date: "1992-10-04",
+      body: "Treasury added an appropriation of USD 100 to Budget API finance fixture; reference APP-1\nTreasury disbursed USD 150 for Budget API finance fixture; reference PAY-1: Public works",
+    }),
+  );
+  expect(response.status).toBe(200);
+  const r = await response.json();
+  expect(r.actions.every((a: Record<string, any>) => a.ready)).toBe(true);
+  const approval = await route.POST(
+    request({
+      action: "approve",
+      report_id: r.id,
+      revision: r.revision,
+      action_ids: r.actions.map((a: Record<string, any>) => a.id),
+      reason: "Approve explicit financing and payment",
+    }),
+  );
+  expect(approval.status).toBe(200);
+  const overview = await import("../src/app/api/rnas/route.ts");
+  const before = await (
+    await overview.GET(
+      new NextRequest("http://localhost/api/rnas?date=1992-10-03"),
+    )
+  ).json();
+  expect(
+    before.budgets.find((b: Record<string, any>) => b.id === budget)
+      .appropriated_asof,
+  ).toBe(100);
+  const after = await (
+    await overview.GET(
+      new NextRequest("http://localhost/api/rnas?date=1992-10-04"),
+    )
+  ).json();
+  expect(
+    after.budgets.find((b: Record<string, any>) => b.id === budget)
+      .appropriated_asof,
+  ).toBe(200);
+  expect(
+    after.ledger.find(
+      (l: Record<string, any>) =>
+        l.budget_id === budget && l.stage === "disbursed",
+    ),
+  ).toMatchObject({ amount: 150, reference: "PAY-1", source_id: r.source_id });
+  expect(
+    after.ledger
+      .filter((l: Record<string, any>) => l.budget_id === budget)
+      .every(
+        (l: Record<string, any>) => l.evidence[0].source_id === r.source_id,
+      ),
+  ).toBe(true);
+});

@@ -1,0 +1,22 @@
+-- Rebuild dependent evidence alongside actions, preserving FK links and action IDs.
+CREATE TABLE report_actions_next(id TEXT PRIMARY KEY,report_id TEXT NOT NULL REFERENCES national_reports(id),ordinal INTEGER NOT NULL,kind TEXT NOT NULL CHECK(kind IN ('movement_order','movement_arrival','record_event','legislation','financial')),payload_json TEXT NOT NULL,line_start INTEGER NOT NULL,line_end INTEGER NOT NULL,status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','applied','rejected')),target_id TEXT,UNIQUE(report_id,ordinal));
+INSERT INTO report_actions_next SELECT * FROM report_actions;
+CREATE TABLE bill_event_evidence_next(event_id TEXT NOT NULL REFERENCES bill_events(id),source_id TEXT NOT NULL REFERENCES sources(id),line_start INTEGER NOT NULL,line_end INTEGER NOT NULL,report_action_id TEXT NOT NULL UNIQUE REFERENCES report_actions_next(id),PRIMARY KEY(event_id,report_action_id));
+INSERT INTO bill_event_evidence_next SELECT * FROM bill_event_evidence;
+DROP TABLE bill_event_evidence;
+DROP TABLE report_actions;
+ALTER TABLE report_actions_next RENAME TO report_actions;
+ALTER TABLE bill_event_evidence_next RENAME TO bill_event_evidence;
+CREATE TRIGGER bill_evidence_no_update BEFORE UPDATE ON bill_event_evidence BEGIN SELECT RAISE(ABORT,'Legislative evidence is append-only'); END;
+CREATE TRIGGER bill_evidence_no_delete BEFORE DELETE ON bill_event_evidence BEGIN SELECT RAISE(ABORT,'Legislative evidence is append-only'); END;
+CREATE TABLE ledger_report_records(ledger_id TEXT PRIMARY KEY REFERENCES ledger(id),budget_id TEXT NOT NULL REFERENCES budgets(id),stage TEXT NOT NULL CHECK(stage IN ('proposed','authorized','appropriated','committed','disbursed','actual')),reference TEXT NOT NULL,currency TEXT NOT NULL,UNIQUE(budget_id,stage,reference));
+CREATE TABLE ledger_report_evidence(ledger_id TEXT NOT NULL REFERENCES ledger_report_records(ledger_id),source_id TEXT NOT NULL REFERENCES sources(id),line_start INTEGER NOT NULL,line_end INTEGER NOT NULL,report_action_id TEXT NOT NULL UNIQUE REFERENCES report_actions(id),PRIMARY KEY(ledger_id,report_action_id));
+CREATE TABLE budget_adjustments(ledger_id TEXT PRIMARY KEY REFERENCES ledger_report_records(ledger_id),previous_amount INTEGER NOT NULL CHECK(previous_amount>=0),new_amount INTEGER NOT NULL CHECK(new_amount>=previous_amount));
+CREATE TRIGGER ledger_report_records_no_update BEFORE UPDATE ON ledger_report_records BEGIN SELECT RAISE(ABORT,'Financial references are append-only'); END;
+CREATE TRIGGER ledger_report_records_no_delete BEFORE DELETE ON ledger_report_records BEGIN SELECT RAISE(ABORT,'Financial references are append-only'); END;
+CREATE TRIGGER ledger_report_evidence_no_update BEFORE UPDATE ON ledger_report_evidence BEGIN SELECT RAISE(ABORT,'Financial evidence is append-only'); END;
+CREATE TRIGGER ledger_report_evidence_no_delete BEFORE DELETE ON ledger_report_evidence BEGIN SELECT RAISE(ABORT,'Financial evidence is append-only'); END;
+CREATE TRIGGER budget_adjustments_no_update BEFORE UPDATE ON budget_adjustments BEGIN SELECT RAISE(ABORT,'Appropriation history is append-only'); END;
+CREATE TRIGGER budget_adjustments_no_delete BEFORE DELETE ON budget_adjustments BEGIN SELECT RAISE(ABORT,'Appropriation history is append-only'); END;
+CREATE TRIGGER reported_ledger_no_update BEFORE UPDATE ON ledger WHEN EXISTS(SELECT 1 FROM ledger_report_records WHERE ledger_id=OLD.id) BEGIN SELECT RAISE(ABORT,'Reported financial entries are immutable; preserve corrections separately'); END;
+CREATE TRIGGER reported_ledger_no_delete BEFORE DELETE ON ledger WHEN EXISTS(SELECT 1 FROM ledger_report_records WHERE ledger_id=OLD.id) BEGIN SELECT RAISE(ABORT,'Reported financial entries are preserved'); END;

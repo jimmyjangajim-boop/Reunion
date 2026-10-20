@@ -9,3 +9,6 @@ The new application import adds all 88 metadata/extraction records, including 82
 The complete original Discord and Drive archives and latest workbook are under evidence/canon-review-2026-10-20/originals. Each is checked against SHA256SUMS.json during import. The reviewed JSON seed is also checksummed and rebuilds an app database without a checked-in live SQLite file.
 
 Processing all supplied sources does not mean Reunion's history is complete. Additional attachments, transcripts, maps and primary corroboration can still be supplied. Some sources are empty or limited media; these limitations are preserved in the separate review report.
+
+
+The six texts reattached during the financial-report slice (master political baseline, Curro’s plans, military OOB, economic ledger, political composition and constitution) each match their existing `evidence/recovery/01_ORIGINAL_SOURCES/Project_Attachments/` original byte for byte by SHA-256. They were not reimported as new sources; newer user decisions continue to override conflicting old statements.

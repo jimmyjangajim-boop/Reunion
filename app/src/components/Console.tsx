@@ -1540,7 +1540,7 @@ export default function Console() {
                     rows={d.budgets.map((b: R) => [
                       b.name,
                       b.fiscal_year,
-                      `${b.currency} ${b.appropriated.toLocaleString()}`,
+                      `${b.currency} ${b.appropriated_asof.toLocaleString()}`,
                       ...["committed", "disbursed", "actual"].map((stage) =>
                         d.ledger
                           .filter(
@@ -1557,22 +1557,40 @@ export default function Console() {
                   <p className="footnote">
                     Commitments, disbursements, and actuals are separate stage
                     totals, never added together as spending. Transfers do not
-                    count as expenditure.
+                    count as expenditure. Limits reflect recorded base amounts
+                    and dated report increases; the original base commencement
+                    may be unknown.
                   </p>
                   <Table
                     headers={[
                       "Date",
                       "Stage",
                       "Amount",
+                      "Budget / currency",
+                      "Reference",
                       "Memo",
                       "Authorization override",
+                      "Evidence",
                     ]}
                     rows={d.ledger.map((l: R) => [
                       l.date,
                       l.stage,
                       l.amount.toLocaleString(),
+                      `${d.budgets.find((b: R) => b.id === l.budget_id)?.name || "Unknown"} / ${d.budgets.find((b: R) => b.id === l.budget_id)?.currency || "Unknown"}`,
+                      l.reference || "Legacy entry",
                       l.memo,
                       l.override_reason,
+                      <span key={l.id}>
+                        {l.evidence.map((s: R) => (
+                          <button
+                            key={s.report_action_id}
+                            className="text-button"
+                            onClick={() => openSource(s.source_id)}
+                          >
+                            Source lines {s.line_start}–{s.line_end}
+                          </button>
+                        ))}
+                      </span>,
                     ])}
                   />
                   <h2>Economic project snapshots</h2>
@@ -1690,6 +1708,7 @@ export default function Console() {
                   units={d.units}
                   locations={d.locations}
                   bills={d.bills}
+                  budgets={d.budgets}
                   onChanged={refresh}
                   openSource={openSource}
                 />

@@ -1,6 +1,6 @@
 # Current next task
 
-Add sourced appropriation and expenditure report actions through the existing National Report Center. Preserve separate financial stages and require explicit review; legislation never moves money by itself. See docs/ROADMAP.md and docs/SESSION_HANDOFF.md.
+Add sourced balanced budget reallocations through the existing National Report Center. Preserve both funding accounts, references and dated limits atomically; transfers are neither revenue nor new expenditure. See docs/ROADMAP.md and docs/SESSION_HANDOFF.md.
 
 The older backlog follows for preserved context.
 

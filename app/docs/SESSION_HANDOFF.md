@@ -8,9 +8,11 @@ Latest user canon decisions are in `canon/2026-10-20/revised/` and the checksumm
 
 ## Completed coherent slice
 
-Parliamentary legislation now passes through the existing National Report Center. Explicit bill syntax proposes consideration/introduction/passage/enactment. Approval shares Parliament’s bill register, preserves append-only stage/evidence history and updates the timeline atomically. Unknown details stay unknown; no votes, enactment, appropriations or spending are inferred from reported passage. Migration 004 preserves preexisting actions. See REPORT_PIPELINE.md and VALIDATION.md.
+Reviewed financial reports now use the National Report Center and existing Treasury ledger. Supported stages are proposed/authorized/appropriated/committed/disbursed/actual. Reports require a known budget, explicit currency/whole-unit amount/date and transaction reference. Only an explicit additional appropriation raises a limit. Repeated references add evidence, not money; conflicts/stale state block approval. Earlier selected additional appropriations can fund selected payments in one atomic approval. Read REPORT_PIPELINE.md and VALIDATION.md for boundaries.
 
-The preceding reviewed-evidence import, military reports and backup tools remain intact. The live database has migrations 1–4 and no test reports. A pre-migration 004 backup was taken and all prior table contents were checked after the upgrade. Git contains reproducible baseline evidence and JSON; runtime database backups remain separate.
+Migration 005 preserves preexisting actions and legislative evidence, and adds report-linked financial references/evidence and appropriation adjustments. A pre-migration backup was taken. The live database has migrations 1–5, no synthetic report/financial fixtures, and unchanged prior national data. The six reattached source texts match the stored originals exactly; no duplicates were imported.
+
+The preceding reviewed-canon import, military reports, parliamentary reports and backup tools remain intact. Git stores reproducible sources and JSON; runtime database backups remain separate.
 
 ## Operate
 
@@ -20,7 +22,7 @@ The hosted Site is `https://reunion-national-administration.superfig3.chatgpt.si
 
 ## Next task
 
-Add reviewed appropriation and expenditure report actions using existing budget/ledger services. Keep authorization, appropriation, commitment, disbursement and actual expense distinct. Require a known budget/currency, explicit amounts and dates, duplicate protection and reasoned over-authorization review. Reuse the current report review and atomic approval infrastructure; do not automatically move money when a bill passes.
+Add reviewed balanced budget reallocations through the Report Center. Require explicit source/destination accounts, currency, amount/date/reference and authority. Reduce the source limit and raise the destination atomically, check committed/spent amounts and dated availability, preserve both sides and provenance, and do not classify the transfer as new revenue or spending. Extend known-date limit reconstruction to signed adjustment deltas. Keep the current six stage ledger compatible. Returns/cancellations and corrections remain separate future work.
 
 ## Open canon decisions
 
@@ -32,4 +34,4 @@ The old request to upload runtime SQLite files was superseded by V3's instructio
 
 ## Git checkpoint
 
-The prior reviewed-canon/report slice is remote commit `f0e5af46f66d5892aa86e94f2f4152a229faf875`. This handoff accompanies the parliamentary-report commit following that checkpoint; use the repository history for its final SHA. Hosted publication remains separate.
+Parliamentary reports were saved in remote commit `3db6b7c960862a334908256e7aae8de323b49a0e`. This handoff accompanies the financial-report commit following it; use repository history for its final SHA. Hosted publication remains separate and unchanged.

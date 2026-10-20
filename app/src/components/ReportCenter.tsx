@@ -7,6 +7,7 @@ export default function ReportCenter({
   units,
   locations,
   bills,
+  budgets,
   onChanged,
   openSource,
 }: {
@@ -14,6 +15,7 @@ export default function ReportCenter({
   units: R[];
   locations: R[];
   bills: R[];
+  budgets: R[];
   onChanged: () => Promise<void>;
   openSource: (id: string) => void;
 }) {
@@ -105,6 +107,21 @@ export default function ReportCenter({
                 effective_date: data.effective_date || null,
               }
             : {}),
+          ...(a.kind === "financial"
+            ? {
+                budget_id: data.budget_id || null,
+                budget_name: data.budget_name || null,
+                financial_stage: data.financial_stage || null,
+                financial_amount:
+                  data.financial_amount === ""
+                    ? null
+                    : Number(data.financial_amount),
+                financial_currency: data.financial_currency || null,
+                financial_reference: data.financial_reference || null,
+                financial_memo: data.financial_memo || null,
+                appropriation_basis: data.appropriation_basis || null,
+              }
+            : {}),
           date: data.date || null,
           unit_id: data.unit_id || null,
           location_id: data.location_id || null,
@@ -135,10 +152,16 @@ export default function ReportCenter({
     <div className="report-center">
       <div className="alert">
         Write report → Review changes → Approve → Update Reunion. Movement
-        orders, confirmed arrivals, and explicit bill stages have structured
-        support. Other statements are offered as archive entries with unresolved
-        administrative effects.
+        orders, confirmed arrivals, explicit bill stages, and financial stages
+        have structured support. Other statements are offered as archive entries
+        with unresolved administrative effects.
       </div>
+      <p className="muted">
+        Financial wording: “Treasury disbursed USD 100 for Budget NAME;
+        reference PAY-1: Memo”. For a limit increase, use “Treasury added an
+        appropriation of USD 100 to Budget NAME; reference APP-1”. Record a
+        known funding budget first. Amounts use whole currency units.
+      </p>
       <p className="muted">
         Use one statement per line. Supported bill wording: “Parliament passed
         Bill IDENTIFIER: Title” or “President signed Bill IDENTIFIER into law.”
@@ -242,7 +265,7 @@ export default function ReportCenter({
           <p>
             {report.actions.filter((a: R) => a.status === "pending").length}{" "}
             proposed changes remain. Each selected change is validated again at
-            approval.
+            approval. Selected changes apply in original report line order.
           </p>
           {report.actions.map((a: R) => (
             <article className="record" key={a.id}>
@@ -252,13 +275,28 @@ export default function ReportCenter({
                     ? "Military movement order"
                     : a.kind === "movement_arrival"
                       ? "Confirmed movement arrival"
-                      : a.kind === "legislation"
-                        ? "Parliamentary legislation"
-                        : "Historical archive entry"}
+                      : a.kind === "financial"
+                        ? "Financial transaction"
+                        : a.kind === "legislation"
+                          ? "Parliamentary legislation"
+                          : "Historical archive entry"}
                 </h3>
                 <span className="badge">{a.status}</span>
               </div>
               <p>{a.payload.statement}</p>
+              {a.kind === "financial" && (
+                <p>
+                  {a.payload.financial_stage || "Stage unknown"} ·{" "}
+                  {a.payload.financial_currency || "Currency unknown"}{" "}
+                  {a.payload.financial_amount?.toLocaleString() ??
+                    "Amount unknown"}{" "}
+                  · Budget:{" "}
+                  {a.payload.budget_name ||
+                    budgets.find((b) => b.id === a.payload.budget_id)?.name ||
+                    "Unknown"}{" "}
+                  · Reference: {a.payload.financial_reference || "Unknown"}.
+                </p>
+              )}
               {a.kind === "legislation" && (
                 <p>
                   Bill{" "}
@@ -312,6 +350,124 @@ export default function ReportCenter({
                           defaultValue={a.payload.date || ""}
                         />
                       </label>
+                      {a.kind === "financial" && (
+                        <>
+                          <label>
+                            Funding budget
+                            <select
+                              name="budget_id"
+                              defaultValue={a.payload.budget_id || ""}
+                            >
+                              <option value="">
+                                Match reported name, if unique
+                              </option>
+                              {budgets.map((b) => (
+                                <option key={b.id} value={b.id}>
+                                  {b.name} · {b.fiscal_year} · {b.currency} ·
+                                  limit {b.appropriated.toLocaleString()}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <label>
+                            Reported budget name
+                            <input
+                              name="budget_name"
+                              maxLength={500}
+                              defaultValue={a.payload.budget_name || ""}
+                            />
+                          </label>
+                          <label>
+                            Reported stage
+                            <select
+                              name="financial_stage"
+                              defaultValue={a.payload.financial_stage || ""}
+                            >
+                              <option value="">Unknown</option>
+                              {[
+                                "proposed",
+                                "authorized",
+                                "appropriated",
+                                "committed",
+                                "disbursed",
+                                "actual",
+                              ].map((s) => (
+                                <option key={s} value={s}>
+                                  {s === "appropriated"
+                                    ? "Additional appropriation"
+                                    : s}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <label>
+                            Amount in whole currency units
+                            <input
+                              name="financial_amount"
+                              type="number"
+                              min={0}
+                              step={1}
+                              max={Number.MAX_SAFE_INTEGER}
+                              defaultValue={a.payload.financial_amount ?? ""}
+                            />
+                          </label>
+                          <label>
+                            Reported currency
+                            <input
+                              name="financial_currency"
+                              maxLength={8}
+                              defaultValue={a.payload.financial_currency || ""}
+                            />
+                          </label>
+                          <label>
+                            Transaction reference
+                            <input
+                              name="financial_reference"
+                              maxLength={120}
+                              defaultValue={a.payload.financial_reference || ""}
+                            />
+                            <small>
+                              Use the same reference for another report of this
+                              transaction. Give separate payments separate
+                              references.
+                            </small>
+                          </label>
+                          <label>
+                            Memo, if supplied
+                            <input
+                              name="financial_memo"
+                              maxLength={20000}
+                              defaultValue={a.payload.financial_memo || ""}
+                            />
+                          </label>
+                          <label>
+                            Appropriation interpretation
+                            <select
+                              name="appropriation_basis"
+                              defaultValue={a.payload.appropriation_basis || ""}
+                            >
+                              <option value="">
+                                Not confirmed / not applicable
+                              </option>
+                              <option value="increase">
+                                Additional amount increasing this budget’s limit
+                              </option>
+                            </select>
+                            <small>
+                              A restatement of an existing appropriation is not
+                              an increase.
+                            </small>
+                          </label>
+                          <label>
+                            Authorization override, if needed
+                            <input
+                              name="override_reason"
+                              maxLength={2000}
+                              defaultValue={a.payload.override_reason}
+                            />
+                          </label>
+                        </>
+                      )}
                       {a.kind === "legislation" && (
                         <>
                           <label>

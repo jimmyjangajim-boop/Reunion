@@ -9,7 +9,7 @@
 5. Revalidate every selected action. Existing military domain services enforce prior-order, date and treaty restrictions. One immediate transaction writes department effects, source-linked timeline, action state and audit history. Failure rolls everything back.
 6. Applied reports survive restart. Unselected changes remain pending. Scenario reports cannot be approved into canon. Corrective reports retain links to prior reports; automatic reversal of earlier effects is not implemented.
 
-One deferred detail issue per report avoids hundreds of low-value questions for unsupported prose. Financial, diplomatic and appointment extraction remain future typed actions; no AI-generated SQL or arbitrary mutations are accepted.
+One deferred detail issue per report avoids hundreds of low-value questions for unsupported prose. Diplomatic and appointment extraction remain future typed actions; no AI-generated SQL or arbitrary mutations are accepted.
 
 
 ## Parliamentary reports, migration 004
@@ -23,3 +23,20 @@ Approval records consideration, introduction, passage or enactment in the same `
 `bill_events` and `bill_event_evidence` are append-only. Evidence retains every supporting original report/action and line range. The same bill/stage/date/effective-date tuple corroborates an existing event rather than duplicating its national timeline entry. Exact repeated report submissions remain idempotent.
 
 Each proposal captures the current bill state. Another approved report changing that bill makes the proposal stale until a reasoned correction reviews the new state. Bulk approval checks every legislative baseline before writes, then revalidates each action against earlier effects in the same transaction. Conflicting dates, titles or references roll back all selected department changes together. Existing report action IDs and review states survive migration 004.
+
+
+## Financial reports, migration 005
+
+Financial reports reuse the existing budgets and ledger. Supported bounded wording is `Treasury disbursed USD 100 for Budget NAME; reference PAY-1: Memo`. Verbs also include `proposed`, `authorized`, `committed`, `appropriated`, and `recorded actual expense of`. For an unambiguous budget increase use `Treasury added an appropriation of USD 100 to Budget NAME; reference APP-1`. One financial statement goes on each line; ISO date context works as for other reports. Grouped whole-unit numbers such as `1,000` are supported. Dollars without a currency code, fractional amounts, transfers and conditional prose are not inferred.
+
+Review requires an existing budget, explicit currency/whole-unit amount, exact date, stage and transaction reference. Match budget names exactly or select the specific account/year/currency when ambiguous. Reports do not invent funding accounts or FX conversions. A plain reported appropriation stays pending until the reviewer confirms the amount increases the existing limit; it cannot silently restate an existing total as new funding. Initial budget establishment remains the sourced Treasury form.
+
+Only an explicit additional appropriation raises the existing budget limit and records its before/after amount. Proposed/authorized entries do not raise that limit. Commitments, disbursements and actual expenses remain separate stages and are never summed as one expense. No revenue, debt, transfers, payment or actual expense is generated merely because an appropriation or bill passes.
+
+A budget/stage/reference identifies a transaction. Repeated reports of the same amount/date/currency add source evidence without another ledger entry, timeline event or appropriation increase. A conflict under that reference blocks approval. Separate payments require separate references. Similar legacy entries raise a warning rather than silently merge; legacy records have no reliable automatic reference identity.
+
+Budget/ledger hashes reject stale pending proposals until a reasoned correction. Approval checks all original baselines, then applies selected changes in report line order with fresh validation in one transaction. Preview can show a payment funded by an earlier pending additional appropriation, with an explicit dependency warning. If that increase is deselected, or another payment exhausts the funds, approval fails and rolls everything back. Several stages of a transaction can share one reference without being merged across stages.
+
+Authorization checks compare each stage separately against the recorded limit and known dated increases. A future appropriation cannot fund earlier spending. Backdated entries are also checked against later spending dates before subsequent increases. Exceeding the recorded appropriation requires an explicit override reason, preserved on the entry. Fiscal-year mismatch is flagged; no unknown fiscal/legal rule is invented. Treasury shows sourced references/evidence and limits adjusted for known dated increases. The initial base limit may lack a commencement date, so this is not a complete historical budget reconstruction.
+
+Reported ledger entries, transaction references, evidence and appropriation adjustments are preserved by triggers. New corrections/reversals, returns, cancellations and balanced reallocations remain future work. Automatic undo is not implemented; corrective reports do not delete old transactions. Scenario financial proposals cannot be approved into canon.

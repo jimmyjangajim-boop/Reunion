@@ -223,7 +223,7 @@ export function ledgerEntry(db: DB, input: RInput) {
     );
   const id = randomUUID();
   db.prepare(
-    "INSERT INTO ledger(id,budget_id,date,stage,amount,memo,override_reason) VALUES(?,?,?,?,?,?,?)",
+    "INSERT INTO ledger(id,budget_id,date,stage,amount,memo,override_reason,source_id) VALUES(?,?,?,?,?,?,?,?)",
   ).run(
     id,
     budget.id,
@@ -232,6 +232,7 @@ export function ledgerEntry(db: DB, input: RInput) {
     n,
     text.parse(input.memo),
     nullable(input.override_reason),
+    nullable(input.source_id),
   );
   return { id, warning: current + n > budget.appropriated };
 }

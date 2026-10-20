@@ -14,6 +14,14 @@ import {
   recordLegislation,
 } from "./legislation.ts";
 
+import {
+  financialFields,
+  extractFinancial,
+  financialState,
+  validateFinancial,
+  recordFinancial,
+} from "./financial-reports.ts";
+
 const submitSchema = z.object({
   title: z.string().trim().min(1).max(200),
   body: z
@@ -28,6 +36,7 @@ const submitSchema = z.object({
 const payloadSchema = z
   .object({
     ...billFields,
+    ...financialFields,
     statement: z.string().min(1).max(500000),
     date: exactDate.nullable(),
     unit_id: z.string().nullable().default(null),
@@ -50,10 +59,12 @@ function candidates(db: DB, table: "units" | "locations", name: string) {
   );
 }
 
-export function validateReportAction(db: DB, action: Row) {
+export function validateReportAction(db: DB, action: Row, funding: Row[] = []) {
   const p = payloadSchema.parse(JSON.parse(action.payload_json));
   const missing: string[] = [],
     warnings: string[] = [];
+  if (action.kind === "financial")
+    return { ...validateFinancial(db, p, funding), payload: p };
   if (action.kind === "legislation") {
     const result = validateLegislation(db, p);
     return { ...result, payload: p };
@@ -111,6 +122,7 @@ export function validateReportAction(db: DB, action: Row) {
 export function reportDetail(db: DB, id: string): Row {
   const report = requiredReport(db, id);
   const source = one(db, "SELECT * FROM sources WHERE id=?", report.source_id)!;
+  const funding: Row[] = [];
   return {
     ...report,
     body: source.content,
@@ -119,17 +131,37 @@ export function reportDetail(db: DB, id: string): Row {
       db,
       "SELECT * FROM report_actions WHERE report_id=? ORDER BY ordinal",
       id,
-    ).map((a) => ({
-      ...a,
-      ...(a.status === "pending"
-        ? validateReportAction(db, a)
-        : {
-            payload: payloadSchema.parse(JSON.parse(a.payload_json)),
-            ready: false,
-            missing: [],
-            warnings: [],
-          }),
-    })),
+    ).map((a) => {
+      const checked =
+        a.status === "pending"
+          ? validateReportAction(db, a, funding)
+          : {
+              payload: payloadSchema.parse(JSON.parse(a.payload_json)),
+              ready: false,
+              missing: [],
+              warnings: [],
+            };
+      if (a.status === "pending" && a.kind === "financial" && checked.ready) {
+        const p = checked.payload,
+          result = validateFinancial(db, p, funding);
+        if (
+          p.financial_stage === "appropriated" &&
+          !result.existing &&
+          !funding.some(
+            (f) =>
+              f.budget_id === result.budget!.id &&
+              f.reference === p.financial_reference,
+          )
+        )
+          funding.push({
+            budget_id: result.budget!.id,
+            reference: p.financial_reference,
+            amount: p.financial_amount,
+            date: p.date,
+          });
+      }
+      return { ...a, ...checked };
+    }),
     reviews: all(
       db,
       "SELECT * FROM report_reviews WHERE report_id=? ORDER BY rowid",
@@ -211,6 +243,8 @@ export function submitReport(db: DB, input: unknown): Row {
       }
       const legislation = extractLegislation(statement);
       if (legislation) kind = "legislation";
+      const financial = extractFinancial(statement);
+      if (financial) kind = "financial";
       const payload = payloadSchema.parse({
         statement,
         date,
@@ -219,9 +253,12 @@ export function submitReport(db: DB, input: unknown): Row {
         movement_id: null,
         override_reason: "",
         ...legislation,
+        ...financial,
       });
       if (legislation)
         payload.expected_bill_state = legislativeState(db, payload);
+      if (financial)
+        payload.expected_budget_state = financialState(db, payload);
       db.prepare(
         "INSERT INTO report_actions(id,report_id,ordinal,kind,payload_json,line_start,line_end) VALUES(?,?,?,?,?,?,?)",
       ).run(
@@ -271,6 +308,8 @@ export function editReportAction(db: DB, input: unknown): Row {
       throw Error("Only a pending action can be corrected");
     if (before.kind === "legislation")
       data.payload.expected_bill_state = legislativeState(db, data.payload);
+    if (before.kind === "financial")
+      data.payload.expected_budget_state = financialState(db, data.payload);
     db.prepare("UPDATE report_actions SET payload_json=? WHERE id=?").run(
       JSON.stringify(data.payload),
       before.id,
@@ -318,7 +357,7 @@ export function approveReport(db: DB, input: unknown): Row {
     )
       throw Error("Each action must have one decision");
     const before = reportDetail(db, report.id);
-    // Check all legislative baselines before any writes. Later stages in this
+    // Check report baselines before any writes. Later stages in this
     // same atomic approval may then validate against its own earlier changes.
     for (const id of data.action_ids) {
       const a = one(
@@ -327,12 +366,24 @@ export function approveReport(db: DB, input: unknown): Row {
         id,
         report.id,
       );
-      if (a?.kind === "legislation" && a.status === "pending") {
+      if (a?.status === "pending" && a.kind === "legislation") {
         const check = validateReportAction(db, a);
         if (!check.ready) throw Error(check.missing.join(" "));
       }
+      if (a?.status === "pending" && a.kind === "financial") {
+        const p = payloadSchema.parse(JSON.parse(a.payload_json));
+        if (p.expected_budget_state !== financialState(db, p))
+          throw Error(
+            "The budget or ledger changed after this proposal. Save a reasoned proposal correction to review the new state.",
+          );
+      }
     }
-    for (const id of [...data.action_ids, ...data.reject_ids]) {
+    const order = new Map<string, number>(
+      before.actions.map((a: Row) => [a.id, a.ordinal]),
+    );
+    for (const id of [...data.action_ids, ...data.reject_ids].sort(
+      (a, b) => (order.get(a) ?? Infinity) - (order.get(b) ?? Infinity),
+    )) {
       const a = one(
         db,
         "SELECT * FROM report_actions WHERE id=? AND report_id=?",
@@ -347,12 +398,18 @@ export function approveReport(db: DB, input: unknown): Row {
         ).run(id);
         continue;
       }
-      if (a.kind === "legislation") {
+      if (["legislation", "financial"].includes(a.kind)) {
         const currentPayload = payloadSchema.parse(JSON.parse(a.payload_json));
-        currentPayload.expected_bill_state = legislativeState(
-          db,
-          currentPayload,
-        );
+        if (a.kind === "legislation")
+          currentPayload.expected_bill_state = legislativeState(
+            db,
+            currentPayload,
+          );
+        else
+          currentPayload.expected_budget_state = financialState(
+            db,
+            currentPayload,
+          );
         a.payload_json = JSON.stringify(currentPayload);
       }
       const checked = validateReportAction(db, a);
@@ -395,6 +452,20 @@ export function approveReport(db: DB, input: unknown): Row {
         );
         target = result.id;
         timelineId = "bill-event-" + result.event_id;
+      } else if (a.kind === "financial") {
+        const result = recordFinancial(
+          db,
+          p,
+          {
+            source_id: report.source_id,
+            line_start: a.line_start,
+            line_end: a.line_end,
+            action_id: a.id,
+          },
+          data.reason,
+        );
+        target = result.id;
+        timelineId = "ledger-event-" + result.id;
       } else target = a.id;
       db.prepare(
         "INSERT INTO timeline(id,title,category,date_json,canon,operation,source_id,line_start,line_end,note) VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING",
@@ -403,9 +474,11 @@ export function approveReport(db: DB, input: unknown): Row {
         p.statement,
         a.kind === "record_event"
           ? "history"
-          : a.kind === "legislation"
-            ? "political"
-            : "military",
+          : a.kind === "financial"
+            ? "economic"
+            : a.kind === "legislation"
+              ? "political"
+              : "military",
         JSON.stringify(p.date ? dateValue("day", p.date) : dateValue()),
         "confirmed",
         a.kind === "movement_order"
@@ -418,7 +491,15 @@ export function approveReport(db: DB, input: unknown): Row {
                 : p.bill_stage === "enacted"
                   ? "completed"
                   : "proposal"
-              : "unknown",
+              : a.kind === "financial"
+                ? p.financial_stage === "proposed"
+                  ? "proposal"
+                  : ["authorized", "appropriated"].includes(p.financial_stage!)
+                    ? "approved"
+                    : p.financial_stage === "committed"
+                      ? "contracted"
+                      : "completed"
+                : "unknown",
         report.source_id,
         a.line_start,
         a.line_end,
