@@ -272,3 +272,88 @@ it("serves a sourced Cabinet roster without changing accepted financial canon", 
     ),
   ).toEqual(before);
 });
+it("suggests a battle without writes and atomically approves reviewed facts into Battles", async () => {
+  const db = storage.getDb(),
+    sourcesBefore = storage.one(db, "SELECT count(*) n FROM sources")!.n;
+  const suggested = await route.POST(
+    request({
+      action: "suggest_battle",
+      date: "1992-10-03",
+      body: "On October 8, the 4th Infantry Brigade fought near API ridge. It suffered 32 killed and 114 wounded.",
+    }),
+  );
+  expect(suggested.status).toBe(200);
+  const s = await suggested.json();
+  expect(storage.one(db, "SELECT count(*) n FROM sources")!.n).toBe(
+    sourcesBefore,
+  );
+  const battle = {
+    ...s.battle,
+    name: "API engagement fixture",
+    reference: "API-PHASE-1",
+  };
+  const submitted = await route.POST(
+    request({
+      action: "submit",
+      title: "API battle fixture",
+      body: "API fixture original engagement",
+      battle,
+      date: "1992-10-08",
+    }),
+  );
+  expect(submitted.status).toBe(200);
+  const r = await submitted.json();
+  expect(r.actions[0].kind).toBe("battle");
+  expect(
+    storage.one(db, "SELECT count(*) n FROM battle_report_records")!.n,
+  ).toBe(0);
+  const approved = await route.POST(
+    request({
+      action: "approve",
+      report_id: r.id,
+      revision: r.revision,
+      action_ids: [r.actions[0].id],
+      reason: "Accept reviewed API engagement",
+    }),
+  );
+  expect(approved.status).toBe(200);
+  const overview = await import("../src/app/api/rnas/route.ts");
+  const data = await (
+    await overview.GET(new NextRequest("http://localhost/api/rnas"))
+  ).json();
+  const phase = data.battleReports.find(
+    (p: Record<string, any>) => p.reference === "API-PHASE-1",
+  );
+  expect(phase.battle).toBe("API engagement fixture");
+  expect(phase.evidence[0].source_id).toBe(r.source_id);
+  expect(
+    phase.casualties.map((c: Record<string, any>) => [c.category, c.count]),
+  ).toEqual([
+    ["KIA", 32],
+    ["WIA", 114],
+  ]);
+  const scenario = await (
+    await route.POST(
+      request({
+        action: "submit",
+        title: "API battle scenario",
+        body: "Hypothetical scenario",
+        battle: { ...battle, name: "Scenario battle" },
+        mode: "simulate",
+      }),
+    )
+  ).json();
+  const blocked = await route.POST(
+    request({
+      action: "approve",
+      report_id: scenario.id,
+      revision: scenario.revision,
+      action_ids: [scenario.actions[0].id],
+      reason: "Attempt scenario approval",
+    }),
+  );
+  expect(blocked.status).toBe(400);
+  expect(
+    storage.one(db, "SELECT count(*) n FROM battle_report_records")!.n,
+  ).toBe(1);
+});

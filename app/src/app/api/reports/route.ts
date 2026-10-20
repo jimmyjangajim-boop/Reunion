@@ -7,6 +7,7 @@ import {
   editReportAction,
   approveReport,
 } from "../../../lib/reports.ts";
+import { suggestBattle } from "../../../lib/battle-reports.ts";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export async function GET(req: NextRequest) {
@@ -33,13 +34,15 @@ export async function POST(req: NextRequest) {
     const data = JSON.parse(raw),
       db = getDb();
     const result =
-      data.action === "submit"
-        ? submitReport(db, data)
-        : data.action === "edit"
-          ? editReportAction(db, data)
-          : data.action === "approve"
-            ? approveReport(db, data)
-            : null;
+      data.action === "suggest_battle"
+        ? suggestBattle(db, { body: data.body, date: data.date ?? null })
+        : data.action === "submit"
+          ? submitReport(db, data)
+          : data.action === "edit"
+            ? editReportAction(db, data)
+            : data.action === "approve"
+              ? approveReport(db, data)
+              : null;
     if (!result) throw Error("Unsupported report action");
     return NextResponse.json(result);
   } catch (e) {

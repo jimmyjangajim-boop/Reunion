@@ -1659,3 +1659,102 @@ body {
   margin: 0;
   overflow-wrap: anywhere;
 }
+
+/* Guided battle reporting reuses the existing report review services. */
+.battle-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+  margin-bottom: 18px;
+}
+.battle-fields label,
+.battle-workspace .report-form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+}
+.battle-editor input,
+.battle-editor select,
+.battle-workspace .report-form > label > input,
+.battle-workspace .report-form > label > textarea,
+.battle-workspace .report-form > label > select {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 9px 10px;
+  border-radius: 4px;
+  background: #fffefa;
+  color: var(--ink);
+  font: inherit;
+}
+.battle-editor small,
+.battle-workspace small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.battle-participant {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 16px;
+  margin: 12px 0 20px;
+  min-width: 0;
+}
+.battle-participant legend {
+  padding: 0 6px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.casualty-inputs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.casualty-inputs label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.battle-editor .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.battle-editor .checkbox-label input {
+  width: auto;
+}
+.battle-summary {
+  padding: 16px 0;
+}
+.battle-summary h3 {
+  margin-top: 20px;
+}
+.battle-report-editor {
+  scroll-margin-top: 20px;
+}
+.battle-workspace details {
+  margin: 14px 0;
+}
+.battle-workspace summary {
+  cursor: pointer;
+  color: var(--green);
+  font-size: 14px;
+  padding-block: 6px;
+}
+.battle-workspace .table-scroll {
+  max-width: 100%;
+}
+@media (max-width: 760px) {
+  .battle-fields {
+    grid-template-columns: 1fr;
+  }
+  .casualty-inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .battle-participant {
+    padding: 12px;
+  }
+}

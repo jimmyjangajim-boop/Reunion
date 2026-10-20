@@ -6,10 +6,10 @@ The user's exact instruction is preserved in repository `docs/USER_USABILITY_DIR
 | --- | --- | --- |
 | 1. Shared layout | Implemented; code/SSR checks passed | Grouped navigation, section descriptions, compact spacing, responsive controls, readable claim labels/values and expandable technical evidence. Browser verification remains pending. |
 | 2. Cabinet | Implemented; domain/API/SSR checks passed | Leadership, ministry roster, distinct deputies/institutions/history, searchable offices and clickable source-backed profiles. Inline creation of a supplied person and appointment is atomic. No portraits or unknown biographical details were invented. |
-| 3. Battles and casualties | Next | One reviewed New Battle / After-Action workflow must create/select a battle and record participants/casualties/losses together. The current separate forms remain; this has not been implemented. |
-| 4. Archive | Planned | Shared metadata disclosure improved, but a dedicated compact searchable library replacing endless claim cards remains unfinished. |
+| 3. Battles and casualties | Implemented; domain/API/SSR checks passed | Dedicated Battles workspace preserves an English account, creates/selects a battle and supplied formations, records categorized casualties/equipment losses/outcomes and approves one transaction. Bounded suggestions stay editable. Browser verification remains pending. |
+| 4. Archive | Next | Shared metadata disclosure improved, but a dedicated compact searchable library replacing endless claim cards remains unfinished. |
 | 5. Parliament/Treasury | Planned | Existing workflows and accepted values preserved. Broader department redesign remains unfinished. |
-| 6. Report-first completion | Existing bounded foundation | Movement, bill and six financial-stage reports work. General battle prose extraction and an optional AI/provider layer remain unfinished. |
+| 6. Report-first completion | Existing bounded foundation | Movement, bill and six financial-stage reports work. Bounded battle suggestions now exist; general prose extraction and an optional AI/provider layer remain unfinished. |
 
 ## Cabinet behavior
 
@@ -21,10 +21,22 @@ Profiles use supplied names and monograms, not invented appearances. They show k
 
 Appoint Minister can select a known person or create an explicitly named person in the existing transactional appointment service. Conflicting choices/duplicate names reject; failure rolls back person/source/appointment/audit effects. Creating an office still uses Cabinet's More actions; broader inline prerequisite creation is not complete across departments.
 
-## Altis chronology follow-up
+## Battles behavior
 
-The earlier reviewed import already superseded the 1993 Altis report assertions and timeline rows with 1992 replacements. Original superseded timeline rows T041–T043 retain their source wording. Battle table rows B026 and B027 still have provisional relative labels “October 1993.” The battle table now visibly flags their year correction to 1992. Their stored dates must be reconciled in the next battle slice with explicit before/after audit and original evidence preserved; do not invent a day or replace unrelated 1993 dates.
+The dedicated workspace creates/selects a battle and enters participants, casualties, equipment losses and operational outcome in one report. A formation can remain an unresolved reported name, or the user can explicitly create it inline with supplied branch/type. No unrelated prerequisite page is needed. Existing historical casualties remain expandable and categorized.
+
+Submission preserves the exact original and stages one typed action. Review shows human-readable facts, unknown counts and source access. Corrections require reasons; approval or rejection preserves the original. Only approval writes battle/phase/formation/casualty/loss/timeline/audit effects, in the existing report transaction. A report can be reopened from its dedicated queue or National Report Center after restart. Hypothetical scenarios cannot update canon.
+
+Null counts remain unknown; explicit zero is stored. Categories, formations and phases never become an aggregate casualty total. A battle/reference identifies a phase. Equivalent reports add evidence, while conflicting facts under that reference remain pending. A distinct phase needs a distinct reference. Inline-created formations resolve back to the same identity for corroboration. Stale proposals need a reasoned re-review.
+
+Only explicitly identified tracked assets can change to lost/damaged, with count 1, exact engagement day and assignment/chronology checks. Losses retain their participant even if it has no OOB ID. Lost assets close active assignments at the supplied date; previous states/assignments are preserved. No automatic strength/readiness, cash, procurement or anonymous inventory adjustment is inferred. Outcomes are reported text, not an invented territorial/state change.
+
+The optional deterministic suggestion button recognizes bounded date/place/formation/count patterns. It creates no records and is not a general language or AI parser. Multiple formations, ambiguous counts and conditional/negative prose require manual attribution. A missing year stays unknown unless the reviewer explicitly supplied report-date context. All proposed details must be reviewed; the directive's illustration exists only in temporary tests.
+
+## Altis chronology correction
+
+The earlier reviewed import superseded the 1993 Altis assertions/timeline rows with 1992 replacements. Original superseded timeline rows T041–T043 still retain their source wording. B026/B027 now retain their provisional status and relative precision with labels “October 1992.” `chronology.ts` requires the confirmed reviewed authority, changes only those two known legacy labels and appends explicit before/after audits. It runs idempotently on existing database open and after fresh reviewed imports. Exact combat days and the proposed ceasefire/current-date calendar remain unresolved. No unrelated 1993 date changes.
 
 ## Validation and delivery
 
-See VALIDATION.md. No migration, dependency change or live-data rewrite is needed for this slice. The user's Windows copy must receive the updated `app/src` and restart; keep its data directory and RNAS_DB selection. The separate hosted Site remains unchanged.
+See VALIDATION.md. Migrations 006–007 preserve prior report actions and legislative/financial evidence while adding append-only battle report history and loss participant attribution. No dependency change was needed. The Windows copy must receive updated `app/src`, `app/migrations` and `app/scripts`, keep its data/evidence and RNAS_DB selection, run `npm.cmd run setup`, then restart. The separate hosted Site remains unchanged.

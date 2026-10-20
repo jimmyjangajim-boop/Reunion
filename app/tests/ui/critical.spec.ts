@@ -225,3 +225,54 @@ test("Cabinet roster opens a source-backed minister profile with progressive evi
   await profile.getByRole("button", { name: "Close", exact: true }).click();
   await expect(profile).toHaveCount(0);
 });
+test("combined battle report reviews casualties once and persists after reload", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await navigate(page, "Battles");
+  const name = "UI engagement fixture " + Date.now();
+  await page.getByLabel("Report title", { exact: true }).fill(name);
+  await page
+    .getByLabel("Original engagement report")
+    .fill(
+      "On October 8, the 4th Infantry Brigade fought near UI ridge. It suffered 32 killed and 114 wounded.",
+    );
+  await page
+    .getByRole("button", { name: "Suggest details from report", exact: true })
+    .click();
+  await expect(
+    page.getByLabel("Participant 1 KIA", { exact: true }),
+  ).toHaveValue("32");
+  await expect(
+    page.getByLabel("Participant 1 MIA", { exact: true }),
+  ).toHaveValue("");
+  await page.getByLabel("New battle name").fill(name);
+  await page.getByLabel("Report / combat-phase reference").fill("UI-PHASE-1");
+  await page
+    .getByRole("button", { name: "Save report and review", exact: true })
+    .click();
+  await expect(page.locator(".battle-summary")).toContainText("Not reported");
+  await page
+    .getByLabel("Approval reason")
+    .fill("Accept the reviewed test-only engagement");
+  await page
+    .getByRole("button", {
+      name: "Approve battle report and military records",
+      exact: true,
+    })
+    .click();
+  await expect(page.getByRole("status")).toContainText("saved together");
+  await page.reload();
+  await navigate(page, "Battles");
+  await page.getByLabel("Search battles").fill(name);
+  await expect(
+    page.getByRole("cell", { name, exact: false }).first(),
+  ).toBeVisible();
+  const phase = page
+    .locator("details")
+    .filter({
+      has: page.locator("summary", { hasText: name + " · UI-PHASE-1" }),
+    });
+  await phase.locator("summary").click();
+  await expect(phase).toContainText("KIA 32 · WIA 114 · MIA not reported");
+});

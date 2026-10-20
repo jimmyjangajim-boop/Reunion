@@ -1,3 +1,4 @@
+import { correctReviewedAltisYears } from "./chronology.ts";
 import { DatabaseSync } from "node:sqlite";
 import { mkdirSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
@@ -13,6 +14,7 @@ export function openDatabase(
     "PRAGMA foreign_keys=ON; PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000;",
   );
   migrate(db);
+  correctReviewedAltisYears(db);
   return db;
 }
 export function migrate(db: DB) {

@@ -10,7 +10,7 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - All selected effects and timeline/audit writes share one transaction and existing domain services. Duplicate submissions and repeat approvals cannot duplicate movements.
 - Scenario reports persist separately and cannot update national records. No AI or generated simulation engine is implemented.
 - Reproducible reviewed JSON import: 88 source metadata records, 82 nonempty extracted texts, 40 reviewed facts and 27 user answers. Existing rows are preserved. Eight old assertion aliases and three Altis chronology rows are explicitly superseded/corrected.
-- Current local database: migrations 1–5; 123 source rows, 157 assertions, 47 timeline rows including three superseded chronology rows, and 29 decision rows. No production/test reports were inserted into national data.
+- Current local database: migrations 1–7; 123 source rows, 157 assertions, 47 timeline rows including three superseded chronology rows, and 29 decision rows. No production/test reports were inserted into national data.
 - Online database backup, read-only integrity/migration-version check, and complete portable database-plus-evidence ZIP with verified hashes.
 
 ## Parliamentary reports
@@ -22,7 +22,7 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - Bulk approval supports several stages of one bill and rolls back all department effects if any action fails.
 - Parliament shows sourced legislative history. The register is the furthest reported stage, not a date-filtered reconstruction. No production legislation or fixture records were added.
 
-## Current completed slice: financial reports
+## Financial reports
 
 - Migration 005 preserves existing actions/legislative evidence and adds immutable report-linked ledger references, supporting sources and appropriation-adjustment history.
 - Review supports proposed, authorized, appropriated, committed, disbursed and actual records, requiring a known budget, exact currency/whole-unit amount/date and transaction reference. Explicit additional appropriations raise limits; ordinary appropriation prose requires a reviewed interpretation.
@@ -45,12 +45,23 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - Replaced Government/Cabinet claim grids with leadership tiles and a compact ministry roster. Separate deputy/institution/history tabs and a local search replace the unrelated political-card feed.
 - Source-backed officeholder profiles expose term history, supplied personal records and evidence on demand. Unknown affiliations/dates/responsibilities remain unknown; no portraits were invented. RIA director stays separate from ministries, and Rehn is historical rather than a second current Finance Minister.
 - Appoint Minister can create a supplied person inline within the existing appointment transaction. Validation failure rolls back all related creation.
-- Accepted financial canon and every row of the 48 live tables remain unchanged. Two provisional legacy Altis battle dates are flagged visibly; their stored year correction is a documented next-slice task.
-- Browser interaction/visual QA remains pending under the managed-preview restriction. The combined battle/casualty workflow and broader Archive/Parliament/Treasury redesign were not implemented or claimed complete.
+- Steps 1–2 preserved all 48 live tables. The subsequent battle slice below narrowly audits two legacy Altis year labels; accepted financial canon remains unchanged.
+- Browser interaction/visual QA remains pending under the managed-preview restriction. Broader Archive/Parliament/Treasury redesign remains unfinished.
+
+## Current completed slice: Battles and after-action reports
+
+- Migrations 006–007 preserve report action IDs/status/targets and both prior evidence tables, adding append-only battle phase/participant/casualty/loss/evidence/asset-effect history and explicit loss participant attribution.
+- Dedicated Battles navigation and one New Battle / After-Action Report workflow create/select a battle, preserve an English original, enter participants, categorized known casualties, equipment losses and outcome, then review/correct/approve or reject. Supplied formations can be created inline; unresolved names need not become OOB units.
+- Approval uses the same report transaction for battle, formations, casualties, losses, selected asset state/assignment changes, timeline and audit. Scenarios cannot update canon. Null casualty counts remain unknown; explicit zero is preserved. Existing casualty groups remain accessible without aggregation.
+- A battle/reference identifies a combat phase. Equivalent facts add source evidence without duplicate casualties/losses/timeline; conflicting phase facts remain pending. Concurrent state changes require reasoned re-review. Source lines and review history survive restart.
+- Explicit tracked asset loss/damage requires count 1, exact date, eligible state and chronology/assignment checks. Prior asset states/assignments are preserved. No personnel/readiness, anonymous inventory, territory, procurement or financial effects are inferred.
+- Bounded read-only English suggestions propose limited date/place/formation/count fields. Review supplies name/reference, outcome, loss attribution and any missing details. This is not general language extraction or an AI provider.
+- B026/B027 now read relative “October 1992” with two before/after audits under reviewed user authority; original wording, provisional status and unknown exact days remain intact. All other preexisting data is unchanged except migration rows. No production reports or test fixtures were inserted.
+- Next is the compact searchable Archive. Browser interaction/visual QA remains pending; the separate hosted Site is unchanged.
 
 ## Remaining limits
 
-- Report extraction supports movement orders/arrivals, explicit bill stages and six financial stages. Appointments, balanced reallocations, reversals, diplomacy and semantic contradiction extraction remain unfinished.
+- Report extraction supports movement orders/arrivals, explicit bill stages, six financial stages and bounded battle suggestions. Appointments, balanced reallocations, reversals, diplomacy and semantic contradiction extraction remain unfinished.
 - Unsupported prose can be recorded honestly; it does not update ministries, budgets or forces. One deferred detail issue per report avoids flooding the inbox.
 - Corrective reports link to earlier reports; automatic reversal/undo of already-applied department effects is not implemented.
 - Latest procurement/funding review remains available as reviewed evidence and canonical claims. Full domain-table reconciliation and lifecycle controls are unfinished; no equipment deliveries or actual spending were invented.

@@ -22,7 +22,16 @@ import {
   recordFinancial,
 } from "./financial-reports.ts";
 
+import {
+  battleFields,
+  battleProposalSchema,
+  battleState,
+  validateBattle,
+  recordBattleReport,
+} from "./battle-reports.ts";
+
 const submitSchema = z.object({
+  battle: battleProposalSchema.nullable().default(null),
   title: z.string().trim().min(1).max(200),
   body: z
     .string()
@@ -35,6 +44,7 @@ const submitSchema = z.object({
 });
 const payloadSchema = z
   .object({
+    ...battleFields,
     ...billFields,
     ...financialFields,
     statement: z.string().min(1).max(500000),
@@ -63,6 +73,7 @@ export function validateReportAction(db: DB, action: Row, funding: Row[] = []) {
   const p = payloadSchema.parse(JSON.parse(action.payload_json));
   const missing: string[] = [],
     warnings: string[] = [];
+  if (action.kind === "battle") return { ...validateBattle(db, p), payload: p };
   if (action.kind === "financial")
     return { ...validateFinancial(db, p, funding), payload: p };
   if (action.kind === "legislation") {
@@ -172,7 +183,7 @@ export function reportDetail(db: DB, id: string): Row {
 export function listReports(db: DB) {
   return all(
     db,
-    "SELECT r.*,(SELECT count(*) FROM report_actions a WHERE a.report_id=r.id AND a.status='pending') pending_count FROM national_reports r ORDER BY r.created_at DESC,r.rowid DESC LIMIT 100",
+    "SELECT r.*,(SELECT count(*) FROM report_actions b WHERE b.report_id=r.id AND b.kind='battle') battle_count,(SELECT count(*) FROM report_actions a WHERE a.report_id=r.id AND a.status='pending') pending_count FROM national_reports r ORDER BY r.created_at DESC,r.rowid DESC LIMIT 100",
   );
 }
 
@@ -181,7 +192,11 @@ export function submitReport(db: DB, input: unknown): Row {
   const data = submitSchema.parse(input);
   const digest = createHash("sha256")
     .update(
-      JSON.stringify([data.mode, data.date, data.correction_of, data.body]),
+      JSON.stringify(
+        data.battle
+          ? [data.mode, data.date, data.correction_of, data.body, data.battle]
+          : [data.mode, data.date, data.correction_of, data.body],
+      ),
     )
     .digest("hex");
   const existing = one(
@@ -209,7 +224,19 @@ export function submitReport(db: DB, input: unknown): Row {
     const lines = data.body.split(/\r?\n/);
     let date = data.date,
       ordinal = 0;
-    for (let i = 0; i < lines.length; i++) {
+    if (data.battle) {
+      const payload = payloadSchema.parse({
+        statement: data.body,
+        date: data.date,
+        battle: data.battle,
+      });
+      payload.expected_battle_state = battleState(db, payload);
+      db.prepare(
+        "INSERT INTO report_actions(id,report_id,ordinal,kind,payload_json,line_start,line_end) VALUES(?,?,0,'battle',?,1,?)",
+      ).run(randomUUID(), id, JSON.stringify(payload), lines.length);
+      ordinal = 1;
+    }
+    for (let i = 0; !data.battle && i < lines.length; i++) {
       let statement = lines[i].trim();
       if (!statement) continue;
       const prefix = statement.match(/^(\d{4}-\d{2}-\d{2})(?:[.:\s]+|$)(.*)$/);
@@ -306,6 +333,13 @@ export function editReportAction(db: DB, input: unknown): Row {
     );
     if (!before || before.status !== "pending")
       throw Error("Only a pending action can be corrected");
+    if (before.kind === "battle") {
+      if (!data.payload.battle)
+        throw Error(
+          "Battle details cannot be removed from an after-action proposal",
+        );
+      data.payload.expected_battle_state = battleState(db, data.payload);
+    }
     if (before.kind === "legislation")
       data.payload.expected_bill_state = legislativeState(db, data.payload);
     if (before.kind === "financial")
@@ -338,10 +372,14 @@ export function approveReport(db: DB, input: unknown): Row {
     .object({
       report_id: z.string(),
       revision: z.number().int().positive(),
-      action_ids: z.array(z.string()).min(1).max(1000),
+      action_ids: z.array(z.string()).max(1000),
       reject_ids: z.array(z.string()).max(1000).default([]),
       reason: z.string().trim().min(3).max(2000),
     })
+    .refine(
+      (d) => d.action_ids.length + d.reject_ids.length > 0,
+      "Choose at least one action to approve or reject",
+    )
     .parse(input);
   return transaction(db, () => {
     const report = requiredReport(db, data.report_id);
@@ -369,6 +407,10 @@ export function approveReport(db: DB, input: unknown): Row {
       if (a?.status === "pending" && a.kind === "legislation") {
         const check = validateReportAction(db, a);
         if (!check.ready) throw Error(check.missing.join(" "));
+      }
+      if (a?.status === "pending" && a.kind === "battle") {
+        const checked = validateReportAction(db, a);
+        if (!checked.ready) throw Error(checked.missing.join(" "));
       }
       if (a?.status === "pending" && a.kind === "financial") {
         const p = payloadSchema.parse(JSON.parse(a.payload_json));
@@ -398,10 +440,15 @@ export function approveReport(db: DB, input: unknown): Row {
         ).run(id);
         continue;
       }
-      if (["legislation", "financial"].includes(a.kind)) {
+      if (["legislation", "financial", "battle"].includes(a.kind)) {
         const currentPayload = payloadSchema.parse(JSON.parse(a.payload_json));
         if (a.kind === "legislation")
           currentPayload.expected_bill_state = legislativeState(
+            db,
+            currentPayload,
+          );
+        else if (a.kind === "battle")
+          currentPayload.expected_battle_state = battleState(
             db,
             currentPayload,
           );
@@ -466,6 +513,20 @@ export function approveReport(db: DB, input: unknown): Row {
         );
         target = result.id;
         timelineId = "ledger-event-" + result.id;
+      } else if (a.kind === "battle") {
+        const result = recordBattleReport(
+          db,
+          p,
+          {
+            source_id: report.source_id,
+            line_start: a.line_start,
+            line_end: a.line_end,
+            action_id: a.id,
+          },
+          data.reason,
+        );
+        target = result.id;
+        timelineId = "battle-report-" + result.record_id;
       } else target = a.id;
       db.prepare(
         "INSERT INTO timeline(id,title,category,date_json,canon,operation,source_id,line_start,line_end,note) VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING",
@@ -479,7 +540,13 @@ export function approveReport(db: DB, input: unknown): Row {
             : a.kind === "legislation"
               ? "political"
               : "military",
-        JSON.stringify(p.date ? dateValue("day", p.date) : dateValue()),
+        JSON.stringify(
+          a.kind === "battle"
+            ? p.battle!.date_info
+            : p.date
+              ? dateValue("day", p.date)
+              : dateValue(),
+        ),
         "confirmed",
         a.kind === "movement_order"
           ? "ordered"
@@ -499,7 +566,9 @@ export function approveReport(db: DB, input: unknown): Row {
                     : p.financial_stage === "committed"
                       ? "contracted"
                       : "completed"
-                : "unknown",
+                : a.kind === "battle"
+                  ? "completed"
+                  : "unknown",
         report.source_id,
         a.line_start,
         a.line_end,
@@ -528,9 +597,23 @@ export function approveReport(db: DB, input: unknown): Row {
       "SELECT count(*) n FROM report_actions WHERE report_id=? AND status='pending'",
       report.id,
     )!.n;
+    const applied = one(
+      db,
+      "SELECT count(*) n FROM report_actions WHERE report_id=? AND status='applied'",
+      report.id,
+    )!.n;
     db.prepare(
       "UPDATE national_reports SET status=?,revision=revision+1 WHERE id=?",
-    ).run(remaining ? "partially_applied" : "applied", report.id);
+    ).run(
+      remaining
+        ? applied
+          ? "partially_applied"
+          : "review"
+        : applied
+          ? "applied"
+          : "rejected",
+      report.id,
+    );
     const after = reportDetail(db, report.id);
     db.prepare(
       "INSERT INTO report_reviews(id,report_id,action,reason,before_json,after_json) VALUES(?,?,?,?,?,?)",

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
+import { BattleSummary } from "./BattleWorkspace";
 type R = Record<string, any>;
 export default function ReportCenter({
   date,
@@ -10,6 +11,7 @@ export default function ReportCenter({
   budgets,
   onChanged,
   openSource,
+  openBattleReport,
 }: {
   date: string;
   units: R[];
@@ -18,6 +20,7 @@ export default function ReportCenter({
   budgets: R[];
   onChanged: () => Promise<void>;
   openSource: (id: string) => void;
+  openBattleReport: (id?: string) => void;
 }) {
   const [history, setHistory] = useState<R[]>([]),
     [report, setReport] = useState<R | null>(null),
@@ -40,7 +43,10 @@ export default function ReportCenter({
     setSelected(
       r.mode === "record"
         ? r.actions
-            .filter((a: R) => a.status === "pending" && a.ready)
+            .filter(
+              (a: R) =>
+                a.status === "pending" && a.ready && a.kind !== "battle",
+            )
             .map((a: R) => a.id)
         : [],
     );
@@ -150,6 +156,9 @@ export default function ReportCenter({
   }
   return (
     <div className="report-center">
+      <button className="secondary" onClick={() => openBattleReport()}>
+        New battle / after-action report
+      </button>
       <div className="alert">
         Write report → Review changes → Approve → Update Reunion. Movement
         orders, confirmed arrivals, explicit bill stages, and financial stages
@@ -277,13 +286,26 @@ export default function ReportCenter({
                       ? "Confirmed movement arrival"
                       : a.kind === "financial"
                         ? "Financial transaction"
-                        : a.kind === "legislation"
-                          ? "Parliamentary legislation"
-                          : "Historical archive entry"}
+                        : a.kind === "battle"
+                          ? "Battle / after-action report"
+                          : a.kind === "legislation"
+                            ? "Parliamentary legislation"
+                            : "Historical archive entry"}
                 </h3>
                 <span className="badge">{a.status}</span>
               </div>
-              <p>{a.payload.statement}</p>
+              {a.kind !== "battle" && <p>{a.payload.statement}</p>}
+              {a.kind === "battle" && (
+                <>
+                  <BattleSummary battle={a.payload.battle} units={units} />
+                  <button
+                    className="text-button"
+                    onClick={() => openBattleReport(report.id)}
+                  >
+                    Review and approve in Battles →
+                  </button>
+                </>
+              )}
               {a.kind === "financial" && (
                 <p>
                   {a.payload.financial_stage || "Stage unknown"} ·{" "}
@@ -328,7 +350,12 @@ export default function ReportCenter({
                     <input
                       type="checkbox"
                       checked={selected.includes(a.id)}
-                      disabled={!a.ready || report.mode !== "record" || busy}
+                      disabled={
+                        !a.ready ||
+                        report.mode !== "record" ||
+                        busy ||
+                        a.kind === "battle"
+                      }
                       onChange={(e) =>
                         setSelected(
                           e.target.checked
@@ -339,259 +366,273 @@ export default function ReportCenter({
                     />{" "}
                     Approve this change
                   </label>
-                  <details>
-                    <summary>Correct proposed details</summary>
-                    <form onSubmit={(e) => edit(e, a)} className="report-form">
-                      <label>
-                        Action date
-                        <input
-                          name="date"
-                          type="date"
-                          defaultValue={a.payload.date || ""}
-                        />
-                      </label>
-                      {a.kind === "financial" && (
-                        <>
-                          <label>
-                            Funding budget
-                            <select
-                              name="budget_id"
-                              defaultValue={a.payload.budget_id || ""}
-                            >
-                              <option value="">
-                                Match reported name, if unique
-                              </option>
-                              {budgets.map((b) => (
-                                <option key={b.id} value={b.id}>
-                                  {b.name} · {b.fiscal_year} · {b.currency} ·
-                                  limit {b.appropriated.toLocaleString()}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          <label>
-                            Reported budget name
-                            <input
-                              name="budget_name"
-                              maxLength={500}
-                              defaultValue={a.payload.budget_name || ""}
-                            />
-                          </label>
-                          <label>
-                            Reported stage
-                            <select
-                              name="financial_stage"
-                              defaultValue={a.payload.financial_stage || ""}
-                            >
-                              <option value="">Unknown</option>
-                              {[
-                                "proposed",
-                                "authorized",
-                                "appropriated",
-                                "committed",
-                                "disbursed",
-                                "actual",
-                              ].map((s) => (
-                                <option key={s} value={s}>
-                                  {s === "appropriated"
-                                    ? "Additional appropriation"
-                                    : s}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          <label>
-                            Amount in whole currency units
-                            <input
-                              name="financial_amount"
-                              type="number"
-                              min={0}
-                              step={1}
-                              max={Number.MAX_SAFE_INTEGER}
-                              defaultValue={a.payload.financial_amount ?? ""}
-                            />
-                          </label>
-                          <label>
-                            Reported currency
-                            <input
-                              name="financial_currency"
-                              maxLength={8}
-                              defaultValue={a.payload.financial_currency || ""}
-                            />
-                          </label>
-                          <label>
-                            Transaction reference
-                            <input
-                              name="financial_reference"
-                              maxLength={120}
-                              defaultValue={a.payload.financial_reference || ""}
-                            />
-                            <small>
-                              Use the same reference for another report of this
-                              transaction. Give separate payments separate
-                              references.
-                            </small>
-                          </label>
-                          <label>
-                            Memo, if supplied
-                            <input
-                              name="financial_memo"
-                              maxLength={20000}
-                              defaultValue={a.payload.financial_memo || ""}
-                            />
-                          </label>
-                          <label>
-                            Appropriation interpretation
-                            <select
-                              name="appropriation_basis"
-                              defaultValue={a.payload.appropriation_basis || ""}
-                            >
-                              <option value="">
-                                Not confirmed / not applicable
-                              </option>
-                              <option value="increase">
-                                Additional amount increasing this budget’s limit
-                              </option>
-                            </select>
-                            <small>
-                              A restatement of an existing appropriation is not
-                              an increase.
-                            </small>
-                          </label>
-                          <label>
-                            Authorization override, if needed
-                            <input
-                              name="override_reason"
-                              maxLength={2000}
-                              defaultValue={a.payload.override_reason}
-                            />
-                          </label>
-                        </>
-                      )}
-                      {a.kind === "legislation" && (
-                        <>
-                          <label>
-                            Existing bill
-                            <select
-                              name="bill_id"
-                              defaultValue={a.payload.bill_id || ""}
-                            >
-                              <option value="">
-                                Match reported identifier, or create if new
-                              </option>
-                              {bills.map((b) => (
-                                <option key={b.id} value={b.id}>
-                                  {b.identifier} ·{" "}
-                                  {b.title || "Title not reported"}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          <label>
-                            Reported bill identifier
-                            <input
-                              name="bill_identifier"
-                              maxLength={200}
-                              defaultValue={a.payload.bill_identifier || ""}
-                            />
-                          </label>
-                          <label>
-                            Reported title, if known
-                            <input
-                              name="bill_title"
-                              maxLength={500}
-                              defaultValue={a.payload.bill_title || ""}
-                            />
-                          </label>
-                          <label>
-                            Reported stage
-                            <select
-                              name="bill_stage"
-                              defaultValue={a.payload.bill_stage || ""}
-                            >
-                              <option value="">Unknown</option>
-                              <option value="considering">
-                                Under consideration
-                              </option>
-                              <option value="introduced">Introduced</option>
-                              <option value="passed">
-                                Passed by Parliament
-                              </option>
-                              <option value="enacted">
-                                Enacted / signed into law
-                              </option>
-                            </select>
-                          </label>
-                          <label>
-                            Explicit effective date, for enacted laws only
-                            <input
-                              type="date"
-                              name="effective_date"
-                              defaultValue={a.payload.effective_date || ""}
-                            />
-                          </label>
-                          <small>
-                            Leave unreported details empty. Bill stages do not
-                            create votes, appropriations, or payments.
-                          </small>
-                        </>
-                      )}
-                      {(a.kind === "movement_order" ||
-                        a.kind === "movement_arrival") && (
-                        <>
-                          <label>
-                            Formation
-                            <select
-                              name="unit_id"
-                              defaultValue={a.payload.unit_id || ""}
-                            >
-                              <option value="">Unknown</option>
-                              {units.map((u) => (
-                                <option key={u.id} value={u.id}>
-                                  {u.name}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          <label>
-                            Destination
-                            <select
-                              name="location_id"
-                              defaultValue={a.payload.location_id || ""}
-                            >
-                              <option value="">Unknown</option>
-                              {locations.map((l) => (
-                                <option key={l.id} value={l.id}>
-                                  {l.name}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          {a.kind === "movement_arrival" && (
+                  {a.kind !== "battle" && (
+                    <details>
+                      <summary>Correct proposed details</summary>
+                      <form
+                        onSubmit={(e) => edit(e, a)}
+                        className="report-form"
+                      >
+                        <label>
+                          Action date
+                          <input
+                            name="date"
+                            type="date"
+                            defaultValue={a.payload.date || ""}
+                          />
+                        </label>
+                        {a.kind === "financial" && (
+                          <>
                             <label>
-                              Prior movement order ID, if ambiguous
+                              Funding budget
+                              <select
+                                name="budget_id"
+                                defaultValue={a.payload.budget_id || ""}
+                              >
+                                <option value="">
+                                  Match reported name, if unique
+                                </option>
+                                {budgets.map((b) => (
+                                  <option key={b.id} value={b.id}>
+                                    {b.name} · {b.fiscal_year} · {b.currency} ·
+                                    limit {b.appropriated.toLocaleString()}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                            <label>
+                              Reported budget name
                               <input
-                                name="movement_id"
-                                defaultValue={a.payload.movement_id || ""}
+                                name="budget_name"
+                                maxLength={500}
+                                defaultValue={a.payload.budget_name || ""}
                               />
                             </label>
-                          )}
-                          <label>
-                            Treaty warning override, if needed
-                            <input
-                              name="override_reason"
-                              defaultValue={a.payload.override_reason}
-                            />
-                          </label>
-                        </>
-                      )}
-                      <label>
-                        Reason for correction
-                        <input name="reason" required minLength={3} />
-                      </label>
-                      <button disabled={busy}>Save proposed correction</button>
-                    </form>
-                  </details>
+                            <label>
+                              Reported stage
+                              <select
+                                name="financial_stage"
+                                defaultValue={a.payload.financial_stage || ""}
+                              >
+                                <option value="">Unknown</option>
+                                {[
+                                  "proposed",
+                                  "authorized",
+                                  "appropriated",
+                                  "committed",
+                                  "disbursed",
+                                  "actual",
+                                ].map((s) => (
+                                  <option key={s} value={s}>
+                                    {s === "appropriated"
+                                      ? "Additional appropriation"
+                                      : s}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                            <label>
+                              Amount in whole currency units
+                              <input
+                                name="financial_amount"
+                                type="number"
+                                min={0}
+                                step={1}
+                                max={Number.MAX_SAFE_INTEGER}
+                                defaultValue={a.payload.financial_amount ?? ""}
+                              />
+                            </label>
+                            <label>
+                              Reported currency
+                              <input
+                                name="financial_currency"
+                                maxLength={8}
+                                defaultValue={
+                                  a.payload.financial_currency || ""
+                                }
+                              />
+                            </label>
+                            <label>
+                              Transaction reference
+                              <input
+                                name="financial_reference"
+                                maxLength={120}
+                                defaultValue={
+                                  a.payload.financial_reference || ""
+                                }
+                              />
+                              <small>
+                                Use the same reference for another report of
+                                this transaction. Give separate payments
+                                separate references.
+                              </small>
+                            </label>
+                            <label>
+                              Memo, if supplied
+                              <input
+                                name="financial_memo"
+                                maxLength={20000}
+                                defaultValue={a.payload.financial_memo || ""}
+                              />
+                            </label>
+                            <label>
+                              Appropriation interpretation
+                              <select
+                                name="appropriation_basis"
+                                defaultValue={
+                                  a.payload.appropriation_basis || ""
+                                }
+                              >
+                                <option value="">
+                                  Not confirmed / not applicable
+                                </option>
+                                <option value="increase">
+                                  Additional amount increasing this budget’s
+                                  limit
+                                </option>
+                              </select>
+                              <small>
+                                A restatement of an existing appropriation is
+                                not an increase.
+                              </small>
+                            </label>
+                            <label>
+                              Authorization override, if needed
+                              <input
+                                name="override_reason"
+                                maxLength={2000}
+                                defaultValue={a.payload.override_reason}
+                              />
+                            </label>
+                          </>
+                        )}
+                        {a.kind === "legislation" && (
+                          <>
+                            <label>
+                              Existing bill
+                              <select
+                                name="bill_id"
+                                defaultValue={a.payload.bill_id || ""}
+                              >
+                                <option value="">
+                                  Match reported identifier, or create if new
+                                </option>
+                                {bills.map((b) => (
+                                  <option key={b.id} value={b.id}>
+                                    {b.identifier} ·{" "}
+                                    {b.title || "Title not reported"}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                            <label>
+                              Reported bill identifier
+                              <input
+                                name="bill_identifier"
+                                maxLength={200}
+                                defaultValue={a.payload.bill_identifier || ""}
+                              />
+                            </label>
+                            <label>
+                              Reported title, if known
+                              <input
+                                name="bill_title"
+                                maxLength={500}
+                                defaultValue={a.payload.bill_title || ""}
+                              />
+                            </label>
+                            <label>
+                              Reported stage
+                              <select
+                                name="bill_stage"
+                                defaultValue={a.payload.bill_stage || ""}
+                              >
+                                <option value="">Unknown</option>
+                                <option value="considering">
+                                  Under consideration
+                                </option>
+                                <option value="introduced">Introduced</option>
+                                <option value="passed">
+                                  Passed by Parliament
+                                </option>
+                                <option value="enacted">
+                                  Enacted / signed into law
+                                </option>
+                              </select>
+                            </label>
+                            <label>
+                              Explicit effective date, for enacted laws only
+                              <input
+                                type="date"
+                                name="effective_date"
+                                defaultValue={a.payload.effective_date || ""}
+                              />
+                            </label>
+                            <small>
+                              Leave unreported details empty. Bill stages do not
+                              create votes, appropriations, or payments.
+                            </small>
+                          </>
+                        )}
+                        {(a.kind === "movement_order" ||
+                          a.kind === "movement_arrival") && (
+                          <>
+                            <label>
+                              Formation
+                              <select
+                                name="unit_id"
+                                defaultValue={a.payload.unit_id || ""}
+                              >
+                                <option value="">Unknown</option>
+                                {units.map((u) => (
+                                  <option key={u.id} value={u.id}>
+                                    {u.name}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                            <label>
+                              Destination
+                              <select
+                                name="location_id"
+                                defaultValue={a.payload.location_id || ""}
+                              >
+                                <option value="">Unknown</option>
+                                {locations.map((l) => (
+                                  <option key={l.id} value={l.id}>
+                                    {l.name}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                            {a.kind === "movement_arrival" && (
+                              <label>
+                                Prior movement order ID, if ambiguous
+                                <input
+                                  name="movement_id"
+                                  defaultValue={a.payload.movement_id || ""}
+                                />
+                              </label>
+                            )}
+                            <label>
+                              Treaty warning override, if needed
+                              <input
+                                name="override_reason"
+                                defaultValue={a.payload.override_reason}
+                              />
+                            </label>
+                          </>
+                        )}
+                        <label>
+                          Reason for correction
+                          <input name="reason" required minLength={3} />
+                        </label>
+                        <button disabled={busy}>
+                          Save proposed correction
+                        </button>
+                      </form>
+                    </details>
+                  )}
                 </>
               )}
             </article>
@@ -605,7 +646,12 @@ export default function ReportCenter({
                   onClick={() =>
                     setSelected(
                       report.actions
-                        .filter((a: R) => a.status === "pending" && a.ready)
+                        .filter(
+                          (a: R) =>
+                            a.status === "pending" &&
+                            a.ready &&
+                            a.kind !== "battle",
+                        )
                         .map((a: R) => a.id),
                     )
                   }

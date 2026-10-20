@@ -238,6 +238,32 @@ export async function GET(req: NextRequest) {
       })),
       projects: all(db, "SELECT * FROM projects"),
       battles: all(db, "SELECT * FROM battles"),
+      battleReports: all(
+        db,
+        "SELECT r.*,b.name battle FROM battle_report_records r JOIN battles b ON b.id=r.battle_id ORDER BY r.recorded_at DESC,r.rowid DESC",
+      ).map((r) => ({
+        ...r,
+        participants: all(
+          db,
+          "SELECT * FROM battle_report_participants WHERE record_id=?",
+          r.id,
+        ),
+        casualties: all(
+          db,
+          "SELECT c.*,m.participant_id FROM casualties c JOIN battle_report_casualties m ON m.casualty_id=c.id WHERE m.record_id=?",
+          r.id,
+        ),
+        losses: all(
+          db,
+          "SELECT * FROM battle_report_losses WHERE record_id=?",
+          r.id,
+        ),
+        evidence: all(
+          db,
+          "SELECT * FROM battle_report_evidence WHERE record_id=?",
+          r.id,
+        ),
+      })),
       casualties: all(db, "SELECT * FROM casualties"),
       drafts: all(db, "SELECT * FROM event_drafts ORDER BY recorded_at DESC"),
       clock:

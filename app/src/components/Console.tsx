@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import ReportCenter from "./ReportCenter";
 import CabinetWorkspace from "./CabinetWorkspace";
+import BattleWorkspace from "./BattleWorkspace";
 type R = Record<string, any>;
 const navGroups = [
   {
@@ -26,6 +27,7 @@ const navGroups = [
     title: "Security & external affairs",
     items: [
       ["Armed Forces", "⚑"],
+      ["Battles", "⚔"],
       ["Military Map", "⌖"],
       ["Foreign Relations", "◇"],
       ["Domestic Security", "◉"],
@@ -49,6 +51,7 @@ const pageDescriptions: Record<string, string> = {
     "Ministries, officeholders, and the institutions of government.",
   Parliament: "The Assembly, legislation, and recorded votes.",
   "Armed Forces": "Formations, readiness, deployments, and combat records.",
+  Battles: "Engagements, combat phases, casualty reports, and reported losses.",
   "Economy & Treasury":
     "Funding limits, financial transactions, and major projects.",
   "Historical Archive":
@@ -292,7 +295,8 @@ export default function Console() {
     [compareDate, setCompareDate] = useState("1993-10-11"),
     [comparison, setComparison] = useState<R[] | null>(null),
     [reviewAction, setReviewAction] = useState("unresolved"),
-    [preview, setPreview] = useState<R | null>(null);
+    [preview, setPreview] = useState<R | null>(null),
+    [battleReportId, setBattleReportId] = useState<string | null>(null);
   async function refresh() {
     const r = await fetch("/api/rnas?date=" + date);
     const json = await r.json();
@@ -1368,7 +1372,10 @@ export default function Console() {
                     </button>
                     <button
                       className="secondary"
-                      onClick={() => setForm("battle")}
+                      onClick={() => {
+                        setBattleReportId(null);
+                        go("Battles");
+                      }}
                     >
                       Record battle
                     </button>
@@ -1456,48 +1463,37 @@ export default function Console() {
                       a.end_date ?? "Open assignment",
                     ])}
                   />
-                  <div className="section-heading">
-                    <h2>Battle reports</h2>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("casualty")}
-                    >
-                      + Casualty report
-                    </button>
-                  </div>
-                  <Table
-                    headers={["Battle", "Date", "Outcome", "Canon"]}
-                    rows={d.battles.map((b: R) => [
-                      b.name,
-                      <span>
-                        {dateLabel(b)}
-                        {/altis/i.test(b.name) && /1993/.test(b.date_json) && (
-                          <small className="roster-uncertainty">
-                            Year correction pending: 1992, not 1993
-                          </small>
-                        )}
-                      </span>,
-                      b.outcome,
-                      <Badge>{b.canon}</Badge>,
-                    ])}
-                  />
-                  <Table
-                    headers={[
-                      "Battle",
-                      "Report group",
-                      "Category",
-                      "Count",
-                      "Canon",
-                    ]}
-                    rows={d.casualties.map((c: R) => [
-                      d.battles.find((b: R) => b.id === c.battle_id)?.name,
-                      c.report_group,
-                      c.category,
-                      c.count,
-                      c.canon,
-                    ])}
-                  />
+                  <section className="panel">
+                    <div className="section-heading">
+                      <h2>Battles and after-action records</h2>
+                      <button
+                        onClick={() => {
+                          setBattleReportId(null);
+                          go("Battles");
+                        }}
+                      >
+                        New Battle / After-Action Report
+                      </button>
+                    </div>
+                    <p className="muted">
+                      Create or select the battle and record participants, known
+                      casualties and equipment losses in one reviewed report.
+                    </p>
+                  </section>
                 </>
+              )}
+              {section === "Battles" && (
+                <BattleWorkspace
+                  date={date}
+                  battles={d.battles}
+                  units={d.units}
+                  assets={d.assets}
+                  phases={d.battleReports}
+                  casualties={d.casualties}
+                  onChanged={refresh}
+                  openSource={openSource}
+                  initialReportId={battleReportId}
+                />
               )}
               {section === "Military Map" && (
                 <>
@@ -1784,6 +1780,10 @@ export default function Console() {
                   budgets={d.budgets}
                   onChanged={refresh}
                   openSource={openSource}
+                  openBattleReport={(id?: string) => {
+                    setBattleReportId(id ?? null);
+                    go("Battles");
+                  }}
                 />
               )}
               {section === "Events & Time" && (

@@ -1,6 +1,6 @@
 # Current next task
 
-Implement the latest usability directive's Step 3: New Battle / After-Action Report with inline battle/formation creation, categorized casualties, equipment losses, original report preservation, preview and atomic approval. Narrowly correct the flagged provisional Altis battle dates with audit/source preservation. See docs/USABILITY_REFINEMENT.md. Balanced budget reallocations remain a later task; do not alter economic canon during the UI refinement.
+Implement the latest usability directive's Step 4: a compact searchable Historical Archive with record detail and evidence on demand. Shared layout, Cabinet and the combined Battle / After-Action Report workflow are implemented. See docs/USABILITY_REFINEMENT.md. Then refine Parliament/Treasury; balanced budget reallocations remain later. Preserve financial canon and existing records.
 
 The older backlog follows for preserved context.
 

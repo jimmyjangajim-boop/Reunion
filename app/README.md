@@ -29,6 +29,10 @@ npm start
 
 Keep that terminal open while using RNAS. Stop with Ctrl+C. Your database survives restarts.
 
+### Updating an existing copy
+
+Stop the app and make a backup first. Update `app/src`, `app/migrations` and `app/scripts` together (or pull the complete repository). Keep your existing `data` and `evidence` directories and the same `RNAS_DB` selection. Run `npm run setup`, then `npm run db:check` and restart. On Windows use `npm.cmd run setup` and `npm.cmd run dev`. This update applies migrations 006–007 and narrowly audits the two reviewed Altis year corrections; copying only `src` is insufficient.
+
 ### iPhone on the same network
 
 Start RNAS on your laptop. Find the laptop's local IP address in its network settings. Connect the iPhone to the same trusted Wi-Fi network and open `http://LAPTOP_IP:3000` in Safari. You may need to allow the Node process through your laptop's firewall.
@@ -49,7 +53,8 @@ npx next dev --hostname 127.0.0.1
 - **Add sourced fact:** choose an entity, field, value, canon approval, operational state, and date precision. Choose original lines or write a decision preserved as a new source. Explicit ongoing intervals require an earliest validity bound.
 - **Canon Review Center:** compare linked claims and excerpts. Accept A/B, merge, replace, preserve different dates, dismiss, leave unresolved, supply a gap, or postpone. Every decision requires a reason. Older text survives.
 - **Cabinet:** browse a searchable ministry roster, open officeholder profiles and expand evidence or term history. Create offices and appointments; a supplied new person can be created in the appointment form. Dated reshuffles can explicitly close a preceding dated term. Uncertain historical terms are not silently assigned departure dates.
-- **Armed Forces:** add units, dated strength/hierarchy observations, major assets, assignments, battle records, and casualty reports. Each observation is separate. An ordered move requires a later explicit arrival confirmation.
+- **Armed Forces:** add units, dated strength/hierarchy observations, major assets and assignments. Each observation is separate. An ordered move requires a later explicit arrival confirmation.
+- **Battles:** use **New Battle / After-Action Report** to create/select a battle, preserve the English account, enter participants, categorized casualties, equipment losses and outcome, then review and approve once. A supplied formation can be created inline. Blank counts remain unknown; zero is explicit. Suggestions require review. Reuse a phase reference for corroborating evidence, and use a new reference for a distinct phase. An explicitly selected tracked asset can be marked lost/damaged; no strength, readiness, cost or anonymous inventory change is inferred. Original historical casualties remain under Historical casualty records.
 - **Treasury reports:** record six separate financial stages against known budgets. Explicit additional appropriations increase limits; referenced payments/expenses remain separate and repeated reports only add evidence. No automatic FX conversion or revenue/debt changes.
 - **Parliament:** preserve the actual 400 seats and constitutional maximum of 300. Create a bill and record manual vote totals. Supply occupied voting capacity and a sourced threshold; a recorded vote alone does not enact a bill. Reviewed reports can record consideration, introduction, passage or explicit enactment, with sourced legislative history and unknown details preserved.
 - **Treasury:** create an actual appropriation before entering stage-specific financial entries. Warnings require an explicit explanation to overrun an appropriation. Commitments, disbursements, and actuals are not summed together as one expense.
