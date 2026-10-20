@@ -1,6 +1,6 @@
 # Current next task
 
-Finish a sourced parliamentary legislation report action through the existing National Report Center. Keep enactment, votes, appropriations and spending separate. See docs/ROADMAP.md and docs/SESSION_HANDOFF.md.
+Add sourced appropriation and expenditure report actions through the existing National Report Center. Preserve separate financial stages and require explicit review; legislation never moves money by itself. See docs/ROADMAP.md and docs/SESSION_HANDOFF.md.
 
 The older backlog follows for preserved context.
 

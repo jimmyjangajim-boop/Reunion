@@ -51,3 +51,12 @@ Online backups use SQLite's backup API. Restore verifies integrity and expected 
 Movement provenance follows `report_actions.target_id → movements.id`, `report_actions.report_id → national_reports.source_id → sources`. Existing department rows remain in the same database. Completed movement rows preserve location history and order date; the order is never converted into a second duplicate arrival row.
 
 `source_artifacts` associates each imported review text with its original container/path, binary hash/byte count and extraction status. `sources.sha256` and bytes cover the extracted UTF-8 text stored in that row; the original artifact has a separate hash. Checksummed immutable JSON and source archives reproduce the reviewed baseline without committing a live database.
+
+
+## Legislative report history, migration 004
+
+`report_actions.kind=legislation` carries a proposed existing bill or explicit reported identifier, optional title, consideration/introduction/passage/enactment stage, optional known date/effective date and a server-captured bill-state baseline. Reasoned proposal edits rebase that baseline; approval rejects stale bill state. Bulk approvals check initial baselines before writing and validate the evolving sequence within the single immediate transaction.
+
+`bills` remains Parliament’s shared register. Its stage is the furthest reported stage; explicit introduction/effective dates are materialized without fabricating missing steps. The existing NOT NULL title stores an empty string when no title was reported, displayed as “Title not reported.” This register is not a date-specific national snapshot.
+
+Append-only `bill_events` holds stage/date/effective-date and real recording time. `bill_event_evidence` joins each event to original source lines and a unique report action. Repeated equivalent reports add evidence to an existing event. `report_actions.target_id` is the bill ID; evidence links identify its particular event. A single `bill-event-{event_id}` timeline row avoids duplicate national events. There are no implicit writes to votes, budgets or ledger.

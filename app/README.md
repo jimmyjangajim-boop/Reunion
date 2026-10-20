@@ -41,14 +41,14 @@ npx next dev --hostname 127.0.0.1
 
 ## Daily use
 
-- **National Report Center:** preserve the exact report, review typed movement orders or arrivals, correct proposed details, then approve selected changes together. Other prose can be retained as archive events with unresolved administrative effects. Hypothetical reports remain scenarios; AI generation is not implemented.
+- **National Report Center:** preserve the exact report, review typed movement orders, arrivals or explicit legislative stages, correct proposed details, then approve selected changes together. Other prose can be retained as archive events with unresolved administrative effects. Hypothetical reports remain scenarios; AI generation is not implemented.
 - **Dashboard:** choose an in-world date. A 3 October 1992 observation does not fill an undocumented date in 1993. Date comparisons show Unknown where evidence is insufficient.
 - **Historical Archive:** browse normalized claims, original sources, and filtered chronology. Global search uses SQLite FTS5 across original documents and user entries. Citations open numbered source lines.
 - **Add sourced fact:** choose an entity, field, value, canon approval, operational state, and date precision. Choose original lines or write a decision preserved as a new source. Explicit ongoing intervals require an earliest validity bound.
 - **Canon Review Center:** compare linked claims and excerpts. Accept A/B, merge, replace, preserve different dates, dismiss, leave unresolved, supply a gap, or postpone. Every decision requires a reason. Older text survives.
 - **Cabinet:** create offices and appointments. Dated reshuffles can explicitly close a preceding dated term. Uncertain historical terms are not silently assigned departure dates.
 - **Armed Forces:** add units, dated strength/hierarchy observations, major assets, assignments, battle records, and casualty reports. Each observation is separate. An ordered move requires a later explicit arrival confirmation.
-- **Parliament:** preserve the actual 400 seats and constitutional maximum of 300. Create a bill and record manual vote totals. Supply occupied voting capacity and a sourced threshold; a recorded vote alone does not enact a bill.
+- **Parliament:** preserve the actual 400 seats and constitutional maximum of 300. Create a bill and record manual vote totals. Supply occupied voting capacity and a sourced threshold; a recorded vote alone does not enact a bill. Reviewed reports can record consideration, introduction, passage or explicit enactment, with sourced legislative history and unknown details preserved.
 - **Treasury:** create an actual appropriation before entering stage-specific financial entries. Warnings require an explicit explanation to overrun an appropriation. Commitments, disbursements, and actuals are not summed together as one expense.
 - **Military Map:** named-location deployments work now. Interactive cartography and annotations are still planned. No coordinates were invented.
 - **Events & Time:** deterministic parsing recognizes `Order [exact unit name] to [exact location name]`, for example `Order 3rd Infantry Division to Dalmatia`. It creates a draft for approval. Unsupported or ambiguous prose remains unresolved. Time advancement changes only the approved clock and lists pending orders.

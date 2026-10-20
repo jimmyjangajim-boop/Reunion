@@ -6,12 +6,14 @@ export default function ReportCenter({
   date,
   units,
   locations,
+  bills,
   onChanged,
   openSource,
 }: {
   date: string;
   units: R[];
   locations: R[];
+  bills: R[];
   onChanged: () => Promise<void>;
   openSource: (id: string) => void;
 }) {
@@ -94,6 +96,15 @@ export default function ReportCenter({
         reason: data.reason,
         payload: {
           ...a.payload,
+          ...(a.kind === "legislation"
+            ? {
+                bill_id: data.bill_id || null,
+                bill_identifier: data.bill_identifier || null,
+                bill_title: data.bill_title || null,
+                bill_stage: data.bill_stage || null,
+                effective_date: data.effective_date || null,
+              }
+            : {}),
           date: data.date || null,
           unit_id: data.unit_id || null,
           location_id: data.location_id || null,
@@ -124,9 +135,15 @@ export default function ReportCenter({
     <div className="report-center">
       <div className="alert">
         Write report → Review changes → Approve → Update Reunion. Movement
-        orders and confirmed arrivals have structured support. Other statements
-        are offered as archive entries with unresolved administrative effects.
+        orders, confirmed arrivals, and explicit bill stages have structured
+        support. Other statements are offered as archive entries with unresolved
+        administrative effects.
       </div>
+      <p className="muted">
+        Use one statement per line. Supported bill wording: “Parliament passed
+        Bill IDENTIFIER: Title” or “President signed Bill IDENTIFIER into law.”
+        Review the extracted stage before approval.
+      </p>
       {error && (
         <div role="alert" className="alert error">
           {error}
@@ -235,11 +252,24 @@ export default function ReportCenter({
                     ? "Military movement order"
                     : a.kind === "movement_arrival"
                       ? "Confirmed movement arrival"
-                      : "Historical archive entry"}
+                      : a.kind === "legislation"
+                        ? "Parliamentary legislation"
+                        : "Historical archive entry"}
                 </h3>
                 <span className="badge">{a.status}</span>
               </div>
               <p>{a.payload.statement}</p>
+              {a.kind === "legislation" && (
+                <p>
+                  Bill{" "}
+                  {a.payload.bill_identifier ||
+                    bills.find((b) => b.id === a.payload.bill_id)?.identifier ||
+                    "Unknown"}{" "}
+                  · {a.payload.bill_stage || "Stage unknown"} ·{" "}
+                  {a.payload.bill_title || "Title not reported"}. Effective
+                  date: {a.payload.effective_date || "Unknown"}.
+                </p>
+              )}
               <p className="muted">
                 Original source line {a.line_start}. Date:{" "}
                 {a.payload.date || "Unknown"}.
@@ -282,7 +312,76 @@ export default function ReportCenter({
                           defaultValue={a.payload.date || ""}
                         />
                       </label>
-                      {a.kind !== "record_event" && (
+                      {a.kind === "legislation" && (
+                        <>
+                          <label>
+                            Existing bill
+                            <select
+                              name="bill_id"
+                              defaultValue={a.payload.bill_id || ""}
+                            >
+                              <option value="">
+                                Match reported identifier, or create if new
+                              </option>
+                              {bills.map((b) => (
+                                <option key={b.id} value={b.id}>
+                                  {b.identifier} ·{" "}
+                                  {b.title || "Title not reported"}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <label>
+                            Reported bill identifier
+                            <input
+                              name="bill_identifier"
+                              maxLength={200}
+                              defaultValue={a.payload.bill_identifier || ""}
+                            />
+                          </label>
+                          <label>
+                            Reported title, if known
+                            <input
+                              name="bill_title"
+                              maxLength={500}
+                              defaultValue={a.payload.bill_title || ""}
+                            />
+                          </label>
+                          <label>
+                            Reported stage
+                            <select
+                              name="bill_stage"
+                              defaultValue={a.payload.bill_stage || ""}
+                            >
+                              <option value="">Unknown</option>
+                              <option value="considering">
+                                Under consideration
+                              </option>
+                              <option value="introduced">Introduced</option>
+                              <option value="passed">
+                                Passed by Parliament
+                              </option>
+                              <option value="enacted">
+                                Enacted / signed into law
+                              </option>
+                            </select>
+                          </label>
+                          <label>
+                            Explicit effective date, for enacted laws only
+                            <input
+                              type="date"
+                              name="effective_date"
+                              defaultValue={a.payload.effective_date || ""}
+                            />
+                          </label>
+                          <small>
+                            Leave unreported details empty. Bill stages do not
+                            create votes, appropriations, or payments.
+                          </small>
+                        </>
+                      )}
+                      {(a.kind === "movement_order" ||
+                        a.kind === "movement_arrival") && (
                         <>
                           <label>
                             Formation

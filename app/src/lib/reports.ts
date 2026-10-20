@@ -6,6 +6,14 @@ import { createUserSource } from "./canon.ts";
 import { exactDate, dateValue } from "./dates.ts";
 import { recordMovement, completeMovement, treatyWarnings } from "./admin.ts";
 
+import {
+  billFields,
+  extractLegislation,
+  legislativeState,
+  validateLegislation,
+  recordLegislation,
+} from "./legislation.ts";
+
 const submitSchema = z.object({
   title: z.string().trim().min(1).max(200),
   body: z
@@ -19,6 +27,7 @@ const submitSchema = z.object({
 });
 const payloadSchema = z
   .object({
+    ...billFields,
     statement: z.string().min(1).max(500000),
     date: exactDate.nullable(),
     unit_id: z.string().nullable().default(null),
@@ -45,6 +54,10 @@ export function validateReportAction(db: DB, action: Row) {
   const p = payloadSchema.parse(JSON.parse(action.payload_json));
   const missing: string[] = [],
     warnings: string[] = [];
+  if (action.kind === "legislation") {
+    const result = validateLegislation(db, p);
+    return { ...result, payload: p };
+  }
   if (action.kind !== "record_event") {
     if (!p.date)
       missing.push(
@@ -196,14 +209,19 @@ export function submitReport(db: DB, input: unknown): Row {
         if (us.length === 1) unit = us[0].id;
         if (ls.length === 1) location = ls[0].id;
       }
-      const payload = {
+      const legislation = extractLegislation(statement);
+      if (legislation) kind = "legislation";
+      const payload = payloadSchema.parse({
         statement,
         date,
         unit_id: unit,
         location_id: location,
         movement_id: null,
         override_reason: "",
-      };
+        ...legislation,
+      });
+      if (legislation)
+        payload.expected_bill_state = legislativeState(db, payload);
       db.prepare(
         "INSERT INTO report_actions(id,report_id,ordinal,kind,payload_json,line_start,line_end) VALUES(?,?,?,?,?,?,?)",
       ).run(
@@ -251,6 +269,8 @@ export function editReportAction(db: DB, input: unknown): Row {
     );
     if (!before || before.status !== "pending")
       throw Error("Only a pending action can be corrected");
+    if (before.kind === "legislation")
+      data.payload.expected_bill_state = legislativeState(db, data.payload);
     db.prepare("UPDATE report_actions SET payload_json=? WHERE id=?").run(
       JSON.stringify(data.payload),
       before.id,
@@ -298,6 +318,20 @@ export function approveReport(db: DB, input: unknown): Row {
     )
       throw Error("Each action must have one decision");
     const before = reportDetail(db, report.id);
+    // Check all legislative baselines before any writes. Later stages in this
+    // same atomic approval may then validate against its own earlier changes.
+    for (const id of data.action_ids) {
+      const a = one(
+        db,
+        "SELECT * FROM report_actions WHERE id=? AND report_id=?",
+        id,
+        report.id,
+      );
+      if (a?.kind === "legislation" && a.status === "pending") {
+        const check = validateReportAction(db, a);
+        if (!check.ready) throw Error(check.missing.join(" "));
+      }
+    }
     for (const id of [...data.action_ids, ...data.reject_ids]) {
       const a = one(
         db,
@@ -313,10 +347,19 @@ export function approveReport(db: DB, input: unknown): Row {
         ).run(id);
         continue;
       }
+      if (a.kind === "legislation") {
+        const currentPayload = payloadSchema.parse(JSON.parse(a.payload_json));
+        currentPayload.expected_bill_state = legislativeState(
+          db,
+          currentPayload,
+        );
+        a.payload_json = JSON.stringify(currentPayload);
+      }
       const checked = validateReportAction(db, a);
       if (!checked.ready) throw Error(checked.missing.join(" "));
       const p = checked.payload;
       let target: string;
+      let timelineId = "report-event-" + a.id;
       if (a.kind === "movement_order")
         target = recordMovement(db, {
           ...p,
@@ -338,21 +381,44 @@ export function approveReport(db: DB, input: unknown): Row {
           explanation: data.reason,
           override_reason: p.override_reason,
         });
+      } else if (a.kind === "legislation") {
+        const result = recordLegislation(
+          db,
+          p,
+          {
+            source_id: report.source_id,
+            line_start: a.line_start,
+            line_end: a.line_end,
+            action_id: a.id,
+          },
+          data.reason,
+        );
+        target = result.id;
+        timelineId = "bill-event-" + result.event_id;
       } else target = a.id;
-      const timelineId = "report-event-" + a.id;
       db.prepare(
-        "INSERT INTO timeline(id,title,category,date_json,canon,operation,source_id,line_start,line_end,note) VALUES(?,?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO timeline(id,title,category,date_json,canon,operation,source_id,line_start,line_end,note) VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING",
       ).run(
         timelineId,
         p.statement,
-        a.kind === "record_event" ? "history" : "military",
+        a.kind === "record_event"
+          ? "history"
+          : a.kind === "legislation"
+            ? "political"
+            : "military",
         JSON.stringify(p.date ? dateValue("day", p.date) : dateValue()),
         "confirmed",
         a.kind === "movement_order"
           ? "ordered"
           : a.kind === "movement_arrival"
             ? "completed"
-            : "unknown",
+            : a.kind === "legislation"
+              ? p.bill_stage === "passed"
+                ? "approved"
+                : p.bill_stage === "enacted"
+                  ? "completed"
+                  : "proposal"
+              : "unknown",
         report.source_id,
         a.line_start,
         a.line_end,

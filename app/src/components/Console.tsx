@@ -1211,6 +1211,11 @@ export default function Console() {
                     </section>
                   ))}
                   <h2>Legislation</h2>
+                  <p className="muted">
+                    The register shows the furthest reported stage. Use the
+                    sourced history below for dates; undated reports do not
+                    establish a dated snapshot.
+                  </p>
                   <Table
                     headers={[
                       "Identifier",
@@ -1221,10 +1226,37 @@ export default function Console() {
                     ]}
                     rows={d.bills.map((b: R) => [
                       b.identifier,
-                      b.title,
+                      b.title || "Title not reported",
                       b.stage,
                       b.introduced_date,
                       b.effective_date,
+                    ])}
+                  />
+                  <h2>Reported legislative history</h2>
+                  <Table
+                    headers={[
+                      "Bill",
+                      "Stage",
+                      "Reported date",
+                      "Effective date",
+                      "Evidence",
+                    ]}
+                    rows={d.billEvents.map((e: R) => [
+                      e.identifier,
+                      e.stage,
+                      e.date || "Unknown",
+                      e.effective_date || "Unknown",
+                      <span key={e.id}>
+                        {e.evidence.map((s: R) => (
+                          <button
+                            key={s.report_action_id}
+                            className="text-button"
+                            onClick={() => openSource(s.source_id)}
+                          >
+                            Source lines {s.line_start}–{s.line_end}
+                          </button>
+                        ))}
+                      </span>,
                     ])}
                   />
                   <h2>Vote history</h2>
@@ -1657,6 +1689,7 @@ export default function Console() {
                   date={date}
                   units={d.units}
                   locations={d.locations}
+                  bills={d.bills}
                   onChanged={refresh}
                   openSource={openSource}
                 />

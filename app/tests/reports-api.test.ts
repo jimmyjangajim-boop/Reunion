@@ -86,3 +86,46 @@ it("persists a complete API report review and approval into shared national reco
     )?.value,
   ).toBe("No designated heir");
 });
+it("approves sourced bill passage through the API into Parliament without financial effects", async () => {
+  const db = storage.getDb();
+  const before = storage.one(db, "SELECT count(*) n FROM ledger")!.n;
+  const response = await route.POST(
+    request({
+      action: "submit",
+      title: "API bill fixture",
+      body: "Parliament passed Bill API-1: Public works",
+      date: "1992-10-04",
+    }),
+  );
+  expect(response.status).toBe(200);
+  const r = await response.json();
+  expect(r.actions[0].kind).toBe("legislation");
+  const approved = await route.POST(
+    request({
+      action: "approve",
+      report_id: r.id,
+      revision: r.revision,
+      action_ids: [r.actions[0].id],
+      reason: "Accept reported parliamentary passage",
+    }),
+  );
+  expect(approved.status).toBe(200);
+  expect(
+    storage.one(db, "SELECT * FROM bills WHERE identifier='API-1'"),
+  ).toMatchObject({
+    stage: "passed",
+    introduced_date: null,
+    effective_date: null,
+  });
+  expect(storage.one(db, "SELECT count(*) n FROM ledger")!.n).toBe(before);
+  const overview = await import("../src/app/api/rnas/route.ts");
+  const state = await (
+    await overview.GET(new NextRequest("http://localhost/api/rnas"))
+  ).json();
+  expect(
+    state.billEvents.some(
+      (e: Record<string, any>) =>
+        e.identifier === "API-1" && e.evidence[0].source_id === r.source_id,
+    ),
+  ).toBe(true);
+});
