@@ -1,0 +1,247 @@
+[
+  {
+    "branch": "Army",
+    "category": "Personnel and personnel support",
+    "amount_usd": 10000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Army",
+    "category": "Equipment purchase commitments",
+    "amount_usd": 4541000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Army",
+    "category": "Maintenance and spare parts",
+    "amount_usd": 3100000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Army",
+    "category": "Ammunition and ordnance reserves",
+    "amount_usd": 2700000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Army",
+    "category": "Training and exercises",
+    "amount_usd": 1800000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Army",
+    "category": "Fuel and logistics operations",
+    "amount_usd": 2000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Army",
+    "category": "Uncommitted branch reserve",
+    "amount_usd": 859000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Personnel and personnel support",
+    "amount_usd": 7000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Equipment purchase commitments",
+    "amount_usd": 3553000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Maintenance and spare parts",
+    "amount_usd": 4200000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Ammunition and ordnance reserves",
+    "amount_usd": 2500000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Training and exercises",
+    "amount_usd": 2000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Fuel and flying operations",
+    "amount_usd": 2500000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Airfield and base support",
+    "amount_usd": 1500000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Defense infrastructure funding top-up",
+    "amount_usd": 200000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Air Force",
+    "category": "Uncommitted branch reserve",
+    "amount_usd": 647000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Navy",
+    "category": "Personnel and personnel support",
+    "amount_usd": 2800000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Navy",
+    "category": "Fleet maintenance and spare parts",
+    "amount_usd": 2000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Navy",
+    "category": "Munitions and missile reloads",
+    "amount_usd": 1200000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Navy",
+    "category": "Fuel and operations",
+    "amount_usd": 1000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Navy",
+    "category": "Training and base support",
+    "amount_usd": 600000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Navy",
+    "category": "Uncommitted branch reserve",
+    "amount_usd": 300000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Marines",
+    "category": "Personnel and personnel support",
+    "amount_usd": 3800000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Marines",
+    "category": "Maintenance and spare parts",
+    "amount_usd": 1800000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Marines",
+    "category": "Munitions and stores",
+    "amount_usd": 1600000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Marines",
+    "category": "Fuel lift and logistics",
+    "amount_usd": 1300000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Marines",
+    "category": "Training and bases",
+    "amount_usd": 1000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Marines",
+    "category": "Uncommitted branch reserve",
+    "amount_usd": 500000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "Personnel and technical support",
+    "amount_usd": 1500000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "SAM and radar capital allocation",
+    "amount_usd": 5000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "Radar hardening and communications",
+    "amount_usd": 2500000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "Missile ammunition reserves",
+    "amount_usd": 2000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "Maintenance and spare parts",
+    "amount_usd": 2000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "Training and integration",
+    "amount_usd": 1000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  },
+  {
+    "branch": "Missile/radar",
+    "category": "Uncommitted branch reserve",
+    "amount_usd": 1000000000,
+    "status": "planned_allotment_not_actual_spending",
+    "authority": "delegated_budget_reconciliation"
+  }
+]

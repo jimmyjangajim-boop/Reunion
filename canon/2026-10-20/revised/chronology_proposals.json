@@ -1,0 +1,42 @@
+[
+  {
+    "id": "current",
+    "event": "Current national snapshot",
+    "proposed_date": "1992-10-18",
+    "status": "needs_user_date_confirmation",
+    "reason": "After all October 16 parliamentary reporting and the corrected October 6–11 Altis combat.",
+    "depends_on": null
+  },
+  {
+    "id": "dissolution",
+    "event": "Three-month parliamentary dissolution",
+    "proposed_date": "1992-10-17",
+    "status": "needs_user_date_confirmation",
+    "reason": "Moves the old October 3 suspension after the October 6/9 bills and October 16 parliamentary activity.",
+    "depends_on": "current"
+  },
+  {
+    "id": "altis_ceasefire",
+    "event": "Altis ceasefire and buffer zone",
+    "proposed_date": "1992-10-17",
+    "status": "needs_user_date_confirmation",
+    "reason": "Exactly one day before proposed current date, per Q21.",
+    "depends_on": "current"
+  },
+  {
+    "id": "final_election",
+    "event": "Final presidential election round",
+    "proposed_date": "1992-06-21",
+    "status": "needs_user_date_confirmation",
+    "reason": "Use the originally named June 21 election as the final round; supersede the incompatible July 5 runoff.",
+    "depends_on": "government_calendar_confirmation"
+  },
+  {
+    "id": "inauguration",
+    "event": "Donahue takes office; Rehn appointed",
+    "proposed_date": "1992-06-23",
+    "status": "needs_user_date_confirmation",
+    "reason": "Allows Rehn’s death two days after appointment and Curro’s succession on confirmed June 25.",
+    "depends_on": "final_election"
+  }
+]

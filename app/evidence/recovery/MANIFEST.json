@@ -1,0 +1,164 @@
+{
+  "archive_created_on": "2026-10-18",
+  "scope": "Reunion (fictional setting) primary project files and accessible Reunion Library variants; secondary prior chat recovery; no full Discord/chat transcript",
+  "authoritative_date": "1992-10-03",
+  "user_corrections_date": "2026-10-18",
+  "primary_sources": [
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Library_Variants/Master Economics V1(1).txt",
+      "original_filename": "Master Economics V1(1).txt",
+      "size_bytes": 4801,
+      "sha256": "24171e033eb96bfbcc1b5b9d6b71395660938fbfde1b8078f65cb2f6b5483dc6",
+      "lines": 288,
+      "project_or_library_file_id": "file_000000008e0471f58f72b013aeec713a",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Library_Variants/Master Political V2(1).txt",
+      "original_filename": "Master Political V2(1).txt",
+      "size_bytes": 7317,
+      "sha256": "dbfa7ed8148bd942d37249e50d4a0028be0269635a75224c281b4d1f117a34ae",
+      "lines": 382,
+      "project_or_library_file_id": "file_00000000f18071f5aa8fffdccc99ff26",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Library_Variants/Master Political V2(2).txt",
+      "original_filename": "Master Political V2(2).txt",
+      "size_bytes": 10917,
+      "sha256": "b50655147f72d8861dce58b773c1435ee894839c27403c490b44e16b34fc1597",
+      "lines": 332,
+      "project_or_library_file_id": "file_00000000aca471f785e0de8ff059d8b6",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Library_Variants/Master Political V2.txt",
+      "original_filename": "Master Political V2.txt",
+      "size_bytes": 15679,
+      "sha256": "604838a15b9f18691f9904c0c4a37ee19f718283bbdc72621c6a0d4ef294710f",
+      "lines": 181,
+      "project_or_library_file_id": "file_000000002edc722fb6deefa7f2e2fdb8",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/Curros-Plans.txt",
+      "original_filename": "Curros-Plans.txt",
+      "size_bytes": 3390,
+      "sha256": "2df310ff5b83ca642bccadeb1a05a62bd2b0a2811c764410fa00f55fab485e9a",
+      "lines": 135,
+      "project_or_library_file_id": "file_00000000b030722f916628f69d5cca88",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/Master Economics V1.txt",
+      "original_filename": "Master Economics V1.txt",
+      "size_bytes": 6998,
+      "sha256": "2ade75302a37301c9bcf3d3debd839ed5fa2880e908da081a28aae722cf09387",
+      "lines": 339,
+      "project_or_library_file_id": "file_00000000bcc071f5aef0b1cc8bd2ddf7",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/Master Political V2.txt",
+      "original_filename": "Master Political V2.txt",
+      "size_bytes": 6389,
+      "sha256": "9b8ffe6062588bd4fc345635f8a7be1d18deec79de45e0580193d1057363b8b9",
+      "lines": 291,
+      "project_or_library_file_id": "file_00000000dd40722fa6cc550706a15209",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/REUNION-MASTER-POLITICAL-—-BASELINE-v1.txt",
+      "original_filename": "REUNION-MASTER-POLITICAL-—-BASELINE-v1.txt",
+      "size_bytes": 42996,
+      "sha256": "e7cbbf5d99eca88dbbc221904dd004b763e3bbf878f288d58b76638c6fba5caa",
+      "lines": 1923,
+      "project_or_library_file_id": "file_00000000a60c722f890dc2195960e591",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/REUNION-MILITARY-ORDER-OF-BATTLE.txt",
+      "original_filename": "REUNION-MILITARY-ORDER-OF-BATTLE.txt",
+      "size_bytes": 4545,
+      "sha256": "9cb9e9d05861a081cc4fb11df84f89cff0dc095cc944230e19de0b02c9bb808f",
+      "lines": 268,
+      "project_or_library_file_id": "file_00000000ef1071f5a63ee4aff513557d",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/REUNION-—-ECONOMIC_LEDGER.txt.txt",
+      "original_filename": "REUNION-—-ECONOMIC_LEDGER.txt.txt",
+      "size_bytes": 2811,
+      "sha256": "dc697736712abfafaa836d5ba8c79f33acbe5fd1d6afb6711a80698ef46f15f1",
+      "lines": 180,
+      "project_or_library_file_id": "file_00000000862c722fb66a7eb75eb8c772",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/REUNION-—-POLITICAL_COMPOSITION.txt.txt",
+      "original_filename": "REUNION-—-POLITICAL_COMPOSITION.txt.txt",
+      "size_bytes": 1966,
+      "sha256": "2d9eb747616397dfac33029f42c805f669f62c7ac1bc119a5eee53f4ff6d1d85",
+      "lines": 92,
+      "project_or_library_file_id": "file_00000000a9ac71f593108668ef6b9b13",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/RP Map And Battles.txt",
+      "original_filename": "RP Map And Battles.txt",
+      "size_bytes": 61799,
+      "sha256": "258c2f2eede20fbd9e23862a3362cd00be6fe4f913b0046e5f084a2ecc4b5c9c",
+      "lines": 2685,
+      "project_or_library_file_id": "file_00000000204c82308cc199666cd48325",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/Reunion master political.txt",
+      "original_filename": "Reunion master political.txt",
+      "size_bytes": 5834,
+      "sha256": "5a9c400e4d98fcb3f116148d294a521bc3b047ec20b7daf3aa42ff9a674a5365",
+      "lines": 307,
+      "project_or_library_file_id": "file_000000000758722f8a9456b0eb4722e4",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    },
+    {
+      "relative_path": "01_ORIGINAL_SOURCES/Project_Attachments/The-Constitution-of-Reunion.txt",
+      "original_filename": "The-Constitution-of-Reunion.txt",
+      "size_bytes": 12085,
+      "sha256": "b0542e17420e0b96897330034851c1933bddc679b694d932208be44b6310b08e",
+      "lines": 605,
+      "project_or_library_file_id": "file_000000000ff871f7b1ce2fa2f005201f",
+      "kind": "unaltered_original",
+      "raw_file_not_modifed": true
+    }
+  ],
+  "counts": {
+    "primary_text_files": 14,
+    "raw_text_lines": 8008,
+    "indexed_chunks": 184,
+    "toc_entries": 717,
+    "concordance_matches": 1016
+  },
+  "excluded_unrelated_assets": [
+    "Eveis Operational Military Map.png, unrelated Carina War space setting"
+  ],
+  "limitations": [
+    "No automatic access to full ChatGPT project conversation history",
+    "Secondary chat recovery is not a verbatim transcript",
+    "No Discord history present",
+    "Some records are scenarios or suggestions rather than canon"
+  ]
+}

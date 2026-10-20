@@ -1,0 +1,2685 @@
+This works best as the **first full 1725 canon sheet**. The existing files establish the three-island core, Dalmatian foothold, Roman identity, old maritime empire, Venetian defeat in 1689, and a modern population around 19 to 21 million. Everything below builds backward from that. fileciteturn3file0
+
+:::writing{variant="document" id="48317" title="Kingdom of Reunion: January 1725 Campaign Baseline"}
+# KINGDOM OF REUNION
+## National Baseline
+### 1 January 1725
+
+**Formal style:** Kingdom of Reunion  
+**Court Latin:** *Regnum Reunionis*  
+**Ruling dynasty:** House Steiner  
+**Capital:** Reunion City  
+**Population:** approximately **2,820,000**  
+**Government:** Hereditary monarchy constrained by the Three Estates  
+**Religion:** Roman Catholic monarchy with protected Orthodox communities  
+**Currency:** Reunion Corona  
+**Current monarch:** **King Aurelios Leandros Steiner I**  
+**Heir:** **Prince Aurelios Leandros Steiner**, age 23  
+**Immediate succession:** He will become **King Aurelios Leandros Steiner II** very early in 1725.
+
+---
+
+# I. WHAT REUNION IS IN 1725
+
+Reunion is no longer the maritime power it was during the sixteenth and seventeenth centuries.
+
+But it is not a broken country either.
+
+It is a recovering second-rank Mediterranean kingdom with:
+
+- three heavily populated core islands,
+- a small but strategically valuable Dalmatian possession centered on Split,
+- a surviving merchant fleet,
+- significant mines,
+- a respectable but financially constrained army,
+- a badly reduced navy,
+- extensive commercial connections,
+- and one of the oldest continuously functioning monarchies in the region.
+
+Its main strategic advantages are still the same ones that define modern Reunion.
+
+Deep harbors.
+
+Mountainous interiors.
+
+A location between the Adriatic and eastern Mediterranean.
+
+A population large enough to defend itself.
+
+And a political culture built around the idea that foreign domination is unacceptable.
+
+The historical canon already establishes that Reunion was deeply Romanized, later rebelled against Byzantine rule, resisted Ottoman domination, became a major Mediterranean trading power, expanded into Dalmatia, nearly rivaled Venice commercially, and then lost its naval dominance after the 1689 Battle of Torrential Bay. fileciteturn3file0
+
+The state entering 1725 is the product of that defeat.
+
+For thirty-five years, nearly every important argument in Reunion has somehow returned to 1689.
+
+Should the navy be rebuilt?
+
+Did the Crown cause the disaster?
+
+Did the merchants abandon the Crown?
+
+Did the great aristocratic families refuse enough money?
+
+Did the admirals fight badly?
+
+Did Venice simply become stronger?
+
+Should Reunion ever again attempt to maintain an overseas empire?
+
+Nobody has settled those questions.
+
+---
+
+# II. THE POPULATION
+
+## National Population
+
+**Estimated population, January 1725: 2.82 million**
+
+This is intentionally conservative.
+
+Modern canon puts Reunion and retained territories at roughly **19 to 21 million people** by the early 1990s. fileciteturn2file2
+
+A population around 2.8 million in 1725 gives Reunion enough demographic weight to support its historical military and commercial importance without turning it into France or another great power.
+
+For scale, the Savoyard state had roughly 1.4 million inhabitants near the end of the seventeenth century, while the Italian territories of Venice were around 2 million by 1700. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Reunion is therefore substantial, but not enormous.
+
+## Population by Region
+
+| Region | Population | Share |
+|---|---:|---:|
+| Northern Island | 945,000 | 33.5% |
+| Central Island | 1,075,000 | 38.1% |
+| Southern Island | 700,000 | 24.8% |
+| Dalmatian possessions | 100,000 | 3.5% |
+| **Total** | **2,820,000** | **100%** |
+
+Around **80 to 82%** of the population is rural.
+
+That is deliberate. Venice's Italian territories were still only around 18% urbanized around 1700. ([dokumen.pub](https://dokumen.pub/the-lions-share-inequality-and-the-rise-of-the-fiscal-state-in-preindustrial-europe.html?utm_source=chatgpt.com))
+
+Reunion City and Torrental are unusually large, but most Reunionists live in villages, estates, mining settlements, fishing communities and small market towns.
+
+---
+
+# III. THE THREE CORE ISLANDS
+
+## Northern Island
+
+**Population: approximately 945,000**
+
+The north is Reunion's breadbasket.
+
+It is less urban than the other two islands and much less commercially glamorous.
+
+Its wealth comes from:
+
+- wheat,
+- barley,
+- oats,
+- cattle,
+- sheep,
+- wool,
+- vineyards,
+- fruit,
+- timber,
+- flax,
+- horses.
+
+Large landed estates are especially common here.
+
+The north also contains a huge number of small tenant farms.
+
+Most northern peasants are legally free, but many are bound by long leases, debts, grazing obligations and customary dues.
+
+Full serfdom is uncommon.
+
+Economic dependence is not.
+
+The northern nobility consequently has something the Crown badly needs:
+
+**food.**
+
+An angry northern landowner cannot overthrow the monarchy.
+
+But several dozen cooperating landowners can suddenly make provisioning Reunion City and the army much more expensive.
+
+### Lucania
+
+**Population: approximately 43,000**
+
+Lucania is the largest northern city.
+
+In 1725 it is nothing like the industrial city it will eventually become.
+
+It is primarily:
+
+- an agricultural market,
+- grain exchange,
+- religious center,
+- horse market,
+- textile center,
+- and administrative seat.
+
+Huge quantities of northern grain pass through Lucania before continuing south.
+
+Several roads converge here.
+
+This is why later Reunion governments keep investing in Lucania. Its importance existed centuries before industry arrived.
+
+---
+
+# IV. CENTRAL ISLAND
+
+**Population: approximately 1,075,000**
+
+The Central Island is the political and financial heart of the kingdom.
+
+It contains:
+
+- the royal court,
+- Reunion City,
+- the central treasury,
+- the largest naval facilities,
+- the major merchant banks,
+- the superior courts,
+- the mint,
+- the principal arsenals,
+- and the richest urban families.
+
+Agriculture exists, but the island cannot comfortably feed its cities alone.
+
+It depends heavily on northern food.
+
+## Reunion City
+
+**Population: approximately 122,000**
+
+This makes Reunion City one of the larger Mediterranean capitals without making it absurdly large.
+
+For comparison, Venice itself had roughly 138,000 inhabitants in 1696. ([anima-veneziana.narod.ru](https://anima-veneziana.narod.ru/Talbot/T2_Venice.pdf?utm_source=chatgpt.com))
+
+Reunion City is dense, expensive and politically dangerous.
+
+Districts include:
+
+- the Royal Quarter,
+- old Roman administrative districts,
+- harbor wards,
+- shipyards,
+- merchant quarters,
+- cathedral precincts,
+- artisans' districts,
+- poorer dockworker suburbs outside portions of the old walls.
+
+The Royal Palace overlooks the inner harbor but is not the largest structure in the city.
+
+The naval arsenal is.
+
+The city contains considerable wealth, but the Crown owns surprisingly little of it.
+
+Much of the valuable waterfront belongs to:
+
+- chartered guilds,
+- merchant companies,
+- noble families,
+- monasteries,
+- and municipal corporations.
+
+That matters politically.
+
+## Steinberg
+
+**Population: approximately 32,000**
+
+Steinberg sits astride one of the main routes linking the northern agricultural zone to Reunion City.
+
+Despite its Germanic-sounding name, it has been Reunionist for centuries. The name derives from an old mercenary and mining settlement that became permanent.
+
+In 1725 Steinberg is associated with:
+
+- arms workshops,
+- wagon manufacture,
+- ironworking,
+- cavalry remounts,
+- road traffic,
+- military depots.
+
+It will eventually become much more industrial.
+
+For now it is a fortified manufacturing and transport town.
+
+---
+
+# V. SOUTHERN ISLAND
+
+**Population: approximately 700,000**
+
+The Southern Island is the least agriculturally productive of the three major islands.
+
+It is also probably the richest per capita outside Reunion City.
+
+The reason is underground.
+
+## Mining
+
+The south contains extensive deposits of:
+
+- iron,
+- copper,
+- lead,
+- smaller silver deposits,
+- zinc-bearing ores,
+- alum,
+- industrial stone,
+- unusual mineral sands,
+- and several chemically strange ores nobody in 1725 understands particularly well.
+
+Some of those strange deposits will eventually become the foundation of Reunion's modern strategic mineral and rare-earth industry.
+
+In 1725, miners mostly complain that they contaminate otherwise useful ore.
+
+The south also has coal seams.
+
+They are known.
+
+They are occasionally exploited locally.
+
+They are not yet economically central.
+
+Mining is labor intensive and dangerous.
+
+Flooded shafts, explosions, collapses and toxic fumes are routine.
+
+The largest mines are technically Crown concessions, but actual operation is undertaken by private syndicates.
+
+That creates another major political problem:
+
+The Crown legally owns much of the mineral wealth.
+
+The merchants possess the capital required to extract it.
+
+Neither can operate efficiently without the other.
+
+## Torrental
+
+**Population: approximately 81,000**
+
+Torrental is the second-largest city.
+
+It is older than Reunion City as a major commercial port.
+
+It is less tied to the monarchy.
+
+It is wealthier than its population suggests.
+
+Torrental handles:
+
+- copper,
+- iron,
+- silver,
+- wine,
+- southern agricultural exports,
+- imported luxury goods,
+- Levantine trade,
+- ship repair,
+- insurance,
+- foreign merchant communities.
+
+Greek influence remains especially visible here.
+
+So does Italian influence.
+
+The city has one of the largest Orthodox communities in the kingdom.
+
+It also has a long tradition of municipal independence.
+
+The Crown has repeatedly had problems governing Torrental directly.
+
+That becomes important much later when the southern island develops a reputation for political radicalism.
+
+That tradition does not appear from nowhere in the twentieth century.
+
+It begins here.
+
+---
+
+# VI. DALMATIA
+
+## Population
+
+Approximately **100,000 people** live under direct Reunion rule in Dalmatia.
+
+The territory is deliberately small.
+
+Reunion does **not** control a huge chunk of the coast in 1725.
+
+Its possession consists principally of:
+
+- Split,
+- surrounding villages,
+- several coastal islands,
+- a narrow southward coastal corridor,
+- several fortified interior approaches,
+- and the immediate region around the great southern fortress.
+
+Venice controls territory beyond this.
+
+The Ottoman frontier lies inland.
+
+The result is an awkward Reunion finger of territory caught between much larger powers.
+
+## Split
+
+**Population: approximately 23,000**
+
+Split is Reunion's main Dalmatian city.
+
+It is:
+
+- a military port,
+- customs center,
+- fishing port,
+- timber market,
+- wine exporter,
+- trading point with the Balkan interior.
+
+Its population is mixed.
+
+Modern ethnic nationalism does not work neatly here.
+
+A person might simultaneously consider himself:
+
+- Dalmatian,
+- Croatian-speaking,
+- Catholic,
+- a subject of King Steiner,
+- and a citizen of Split.
+
+Another family might speak a Reunion Latin dialect at home while using Croatian commercially.
+
+Another might be Greek-speaking and Orthodox.
+
+The Crown cares much more about loyalty and taxes than linguistic purity.
+
+---
+
+# VII. FORT VALERIA
+
+The southern anchor of Reunion's Dalmatian position is **Fort Valeria**.
+
+This is one of the most famous fortifications in the kingdom.
+
+It sits where steep hills compress the usable coastal road into a narrow corridor.
+
+The fortress has:
+
+- a lower coastal battery,
+- an upper citadel,
+- covered magazines,
+- cisterns,
+- barracks,
+- artillery terraces,
+- and fortified roads connecting the two positions.
+
+A fleet can bypass it by sea.
+
+An army trying to move along the coast cannot easily bypass it with supply wagons and artillery.
+
+That distinction has saved Reunion repeatedly.
+
+Venice captured much of the southern Reunion Dalmatian territory during the Great Venetian War.
+
+It could not take Valeria.
+
+After several failed operations, Venice stopped trying and consolidated farther south.
+
+The Ottomans later approached the fortress from the interior during the 1714-1718 fighting.
+
+They also failed.
+
+Fort Valeria therefore has a national mythology similar to Reunion's mountain defenses.
+
+If Torrential Bay represents humiliation, Valeria represents survival.
+
+Its garrison in 1725 is roughly **1,150 regular soldiers and artillerymen**.
+
+In an emergency it can shelter several thousand additional militia.
+
+---
+
+# VIII. THE LOST GREEK POSSESSIONS
+
+At Reunion's seventeenth-century peak, the Crown controlled or administered roughly **nine important Greek island possessions and fortified trading stations**, alongside additional warehouses and leased commercial compounds.
+
+They were never a giant territorial empire.
+
+They were a chain of naval stations.
+
+They provided:
+
+- water,
+- food,
+- repairs,
+- customs income,
+- convoy protection,
+- intelligence,
+- and access to Levantine markets.
+
+By 1725 they are all gone.
+
+### What happened
+
+Venice took **six** during the Great Venetian War.
+
+The weakened Reunion Crown retained three isolated possessions afterward.
+
+The Ottoman Empire then progressively absorbed those remaining three.
+
+The last significant Reunion military establishment in Greek waters was evacuated during the Ottoman-Venetian conflicts before the Peace of Passarowitz.
+
+This fits the larger real 1718 situation. Venice itself lost the Morea and several Greek possessions to the Ottomans under Passarowitz, while Austria emerged much stronger in the Balkans. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Treaty_of_Passarowitz?utm_source=chatgpt.com))
+
+So by 1725 Reunion no longer possesses Greek islands.
+
+But there are still:
+
+- Reunion merchant families there,
+- former landowners demanding compensation,
+- refugees,
+- abandoned claims,
+- old naval maps,
+- and people at court who insist the islands were never legally surrendered.
+
+This issue can return later.
+
+---
+
+# IX. THE SIX VENETIAN WARS
+
+Reunion and Venice did not fight continuously.
+
+Most decades were peaceful.
+
+The problem was that their economic interests overlapped almost perfectly.
+
+Both wanted:
+
+- Adriatic customs revenue,
+- Dalmatian ports,
+- eastern Mediterranean commerce,
+- grain routes,
+- naval stations,
+- shipping contracts,
+- and control over smaller states.
+
+The result was six recognized wars.
+
+---
+
+## 1. The War of the Split Customs
+### 1477-1481
+
+**Cause:** Venice attempted to force Reunion merchants in Dalmatia to pay Venetian customs charges and disputed Reunion authority around Split.
+
+A Venetian patrol seized several Reunion merchant ships.
+
+Reunion retaliated by closing Split to Venetian merchants.
+
+Fighting followed.
+
+### Character
+
+Mostly:
+
+- convoy fighting,
+- coastal raids,
+- sieges of small forts,
+- privateering.
+
+Neither side wanted a massive war because Ottoman expansion was already becoming dangerous.
+
+### Result
+
+Limited Reunion victory.
+
+Reunion retained Split and its existing customs rights.
+
+Venetian merchants received reduced tariffs in return.
+
+### Estimated losses
+
+**Reunion military and sailors:** approximately 1,200 killed  
+**Venetian forces:** approximately 1,500 killed  
+**Civilian deaths:** approximately 700-1,000
+
+### Notable event
+
+A Venetian attempt to seize Split by surprise failed after local guild militias closed the inner gates before the main landing force arrived.
+
+This is traditionally considered the beginning of the Split civic militia.
+
+---
+
+# 2. The War of the Three Harbors
+### 1511-1515
+
+**Cause:** Competition over three fortified anchorages used by merchants traveling between the Adriatic and Aegean.
+
+Both countries claimed old agreements gave them exclusive rights.
+
+Neither agreement actually did.
+
+### Character
+
+The first war in which Reunion demonstrated that it had become a genuine naval competitor to Venice.
+
+Several major fleet actions occurred.
+
+### Result
+
+Inconclusive militarily.
+
+Reunion obtained two commercial concessions.
+
+Venice gained possession of one disputed station.
+
+Both governments declared victory.
+
+### Estimated losses
+
+**Reunion:** approximately 2,400 military deaths  
+**Venice:** approximately 2,800  
+**Civilians:** approximately 1,500
+
+### Notable event
+
+Reunion used armed merchantmen alongside royal ships in large numbers.
+
+That system later becomes normal.
+
+---
+
+# 3. The War of Saint Mark's Convoys
+### 1544-1548
+
+**Cause:** Venetian officials began excluding Reunion merchants from several protected convoy systems.
+
+Reunion responded by escorting foreign merchants through the same waters and charging lower fees.
+
+The commercial dispute became a shooting war after a Reunion escort fired on a Venetian inspection vessel.
+
+### Result
+
+Draw.
+
+No important territory changed hands.
+
+Both sides lost enormous amounts of merchant shipping.
+
+### Estimated losses
+
+**Reunion:** approximately 1,700 military and sailors  
+**Venice:** approximately 2,000  
+**Civilian merchant sailors:** at least 1,200
+
+### Notable event
+
+Insurance prices became so high that merchants in Torrental temporarily refused to dispatch ships east without naval escort.
+
+This war is one reason the Crown begins maintaining a permanent escort squadron.
+
+---
+
+# 4. The Dalmatian League War
+### 1585-1591
+
+**Cause:** Several Dalmatian nobles and towns resisted Venetian attempts to centralize taxation.
+
+Reunion financed some of them.
+
+Venice retaliated by financing anti-Reunion factions around Split.
+
+What began as proxy politics became open war.
+
+### Character
+
+The largest land campaign of the rivalry before the seventeenth century.
+
+Fighting included:
+
+- sieges,
+- mountain warfare,
+- naval actions,
+- mercenary forces,
+- local revolts.
+
+### Result
+
+Strategic Reunion success, but expensive.
+
+Reunion secured Split more firmly and gained several coastal districts.
+
+Venice retained its major regional possessions.
+
+### Estimated losses
+
+**Reunion:** approximately 4,300 military deaths  
+**Venice and allied forces:** approximately 4,900  
+**Civilians:** 3,000-4,000
+
+### Notable event
+
+Reunion commanders concluded that the southern route into their Dalmatian possession was nearly impossible to defend with field armies alone.
+
+The first works that eventually became **Fort Valeria** were begun after the war.
+
+---
+
+# 5. The War of the Levant Charters
+### 1638-1644
+
+**Cause:** Competition over trading privileges in Ottoman and Greek ports.
+
+Venice attempted to exclude Reunion merchant companies from several profitable routes.
+
+Reunion began issuing its own commercial protection charters.
+
+Both sides accused the other of piracy.
+
+Both were basically correct.
+
+### Character
+
+Mostly naval.
+
+Reunion initially performed well.
+
+By the later years, the cost of keeping large squadrons at sea began hurting the treasury.
+
+### Result
+
+Minor Venetian strategic victory.
+
+Reunion retained most possessions but accepted restrictions on several commercial arrangements.
+
+### Estimated losses
+
+**Reunion:** approximately 3,700  
+**Venice:** approximately 4,000  
+**Civilians:** approximately 2,500
+
+### Notable consequence
+
+The war normalized enormous Crown borrowing from merchant houses.
+
+That seems harmless while Reunion is winning.
+
+It becomes disastrous forty years later.
+
+---
+
+# 6. The Great Venetian War
+## Also called the War of Torrential Bay
+### 1686-1692
+
+This is the war everyone remembers.
+
+King **Aurelios Leandros Steiner I** was already on the throne.
+
+### Original cause
+
+Ironically, Reunion and Venice had briefly cooperated against the Ottoman Empire.
+
+Joint operations created disputes over who would control captured Greek islands and ports.
+
+Venice claimed several positions Reunion believed had been promised to the Crown.
+
+Reunion troops refused to evacuate.
+
+A Venetian squadron blockaded one of the disputed islands.
+
+Reunion seized Venetian merchant ships in retaliation.
+
+The alliance collapsed.
+
+### 1686-1688
+
+Reunion initially performed better than expected.
+
+Several Venetian convoys were captured.
+
+Reunion reinforced its Greek possessions.
+
+The Crown believed Venice could be forced into negotiation.
+
+Instead, Venice expanded the war.
+
+### Financial breakdown
+
+The Crown began borrowing at extraordinary rates.
+
+New ships were constructed too quickly.
+
+Merchant vessels were converted into warships.
+
+Crews became increasingly inexperienced.
+
+Maintenance suffered.
+
+Officers warned the King that the battle fleet was being expanded faster than the treasury and shipyards could support.
+
+The warnings were not enough.
+
+---
+
+# THE BATTLE OF TORRENTIAL BAY
+## 1689
+
+The decisive disaster.
+
+The Reunion fleet attempted to prevent a larger Venetian force from threatening Torrental and cutting access between the southern and central islands.
+
+Reunion committed almost everything available.
+
+Weather deteriorated.
+
+The line became disordered.
+
+Venetian commanders exploited the gaps.
+
+Several Reunion ships were isolated.
+
+One magazine explosion spread confusion through the center of the fleet.
+
+By nightfall, the battle was over.
+
+### Reunion losses at the battle
+
+- **9 major warships destroyed, captured or run aground**
+- **4 additional heavy ships badly damaged**
+- several smaller vessels lost
+- approximately **3,600 sailors and marines killed**
+- approximately **1,700 captured**
+- large numbers wounded
+
+Venice also suffered serious damage, but nowhere near enough to change the result.
+
+The Royal Navy effectively ceased to exist as an offensive battle fleet.
+
+This directly expands the canonical fact that Torrential Bay destroyed Reunion's maritime dominance. fileciteturn2file1
+
+---
+
+# 1690-1692
+
+Venice exploited the victory.
+
+Most Reunion Greek possessions were lost.
+
+Venetian forces seized several southern Dalmatian territories.
+
+But the offensive stopped at **Fort Valeria**.
+
+Multiple attempts to reduce the fortress failed.
+
+Venice could take coastal territory around it.
+
+It could not cheaply force the main road.
+
+By 1692, both kingdoms were exhausted.
+
+### Final result
+
+Clear Venetian victory.
+
+Reunion lost:
+
+- six Greek island possessions,
+- several smaller maritime stations,
+- southern Dalmatian territory,
+- much of its prestige,
+- most of its battle fleet.
+
+Reunion retained:
+
+- all three core islands,
+- Split,
+- Fort Valeria,
+- the northern portion of its Dalmatian possession,
+- commercial independence.
+
+### Total estimated war losses
+
+**Reunion military and naval dead:** approximately 9,500  
+**Venice and allied forces:** approximately 8,000  
+**Reunion civilians:** approximately 8,000-11,000  
+**Other civilians throughout contested territories:** several thousand
+
+The economic damage was considerably worse.
+
+---
+
+# X. KING AURELIOS LEANDROS STEINER I
+
+## Age
+
+**72 years old in January 1725**
+
+Born 1652.
+
+Crowned in 1671 at nineteen.
+
+Reigned for more than fifty years.
+
+He is one of the longest-reigning monarchs in Reunion history.
+
+## Reputation
+
+His reputation is deeply divided.
+
+He ruled during Reunion's last great period of maritime ambition.
+
+He also ruled during its greatest naval defeat.
+
+Older royalists remember:
+
+- his confidence,
+- his personal involvement in naval affairs,
+- his refusal to abandon Dalmatia,
+- his continued resistance after Torrential Bay.
+
+His critics remember:
+
+- reckless borrowing,
+- expensive warship construction,
+- refusal to negotiate early,
+- the loss of Greek territories,
+- the humiliation of 1689,
+- and the political concessions made afterward.
+
+He is neither universally hated nor universally loved.
+
+Most people see him as a relic of another era.
+
+## Personal political position in 1725
+
+Weak.
+
+Not because people reject monarchy.
+
+Because the Crown owes nearly everyone money.
+
+His health is poor.
+
+He rarely rides.
+
+Long meetings exhaust him.
+
+The royal household increasingly conducts routine government without his direct presence.
+
+Everyone knows succession is close.
+
+Nobody says it publicly.
+
+---
+
+# XI. THE HEIR
+
+## Prince Aurelios Leandros Steiner
+
+**Age: 23**
+
+When his father dies he becomes:
+
+# King Aurelios Leandros Steiner II
+
+He was born long after Torrential Bay.
+
+That matters enormously.
+
+His father belongs to the generation that remembers Reunion as a near-peer naval rival to Venice.
+
+Aurelios II has never known that country.
+
+He grew up in the recovering kingdom.
+
+He was educated in:
+
+- Reunion City,
+- an Austrian court environment,
+- military mathematics,
+- languages,
+- law,
+- accounting,
+- fortification theory,
+- and history.
+
+He has spent time around Italian and Imperial nobility.
+
+He speaks the court Reunion language, Latin, Italian and functional German.
+
+He understands some Greek.
+
+He has not commanded an army in a major war.
+
+He has not governed independently.
+
+And he inherits a Crown whose legal powers are substantially weaker than those his father inherited in 1671.
+
+He will therefore become king with enormous symbolic authority but very little spare money.
+
+His first real question will be simple:
+
+**Does Aurelios II accept the post-1689 settlement, or spend his reign trying to reverse it?**
+
+---
+
+# XII. THE CROWN'S FINANCIAL COLLAPSE
+
+Before the Great Venetian War, Crown debt was approximately:
+
+**4.4 million Corona**
+
+At the peak of the postwar financial crisis:
+
+**19.5 million Corona**
+
+By January 1725 it has been reduced to:
+
+# 16.8 million Corona total Crown exposure
+
+This includes public debt and debts technically attached to the royal household.
+
+Reunion is recovering.
+
+It is not solvent in the modern sense.
+
+---
+
+# XIII. REUNION'S CURRENCY
+
+## The Corona Reuniana
+
+Usually simply called the **Corona** or **Crown**.
+
+Symbol for campaign purposes:
+
+**₡R**
+
+### Subdivision
+
+**1 Corona = 20 soldi**
+
+**1 soldo = 12 denari**
+
+Therefore:
+
+**1 Corona = 240 denari**
+
+The system deliberately retains Roman and Italian linguistic influence.
+
+## Physical standard
+
+The principal Corona is a large silver coin.
+
+Its accounting value is approximately comparable to a Spanish piece of eight.
+
+For easy campaign conversion:
+
+### Rough 1725 values
+
+**1 Corona ≈ 4 shillings 6 pence sterling**
+
+**4.4 Corona ≈ £1 sterling**
+
+A Venetian gold zecchino would generally trade for around **1.6 to 1.8 Corona**, depending on exchange conditions.
+
+This comparison is reasonable for the period. A Spanish piece of eight circulated around 4s 6d sterling, while Venetian and other currencies were routinely compared through silver and gold content rather than modern fixed exchange rates. ([universitypublishingonline.org](https://universitypublishingonline.org/cambridge/benjonson/k/essays/jonsons_money_essay/?utm_source=chatgpt.com))
+
+Do not treat exchange rates as perfectly fixed.
+
+Merchants constantly argue over:
+
+- coin quality,
+- clipping,
+- silver content,
+- foreign exchange,
+- wartime risk.
+
+### Typical wages
+
+Very roughly:
+
+**Rural laborer:** 3-4 soldi per workday plus food
+
+**Urban laborer:** 5-7 soldi
+
+**Skilled shipwright or specialist:** 8-12 soldi
+
+**Regular infantry private:** approximately 4 Corona monthly plus rations and clothing
+
+**Experienced naval specialist:** 5-7 Corona monthly
+
+The army is regularly late paying these wages.
+
+---
+
+# XIV. THE NATIONAL BUDGET
+
+## Ordinary annual Crown revenue
+
+Approximately:
+
+# 2.45 million Corona
+
+Equivalent to roughly **£550,000 sterling** using the campaign conversion.
+
+This puts Reunion in a believable range for a second-rank eighteenth-century state.
+
+By comparison, Savoy maintained an army of roughly 8,500 troops in 1700 and about 19,000 by 1710 during wartime expansion. ([assets.cambridge.org](https://assets.cambridge.org/97805215/51465/sample/9780521551465wsc00.pdf?utm_source=chatgpt.com))
+
+## Revenue sources
+
+| Source | Annual Revenue |
+|---|---:|
+| Customs and import duties | ₡R 710,000 |
+| Crown mines and mineral royalties | ₡R 440,000 |
+| Land taxation authorized by Estates | ₡R 405,000 |
+| Salt and selected monopolies | ₡R 295,000 |
+| Port and tonnage dues | ₡R 215,000 |
+| Royal domains and rents | ₡R 155,000 |
+| Dalmatian customs and dues | ₡R 90,000 |
+| Fees, courts, licenses, miscellaneous | ₡R 140,000 |
+| **Total** | **₡R 2,450,000** |
+
+## Expected expenditure
+
+Approximately:
+
+**₡R 2.82-2.90 million**
+
+A normal year therefore still produces a deficit of roughly:
+
+**₡R 370,000-450,000**
+
+unless the Crown delays payments.
+
+Which it often does.
+
+---
+
+# XV. WHERE THE MONEY GOES
+
+| Expenditure | Approx. Annual Cost |
+|---|---:|
+| Debt interest and scheduled repayment | ₡R 825,000 |
+| Army | ₡R 650,000 |
+| Navy and naval arsenal | ₡R 510,000 |
+| Royal administration and courts | ₡R 265,000 |
+| Fortresses | ₡R 175,000 |
+| Court and royal household | ₡R 145,000 |
+| Diplomacy and foreign missions | ₡R 90,000 |
+| Roads, harbors and emergency repairs | ₡R 75,000 |
+| Church grants and charities | ₡R 55,000 |
+| Miscellaneous | ₡R 70,000 |
+
+The single largest expenditure is now **debt**.
+
+That is the political heart of 1725 Reunion.
+
+---
+
+# XVI. WHO OWNS THE CROWN
+
+Not literally.
+
+But close.
+
+## Recognized Crown and state obligations
+
+### Estate of Cities and Commerce
+
+**Debt held: approximately ₡R 6.0 million**
+
+This is the largest creditor group.
+
+Most comes from:
+
+- wartime bond issues,
+- emergency convoy loans,
+- shipbuilding loans,
+- direct merchant advances,
+- unpaid requisition certificates.
+
+Interest generally ranges around **5 to 6%**.
+
+Large portions are secured against customs revenue.
+
+If the Crown defaults here, the merchant system freezes.
+
+---
+
+# XVII. THE ESTATE OF HOUSES
+
+The landed nobility.
+
+## Debt held
+
+Approximately:
+
+# ₡R 2.6 million
+
+Mostly from:
+
+- wartime loans,
+- requisitioned horses,
+- grain supplied to armies,
+- estate contributions,
+- compensation for devastated land.
+
+Interest is somewhat lower than merchant loans.
+
+Usually around 4 to 5%.
+
+Why?
+
+Because nobles often received political privileges instead of higher interest.
+
+That trade is one major reason the Crown is weaker now.
+
+---
+
+# XVIII. THE CLERICAL ESTATE
+
+## Debt held
+
+Approximately:
+
+# ₡R 1.2 million
+
+The Church financed the Crown through:
+
+- cathedral treasuries,
+- monastery loans,
+- voluntary patriotic subscriptions,
+- temporary surrender of church silver,
+- purchasing Crown bonds.
+
+Interest averages around 3 to 4%.
+
+The Church is a patient creditor.
+
+That does not mean it is a weak creditor.
+
+A sermon criticizing royal dishonesty can be politically worse than a merchant demanding payment.
+
+---
+
+# XIX. FOREIGN AND OTHER CREDITORS
+
+### Austrian and HRE banking interests
+
+Approximately:
+
+**₡R 2.1 million**
+
+Much of this is privately held rather than direct Austrian government debt.
+
+### Italian and Ragusan financiers
+
+Approximately:
+
+**₡R 1.5 million**
+
+Often at the highest interest rates.
+
+### Military suppliers, officers and veterans
+
+Approximately:
+
+**₡R 1.3 million**
+
+These include unpaid:
+
+- wages,
+- pensions,
+- prize money,
+- supply contracts.
+
+These debts are politically dangerous.
+
+### Royal household debt
+
+Approximately:
+
+**₡R 2.1 million**
+
+Technically separate from the state's funded debt.
+
+In reality, nobody believes the monarchy can simply default on it without damaging state credit.
+
+### Total exposure
+
+# ₡R 16.8 million
+
+Debt is therefore almost **seven times ordinary annual Crown revenue**.
+
+The monarchy survives because creditors believe repayment is better than destroying the government that owes them money.
+
+---
+
+# XX. THE COMPACT OF THE THREE ESTATES
+
+The political system of 1725 was created by the financial disaster after Torrential Bay.
+
+In **1694**, King Aurelios I accepted the **Compact of the Three Estates**.
+
+It was supposed to be temporary.
+
+It wasn't.
+
+## The Three Estates
+
+Only three.
+
+This keeps gameplay manageable.
+
+### 1. Estate of Houses
+
+Represents:
+
+- titled nobility,
+- major landowners,
+- hereditary military families.
+
+### 2. Estate of Cities and Commerce
+
+Represents:
+
+- chartered cities,
+- guilds,
+- merchant companies,
+- major commercial interests.
+
+### 3. Clerical Estate
+
+Represents:
+
+- bishops,
+- cathedral chapters,
+- major monasteries,
+- senior Church institutions.
+
+There is no peasant estate.
+
+There is no universal vote.
+
+Most Reunionists have no direct say in national government.
+
+---
+
+# XXI. THE GENERAL ESTATES
+
+When assembled together, the three are called the **General Estates of Reunion**.
+
+There are roughly 100 regular delegates.
+
+### Estate of Houses
+
+42 voting delegates.
+
+### Cities and Commerce
+
+36.
+
+### Clergy
+
+22.
+
+Delegates are not elected nationally.
+
+They are selected through:
+
+- noble families,
+- municipal councils,
+- guild corporations,
+- cathedral chapters,
+- monasteries.
+
+---
+
+# XXII. WHAT THE KING CAN STILL DO
+
+The monarchy is weak compared with its seventeenth-century position.
+
+It is not ceremonial.
+
+The King still has extensive authority.
+
+He can:
+
+- appoint ministers,
+- dismiss ministers,
+- appoint provincial governors,
+- appoint senior military officers,
+- command the army,
+- command the navy,
+- conduct diplomacy,
+- negotiate treaties,
+- declare war,
+- issue administrative ordinances,
+- appoint many judges,
+- grant titles,
+- grant pardons,
+- regulate Crown lands,
+- grant mining concessions,
+- issue colonial and trade charters,
+- mint currency.
+
+The Crown also controls the permanent military establishment.
+
+The Estates do not appoint generals.
+
+---
+
+# XXIII. WHAT THE KING CAN NO LONGER DO EASILY
+
+The King cannot independently:
+
+- create a new general national tax,
+- increase the regular land tax,
+- issue major new state debt,
+- permanently seize municipal property,
+- revoke a major city charter without judicial proceedings,
+- impose indefinite forced loans,
+- repudiate debts recognized under the 1694 Compact,
+- permanently quarter soldiers in chartered cities without compensation,
+- dispose of large Crown domains without fiscal review.
+
+The Crown can declare war.
+
+But without Estate funding it cannot sustain one.
+
+That distinction is extremely important.
+
+---
+
+# XXIV. EMERGENCY POWER
+
+The King can impose a temporary emergency defense levy.
+
+It lasts **60 days**.
+
+After that, the Estates must approve continuation.
+
+This exists specifically so Reunion cannot be paralyzed during an invasion.
+
+The Crown may also mobilize the regular forces immediately.
+
+Local militias can be summoned under older feudal and municipal laws.
+
+---
+
+# XXV. THE FIVE POLITICAL FACTIONS THAT ACTUALLY MATTER
+
+These are not modern parties.
+
+Membership overlaps.
+
+A noble can support the merchants on one issue and the Crown on another.
+
+---
+
+## 1. The Restoration Court
+
+### Position
+
+Restore some of the powers surrendered after 1694.
+
+Support:
+
+- stronger monarchy,
+- rebuilt navy,
+- central government,
+- stronger royal tax collection.
+
+### Debt held
+
+Very little directly.
+
+That is actually one of its weaknesses.
+
+The strongest Crown loyalists are not the people financing the state.
+
+### Access
+
+They have influence over:
+
+- royal appointments,
+- senior officers,
+- palace administration,
+- portions of the regular army,
+- naval officers,
+- Crown courts.
+
+They do **not** possess an independent private army.
+
+---
+
+# XXVI. THE MERCHANT CREDIT BLOC
+
+The most immediately powerful civilian faction.
+
+### Debt held
+
+Approximately **₡R 4.2 million** of the Crown's merchant obligations are controlled by families and companies associated with this bloc.
+
+### Political objective
+
+They want:
+
+- stable currency,
+- low tariffs,
+- repayment,
+- peace,
+- protection of merchant shipping,
+- limited Crown interference.
+
+They will support naval spending if it protects commerce.
+
+They will oppose naval spending if it looks like Aurelios I trying to rebuild the old empire.
+
+### Access
+
+Through municipal charters and merchant organizations they can influence approximately:
+
+**4,500-5,000 city militia**
+
+They also have access to:
+
+- warehouses,
+- private docks,
+- credit,
+- shipyards,
+- merchant intelligence,
+- printing presses,
+- foreign merchants.
+
+Approximately **12 larger merchant ships** associated with the bloc could be armed for convoy duty.
+
+These are not ships of the line.
+
+---
+
+# XXVII. THE NORTHERN LANDED COMPACT
+
+The major agricultural aristocracy.
+
+### Debt held
+
+Approximately:
+
+**₡R 1.5 million**
+
+### Political objective
+
+- protect land privileges,
+- prevent new land taxes,
+- preserve local courts,
+- protect grain prices,
+- keep the army from permanently quartering in rural districts.
+
+They are not necessarily anti-King.
+
+Many consider themselves the monarchy's traditional backbone.
+
+They simply do not want to pay for another naval adventure.
+
+### Access
+
+In a serious crisis they can assemble:
+
+- approximately **700-900 mounted retainers**
+- approximately **5,000-6,000 rural militia and estate levies**
+
+Quality varies enormously.
+
+They also influence:
+
+- horses,
+- grain stores,
+- wagons,
+- rural roads.
+
+Their real weapon is logistics.
+
+---
+
+# XXVIII. THE SOUTHERN METALS INTEREST
+
+A coalition of mine owners, merchants, concession holders and some southern nobles.
+
+### Crown obligations controlled
+
+Approximately:
+
+**₡R 1.0-1.2 million**
+
+across commercial bonds, supplier certificates and unpaid metal contracts.
+
+### Political objective
+
+They want:
+
+- better roads,
+- harbor investment,
+- lower mineral export taxes,
+- more predictable Crown concessions,
+- protection from foreign competition.
+
+### Access
+
+They directly employ thousands of miners.
+
+Around **1,000-1,300 armed mine guards, convoy guards and estate retainers** could theoretically be organized during disorder.
+
+They also influence:
+
+- iron production,
+- copper supply,
+- powder ingredients,
+- wagons,
+- draft animals.
+
+If they stop delivering iron, the arsenal notices quickly.
+
+---
+
+# XXIX. THE CLERICAL CONCORD
+
+The politically active senior Catholic establishment.
+
+### Debt controlled
+
+Approximately **₡R 800,000** of the Church's total Crown obligations.
+
+### Political objective
+
+- preserve Church rights,
+- protect Catholic primacy,
+- avoid another devastating Christian war,
+- resist unrestricted royal confiscation,
+- resist excessive merchant influence.
+
+### Armed capacity
+
+Minimal.
+
+Perhaps **500-700 guards and armed lay brotherhood members nationally** under normal conditions.
+
+Their strength is social.
+
+They control or influence:
+
+- schools,
+- hospitals,
+- poor relief,
+- parish communication,
+- marriage records,
+- local charity,
+- sermons.
+
+The Crown cannot easily govern rural Reunion while openly fighting the Church.
+
+---
+
+# XXX. THE ARMY OF REUNION
+
+The army is deliberately modest.
+
+Reunion cannot support a massive permanent army while servicing its debt and maintaining a navy.
+
+## Regular establishment
+
+Approximately:
+
+# 12,800 officers and men
+
+This is a believable size.
+
+Savoy, with a smaller population, maintained around 8,500 troops in 1700 and expanded toward 19,000 during major war. ([assets.cambridge.org](https://assets.cambridge.org/97805215/51465/sample/9780521551465wsc00.pdf?utm_source=chatgpt.com))
+
+Reunion's regular military is therefore meaningful without being oversized.
+
+## Composition
+
+### Royal Foot Guards
+
+**1,150**
+
+Best-paid infantry.
+
+Protect:
+
+- palace,
+- treasury,
+- capital,
+- royal family.
+
+### Six Line Infantry Regiments
+
+Approximately:
+
+**5,400 total**
+
+Roughly 900 each at paper strength.
+
+Actual field strength is usually lower.
+
+### Two Mountain Regiments
+
+**1,600**
+
+Used for:
+
+- internal mountain routes,
+- reconnaissance,
+- anti-raider operations,
+- difficult terrain.
+
+### Dalmatian Frontier Regiment
+
+**1,050**
+
+Stationed mainly around Split and Fort Valeria.
+
+### Cavalry and Dragoons
+
+**900**
+
+Reunion lacks the open terrain for a huge cavalry establishment.
+
+Most cavalry is used for:
+
+- reconnaissance,
+- dispatch,
+- policing,
+- pursuit.
+
+### Artillery and Engineers
+
+**750**
+
+One of the stronger professional branches.
+
+Torrential Bay convinced the government that fortifications are cheaper than fleets.
+
+### Permanent fortress detachments and specialists
+
+Approximately:
+
+**1,950**, partially overlapping with the above establishment depending on accounting.
+
+Actual available field army at immediate readiness is closer to **9,000-10,000**.
+
+---
+
+# XXXI. MILITIA
+
+The Crown can theoretically call tens of thousands.
+
+Theory is generous.
+
+## Paper militia strength
+
+Approximately:
+
+**37,000**
+
+## Realistically useful within one month
+
+Approximately:
+
+**20,000-24,000**
+
+Of those, perhaps half could perform reasonably in:
+
+- fortress defense,
+- town defense,
+- convoy security,
+- static coastal duties.
+
+Far fewer are useful in open battle.
+
+Militias bring:
+
+- personal muskets,
+- older weapons,
+- guild equipment,
+- estate equipment.
+
+Standardization is poor.
+
+---
+
+# XXXII. ARMY EQUIPMENT
+
+Reunion's infantry is in a transitional period.
+
+Flintlock muskets are increasingly standard in regular units.
+
+Militia still contains older weapons.
+
+Regular infantry generally carries:
+
+- flintlock musket,
+- bayonet,
+- cartridge box,
+- short sword for some ranks.
+
+The army has approximately:
+
+**80-95 mobile field artillery pieces**
+
+of various sizes that could theoretically accompany an army.
+
+Only around **55-65** are kept in immediate useful condition during peacetime.
+
+There are many more guns mounted permanently in:
+
+- coastal forts,
+- city walls,
+- Fort Valeria,
+- naval installations.
+
+---
+
+# XXXIII. THE NAVY
+
+This is where the post-1689 collapse is most obvious.
+
+In 1725 Reunion still calls itself a naval kingdom.
+
+Its actual battle fleet is small.
+
+## Heavy ships
+
+### Ships of the line
+
+**3**
+
+Only **2** are considered fully ready for extended operations.
+
+Armament ranges roughly from 56 to 64 guns.
+
+They are respectable ships.
+
+They are not enough to contest Venetian naval superiority.
+
+For comparison, Venice deployed **26 sailing ships of the line** in a major 1716 fleet action against the Ottomans. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Action_of_8_July_1716?utm_source=chatgpt.com))
+
+That is the difference between pre-1689 ambition and 1725 reality.
+
+### Large frigates and cruising warships
+
+**5**
+
+Usually 30-42 guns.
+
+These are actually the most useful ships Reunion owns.
+
+They:
+
+- escort merchants,
+- hunt pirates,
+- patrol Dalmatia,
+- carry diplomats,
+- protect trade.
+
+### Sloops and smaller sailing warships
+
+**6**
+
+### Galleys, xebec-like craft and coastal fighting ships
+
+**7**
+
+Especially useful in:
+
+- Dalmatian waters,
+- calm conditions,
+- anti-piracy operations,
+- coastal reconnaissance.
+
+### Fireships, dispatch craft and armed tenders
+
+Approximately **5-7**
+
+---
+
+# XXXIV. NAVAL PERSONNEL
+
+Approximately:
+
+# 6,200-6,800 men
+
+including:
+
+- sailors,
+- marines,
+- arsenal personnel,
+- gunners,
+- shipwrights directly on naval payroll.
+
+Reunion could impress or hire several thousand additional merchant sailors during war.
+
+Doing so would damage commercial shipping.
+
+---
+
+# XXXV. MERCHANT MARINE
+
+This is much healthier than the Royal Navy.
+
+Reunion has hundreds of commercial vessels of varying size.
+
+Roughly **18 major merchantmen** are specifically registered as suitable for wartime conversion or auxiliary service.
+
+Perhaps another **40-50** could perform transport or supply work.
+
+The merchant fleet is one reason Reunion remains strategically relevant.
+
+It also creates permanent tension.
+
+The Admiralty sees merchant sailors as a reserve.
+
+Merchants see them as employees who make money.
+
+---
+
+# XXXVI. THE ECONOMY
+
+Reunion is recovering from war but is not economically stagnant.
+
+## Major sectors
+
+### Agriculture
+
+Approximately 45-50% of total economic activity.
+
+North dominates.
+
+### Trade and shipping
+
+Approximately 18-20%.
+
+### Mining and metalworking
+
+Approximately 12-15%.
+
+Concentrated strongly in the south.
+
+### Manufacturing and crafts
+
+Approximately 10-12%.
+
+Includes:
+
+- textiles,
+- rope,
+- sails,
+- iron goods,
+- weapons,
+- ceramics,
+- glass,
+- shipbuilding.
+
+### Government, military, Church and services
+
+Remainder.
+
+These are broad campaign estimates, not a modern GDP calculation.
+
+---
+
+# XXXVII. MAJOR EXPORTS
+
+Reunion exports:
+
+- copper,
+- iron,
+- smaller quantities of silver,
+- wool,
+- wine,
+- timber,
+- preserved fish,
+- olive products,
+- textiles,
+- metal goods,
+- shipbuilding services,
+- agricultural goods during good harvests.
+
+## Main imports
+
+- luxury textiles,
+- dyes,
+- spices,
+- coffee,
+- sugar,
+- high-grade finished weapons,
+- naval stores in bad years,
+- grain during poor harvests,
+- luxury manufactured goods.
+
+---
+
+# XXXVIII. POSTWAR RECOVERY
+
+The worst economic period was approximately 1690-1702.
+
+Since then:
+
+- merchant tonnage has recovered,
+- Torrental has regained much of its trade,
+- northern agricultural output has risen,
+- several southern mines have reopened,
+- the currency has stabilized,
+- naval construction has remained limited,
+- debt has fallen slowly.
+
+The government has deliberately chosen **trade recovery over rapid military restoration**.
+
+That choice is deeply controversial.
+
+---
+
+# XXXIX. DYNASTIC FOREIGN RELATIONS
+
+Reunion does not have ten formal alliances.
+
+That would be wrong for the period.
+
+Most foreign relationships are built through:
+
+- dynastic marriages,
+- commercial arrangements,
+- religious connections,
+- military conventions,
+- personal guarantees between courts.
+
+---
+
+# XL. AUSTRIA AND THE HABSBURG MONARCHY
+
+## Relationship
+
+**Closest major foreign relationship**
+
+But not a comfortable one.
+
+Reunion and Austria share:
+
+- Catholic ties,
+- anti-Ottoman interests,
+- marriages,
+- Dalmatian concerns,
+- commercial connections.
+
+Several Steiner marriages over the previous century have involved Austrian and southern German aristocratic houses.
+
+The current young heir also has close maternal and marital connections into the Austrian Imperial aristocracy.
+
+But Reunion is deeply suspicious of Austria becoming too powerful in the Balkans.
+
+That suspicion is justified.
+
+The Peace of Passarowitz in 1718 gave the Habsburgs Belgrade, northern Serbia, the Banat and other territories, creating a much stronger Austrian position immediately north and east of Reunion's sphere. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Treaty_of_Passarowitz?utm_source=chatgpt.com))
+
+---
+
+# XLI. THE GRAZ DEFENSIVE COMPACT
+
+The main military relationship with Austria is the **Graz Defensive Compact**, originally negotiated during the post-1689 strategic crisis and revised several times.
+
+Its terms are famously annoying.
+
+### Austria must assist Reunion if:
+
+- the Ottoman government openly declares war on Reunion,
+- an Ottoman army attempts to seize recognized Reunion territory,
+- or an Ottoman fleet attempts a sustained attack upon the three core islands.
+
+### Reunion must assist Austria if:
+
+- the Ottomans invade specified Austrian Balkan territories,
+- major Ottoman naval forces threaten designated Austrian Adriatic supply routes.
+
+### Reunion's expected contribution
+
+Up to:
+
+- 6 principal warships or equivalent naval force,
+- transports,
+- coastal reconnaissance,
+- approximately 3,000 expeditionary troops if approved by the Estates.
+
+### Austrian expected contribution
+
+Either:
+
+- approximately 5,000-6,000 troops,
+- or an agreed financial subsidy,
+- or artillery and engineering assistance.
+
+### Exceptions
+
+The alliance does **not** apply automatically if:
+
+- Reunion starts the war,
+- the dispute is over a former Greek island claim,
+- Venice is the principal enemy,
+- Reunion privateers caused the incident,
+- Austria considers the conflict a commercial dispute,
+- Reunion refuses Austrian military inspectors where Austrian artillery has been supplied,
+- either state makes a separate settlement explicitly permitted under an emergency clause.
+
+There are pages of similar qualifications.
+
+Both governments consider the pact useful.
+
+Neither completely trusts the other.
+
+---
+
+# XLII. VENICE
+
+## Relationship
+
+**Cold peace**
+
+There has been no major war for more than thirty years.
+
+Trade has resumed.
+
+Venetian merchants operate in Reunion ports.
+
+Reunion merchants operate in Venetian territory.
+
+Everyone still remembers the war.
+
+The basic contradiction is:
+
+Reunion cannot afford another Venetian war.
+
+Venice has no good reason to invade the core islands.
+
+But both states still compete in exactly the same commercial region.
+
+There are persistent disputes over:
+
+- Dalmatian boundaries,
+- fishing,
+- customs,
+- old property,
+- captured estates,
+- ship seizures,
+- former Greek claims.
+
+Venice is militarily stronger at sea.
+
+Reunion knows it.
+
+Venice knows Reunion knows it.
+
+---
+
+# XLIII. THE OTTOMAN EMPIRE
+
+## Relationship
+
+**Armed peace**
+
+The Ottomans are the old existential enemy.
+
+But 1725 is not the fifteenth century.
+
+Commercial interaction exists.
+
+Ottoman merchants appear in Reunion ports.
+
+Reunion merchants trade through Ottoman territory.
+
+There are intermediaries, translators and brokers.
+
+The Crown officially distinguishes between:
+
+**the Ottoman government**
+
+and
+
+**Ottoman subjects engaged in lawful commerce.**
+
+That distinction is controversial among older nobles and veterans.
+
+Fort Valeria remains heavily garrisoned specifically because the Ottoman frontier is not far away.
+
+Reunion also watches Bosnia and the Balkan interior carefully.
+
+The Ottoman relationship is currently restrained because Passarowitz ended the recent Habsburg-Ottoman conflict and created an unusually active period of diplomacy and commerce between Vienna and Constantinople. ([encyclopedia.com](https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/passarowitz-peace-1718?utm_source=chatgpt.com))
+
+Reunion benefits from this.
+
+It does not assume it will last.
+
+---
+
+# XLIV. THE PAPAL STATES
+
+## Relationship
+
+Friendly.
+
+The Pope recognizes the Steiner monarchy as an important Catholic Crown.
+
+Rome has repeatedly mediated disputes involving:
+
+- Venice,
+- Reunion,
+- Catholic minorities in Ottoman territory.
+
+The Papacy does not want Reunion launching another pointless Christian war against Venice.
+
+The Crown appreciates papal legitimacy.
+
+The merchants appreciate papal banking and diplomatic networks.
+
+---
+
+# XLV. AUSTRIAN ITALY, NAPLES AND SICILY
+
+Naples and Sicily are currently within the Habsburg sphere under the post-Spanish Succession settlement. Austria acquired Naples in 1714 and Sicily in 1720. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Kingdom_of_Naples?utm_source=chatgpt.com))
+
+This makes southern Italy politically easier for Reunion than it was a generation earlier.
+
+Relations are broadly good.
+
+Trade is growing.
+
+There are aristocratic marriages connecting Reunion families with Italian nobility.
+
+Reunion does not want the Habsburgs to permanently dominate the entire central Mediterranean.
+
+That places a quiet ceiling on friendship.
+
+---
+
+# XLVI. ITALIAN AND IMPERIAL MARRIAGE NETWORKS
+
+The House Steiner's foreign marriage pattern is deliberate.
+
+They generally avoid marrying into families capable of making a credible claim to Reunion itself.
+
+Instead, marriages tend to involve:
+
+- cadet Austrian noble houses,
+- southern German Imperial families,
+- Italian princely houses,
+- occasionally Dalmatian nobility.
+
+The most politically important networks currently run toward:
+
+**Austria and the HRE first.**
+
+**Northern and central Italy second.**
+
+That creates a Crown culturally comfortable in both Latin Mediterranean and Imperial court environments.
+
+---
+
+# XLVII. FRANCE AND BRITAIN
+
+Neither is a close Reunion ally in 1725.
+
+Both matter commercially.
+
+Britain matters because its naval and commercial power has become impossible to ignore.
+
+France matters because it offers a potential counterweight to Austrian or Venetian pressure.
+
+The Reunion foreign office maintains relations with both.
+
+But there is no major permanent alliance.
+
+This is intentional.
+
+The court remembers what happened when Reunion tied too much of its strategy to contests between larger powers.
+
+---
+
+# XLVIII. RAGUSA
+
+Small, commercially useful and respected.
+
+Ragusan merchants are useful intermediaries between:
+
+- Reunion,
+- the Ottoman Balkans,
+- Italy,
+- Dalmatia.
+
+Ragusan financiers also hold some Reunion debt.
+
+Relations are generally positive.
+
+Reunion has no reason to conquer Ragusa.
+
+Ragusa has every reason to avoid provoking Reunion.
+
+---
+
+# XLIX. RELATIONSHIP SUMMARY
+
+| Power | Relationship | Main Issue |
+|---|---|---|
+| Austria / Habsburgs | Friendly but wary | Anti-Ottoman pact, marriages, Austrian Balkan growth |
+| Venice | Cold peace | Dalmatia, trade, 1689 legacy |
+| Ottoman Empire | Armed peace | Balkan frontier, commerce, old rivalry |
+| Papal States | Friendly | Religion, mediation |
+| Habsburg Naples/Sicily | Positive | Trade, dynastic connections |
+| Ragusa | Positive | Commerce and finance |
+| France | Neutral-positive | Possible counterweight |
+| Britain | Neutral | Maritime trade and naval power |
+
+---
+
+# L. RELIGION
+
+The Crown is Roman Catholic.
+
+Catholicism is privileged.
+
+But Reunion is not religiously uniform.
+
+Approximate 1725 population:
+
+**Roman Catholic:** 82-84%
+
+**Eastern Orthodox:** 10-11%
+
+**Eastern-rite Catholics and related communities:** 2-3%
+
+**Muslim:** roughly 1-2%, mainly merchants and Dalmatian frontier communities
+
+**Jewish and other:** roughly 1%
+
+These are estimates.
+
+There is no modern religious census.
+
+The established modern canon later has Reunion at roughly 72% Catholic and 11% Orthodox, so a more heavily Catholic 1725 population gives room for later immigration and secularization. fileciteturn2file2
+
+Orthodox Christians may:
+
+- own property,
+- conduct worship,
+- operate churches,
+- participate in commerce.
+
+They face restrictions in some senior Crown offices.
+
+Jewish communities receive local protection charters, particularly in commercial cities.
+
+Muslim subjects and merchants face more restrictions but are not automatically expelled.
+
+---
+
+# LI. LANGUAGE AND IDENTITY
+
+The common Reunion language is descended primarily from Latin.
+
+It contains substantial:
+
+- Greek vocabulary,
+- Italian influence,
+- Dalmatian and Slavic loanwords,
+- German military and commercial terms.
+
+Court language tends to sound more Latinized.
+
+Southern urban speech contains more Greek.
+
+Dalmatian speech contains more Slavic vocabulary.
+
+The modern Reunion concept that the people are "Roman before Balkan" has deep roots in the Romanization established in existing canon. fileciteturn2file0
+
+In 1725 nationalism is not modern nationalism.
+
+People usually identify through several layers:
+
+village,
+
+city,
+
+island,
+
+religion,
+
+estate,
+
+Crown,
+
+then broader Reunion identity.
+
+---
+
+# LII. THE STATE APPARATUS
+
+Reunion does not have a modern cabinet.
+
+The Crown governs through several principal offices.
+
+For campaign purposes, the important ones are:
+
+### Royal Chancery
+
+Diplomacy, decrees, records.
+
+### Treasury
+
+Taxes, debt, customs.
+
+### War Office
+
+Army administration.
+
+### Admiralty
+
+Navy, convoy policy, naval yards.
+
+### Office of Mines and Crown Lands
+
+Mining concessions, royal estates, mineral taxation.
+
+### Dalmatian Chancery
+
+Split, frontier policy, Fort Valeria.
+
+That is enough government structure for RP without requiring thirty ministries.
+
+---
+
+# LIII. THE COURTS
+
+Law is a mixture of:
+
+- Roman-derived law,
+- royal ordinances,
+- municipal charters,
+- Church law,
+- customary rural law.
+
+This historical Roman legal foundation is consistent with the existing canon's deep Romanization. fileciteturn2file0
+
+The King is nominally the ultimate source of justice.
+
+In practice local and regional courts handle nearly everything.
+
+The Crown cannot easily overturn the ancient charter rights of major cities.
+
+---
+
+# LIV. INTERNAL SECURITY
+
+There is no national police force.
+
+Security is fragmented among:
+
+- city watches,
+- royal constables,
+- estate officers,
+- military patrols,
+- port guards,
+- customs officers.
+
+Reunion City has the strongest centralized watch.
+
+Torrental guards its municipal powers jealously.
+
+Mine districts employ private guards.
+
+Dalmatia uses soldiers for many functions that would later become police work.
+
+Smuggling is everywhere.
+
+---
+
+# LV. COMMUNICATIONS
+
+A royal courier system connects:
+
+- Reunion City,
+- Lucania,
+- Steinberg,
+- Torrental,
+- principal ports.
+
+Weather determines speed.
+
+Government messages between the islands depend on ships.
+
+A storm can delay central government for days.
+
+Dalmatia can be effectively isolated for longer.
+
+This should matter during the campaign.
+
+Information is slow.
+
+Rumors are fast.
+
+---
+
+# LVI. STRATEGIC CONDITION ON 1 JANUARY 1725
+
+## Crown Authority
+
+**Weak to moderate**
+
+The King commands the state but cannot fund major initiatives alone.
+
+## Financial Health
+
+**Recovering but heavily indebted**
+
+## Merchant Confidence
+
+**Moderate**
+
+Trade is profitable again.
+
+Merchants fear renewed war.
+
+## Army
+
+**Small but competent**
+
+Strong enough for internal defense.
+
+Not designed for large continental campaigns.
+
+## Navy
+
+**Weak relative to Reunion's historical ambitions**
+
+Capable of convoy protection and regional action.
+
+Not capable of defeating Venice's main fleet.
+
+## Fortifications
+
+**Strong**
+
+Especially around:
+
+- Reunion City,
+- Torrental,
+- major naval installations,
+- Fort Valeria.
+
+## Food Security
+
+**Generally good**
+
+Dependent on northern harvests.
+
+One serious harvest failure creates immediate pressure.
+
+## Internal Stability
+
+**Reasonably stable**
+
+No imminent revolution.
+
+But political power is divided.
+
+## Succession
+
+**Immediate concern**
+
+A very old monarch.
+
+A very young heir.
+
+No long period of transition expected.
+
+---
+
+# LVII. WHAT AURELIOS II WILL ACTUALLY INHERIT
+
+When Aurelios I dies, his 23-year-old son does **not** inherit an absolute monarchy.
+
+He inherits:
+
+**2.82 million subjects.**
+
+**Three core islands.**
+
+**A small Dalmatian possession.**
+
+**Fort Valeria.**
+
+**12,800 regular soldiers.**
+
+**A paper militia of about 37,000.**
+
+**Three ships of the line.**
+
+**A strong merchant marine.**
+
+**A recovering mining economy.**
+
+**₡R 2.45 million in annual ordinary revenue.**
+
+**₡R 16.8 million in Crown obligations.**
+
+**Three Estates capable of stopping his taxes.**
+
+**Merchant houses that own more government debt than he has annual revenue.**
+
+**An alliance with Austria full of escape clauses.**
+
+**A cold peace with Venice.**
+
+**An armed peace with the Ottoman Empire.**
+
+**And an entire political generation that remembers what happened the last time a Steiner king tried to make Reunion a great maritime power.**
+
+That is a much better starting position than either extreme.
+
+Reunion is not helpless.
+
+Aurelios II can change the country.
+
+But he cannot simply command money into existence.
+
+If he wants a larger navy, someone must pay.
+
+If he wants a larger army, someone must pay.
+
+If he wants to restore royal authority, he probably has to confront the people who currently finance the Crown.
+
+If he sides with the merchants, the nobility gets nervous.
+
+If he sides with the nobility, credit suffers.
+
+If he sides with Austria, Venice becomes nervous.
+
+If he confronts Austria, the Ottoman pact weakens.
+
+And if he tries to do everything simultaneously, he risks repeating his father's mistakes.
+
+---
+
+# LVIII. CORE CANON TO LOCK FOR THE CAMPAIGN
+
+These should probably become permanent facts unless gameplay changes them later:
+
+1. **1725 population is approximately 2.82 million.**
+
+2. **King Aurelios Leandros Steiner I is 72 and dies very early in 1725.**
+
+3. **His 23-year-old son becomes Aurelios Leandros Steiner II.**
+
+4. **Aurelios I ruled during the Great Venetian War and Torrential Bay disaster.**
+
+5. **There were six major Reunion-Venetian wars.**
+
+6. **1689 destroyed Reunion's offensive naval dominance.**
+
+7. **The 1694 Compact of the Three Estates greatly reduced Crown fiscal power.**
+
+8. **Crown exposure totals approximately ₡R 16.8 million.**
+
+9. **The merchant and city interests are the Crown's largest creditors.**
+
+10. **Reunion has only three Estates: Houses, Cities and Commerce, Clergy.**
+
+11. **The north is primarily agricultural.**
+
+12. **The south is heavily dependent on mining and metals.**
+
+13. **Reunion City is the political and financial capital.**
+
+14. **Torrental is the old commercial and mining-export center.**
+
+15. **Lucania is the northern agricultural market center.**
+
+16. **Steinberg is a transport, arms and metalworking city.**
+
+17. **Split is the center of the small remaining Dalmatian possession.**
+
+18. **Fort Valeria stopped both Venetian and Ottoman advances and anchors the southern Dalmatian frontier.**
+
+19. **Venice seized most former Reunion Greek island possessions.**
+
+20. **The Ottoman Empire absorbed the remainder.**
+
+21. **Austria is Reunion's main foreign partner, but the alliance is conditional and full of exceptions.**
+
+22. **The royal army numbers about 12,800 regulars.**
+
+23. **The navy has three ships of the line and a larger collection of frigates and small craft.**
+
+24. **Reunion remains a maritime state, but its merchant fleet is currently more important than its battle fleet.**
+
+25. **The central political issue of 1725 is not survival. It is what Reunion becomes after surviving the collapse of its old maritime empire.**
+:::
+
+The force sizes are intentionally restrained. Venice could put 26 ships of the line into a single 1716 action, while Savoy supported roughly 8,500 regulars in 1700 and about 19,000 during wartime expansion. So **12,800 Reunion regulars and only three surviving/rebuilt ships of the line** makes the country important without quietly turning it into a great power. ([en.wikipedia.org](https://en.wikipedia.org/wiki/Action_of_8_July_1716?utm_source=chatgpt.com))
+
+And this gives us a very clean spreadsheet structure later. We can track the Crown treasury, debt by creditor, Estate loyalty, faction influence, army regiments, individual naval hulls, population, mines, harvests, trade, Fort Valeria, Dalmatia, and foreign relations separately.

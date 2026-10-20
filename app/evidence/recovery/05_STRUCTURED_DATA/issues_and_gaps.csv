@@ -1,0 +1,27 @@
+id,priority,category,issue,known_state,resolution_needed
+C001,HIGH,Monarchy,Current King Zo III and young heir Zo III both stated with same regnal numeral,Keep both direct user statements,Ask user whether heir shares a name/title or uses a future regnal number; do not silently change
+C002,RESOLVED,Vice President,Baseline uses Jack Younger; direct user says Darius Younger,Darius Younger canonical,Preserve original baseline wording as superseded
+C003,RESOLVED,Finance Ministry,Some records omit Amalia Rehn or imply Curro immediate appointment,"Rehn died in crash days after appointment, Curro succeeded","Find exact appointment, crash and successor dates; succession itself settled"
+C004,RESOLVED,Dalmatian border,Reports say Zadar to north of Split vs north of Sibenik,Direct user fixes Croatia to just north of Sibenik with a DMZ,Find treaty map and precise DMZ width/legal boundaries
+C005,RESOLVED,Parliament seats,"Some chat versions use 320 seats, October baseline 400","400 canonical, unconstitutionally enlarged for Dalmatia parity","Work out exact original legal seat cap and political timeline, without invented amendment"
+C006,MEDIUM,Constitution,400 seats unconstitutional yet three-month Assembly dissolution described as constitutional,"Different constitutional questions, not necessarily contradiction",Check text limits on dissolution and emergency decrees
+C007,HIGH,War history,"First Greek Naval War dated only to 1970s, Greece >75% naval loss","War occurs, but date, operations, treaty unknown",Recover original battle logs and legal outcome
+C008,MEDIUM,Civil war,"Founding war described 1931-39, 1930s generally, and sometimes 1943-46",Timeline inconsistent or multiple conflicts,Find primary chronology; do not harmonize by guess
+C009,HIGH,Greek war,"Evinos Pocket 15k trapped; 8k fit, 4k wounded, 3k dead; Marine 4.5k survivors",Recalled accounting and timelines uncertain,Check starting strengths and casualty categories/phase dates
+C010,MEDIUM,Treaty of Bern,$425M six-year resource payment direction/beneficiary unclear,Treaty amount and general conditions recalled,"Get exact text to identify obligor, beneficiary, delivery start"
+C011,MEDIUM,Rheon death,Assassination suspected GRU; a few versions imply confirmed Soviet responsibility,Death March 21; attribution not proven,Keep suspected GRU until evidence in RP established
+C012,HIGH,Ploce hostages,Reunion deaths 23 vs 54; Bosnian losses 75 vs 85; timeline and hostages vary,UN corridor and continued Reunion Ploce control established,"Separate phase counts, KIA vs wounded, negotiations and hostages"
+C013,HIGH,Dalmatian air battles,September 10 offensive and December 15 Zadar MiG encounters may duplicate/tangle,Both dated descriptions exist,Determine if independent battles or later redating
+C014,MEDIUM,Croatian border peace,"One treaty version 12-year pact with broad breach clauses, border changed by user",12-year 1992-2004 non-war pact; north of Sibenik/DMZ,"Identify sign date, map, corridor rights, breach procedure"
+C015,MEDIUM,Altis war,October 1992 scenario origins vs October 11 1993 news report,Oct 1993 dated Altis war document authoritative for that story,Confirm exact first strike/ceasefire date and day numbering
+C016,MEDIUM,Altis frontline,Day 5 news vs Day 6-7 combat and later UN ceasefire,Different phases; user affirmed Day 6 event and final observer terms,"Build event log with explicit day count, surviving Alpha/Charlie/Echo"
+C017,MEDIUM,Grand admiral succession,Seraphin Douant as acting naval representative vs Seraphin Valerius Kallistrat named Grand Admiral,Two possibly distinct people/posts,Identify if both served and dates and offices
+C018,MEDIUM,Budget arithmetic,User-surfaced list of 1992 categories totals $255B while ledger says $250B,Budget $250B baseline; line item mismatch unresolved,"Verify which categories overlap, or request exact amendment"
+C019,MEDIUM,Defense acquisitions,Equipment ordered 1992 sometimes portrayed as active,October OOB operational counts fixed,"Record order dates, deliveries, deployment statuses independently"
+C020,LOW,Political parties,1976-80 and 1980-88 presidential names/terms incomplete,Party-level succession known only,Recover full list and election outcomes
+C021,MEDIUM,1977 security law,Act name and general function recalled; full provisions not located,Partial secondary record,"Find original text, passage date, constitutional challenges"
+C022,LOW,Ancient/1725 future,"Suggested 1726-29 riots, grain panic, reforms and surveys may be mistaken for played canon",1725 baseline confirmed; suggested future scenes not confirmed,Require RP outcome transcript for each later event
+C023,MEDIUM,Current monarch,"Old Greek-war recaps refer to King Zo IV, later direct user says Zo III",Current king Zo III authoritative,Whether earlier Zo IV is superseded typo or prior sovereign is unclear
+C024,MEDIUM,Ministry project status,Curro plans mix drafted/introduced/approved/paid/contracted/delivered statuses,Preserve status from each document date,Extract initiative-level project status and dated transitions
+C025,LOW,Geography labels,Evino vs Evinos spelling; Torrental vs Torrential Bay; Polaca/Polaca diacritics,Preserve raw terms,Decide canonical aliases without collapsing distinct locations
+C026,HIGH,Archive coverage,"Prior chats, Discord, images and complete message history not fully exported",This package contains primary files and secondary recovered notes only,Future import of original transcripts/Discord; track provenance

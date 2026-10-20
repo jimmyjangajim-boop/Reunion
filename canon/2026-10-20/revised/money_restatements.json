@@ -1,0 +1,62 @@
+[
+  {
+    "id": "first_term_capital",
+    "source_id": "src_7c640f616dbfcd32",
+    "locator": "word/document.xml:paragraph 4",
+    "old_value_text": "1.5–2.0B RMC",
+    "new_value_json": "{\"range_rmc\": [228947368421.05264, 305263157894.7368], \"range_usd\": [39473684210.52631, 52631578947.36842]}",
+    "method": "Same share of pre-crisis GDP, using 19B RMC midpoint and later 2.9T RMC baseline.",
+    "status": "restated_historical_planning_range",
+    "authority": "delegated_Q05_with_latest_caps_and_Q11_exception"
+  },
+  {
+    "id": "nuclear_refit",
+    "source_id": "src_7c640f616dbfcd32",
+    "locator": "word/document.xml:paragraph 102",
+    "old_value_text": "600–800M RMC",
+    "new_value_json": "{\"indicative_range_usd\": [15789473684.210526, 21052631578.94737], \"new_appropriation\": false}",
+    "method": "Proportional historical planning comparison only. Current 15B industrial project envelope remains authoritative; no new nuclear spending or fully funded extra project is fabricated.",
+    "status": "context_estimate_not_new_authorization",
+    "authority": "delegated_Q05_with_latest_caps_and_Q11_exception"
+  },
+  {
+    "id": "reconstruction_seed",
+    "source_id": "src_5fc5790f41651b59",
+    "locator": "word/document.xml:paragraph 12",
+    "old_value_text": "250M RMC",
+    "new_value_json": "{\"restated_rmc\": 38157894736.8421, \"restated_usd\": 6578947368.421053}",
+    "method": "Preserve relative GDP scale of historical seed fund; treat as a legacy funding envelope within later programs, not additive new money.",
+    "status": "delegated_historical_restatement",
+    "authority": "delegated_Q05_with_latest_caps_and_Q11_exception"
+  },
+  {
+    "id": "rail_residual",
+    "source_id": "src_1717c14edc04b275",
+    "locator": "word/document.xml:paragraph 13",
+    "old_value_text": "150M RMC remaining",
+    "new_value_json": "{\"current_committed_usd\": 2500000000, \"current_paid_usd\": 1200000000, \"current_program_total_usd\": 3700000000, \"unfunded_usd\": 0}",
+    "method": "Latest explicit rail ledger supersedes obsolete small-economy residual. Do not multiply an obsolete residual into a second fund.",
+    "status": "superseded_by_latest_ledger",
+    "authority": "delegated_Q05_with_latest_caps_and_Q11_exception"
+  },
+  {
+    "id": "bern_deliveries",
+    "source_id": "src_30b16741b0b23781",
+    "locator": "word/document.xml:paragraph 58",
+    "old_value_text": "$425M equivalent over six years",
+    "new_value_json": "{\"annual_equivalent_usd\": 2000000000, \"recorded_actual_deliveries\": null, \"restated_total_in_kind_value_usd\": 12000000000, \"start\": \"1992-07\", \"years\": 6}",
+    "method": "Recalibrate to the existing 2B/year Soviet treaty budget line. Goods deliveries, fiscal allocation and actual expense remain separate; no delivery is inferred.",
+    "status": "delegated_historical_restatement",
+    "authority": "delegated_Q05_with_latest_caps_and_Q11_exception"
+  },
+  {
+    "id": "us_loan_exception",
+    "source_id": "src_e72b96945587c6d9",
+    "locator": "word/document.xml:paragraph 22",
+    "old_value_text": "$90M USD",
+    "new_value_json": "{\"percent_of_current_gdp\": 0.0225, \"retained_principal_usd\": 90000000}",
+    "method": "Explicit user exception: remains a small facility. Obsolete GDP-burden annex is superseded.",
+    "status": "nominal_retained_user_exception",
+    "authority": "delegated_Q05_with_latest_caps_and_Q11_exception"
+  }
+]

@@ -1,0 +1,58 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/SITREP _ BATTLE REPORT _ CASUALTY REPORT.docx
+
+[1] SITREP / BATTLE REPORT / CASUALTY REPORT
+[2] TURKISH ARMED FORCES – OPERATION KALKAN-93
+[3] As of 04:30 Local, 11 October 1993 (Day 5 – Early Morning)
+[4] From: Kalkan-6A (New Second-in-Command, acting Company Commander)
+[5] To: All Elements / Higher Command
+[6] 1. SITUATION SUMMARY
+[7] The island remains in a tense, localized standoff. Turkish forces hold the airfield terminal and immediate perimeter but have been driven off the radar ridge. The radar installation is completely destroyed (initial Tomahawk strike + Greek engineer demolition). The airfield runway is cratered and unusable for fixed-wing operations. No air superiority exists for either side following yesterday’s dogfight.
+[8] Greek forces have established positions around the island and are actively probing our remaining lodgment. Their QRF (G2) is fully committed and has received no further reinforcement due to the mutual escalation standoff. Greek Follow-on (G3) remains at full strength but has not yet committed in force.
+[9] No resupply has reached either side since the initial insertion. Ammunition, medical supplies, and food are critically low across all Turkish units.
+[10] 2. BATTLE REPORT (Chronological)
+[11] 06 Oct, 20:00 – Insertion: Heliborne assault begins. Alpha Platoon suffers catastrophic losses during a misplaced landing at the airfield. Two full squads are wiped out in the opening minutes by concentrated Greek security fire.
+[12] 07 Oct, ~04:00: Airport terminal and immediate perimeter secured despite heavy casualties. Company Commander lands at first light and assumes command.
+[13] 07–08 Oct: Forces dig in and consolidate. Plans for rapid reinforcement are placed on hold due to mutual threats of escalation. Greek QRF (G2) arrives by boat at ~01:30 on 07 Oct (1.5 hours post-touchdown) but receives no additional support.
+[14] 09 Oct (Day 3): Three Greek squads supported by a BTR-40 and four mortars launch a determined assault on the radar ridge. After a 5-hour gunfight, Turkish forces are driven off the hill. Two heroic soldiers from Bravo Platoon remain in their sandbag positions, delaying the Greeks long enough for survivors to link up with the road defense squad. Both men are killed in place.
+[15] Night of 09–10 Oct (Night 3): Greek forces (~80 troops) launch a heavy night assault on the airport terminal, supported by BTR-40, mortar fire, and the BMP-1. Company Commander is killed by an RPG detonation while personally defending the terminal. New Second-in-Command assumes command. BMP-1 is destroyed by a TOW/rocket hit at close range while attempting to withdraw at first light.
+[16] 10 Oct: Greek aircraft attempt to regain air superiority. Dogfight results in Turkey losing 2 F-16s and Greece losing 1 Su-27. Both sides withdraw from direct overflight of the island. Airfield is further cratered by Greek close air support.
+[17] Night of 10–11 Oct: Renewed heavy Greek assault on the airport perimeter (nearly 80 troops, BTR, and mortar support). Alpha Platoon is cut down severely and loses most forward positions by morning. Bravo Platoon is currently tasked with eliminating the Greek mortar position on the ridge but reports extremely low ammunition.
+[18] The fight has remained strictly localized to the island as per High Command orders. No naval or mainland strikes have occurred.
+[19] 3. CASUALTY REPORT (as of 04:30, 11 Oct)
+[20] Turkish Forces (Lead Package only)
+[21] Company HQ Element: 10 → Effective 4 (2 KIA, 4 WIA)
+[22] Alpha Platoon: 50 → Effective 20 (16 KIA, 14 WIA) – Two squads completely wiped out during initial landing.
+[23] Bravo Platoon: 45 → Effective 12 (17 KIA, 1 WIA, 15 MIA) – Heavy losses on radar ridge; two men held final positions to the death.
+[24] Charlie Platoon: 55 → Effective 35 (6 KIA, 14 WIA)
+[25] Total Turkish Effective Strength: 61 out of original 160 (≈44% casualties).
+[26] Greek Forces
+[27] Latent Skeleton: 120 → Effective 0 (42 KIA, 34 WIA, 44 MIA)
+[28] QRF (G2): 220 → Effective 124 (96 KIA)
+[29] Follow-on (G3): 650 → Effective 650 (no major contact yet)
+[30] Greek Vehicles Status:
+[31] BMP-1: Destroyed
+[32] BTR-40: Destroyed / out of action
+[33] GAZ-66 Trucks: 2 operational
+[34] DShK (mounted): 7 operational
+[35] NSV: 4 operational
+[36] SPG-9: 2 operational
+[37] Mortars (60/82mm): 4 operational (still active and firing)
+[38] 4. LOGISTICS / MUNITIONS / SUSTAINMENT STATUS (04:30, 11 Oct)
+[39] No resupply has reached Turkish forces since the initial heliborne insertion. All consumption is based on four days of near-continuous fighting, multiple mortar barrages, and heavy defensive actions.
+[40] Turkish Remaining (Lead Package only)
+[41] Small Arms Ammo: Extremely low – less than 1 crate remaining across the entire company.
+[42] Heavy Weapons Ammo: Critical – < 0.5 crates (MG3 and TOW rounds nearly exhausted). Bravo Platoon reports they can sustain current mortar-hunting mission for only 1–2 more hours.
+[43] Explosives/Demo: ~0.5 crate left.
+[44] Medical Supplies: Critical – < 1 box remaining. CCP is overwhelmed; many WIA cannot receive proper treatment.
+[45] Food / Water: Very low – < 1 box remaining. Troops have been on half-rations for 48+ hours.
+[46] Fuel: 400 liters left
+[47] Repair Parts: Exhausted – 0 sets remaining.
+[48] Fortify Budget: Spent – < 30 points left (most positions are now sandbag-and-wire only).
+[49] Greek QRF Logistics Estimate (your best assessment as Zeus)
+[50] Also critically low on small arms and mortar rounds after four days of fighting and no resupply.
+[51] They still possess the four mortars and heavy MGs (DShK/NSV) but are conserving ammunition for the next major push on the airport.
+[52] Overall Assessment
+[53] We are in a critically depleted state. The lodgment is holding by a thread at the airfield terminal only. Bravo Platoon’s current mission to silence the Greek mortars is vital but high-risk due to ammunition constraints. The new Second-in-Command recommends immediate prioritization of any possible emergency resupply drop or extraction of wounded if the standoff allows.
+[54] End of report.
+[55] Kalkan-6A
+[56] Acting Company Commander

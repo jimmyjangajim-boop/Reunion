@@ -1,0 +1,182 @@
+SOURCE prior_sources!04-REUNION-ECONOMIC_LEDGER.txt.txt
+
+REUNION — ECONOMIC_LEDGER.txt
+
+Date: October 3rd, 1992
+
+GDP
+
+Nominal GDP (USD):
+$400,000,000,000
+
+GDP (RMC):
+2,320,000,000,000 RMC
+(5.8 RMC baseline per USD)
+
+Real Growth Rate (YoY):
++1.2% (slowing; pre-crisis trend was 3–4%)
+
+Inflation:
+3.8% trending upward
+
+Currency
+
+Official Rate:
+5.8 RMC = 1 USD
+
+Market Rate (informal / pressure rate):
+6.1–6.3 RMC = 1 USD
+
+FX Reserves:
+~$38–42B USD equivalent
+~220–244B RMC
+
+Coverage: ~4.5–5 months imports
+
+Budget
+
+Total Spending:
+$250B USD
+1.45T RMC
+
+Revenue:
+~$160B USD
+928B RMC
+(~40% GDP tax intake)
+
+Deficit:
+$90B USD
+522B RMC
+
+Deficit % GDP:
+22.5%
+
+Debt
+
+Total Public Debt:
+~$120B USD (current stock)
+~696B RMC
+
+Projected if full spending maintained:
+$200–230B within 24–36 months
+
+Debt-to-GDP (current):
+30%
+
+Projected (3-year trajectory):
+50–55%
+
+External vs Domestic Ratio:
+~35% external
+~65% domestic
+
+Average Bond Yield:
+6.4–7.1% (rising under political stress)
+
+Defense Allocation
+
+Total Defense & Readiness:
+$100B USD
+580B RMC
+
+% GDP:
+25%
+
+% Budget:
+40%
+
+Other Major Allocations
+
+Infrastructure: $20B
+Energy & Industry: $15B
+Education: $18B
+Agriculture: $11B
+Intelligence: $18B
+Interior/Security: $10B
+Debt Service: $10B
+Contingency Reserve: $21B
+
+Oil Status
+
+Proven Reserve Estimate:
+Large offshore basin
+Heavy oil dominant
+1.5–2.2 billion barrels recoverable (early estimate)
+
+35–40% in disputed maritime overlap near Greece.
+
+Extraction Status:
+Survey confirmed
+Infrastructure phase underway
+No full production yet
+
+Production Capacity:
+Near-zero current
+Pilot output negligible
+
+Revenue (Actual):
+$0 meaningful state oil revenue
+
+Major State Projects
+
+(All non-defense)
+
+National Infrastructure Spine
+
+Total Cost: $20B
+Paid: $7B
+Committed: $10.1B
+Remaining: $2.9B
+
+Dalmatian Development Program
+
+Total Cost: $6.5B
+Paid: $1.1B
+Committed: $1.3B
+Remaining: $4.1B
+
+Agricultural Modernization
+
+Total Cost: $600M
+Paid: $320M
+Committed: $280M
+Remaining: $0 (fully allocated)
+
+Energy & Industrial Expansion
+
+Total Cost: $15B
+Paid: $5.2B
+Committed: $9.8B
+Remaining: $0 (allocated)
+
+Rail Modernization
+
+Total Cost: $3.7B
+Paid: $1.2B
+Committed: $2.5B
+Remaining: $0
+
+Defense Infrastructure (Airfields, SAM hardening)
+
+Total Cost: $2.8B
+Paid: $1.4B
+Committed: $1.2B
+Remaining: ~$200M
+
+Risk Flags (October 1992)
+
+• Currency pressure: Moderate
+• Investor flight: Low-to-moderate (watching oil + politics)
+• Capital controls: None
+• Banking stress: Low currently
+• Deficit sustainability: Medium-term risk
+• Oil dependency risk: High
+• Bond yield upward drift: Active
+
+Structural Assessment (Ledger Only)
+Spending far exceeds structural revenue.
+Oil not monetized yet.
+Defense consumes 25% of GDP.
+Current debt manageable.
+Future debt trajectory aggressive.
+24–36 month sustainability window before structural adjustment required.

@@ -1,0 +1,268 @@
+REUNION MILITARY ORDER OF BATTLE
+
+Date: October 3rd, 1992
+
+I. PERSONNEL
+Active Duty (Army + Marines + Air + Navy)
+
+~68,000–72,000 (combat and direct support)
+
+Breakdown (combat formations):
+
+3rd Infantry Division: ~20,000
+1st “Auxiliary” Division: ~15,000+
+1st Armored Angles Division: ~18,500+
+Inferno Division (Special Forces/Elite Composite): ~2,000+
+3rd Marine Division: ~15,000–20,000
+Reserve Forces
+Army Reserve: ~32,000
+RIA / National Guard: ~17,000
+Mobilization Readiness
+48-hour limited mobilization possible.
+7–10 days for full structured reserve integration.
+Equipment bottlenecks likely for reserve heavy units.
+Morale Assessment
+
+Infantry: Moderate
+Marines: High
+Armored units: Confident
+Dalmatia garrison: Strained but steady
+Auxiliary infantry: Moderate
+Special Forces (Inferno): High
+Air Force: Professional, aware of thin margins
+
+II. GROUND FORCES
+Armor
+Modern MBT
+
+31 (Mixed Western-standard tanks)
+
+Early Cold War MBT
+
+18 (Operational, defensive use only)
+
+Light Tanks
+
+29 (Recon / rapid deployment)
+
+Mechanized
+Modern APC
+
+36
+
+Early Cold War APC
+
+130
+
+IFV
+
+None currently operational (future deliveries not counted)
+
+Artillery
+Total Guns
+
+12 operational tube artillery pieces
+(4 in Dalmatia, 6 in transit, remainder central)
+
+MLRS
+
+None operational
+
+Ammo Stockpile Estimate
+High-intensity fire capability: ~5–7 days sustained
+After that: rationed fire discipline required
+Logistics
+Transport Trucks (Soft-skin)
+
+~12,000 mixed-age fleet
+
+Dedicated Armored/Heavy Transport (Within regiments)
+
+Limited (45 confirmed in Dalmatian armored regiment)
+
+Fuel Reserves
+10–14 days at full wartime tempo
+25–30 days at defensive posture tempo
+III. AIR FORCE
+
+Heightened Readiness
+
+Total Combat Aircraft: 27
+
+Fighters (20)
+Mirage IIIE
+Mirage IIIC (R.550 Magic equipped)
+Mirage 5F
+
+10 forward-based in Dalmatia.
+
+Close Air Support (5)
+Jaguar A
+Limited precision capability
+Mixed rocket / bomb loadouts
+Electronic Warfare
+
+2 Falcon 20 ECM aircraft
+(1 forward in Dalmatia)
+
+Tankers
+
+None operational
+
+AWACS
+
+None operational
+
+Serviceability Rate
+
+~72–78%
+
+Maintenance strain increases after 7–10 days sustained sorties.
+
+IV. ROTARY
+Attack Helicopters
+
+8 AH-1 Cobra
+(3 forward deployed in Dalmatia)
+
+Transport Helicopters
+
+4 UH-1 Huey
+
+Losses YTD
+
+1 Huey lost in Ploče engagement
+
+V. NAVY
+
+Fleet largely domestic-built unless specified.
+
+Carrier
+
+1 Helicopter Carrier
+RRNS Imperium
+(Can technically operate limited fixed-wing if necessary)
+
+Cruisers
+
+6 Guided Missile Cruisers
+2 Command Cruisers
+
+Destroyers (12 total)
+
+Mixed classes:
+
+Charles F. Adams type
+Cassard type
+Manchester (Type 42 Batch 3)
+Arleigh Burke Flight I (limited number)
+Frigates
+
+11 Multi-role Frigates
+(O.H. Perry class majority)
+
+Corvettes
+
+10 Missile-focused Corvettes
+(Esmeraldas type)
+
+Submarines
+
+8 Los Angeles class (American origin)
+
+Nuclear Submarine
+
+1 Domestic nuclear submarine
+(Tyrant – Younger Industries design)
+
+VI. AIR DEFENSE
+Long-Range SAM
+
+Limited HAWK-type coverage
+Sparse national coverage
+
+Medium-Range SAM
+
+Limited mobile systems
+Coverage not redundant
+
+SHORAD
+
+MANPADS and gun AA pieces
+12 AA guns in Dalmatia sector
+
+Radar Sites
+
+4 primary fixed sites
+Several mobile radar units
+
+Hardened Sites
+
+2 partially hardened
+2 vulnerable to cruise missile or strike suppression
+
+VII. MUNITIONS STATUS
+
+Overall: Low-to-Moderate Stock, Not Critical
+
+Resupply contracts active (Horizon Dynamics + foreign suppliers)
+
+Air-to-Air
+R.550 Magic: Moderate stock
+Short-range IR missiles: Adequate
+BVR capability: Limited
+Air-to-Ground
+Dumb bombs: Moderate
+Rocket pods: Moderate
+Precision-guided: Very limited
+Artillery Shells
+155mm equivalent: Low reserve
+105mm equivalent: Moderate
+Naval Missiles
+Anti-ship missiles: Adequate
+SAM reloads: Moderate
+Long-range anti-ship inventory limited
+Tank Ammunition
+APFSDS: Limited but stable
+HEAT: Moderate
+Training stock: Low
+Small Arms
+7.62mm: Adequate
+5.56mm: Moderate
+Grenades: Adequate
+VIII. EQUIPMENT ORDERED (NOT DELIVERED — SEPARATE)
+
+(These are NOT operational)
+
+F-16C/D Block 40/42 (12)
+Turkish F-16 (12)
+Mirage 2000C (24)
+E-3 Sentry (2)
+KC-135 (3)
+C-130 (10)
+AH-64 (25)
+MLRS (30)
+M109 (100)
+M1A1 Abrams (175)
+Leopard (35)
+IFVs (700 combined)
+Naval upgrades (carrier modernization phase)
+
+None counted in operational strength.
+
+STRATEGIC SUMMARY
+
+Strengths:
+
+Strong navy
+Professional air crews
+Solid armored core
+High-quality marines
+
+Weaknesses:
+
+Artillery shortage
+No operational AWACS
+No tanker fleet
+Thin air defense redundancy
+Limited sustainment depth for prolonged high-intensity war

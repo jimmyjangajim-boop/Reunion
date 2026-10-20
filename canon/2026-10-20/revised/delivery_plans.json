@@ -1,0 +1,520 @@
+[
+  {
+    "batch_id": "batch_0aa47fc7fe395dd5",
+    "wave": 1,
+    "quantity": 33,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_0aa47fc7fe395dd5",
+    "wave": 2,
+    "quantity": 33,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_0aa47fc7fe395dd5",
+    "wave": 3,
+    "quantity": 34,
+    "months_after_order": 30,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_b146a08fb4984c89",
+    "wave": 1,
+    "quantity": 10,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_b146a08fb4984c89",
+    "wave": 2,
+    "quantity": 10,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_b146a08fb4984c89",
+    "wave": 3,
+    "quantity": 10,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_cae125e5906271c2",
+    "wave": 1,
+    "quantity": 66,
+    "months_after_order": 3,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_cae125e5906271c2",
+    "wave": 2,
+    "quantity": 66,
+    "months_after_order": 11,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_cae125e5906271c2",
+    "wave": 3,
+    "quantity": 68,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_d5f630ba332288e7",
+    "wave": 1,
+    "quantity": 3,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_d5f630ba332288e7",
+    "wave": 2,
+    "quantity": 3,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_d5f630ba332288e7",
+    "wave": 3,
+    "quantity": 4,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_16e884120491eab0",
+    "wave": 1,
+    "quantity": 8,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_16e884120491eab0",
+    "wave": 2,
+    "quantity": 8,
+    "months_after_order": 27,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_16e884120491eab0",
+    "wave": 3,
+    "quantity": 9,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_29460043f88b3b21",
+    "wave": 1,
+    "quantity": 12,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_29460043f88b3b21",
+    "wave": 2,
+    "quantity": 12,
+    "months_after_order": 21,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_29460043f88b3b21",
+    "wave": 3,
+    "quantity": 12,
+    "months_after_order": 30,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_db33ab103356b785",
+    "wave": 1,
+    "quantity": 10,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_db33ab103356b785",
+    "wave": 2,
+    "quantity": 10,
+    "months_after_order": 15,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_db33ab103356b785",
+    "wave": 3,
+    "quantity": 10,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_e07e64b536069459",
+    "wave": 1,
+    "quantity": 10,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_e07e64b536069459",
+    "wave": 2,
+    "quantity": 10,
+    "months_after_order": 15,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_e07e64b536069459",
+    "wave": 3,
+    "quantity": 10,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_b6a16ca7dd9780ab",
+    "wave": 1,
+    "quantity": 5,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_b6a16ca7dd9780ab",
+    "wave": 2,
+    "quantity": 5,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_b6a16ca7dd9780ab",
+    "wave": 3,
+    "quantity": 5,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_67208f8248873607",
+    "wave": 1,
+    "quantity": 58,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_67208f8248873607",
+    "wave": 2,
+    "quantity": 58,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_67208f8248873607",
+    "wave": 3,
+    "quantity": 59,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_0623a97edc5ce8fe",
+    "wave": 1,
+    "quantity": 11,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_0623a97edc5ce8fe",
+    "wave": 2,
+    "quantity": 11,
+    "months_after_order": 15,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_0623a97edc5ce8fe",
+    "wave": 3,
+    "quantity": 13,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_24791a44146109e6",
+    "wave": 1,
+    "quantity": 133,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_24791a44146109e6",
+    "wave": 2,
+    "quantity": 133,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_24791a44146109e6",
+    "wave": 3,
+    "quantity": 134,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_f39584e49bfb6417",
+    "wave": 1,
+    "quantity": 100,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_f39584e49bfb6417",
+    "wave": 2,
+    "quantity": 100,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_f39584e49bfb6417",
+    "wave": 3,
+    "quantity": 100,
+    "months_after_order": 30,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_602d5f043b8e4668",
+    "wave": 1,
+    "quantity": 100,
+    "months_after_order": 3,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_602d5f043b8e4668",
+    "wave": 2,
+    "quantity": 100,
+    "months_after_order": 13,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_602d5f043b8e4668",
+    "wave": 3,
+    "quantity": 100,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_1f8c2d90c2562877",
+    "wave": 1,
+    "quantity": 25,
+    "months_after_order": 9,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_1f8c2d90c2562877",
+    "wave": 2,
+    "quantity": 25,
+    "months_after_order": 19,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_1f8c2d90c2562877",
+    "wave": 3,
+    "quantity": 25,
+    "months_after_order": 30,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_9d2b554388a4ff5a",
+    "wave": 1,
+    "quantity": 266,
+    "months_after_order": 3,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_9d2b554388a4ff5a",
+    "wave": 2,
+    "quantity": 266,
+    "months_after_order": 13,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_9d2b554388a4ff5a",
+    "wave": 3,
+    "quantity": 268,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_4f860b4d1b5ea13f",
+    "wave": 1,
+    "quantity": 4,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_4f860b4d1b5ea13f",
+    "wave": 2,
+    "quantity": 4,
+    "months_after_order": 27,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_4f860b4d1b5ea13f",
+    "wave": 3,
+    "quantity": 4,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_ddee01b6615cf3ae",
+    "wave": 1,
+    "quantity": 4,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_ddee01b6615cf3ae",
+    "wave": 2,
+    "quantity": 4,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_ddee01b6615cf3ae",
+    "wave": 3,
+    "quantity": 4,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_656f2441032656a1",
+    "wave": 1,
+    "quantity": 1,
+    "months_after_order": 3,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_656f2441032656a1",
+    "wave": 2,
+    "quantity": 1,
+    "months_after_order": 7,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_656f2441032656a1",
+    "wave": 3,
+    "quantity": 3,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_28dec06807ead3d5",
+    "wave": 1,
+    "quantity": 1,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_28dec06807ead3d5",
+    "wave": 2,
+    "quantity": 1,
+    "months_after_order": 48,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_4c11f5c3f3f03c69",
+    "wave": 1,
+    "quantity": 3,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_4c11f5c3f3f03c69",
+    "wave": 2,
+    "quantity": 3,
+    "months_after_order": 18,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_4c11f5c3f3f03c69",
+    "wave": 3,
+    "quantity": 4,
+    "months_after_order": 30,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_7e2f22c92cfb6950",
+    "wave": 1,
+    "quantity": 1,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_7e2f22c92cfb6950",
+    "wave": 2,
+    "quantity": 1,
+    "months_after_order": 15,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_7e2f22c92cfb6950",
+    "wave": 3,
+    "quantity": 1,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_8fc378eec7c6ab85",
+    "wave": 1,
+    "quantity": 8,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_8fc378eec7c6ab85",
+    "wave": 2,
+    "quantity": 8,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_8fc378eec7c6ab85",
+    "wave": 3,
+    "quantity": 8,
+    "months_after_order": 36,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_3f0a1b0d0e2f06cf",
+    "wave": 1,
+    "quantity": 1,
+    "months_after_order": 12,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_3f0a1b0d0e2f06cf",
+    "wave": 2,
+    "quantity": 1,
+    "months_after_order": 21,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_3f0a1b0d0e2f06cf",
+    "wave": 3,
+    "quantity": 3,
+    "months_after_order": 30,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_e8d0a293d52f10ce",
+    "wave": 1,
+    "quantity": 3,
+    "months_after_order": 6,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_e8d0a293d52f10ce",
+    "wave": 2,
+    "quantity": 3,
+    "months_after_order": 15,
+    "status": "planning_only_not_delivered"
+  },
+  {
+    "batch_id": "batch_e8d0a293d52f10ce",
+    "wave": 3,
+    "quantity": 5,
+    "months_after_order": 24,
+    "status": "planning_only_not_delivered"
+  }
+]

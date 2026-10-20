@@ -1,0 +1,28 @@
+id	battle_or_operation	date_or_window	belligerents	Reunion_losses_recalled	Other_losses_recalled	casualty_category	claim_status	caveats
+B001	First Greek Naval War	1970s	Reunion vs Greece	UNKNOWN	Greek navy >75% destroyed or neutralized	fleet_loss_fraction	chat_recap	Exact year/campaign/ship counts unknown
+B002	Sklavena	March 1992	Reunion/Greek War participants	UNKNOWN	UNKNOWN	unknown	chat_recap	Further battle log needed
+B003	Monastiraki	March 1992	Reunion/Greek War participants	UNKNOWN	UNKNOWN	unknown	chat_recap	Further battle log needed
+B004	Kallithea	March 1992	Reunion vs Greek forces	152	225 Greek plus 275 civilians	unspecified_losses	chat_recap	Check whether values KIA or total casualties
+B005	Magoula	1992-03-09	Reunion vs Soviet	98	162 Soviet	unspecified_losses	user_confirmed_recovery	Numbers from secondary battle recap
+B006	Kryoneri	March 1992	Reunion vs Greek/Soviet	220 Reunion plus 8 missing	UNKNOWN	unspecified_and_missing	chat_recap	Need exact chronology
+B007	Paliostani	March 1992	Reunion vs Greek/Soviet	270	UNKNOWN	unspecified_losses	chat_recap	Need exact chronology
+B008	First and Second Evinos	1992-03-17	Reunion vs Soviet	544	1732 Soviet	unspecified_losses	user_confirmed_recovery	Potential combined rounds, categories unknown
+B009	Zelenogorsk	1992-03-17/18	Reunion vs Greek/Soviet	153	542 opposing	unspecified_losses	user_confirmed_recovery	Different opposing components uncertain
+B010	Rogovo	1992-03-19	Reunion vs Greek/Soviet	UNKNOWN	UNKNOWN	unknown	user_confirmed_recovery	Exact outcomes missing
+B011	Pogorevka	1992-03-19	Reunion vs Greek/Soviet	UNKNOWN	UNKNOWN	unknown	user_confirmed_recovery	Exact outcomes missing
+B012	Shakhovka	1992-03-20	Reunion vs Greek/Soviet	UNKNOWN	UNKNOWN	unknown	user_confirmed_recovery	Failed officer assassination part of account
+B013	Stary Sober	1992-03-21	Reunion vs Greek/Soviet	UNKNOWN	UNKNOWN	unknown	user_confirmed_recovery	Original battle result needed
+B014	Clock Zero special operation	1992-03-21	Reunion special ops vs Soviet/PRG	1 killed, 8 wounded (recap)	~70 killed (recap)	killed_and_wounded	user_confirmed_raid_secondary_losses	Two radar sites and seven SAM sites neutralized; Soviet VDV commander captured
+B015	Evinos Pocket/Iron Vein	1992-03-21/27	Reunion vs Soviet/PRG	~3000 killed, 4000 wounded; 8000 fit extracted	UNKNOWN	recovery_and_casualties	chat_recap	Trapped ~15000, different reported phases; avoid double counting
+B016	Marine Pocket	March 1992	Reunion Marines vs Soviet/PRG	~4500 survivors of 7000+ trapped	UNKNOWN	survivors_only	chat_recap	Do not treat 2500 as confirmed dead
+B017	Parliament assault	1992-04-06	REF vs Reunion security	13 security+14 police+7 armed forces+2 MPs killed	~80 REF dead	killed	chat_recap	Later police/army casualty figures elsewhere
+B018	Steinberg revolt	April 1992	REF/defectors vs Reunion	112 casualties	171 terrorist dead	mixed_and_unspecified	user_confirmed_recovery	May overlap Parliament totals; separate engagement
+B019	Police Raid on Torrental	1992	Police vs insurgents	53 police casualties	81 insurgents dead	mixed_and_killed	user_confirmed_recovery	Exact date unclear
+B020	Vrpolje	1992-04-07	Reunion vs Balkan/Croatian militia	40	80 enemy	unspecified_losses	user_confirmed_recovery	Original casualty categories unknown
+B021	Polaca	April 1992	Reunion vs militia	35	48 enemy	unspecified_losses	user_confirmed_recovery	Date requires lookup
+B022	Cetina	April 1992	Reunion vs militia	206	416 enemy	unspecified_losses	user_confirmed_recovery	Date requires lookup
+B023	Croatian offensive Zadar	1992-09-10	Croatia/UDF vs Reunion	560 KIA, 1330 WIA, 260 MIA, 370 POW	UNKNOWN	categorized_KIA_WIA_MIA_POW	user_confirmed_recovery	2520 overall plus 12 AUF, 3 AMX-13, EC-130Q, 4 Mirages lost
+B024	Ploce hostage crisis	September 1992	Bosnian militants vs Reunion	23 dead +30 wounded OR 54 losses	~75 OR ~85 militants	conflicting_accounting	conflict	UN corridor accepted; categories and phases unverified
+B025	Zadar Split aerial battle	1992-12-15	Croatia vs Reunion	Two Mirages down in one recap	Croatian MiG-23 losses described	aircraft_losses	conflict	Possibly distinct or repeated Sep offensive
+B026	Altis 5-day fight	October 1993	Turkey vs Greece	Not Reunion belligerent	Turkish initial ~160, effective ~71 (recap)	force_strength	primary_Library_variant	Dated news account 11 Oct 1993; inspect original
+B027	Altis day 6	October 1993	Turkey vs Greece	Not Reunion belligerent	Alpha wiped out; M113 and two-squad drop destroyed	unit_losses	user_confirmed_recovery	Echo hill push intended, not necessarily completed

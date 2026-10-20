@@ -1,0 +1,307 @@
+Hard realism mode.  
+Date: **October 3rd, 1992**  
+Finance Minister Curro — Infrastructure Ledger Status Report  
+
+Below is a complete breakdown of **every major infrastructure and development initiative Curro pushed or attached himself to**, including:
+
+- Total projected cost  
+- What has actually been appropriated  
+- What has been disbursed  
+- What is contractually locked  
+- What is still vapor  
+
+No smoothing.
+
+---
+
+# I. NATIONAL INFRASTRUCTURE EXPANSION PACKAGE  
+(Originally part of Strevo baseline, later expanded under Donahue budget)
+
+### Scope:
+- Highway modernization (north industrial belt → Reunion City)
+- Port expansion (Split, Torrental)
+- Rural road rehabilitation
+- Grid modernization (pre-nuclear prep phase)
+
+### Total Authorized Budget:
+**$20B USD**  
+= **116B RMC**
+
+### Status as of Oct 3:
+
+| Category | Paid | Contractually Committed | Remaining |
+|----------|------|------------------------|-----------|
+| Highways | $3.2B | $4.5B | $2.3B |
+| Ports | $1.8B | $2.4B | $1.3B |
+| Grid upgrades | $1.1B | $1.9B | $1.2B |
+| Rural roads | $900M | $1.3B | $800M |
+
+### Total Disbursed:
+**$7.0B USD**  
+= **40.6B RMC**
+
+### Locked via Contracts:
+**$10.1B USD**
+
+### Still Flexible:
+~**$2.9B USD**
+
+---
+
+## Risk:
+Cash burn exceeds revenue inflow pace.
+Grid modernization ahead of nuclear decision.
+Rural road program politically popular but economically low ROI.
+
+---
+
+# II. DALMATIAN DEVELOPMENT PROGRAM  
+(Post-Treaty Stabilization Effort)
+
+### Scope:
+- Tourism rehabilitation
+- Port repair (Split)
+- Hotel financing incentives
+- Cultural preservation projects
+- Rail refurbishment
+
+### Total Announced:
+**$6.5B USD**  
+= **37.7B RMC**
+
+### Actually Funded:
+**$2.4B USD**  
+= **13.9B RMC**
+
+### Disbursed:
+**$1.1B USD**
+
+### Rail Tourism Line (Steam & Heritage Restoration)
+Projected: **$420M**
+Paid so far: **$110M**
+
+### Farming modernization in Dalmatia:
+Projected: **$800M**
+Disbursed: **$260M**
+
+---
+
+## Status:
+Program partially frozen due to:
+- Parliamentary gridlock
+- Oil redirection discussions
+- Defense escalation
+
+Dalmatia feels underfunded relative to promises.
+
+---
+
+# III. AGRICULTURAL MODERNIZATION BILL  
+(Curro’s “Phase One Mechanization”)
+
+### Scope:
+- Equipment subsidies
+- Irrigation upgrades
+- Grain storage modernization
+- Rural electrification
+
+### Approved Allocation:
+**$600M USD**
+= **3.48B RMC**
+
+### Paid:
+**$320M USD**
+
+### Remaining:
+**$280M USD**
+
+---
+
+## Economic Impact:
+Short-term positive in:
+- Rural employment
+- Domestic food stability
+
+Long-term:
+Limited export expansion unless supply chains upgraded.
+
+---
+
+# IV. EDUCATION / TRAINING EXPANSION
+
+### Budget:
+**$18B USD**
+
+But only **$2.1B** is directly infrastructure.
+
+### Technical Institutes + Defense-Linked R&D:
+Projected:
+$3.2B over 4 years
+
+Paid:
+$780M
+
+---
+
+# V. ENERGY & INDUSTRY EXPANSION  
+(INCLUDING DRILLING ACCELERATION)
+
+### Total Allocation:
+**$15B USD**
+= **87B RMC**
+
+Breakdown:
+
+| Category | Allocated | Paid |
+|----------|----------|------|
+| Oil surveying expansion | $1.4B | $900M |
+| Offshore platform prep | $4.8B | $1.6B |
+| Refinery modernization | $3.5B | $1.1B |
+| Heavy industrial subsidies | $2.2B | $700M |
+| Strategic drilling acceleration | $3.1B | $900M |
+
+### Total Disbursed:
+**$5.2B USD**
+
+### Committed:
+~$9.8B
+
+---
+
+## Oil is the backbone gamble.
+Without it, the debt curve bends dangerously.
+
+---
+
+# VI. RAIL MODERNIZATION  
+(French + German procurement, maintenance licensing)
+
+### Total Rail Expansion Cost:
+~**$3.7B USD**
+
+### Paid:
+**$1.2B USD**
+
+### Remaining:
+~$2.5B over 6 years
+
+---
+
+# VII. DEFENSE-ADJACENT INFRASTRUCTURE  
+(Airfields, SAM sites, hardened hangars)
+
+Not fully transparent in budget line.
+
+Estimated:
+**$2.8B USD allocated**
+Paid so far:
+~$1.4B USD
+
+---
+
+# VIII. TOTAL INFRASTRUCTURE & DEVELOPMENT COMMITMENTS (NON-DEFENSE)
+
+| Category | Total Planned | Paid | Committed |
+|----------|--------------|------|-----------|
+National Infra | $20B | $7B | $10.1B |
+Dalmatia | $6.5B | $1.1B | $1.3B |
+Agriculture | $600M | $320M | $280M |
+Energy & Industry | $15B | $5.2B | $9.8B |
+Rail | $3.7B | $1.2B | $2.5B |
+Defense Infra | $2.8B | $1.4B | $1.2B |
+
+### TOTAL PLANNED:
+**~$48.6B USD**
+
+### TOTAL DISBURSED:
+**~$16.2B USD**
+
+### TOTAL COMMITTED (future locked):
+~**$25–28B USD**
+
+---
+
+# IX. DOMESTIC ECONOMIC REALITY (Oct 3)
+
+### What’s Happening Internally:
+
+- Construction sector overheating
+- Skilled labor shortages rising
+- Cement + steel demand spiking
+- Inflation pressure creeping (3.8% trending upward)
+- Banking sector cautious but not panicked
+- Foreign investors watching oil timeline
+
+Small business confidence:
+Flat.
+
+Heavy industry confidence:
+Optimistic.
+
+Currency:
+Holding but sensitive to defense debt expansion.
+
+---
+
+# X. PARLIAMENT SINCE OCTOBER 6TH
+
+Nothing structural passed.
+
+Committees debating:
+- Debt ceiling expansion
+- Defense reallocation
+- Oil licensing transparency
+
+No majority coalition functioning.
+
+Infrastructure momentum now dependent on executive maneuvering, not legislative consensus.
+
+---
+
+# XI. HARD TRUTH FOR CURRO
+
+You have:
+
+$16B already sunk.
+$25B locked.
+Oil not online.
+Defense spending exploding.
+
+If defense debt ceiling passes fully:
+
+Infrastructure projects will either:
+- Slow down
+- Or require new bond issuance
+
+You cannot fully fund both:
+Massive military expansion
+AND
+Aggressive infrastructure modernization
+
+Not without oil revenue online.
+
+---
+
+# XII. STRATEGIC WARNING
+
+Your infrastructure build-out is coherent.
+
+Your funding structure is not yet.
+
+You are forward-loading development
+While also forward-loading military expansion
+Before monetizing oil.
+
+That is manageable for 24 months.
+Not 60.
+
+---
+
+If you want next:
+
+- Cash flow projection through 1995  
+- Debt sustainability modeling  
+- Oil revenue scenario modeling  
+- Or political fallout modeling  
+
+Pick the next layer.

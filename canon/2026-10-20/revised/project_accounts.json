@@ -1,0 +1,72 @@
+[
+  {
+    "name": "National Infrastructure Spine",
+    "total_authorized_usd": 20000000000,
+    "source_paid_out_usd": 7000000000,
+    "source_committed_usd": 13000000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Distinct accounting scope. Core-island civil roads/ports/grid excludes separately ledgered rail, Dalmatian, defense and oil packages.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  },
+  {
+    "name": "Dalmatian Development Program",
+    "total_authorized_usd": 6500000000,
+    "source_paid_out_usd": 1100000000,
+    "source_committed_usd": 5400000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Dedicated ring-fenced program; shared invoices must be allocated to one program only.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  },
+  {
+    "name": "Agricultural Modernization",
+    "total_authorized_usd": 600000000,
+    "source_paid_out_usd": 320000000,
+    "source_committed_usd": 280000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Dedicated ring-fenced program; shared invoices must be allocated to one program only.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  },
+  {
+    "name": "Energy & Industrial Expansion",
+    "total_authorized_usd": 15000000000,
+    "source_paid_out_usd": 5200000000,
+    "source_committed_usd": 9800000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Energy and industrial modernization excludes the separately ledgered oil program.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  },
+  {
+    "name": "Rail Modernization",
+    "total_authorized_usd": 3700000000,
+    "source_paid_out_usd": 1200000000,
+    "source_committed_usd": 2500000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Dedicated ring-fenced program; shared invoices must be allocated to one program only.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  },
+  {
+    "name": "Defense Infrastructure",
+    "total_authorized_usd": 2800000000,
+    "source_paid_out_usd": 1400000000,
+    "source_committed_usd": 1400000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Dedicated ring-fenced program; shared invoices must be allocated to one program only.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  },
+  {
+    "name": "National Oil Drilling",
+    "total_authorized_usd": 13000000000,
+    "source_paid_out_usd": 8500000000,
+    "source_committed_usd": 4500000000,
+    "unfunded_usd": 0,
+    "physical_status": "ongoing_or_planned_not_completed",
+    "scope_policy": "Dedicated ring-fenced program; shared invoices must be allocated to one program only.",
+    "authority": "tracker_plus_delegated_scope_reconciliation"
+  }
+]

@@ -1,0 +1,92 @@
+
+REUNION — POLITICAL_COMPOSITION.txt
+
+Date: October 3rd, 1992
+
+President
+
+Name: Dax Donahue
+
+Approval (National): 41%
+
+Key Blocs:
+
+RRP (partial loyalty, internally fragmented)
+Moderate technocrats
+Portions of armed forces leadership
+Executive ministries
+
+Crisis Exposure:
+
+Blackmail vulnerability (US / Bosnia / Serbia aware of sensitive communications)
+Territorial concession to Croatia
+High defense spending expansion
+Parliamentary gridlock
+Oil dispute with USSR / Greece
+King
+
+Name: Zo III
+
+Approval (National): 48%
+
+Networks:
+
+Royalist Crown Alliance (RCA – 82 seats)
+Aristocratic families
+Portions of older officer corps
+Royla Oil financial network
+Informal elite business circles
+Parliament (Total Seats: 400)
+
+RRP (Centrist Technocrats): 118
+RCA (Royalist Conservatives): 82
+NSF (Security Bloc): 64
+LUP (Labor Union Party): 95
+Others (Regional / Veterans / Dalmatian / Far-left / Independents): 41
+
+Active Coalition?
+
+No.
+
+Governing Mechanics
+Executive governs via:
+Ad hoc vote trading
+Committee negotiation
+Emergency authority precedent
+No formal majority coalition.
+Major structural legislation stalled.
+Budget authority partially passed; expansions contested.
+Stability depends on issue-by-issue alignment.
+Foreign Leverage
+
+US:
+
+FMS oversight leverage
+Intelligence awareness of sensitive executive communications
+Financial pressure capability (bond markets, IMF channels)
+
+Bosnia:
+
+Possesses incriminating material regarding prior weapons discussions
+Narrative leverage (religious framing)
+Regional destabilization capability
+
+Serbia:
+
+Partial awareness of smuggling frameworks
+Quiet intelligence cooperation currently
+Strategic leverage via disclosure threat
+
+UN Posture:
+
+Monitoring status
+Observers present
+Sensitive to detention and corridor precedents
+No sanctions active
+Soft-watch classification
+Stability Index (1 = stable / 10 = collapse pressure)
+
+Coup Risk: 4
+Civil Unrest Risk: 5
+Parliamentary Collapse Risk: 7
+Foreign Intervention Risk: 6

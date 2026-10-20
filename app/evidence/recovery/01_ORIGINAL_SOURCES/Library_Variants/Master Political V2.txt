@@ -1,0 +1,181 @@
+Here’s the **hard October 1992 board**.
+
+I’m anchoring this to **October 3, 1992**, because that’s the live canon date in your political, military, and economic files. fileciteturn9file0 fileciteturn9file4 fileciteturn9file5
+
+## Executive reality
+
+Reunion is **not collapsing**, but it is badly overextended. The state still functions, the military is intact, and Donahue still controls the executive, armed forces, and intelligence. But parliament was already paralyzed, coalition politics were dead, oil revenue was still zero, defense spending was enormous, and multiple foreign actors held leverage over the leadership. This is a state buying time with debt, force posture, and future oil. fileciteturn9file0 fileciteturn9file5
+
+## Donahue and the dissolution of parliament
+
+President **Dax Donahue** is constitutionally legitimate but politically weakened. His approval is **41% nationally**, with better tolerance among veterans than among Dalmatia or rural conservatives. He is seen as competent under pressure, but not loved. His core strengths are executive control, command of the armed forces, and the ability to still move ministries even while parliament is broken. His core weaknesses are the Croatia treaty, UN concessions, US dependence, blackmail exposure, and legislative paralysis. fileciteturn9file0 fileciteturn9file5
+
+On **October 3, 1992**, Donahue used his constitutional authority to **dissolve parliament for 3 months**, citing inability to pass anything and legislative paralysis. Constitutionally, the president may dissolve the Assembly once per term for 3 months, with possible further extensions. Legally, he had cover. Politically, it was a huge gamble. It removed parliamentary resistance and sped up decision-making, but it also concentrated blame, increased scrutiny, and made the Crown more relevant as the only rival center of legitimacy. fileciteturn9file7 fileciteturn9file8
+
+That move did **not** solve fragmentation. It paused it. The likely effect is a short bump for decisiveness, followed by deeper resentment, informal faction-building outside the chamber, and sharper anti-Donahue organizing by the time parliament returns. It also makes every future failure feel more personal to the presidency. fileciteturn9file8
+
+## Parliament, parties, and internal power
+
+The formal parliamentary map is ugly: **RRP 118, LUP 95, RCA 82, NSF 64, others/regional/fringe 41** in one file, with your baseline also breaking that “others” space into a Dalmatian Autonomy bloc and independents. Either way, there is **no functioning majority** and no working coalition government. The RRP is fragmented, the NSF is hawkish and anti-UN, the LUP is anti-war and anti-militarization, and the RCA is pro-Crown and anti-republican enough to be dangerous if Zo wants to play hardball. fileciteturn9file0 fileciteturn9file6
+
+The single most important internal fact: **King Zo III polls higher than Donahue**. Zo sits at **48% approval** and has aristocratic, business, officer-corps, and Royla Oil networks behind him. He cannot legally remove Donahue, but he can destabilize the system if he decides the presidency is weak or humiliating the state. He is not the government. He is the permanent alternative. fileciteturn9file0 fileciteturn9file6
+
+The broader power triangle is clear:
+- **Donahue** controls state machinery.
+- **Zo** controls symbolic legitimacy and elite networks.
+- **Curro** controls confidence, growth strategy, and much of the economic future. fileciteturn9file0
+
+## Cabinet and working state machinery
+
+The cabinet is more competent than the politics around it. Foreign Affairs under **Clément Verne** is trying to keep the West calm and prevent Soviet escalation. Justice under **Halvik** is legalist but royalist-leaning. Interior under **Viktor Lann** is security-heavy and useful if unrest rises. Defense under **Marcus Thaler** is professional and anti-chaos. Energy and Infrastructure under **Helene Vos** is trying to keep the state’s development spine alive. Health/Veterans, Agriculture, and Labor are all politically important because they hold together the parts of society most likely to explode under stress. fileciteturn9file0
+
+This is the real picture: ministries are still functioning, but they are functioning under executive emergency logic rather than healthy parliamentary government. That is faster, but it is also brittle. fileciteturn9file8
+
+## The economic reality
+
+Nominal GDP is about **$400B**, growth has slowed to **+1.2%**, inflation is **3.8% and rising**, and the currency is under mild pressure. The budget is the real problem: **$250B spending against $160B revenue**, for a **$90B deficit**, which is **22.5% of GDP**. Current public debt is still manageable at about **30% of GDP**, but the trajectory is not. If current spending holds, debt heads toward **50–55% of GDP within 2–3 years**. fileciteturn9file5
+
+Reunion is basically running a **superpower budget on a mid-tier economy**. Defense and readiness alone consume **$100B**, or **25% of GDP**. That is survivable for a short window, not indefinitely. The reason the system hasn’t cracked yet is that the debt stock is still moderate, reserves still exist, and markets still think oil might save the state later. fileciteturn9file5
+
+The oil field is strategically huge but economically useless **right now**. There is a large offshore basin with **1.5–2.2 billion barrels recoverable**, but **35–40%** sits in a disputed overlap near Greece, production is essentially zero, and serious extraction is still **3–5 years away**. That means oil is currently a political argument and a debt justification, not a cash source. fileciteturn9file5
+
+## Curro’s economy and development line
+
+Curro’s whole strategy is to keep Reunion alive long enough to reach the growth phase. The major non-defense buildout is coherent:
+- **National Infrastructure Spine**: $20B total, $7B paid, $10.1B committed
+- **Dalmatian Development Program**: $6.5B total, $1.1B paid, $1.3B committed
+- **Agricultural Modernization**: $600M total, fully allocated
+- **Energy & Industrial Expansion**: $15B total, $5.2B paid, $9.8B committed
+- **Rail Modernization**: $3.7B total, $1.2B paid, $2.5B committed
+- **Defense Infrastructure**: $2.8B total, $1.4B paid, $1.2B committed. fileciteturn9file5 fileciteturn9file2
+
+Curro is pushing infrastructure, grid stability, oil prep, rail modernization, nuclear refit planning, rural modernization, and a confidential expenditure audit meant to claw back **2–4% of the budget** over time. He is popular because he looks like the only adult who understands the numbers. The problem is brutal: you cannot fully fund **military expansion** and **development acceleration** at the same time without oil monetization or more borrowing. fileciteturn9file2 fileciteturn9file3
+
+## Military state: what Reunion has right now
+
+Reunion’s military is stronger on paper than its vulnerabilities suggest, but weaker than its ambition. Active combat/direct support strength is roughly **68,000–72,000**, with reserves behind it. The navy is the strongest arm by far. The air force is professional but thin. Ground forces are respectable regionally but structurally weak in artillery and sustainment. fileciteturn9file4
+
+Current real problems:
+- only **12 operational artillery guns**
+- no operational **AWACS**
+- no operational tanker fleet
+- air defense is partial and not redundant
+- radar hardening is weak
+- helicopters are limited and vulnerable
+- prolonged high-intensity war would expose sustainment depth fast. fileciteturn9file4
+
+Current operational assets include:
+- **31 modern MBTs**, plus obsolete reserve armor
+- **36 modern APCs** and **130 older APCs**
+- about **27 combat aircraft**
+- **8 attack helicopters**
+- a very serious navy: carrier, cruisers, destroyers, frigates, corvettes, submarines, including a domestic nuclear boat. fileciteturn9file4
+
+So the truth is simple: Reunion can deter, punish, and survive. It cannot casually fight a modern sustained war against a major power yet. fileciteturn9file4
+
+## Arms purchases and military modernization
+
+This is the biggest military story of October 1992.
+
+### Approved / ordered from the United States and related channels
+- **12 F-16C/D Block 40/42**
+- **12 Turkish F-16 transfers**
+- **2 E-3 Sentry AWACS**
+- **3 KC-135 tankers**
+- **10 C-130 transports**
+- **5 Tornado GR.1A**
+- **11 Jaguars**. fileciteturn9file0 fileciteturn9file4
+
+### From France
+- **24 Mirage 2000C**. fileciteturn9file4
+
+### Ground / rotary modernization ordered
+- **25 AH-64**
+- **30 MLRS**
+- **100 M109**
+- **175 M1A1 Abrams**
+- **35 Leopard**
+- roughly **700 IFVs combined**
+- plus carrier modernization and other support vehicles. fileciteturn9file4
+
+The catch: **none of this is operational yet**. Reunion in October 1992 is still a **pre-modernization force**. The arms buys change the next 2–5 years. They do not solve the immediate Soviet, Greek, or Bosnian problem. The US also retains hard leverage through end-use monitoring and political conditions. fileciteturn9file0 fileciteturn9file4
+
+## Security and intelligence
+
+Internally, the security state is alive and functioning. RNIA handles domestic security and counterintelligence. RNIO handles foreign intelligence. MID supports operational warning. All of them are competent enough to warn. None of them can rescue the state from bad political decisions. fileciteturn9file0
+
+The real threat structure is uglier than most conventional war games:
+- **Bosnia** holds blackmail and narrative leverage
+- **Serbia** knows enough to hurt the leadership if relations sour
+- the **US** has institutional and financial leverage
+- the **USSR** is the most likely foreign destabilizer
+- parliament is too weak to supervise intelligence meaningfully. fileciteturn9file0 fileciteturn9file6
+
+This means Reunion is not facing intelligence collapse. It is facing **political miscalculation under external pressure**. fileciteturn9file0
+
+## Foreign and global situation
+
+### United States
+The US relationship is **strategic but conditional**. Washington approved the F-16 program and related support, but only under strict end-use monitoring and with ongoing skepticism about political stability. America sees Reunion as useful, but not trustworthy enough to go reckless for. If Donahue overreaches, US pressure starts quietly through defense and finance channels. fileciteturn9file0
+
+### France
+France is warming to Reunion and is happy to be a defense/economic counterweight to pure US dependence. But if internal instability gets worse, French enthusiasm slows. France likes a useful partner, not a basket case. fileciteturn9file0
+
+### Turkey
+Turkey is the most important rising regional partner. Defense cooperation is improving, and the Turkish F-16 transfer is part of the modernization line. Turkey sees Reunion as a useful flank state against both Greece and Soviet pressure. That relationship matters more than it looks. fileciteturn9file0
+
+### Italy
+Italy is neutral-positive, commercially interested in stability, but not willing to be dragged into military commitments without wider Western consensus. fileciteturn9file0
+
+### USSR
+The Soviet Union is the biggest external danger. Not because invasion is certain, but because the USSR is actively probing. It has moved naval forces toward the oil zone, is raising VDV readiness, flying pressure missions near Turkey, and effectively positioning itself as a co-arbiter of the maritime dispute. Its strategy is not conquest first. It is **leverage extraction** through pressure, time, and controlled instability. fileciteturn9file0 fileciteturn9file1
+
+### Greece
+Greece is still a serious rival. The oil overlap is real, Turkish-Reunion cooperation alarms Athens, and the memory of the 1970s war still shapes the relationship. Greece is not currently in open war with Reunion in this October 1992 frame, but it is a live geopolitical competitor and part of the oil problem. fileciteturn9file0
+
+### Former Yugoslav space
+This is one of your biggest strategic messes:
+- **Croatia**: cold peace under a brittle 12-year treaty
+- **Bosnia**: hostile, radicalizing, dangerous
+- **Serbia**: tactical quiet partner, but not a friend
+- **Slovenia/Macedonia**: marginal watchers. fileciteturn9file0
+
+### United Nations
+The UN position is “watching and skeptical.” Reunion avoided sanctions, but the UN is monitoring corridor precedent, detention conduct, Croatian compliance, and any future overreaction. You are not trusted. You are tolerated. fileciteturn9file0 fileciteturn9file6
+
+## The constitutional and institutional mess underneath everything
+
+There are deeper legal cracks than most people notice:
+- the constitution still assumes an old prime-minister structure that practice has fused into the presidency
+- the Assembly was expanded to **400 seats by statute**, even though the constitutional text says **150–300**
+- emergency law is broad and abusive by modern standards
+- speech, assembly, and internal security law all contain huge public-order loopholes
+- the King’s reserve powers are vague enough to be politically abused if crisis deepens. fileciteturn9file7
+
+So even when Donahue acts legally, he is acting on top of a constitution full of weak seams and workaround politics. That matters because every major crisis can become a constitutional argument if the wrong bloc decides to weaponize it. fileciteturn9file7
+
+## Public mood and internal social reality
+
+The public is not revolutionary. It is anxious, tired, and quick to swing under fear. Veterans still tolerate Donahue better than most groups. Rural conservatives lean harder toward Zo. Dalmatia is bitter and under-supportive after treaty concessions. The Catholic Church is peace-sounding in public but fundamentally supports a strong defense posture and hates Bosnia’s Islamist framing. The Muslim minority is small, watched, and politically vulnerable to scapegoating. fileciteturn9file0
+
+That means the most dangerous domestic future is not immediate revolution. It is **fear-driven hardening**, factional radicalization, and legitimacy contests between executive, Crown, and security hawks. fileciteturn9file0
+
+## The bottom line for October 1992
+
+Reunion in October 1992 is:
+- **politically fractured**
+- **economically stretched**
+- **militarily upgrading but not there yet**
+- **externally pressured by a major power**
+- **reliant on future oil and Western arms**
+- **temporarily stabilized by Donahue’s dissolution of parliament**
+- **one bad miscalculation away from a much wider crisis**. fileciteturn9file0 fileciteturn9file5 fileciteturn9file8
+
+The clearest strategic truth is this:
+
+**Your immediate problem is not that Reunion is weak.**  
+It’s that Reunion is **strong enough to matter, but not strong enough to force outcomes yet**.
+
+That is why the Soviets are probing, why the US is conditional, why Greece is still a problem, why Turkey matters, and why Donahue resorted to dissolving parliament in the first place. fileciteturn9file1 fileciteturn9file8
+
+If you want, I can turn this into a cleaner **President’s Morning Brief** format next.

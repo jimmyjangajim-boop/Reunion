@@ -1,0 +1,191 @@
+[
+  {
+    "id": "Q01",
+    "topic": "Current date",
+    "question": "What is the actual current in-world date? The tracker is dated October 3, 1992, but includes the ceasefire following Altis reports dated October 1993. Should Altis stay in 1993, move to 1992, or sit in a separate later snapshot?",
+    "answer": "Altis report was a mistype.",
+    "status": "needs_date_confirmation"
+  },
+  {
+    "id": "Q02",
+    "topic": "Parliament chronology",
+    "question": "The suspension on October 3, 1992 is already established. How should the oil law on October 6, Horizon law on October 9, and parliamentary activity on October 16 fit around it? If the current date is later, were extensions, reconvening, or elections actually played?",
+    "answer": "I think move the date up.",
+    "status": "needs_date_confirmation"
+  },
+  {
+    "id": "Q03",
+    "topic": "Election and finance succession",
+    "question": "What date did Donahue take office? Discord gives a July 5, 1992 runoff, but Rehn dies and Curro replaces her on June 24, and Donahue signs laws on June 26. Which dates should change, if any? Can June 24 now be used as Rehn’s death/Curro’s succession date, and is Rehn’s appointment date known?",
+    "answer": "June 25 is Rehns death and Curros succesion as first choice for his office",
+    "status": "needs_date_confirmation"
+  },
+  {
+    "id": "Q04",
+    "topic": "Population",
+    "question": "For the current national scale, should I use the baseline population of roughly 19–21 million? The Discord country-information sheet says 1.35 million, and its city figures sum to 1.355 million. Is the smaller figure old canon, an earlier historical population, or a scale that should still apply? What territory does the current total cover?",
+    "answer": "1.35M was our pre-civil war population",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q05",
+    "topic": "Historical economic scale",
+    "question": "The latest GDP is $400B USD / 2.32T RMC. Earlier reports use GDP of only 18–20B RMC. Were those earlier figures retconned, or are they valid for a different period? If retconned, do old loan, rail, infrastructure and treaty amounts stay at their written amounts or need explicit replacements?",
+    "answer": "18-20B RMC was supperrr small, its since been retconned, since they're retconned update the amounts with what seams reasonable compared to what it was under the old 18-20B RMC",
+    "status": "delegated_reconciliation"
+  },
+  {
+    "id": "Q06",
+    "topic": "National budget total",
+    "question": "Should the national spending total be $250B or $255B? The tracker’s category lines add to $255B. With revenue of $160B, that gives a $95B deficit rather than the displayed $90B. If $250B is intended, which category should change?",
+    "answer": "255B is canon",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q07",
+    "topic": "Transfers and defense budget",
+    "question": "Are the project transfers of $17.1B from Navy and $2.9B from Air Force approved and completed reallocations? What are the final defense branch appropriations after them? The visible branch figures sum to $82.9B, while the national defense line still says $100B.",
+    "answer": "82B is canon, some of it was moved to projects to ensure they are all 100% funded",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q08",
+    "topic": "Procurement costs",
+    "question": "Are the Army and Air Force comment lists complete and their prices total batch costs? Army items add to $4.541B, or $14.541B with the stated $10B personnel cost, versus “$23B spent.” Air items add to $3.553B; personnel, project transfer and stated remainder still leave $10.447B unexplained. What costs or corrected totals are missing?",
+    "answer": "Correct them yourselves based on what was purchased and their prices, troop costs, maintenance parts, ammo, other needs.",
+    "status": "delegated_reconciliation"
+  },
+  {
+    "id": "Q09",
+    "topic": "Delivery status",
+    "question": "Has any of the modernization equipment in the tracker comments actually been delivered, accepted or made operational since the October 3 baseline? If yes, which items, quantities and dates? This includes the five Falcon 20s and all new armor, artillery, helicopters, F-16s, Mirages, E-3s, tankers and transports.",
+    "answer": "I forget when the things are supposed to be coming in, they where just ordered i believe they will slowly trickle in over the next 3 years (or however much is reasonable based on what we're getting and from where)",
+    "status": "delivery_plan_prepared"
+  },
+  {
+    "id": "Q10",
+    "topic": "Project accounting",
+    "question": "Are all seven projects separate additive budgets, or do rail, energy and defense infrastructure overlap the National Infrastructure Spine? What does the tracker’s $41.6B “after fudge” total mean compared with $61.6B gross? It subtracts $20B of funding transfers. Should paid-out and committed columns be treated as actual payments and binding commitments?",
+    "answer": "Figure that out yourself, i believe that the fudging was just money reallocated from the defense budget without President Donahues knowledge",
+    "status": "delegated_reconciliation"
+  },
+  {
+    "id": "Q11",
+    "topic": "US loan",
+    "question": "Does the signed US facility remain $90 million at 12%, with a 3% fee, after the economic scale changes? Which tranches actually arrived, and when? Is this facility already included in the $120B public-debt stock?",
+    "answer": "The US loan is a non issue it isnt much.",
+    "status": "resolved_nonblocking"
+  },
+  {
+    "id": "Q12",
+    "topic": "Oil geology",
+    "question": "Is the deposit heavy oil or light oil? The economic baseline calls it heavy-dominant, while the October 16 report calls it confirmed light oil. Is the 1.5–2.2 billion barrel recoverable estimate still valid, and is 1.2M barrels/day only a future scenario?",
+    "answer": "Its heavy oil, 1.2M barrels/day is a future scenario once it is fully online and being drilled, for now its just being surveyed by both Reunion and the Soviets considering its split between Communist Greek waters and Reunion waters.",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q13",
+    "topic": "Oil awards",
+    "question": "Which petroleum awards actually became binding? The oil document offers Exxon 6%, Shell 6%, a French or Italian group 4%, and a Younger-led domestic group 4%, with conditional alternatives. Were those awards approved, and on what dates? I will keep Royla’s approximately 2% oil entitlement separate from the 15% equity sale in Royla itself.",
+    "answer": "All of them are binding.",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q14",
+    "topic": "Horizon ownership and capital",
+    "question": "What is Horizon’s approved ownership and funding structure? One document proposes Curro 70% / King 30% voting shares and Strevo investing 70% of his net worth through preferred capital. The tracker calls it state-backed and labels ownership/value as estimated. Which stakes, investment amounts and transfers actually happened?",
+    "answer": "Everything canon for horizon is already there, the 70-30 split is accurate, Strevo invested 70% of his net worth as well as the company receiving contracts from the state to construct a domestic arms manufacturing industry.",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q15",
+    "topic": "Intelligence institutions",
+    "question": "What is the approved structure after the signed RNIO Act? The Act creates a unified civilian RNIA with no independent detention/kinetic role, merges GRI and leaves RIA as a National Guard-type force. The baseline instead lists an internal RNIA with detention powers plus a separate external RNIO. Are those later changes, old errors, or distinct agencies? Who heads each now?",
+    "answer": "Distinct agencies, i think it got messy, so canon is that the RIA (reunion intelligence agency) is our intelligence agency both domestically and abroad, and the GRI should be the RNG (Reunion National Guard). They where both under one agency until the RNIO act which is all weird because we where sitll establishing these institutions.",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q16",
+    "topic": "Hartmann identities",
+    "question": "Are Ezra Hartman, Ebin Hartmann II, and the NSF leader named Hartmann separate people? Who currently commands the Army, who leads NSF, and which person ran for president in 1992? The older character Ebin Hartmann born in 1916 will remain a separate identity.",
+    "answer": "NSF Hartman is Ezra Hartman, Ezra is the general of the armed forces and son or grandson of Ebin Hartman (The general of the democratic rebels during the civil war and our first president)",
+    "status": "resolved_with_bounded_unknown"
+  },
+  {
+    "id": "Q17",
+    "topic": "Drafts versus accepted events",
+    "question": "Which of these saved texts were accepted into canon: the Industrial Air Capability Act ($6B), the detailed Horizon consolidation law/reactions, the oil law/tender outcomes, the August–September events log, and the October 2 presidential memorandum’s new events? Can reported completed events in those files be accepted except where they are explicitly options/forecasts, or should each remain pending?",
+    "answer": "All of those are Canon",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q18",
+    "topic": "Unit 17",
+    "question": "Was Hartmann’s roughly 40-person Unit 17 actually approved/formed in canon, or is the internal NSF/RIA write-up an unused scenario? If formed, which Hartmann authorized it and when?",
+    "answer": "Unit 17 is operational but not approved formally, they are a shadow group ran directly by Ezra to conduct his own personal black ops.",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q19",
+    "topic": "Croatian treaty articles",
+    "question": "Which articles of the Croatian draft became the signed final agreement? The frontier just north of Šibenik and Šibenik DMZ are already established. Are the draft’s 30km force restriction, 50km withdrawal notification rule, broad breach clauses and twelve-year term binding? Are there final maps or annexes defining the DMZ and corridors?",
+    "answer": "The draft became the final signed treaty. No map, ill make one soon",
+    "status": "resolved_with_map_pending"
+  },
+  {
+    "id": "Q20",
+    "topic": "Ploče chronology",
+    "question": "What date did the UN corridor resolution at Ploče actually finish? Does the later reference to a “second Bosnian peacekeeping force” describe a new canon incursion, a proposal, or just an attachment caption? The earlier completed resolution will remain intact.",
+    "answer": "Give it a date a couple days after the actual fighting. The Second Bosnian peacekeeping force was a discord meme.",
+    "status": "delegated_date_assigned"
+  },
+  {
+    "id": "Q21",
+    "topic": "Altis ceasefire date",
+    "question": "What is the date the Altis ceasefire and UN buffer took effect? The last news reports say the ceasefire happened but do not give an in-world dateline. Is the airport still Turkish-held at the current date?",
+    "answer": "I think it should happen the day before the current canon date. The airport is still Turkish held but the rest of the island has been reinforced by Greece as their navies stand off on opposite sides of the island.",
+    "status": "relative_date_confirmed"
+  },
+  {
+    "id": "Q22",
+    "topic": "Altis casualty totals",
+    "question": "For the October 11 Altis report, which figures should be corrected? The four Turkish subunits total 71 effective personnel from 160, with 41 KIA, 33 WIA and 15 MIA. The headline instead says 61 effective and about 44% casualties. Should the detailed rows or a replacement report govern?",
+    "answer": "replacement report, 71 effective personnel from 160, with 41 KIA, 33 WIA and 15 MIA",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q23",
+    "topic": "Founding chronology",
+    "question": "How should the 1946 constitution and the civil war ending in 1947 fit together? Was there a 1946 interim government/constitution before the final settlement? Who was the first president and when: Chester McPeak, as the settlement account says, or Hartmann in 1946, as the presidential list says?",
+    "answer": "1946 interim government during the draft and finalization of the constitution, mcpeak attempted a government during the tense ceasefires that would often be broken, but they never worked, the treaty ending the war was signed in 1947 by the King and Hartmann was elected.",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q24",
+    "topic": "Royal succession",
+    "question": "The current king remains Zo III. A newly supplied Discord country record calls the heir Prince Jakob Steiner, while your later decision identifies the young heir as Zo III. Is Jakob an old superseded name, his personal name with Zo III as another designation, or a different person? Do you have a lineage separating the king crowned in 1924 from the present king?",
+    "answer": "King Zo III is canon, Jakob Steiner is not the heir anymore it was retconned he is non existent. he's been replaced with King Zo III's cousin Henry Steiner who runs our special forces \"Inferno\" Division. There is no heir yet",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q25",
+    "topic": "Legacy canon scope",
+    "question": "When the Younger channel says everything before its reset is “no longer relevant and classified,” is that a retcon or only a secrecy/current-focus change? Should clones, supernatural experiments, joke commanders and the 2023 football stories remain historical/future canon, or be archived outside the main continuity?",
+    "answer": "Everything before the reset is just jokes and retconned, nuclear experiments and some other wild and highly experimental experiments where conducted by Dr Lucas Younger which eventually drove him mad, causing him to dissappear out of the blue one day leaving his sons to pick up the pieces of his work at Younger Industries, his sons names dont matter, as the current Younger is the main one",
+    "status": "resolved_by_user"
+  },
+  {
+    "id": "Q26",
+    "topic": "Missing attachment content",
+    "question": "Can you later supply the Discord media folder or re-export with downloaded attachments? The ZIP contains HTML references to 117 attachments but no attachment files. Two Drive documents are blank, and BosniaPloce.mp4 is five seconds of white frames with no audio. The Ezra character document is also only linked, not included in this Drive ZIP.",
+    "answer": "I can try but thats alot of attachments, i can try to find relevant ones.",
+    "status": "source_gap"
+  },
+  {
+    "id": "Q27",
+    "topic": "Invalid historical dates",
+    "question": "What dates should replace November 31, 1945 in the rebel election and Funkyville sabotage posts, and February 29, 1994 in the military-request post? I will retain the original text and leave normalized dates unknown until corrected.",
+    "answer": "Not sure what ur asking",
+    "status": "exact_date_unknown"
+  }
+]

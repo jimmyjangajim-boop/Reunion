@@ -1,0 +1,45 @@
+id,earliest_date,latest_date,precision,event,status,evidence
+T001,1477,1481,year_range,War of the Split Customs between Reunion and Venice,1725_baseline_accepted,RP Map And Battles.txt
+T002,1511,1515,year_range,War of the Three Harbors,1725_baseline_accepted,RP Map And Battles.txt
+T003,1544,1548,year_range,War of Saint Mark's Convoys,1725_baseline_accepted,RP Map And Battles.txt
+T004,1585,1591,year_range,Dalmatian League War,1725_baseline_accepted,RP Map And Battles.txt
+T005,1638,1644,year_range,War of the Levant Charters,1725_baseline_accepted,RP Map And Battles.txt
+T006,1686,1692,year_range,Great Venetian War / War of Torrential Bay,1725_baseline_accepted,RP Map And Battles.txt
+T007,1689,1689,year,Battle of Torrential Bay,1725_baseline_accepted,RP Map And Battles.txt
+T008,1694,1694,year,Compact of the Three Estates (date from chat recovery; check primary),chat_recap,prior Reunion roleplay summaries
+T009,1725-01-01,1725-01-01,day,Kingdom of Reunion baseline; Aurelios I; 2.82m population; 12.8k regulars; 16.8m Corona Crown exposure,user_approved_baseline,RP Map And Battles.txt
+T010,1725,1725,year,Death of Aurelios I and succession of Aurelios II early in year,user_approved_baseline,RP Map And Battles.txt
+T011,1931,1939,year_range,"Reunion civil war, one recovered chronology; disputed with other accounts",conflict,prior Reunion chat recaps
+T012,1946,1946,year,Republican Constitution preserves ceremonial hereditary Crown; Hartmann presidency begins,baseline_and_chat_recap,The-Constitution-of-Reunion.txt; chat recovery
+T013,1952,1960,year_range,Mpik Conservative administrations after Hartmann,chat_recap,prior Reunion chat recaps
+T014,1960,1972,year_range,"Hartmann Party presidencies Anatoli, Drakos, Gabris, Hartmann at approximately four-year steps",chat_recap,prior Reunion chat recaps
+T015,1970,1979,decade,"First Greek Naval War over disputed Greek islands; Greek navy lost >75%, exact year unknown",chat_recap,prior Reunion chat recaps
+T016,1976,1980,year_range,Conservative Party government,chat_recap,prior Reunion chat recaps
+T017,1977,1977,year,National Security and Subversive Activities Act reported,chat_recap,prior Reunion chat recaps
+T018,1980,1988,year_range,Hartmann Party administrations and industrial buildup,chat_recap,prior Reunion chat recaps
+T019,1991,1991,year,Reunion seizure/occupation of coastal Dalmatia amid Yugoslav breakup,chat_recap,prior Reunion chat recaps
+T020,1992-03-09,1992-03-09,day,"Battle of Magoula, approx 98 Reunion and 162 Soviet losses",user_confirmed_recovery,prior battle-log chat recovery
+T021,1992-03-17,1992-03-17,day,"First and Second Evinos battles, approx 544 Reunion and 1732 Soviet losses",user_confirmed_recovery,prior battle-log chat recovery
+T022,1992-03-17,1992-03-18,day_range,"Battle of Zelenogorsk, approx 153 Reunion and 542 opposing losses",user_confirmed_recovery,prior battle-log chat recovery
+T023,1992-03-19,1992-03-19,day,Rogovo and Pogorevka battles,user_confirmed_recovery,prior battle-log chat recovery
+T024,1992-03-20,1992-03-20,day,Shakhovka battle and failed assassination of officer,user_confirmed_recovery,prior battle-log chat recovery
+T025,1992-03-21,1992-03-21,day,Stary Sober engagement; Operation Clock Zero near Thessaloniki,user_confirmed_recovery,prior battle-log chat recovery
+T026,1992-03-21,1992-03-21,day,"Admiral Caldus Rheon dies following attack at Zo Manor, Soviet involvement alleged",chat_recap,prior roleplay summary
+T027,1992-03-21,1992-03-27,approximate,Evinos Pocket and Operation Iron Vein evacuation,chat_recap,prior roleplay summary
+T028,1992-03-24,1992-03-24,day,Treaty of Bern ends direct Soviet-Reunion fighting,chat_recap,prior roleplay summary
+T029,1992-04-03,1992-04-03,day,Parliamentary postwar compensation/reconstruction initiatives,chat_recap,prior roleplay summary
+T030,1992-04-06,1992-04-06,day,Red Ember Front attacks Parliament; Steinberg reserve insurrection and martial law,user_confirmed_recovery,prior roleplay summary
+T031,1992-04-07,1992-04-07,day,Vrpolje Balkan/Dalmatian militia battle,user_confirmed_recovery,prior battle-log chat recovery
+T032,1992-04-07,1992-04-30,month_range,Polaca and Cetina militia clashes; exact days not supplied,user_confirmed_recovery,prior battle-log chat recovery
+T033,1992-07-05,1992-07-05,day,Dax Donahue wins presidential runoff versus Ezra Hartmann 59%-41%,chat_recap,prior election RP summary
+T034,1992-08-10,1992-08-11,day_range,"Dalmatian deployment/intelligence briefings (UDF, Croatian buildup, Lynx loss)",chat_recap,prior military RP summary
+T035,1992-09-10,1992-09-10,day,Major Croatian offensive near Zadar and Reunion retreat/losses,user_confirmed_recovery,prior battle-log chat recovery
+T036,1992-09-13,1992-09-14,approximate,Ploce Bosnian hostage and UN corridor crisis; phase timing disputed,conflict,prior roleplay recaps
+T037,1992-09-14,1992-09-14,approximate,Croatian-Reunion twelve-year non-belligerency settlement and territorial division,user_override_border,prior treaty recaps; 2026-10-18 correction
+T038,1992-10-03,1992-10-03,day,Comprehensive political/economic/military national baseline,user_approved_baseline,REUNION-MASTER-POLITICAL-—-BASELINE-v1.txt plus ledger/OOB/composition
+T039,1992-10-03T06:00,1992-10-03T06:00,minute,President Donahue suspends/dissolves Assembly for three months,user_confirmed_recovery,Library_Variants/Master Political V2(1).txt
+T040,1992-12-15,1992-12-15,day,Zadar/Split Croatian air and artillery battle; may overlap Sept battle,conflict,prior battle-log chat recovery
+T041,1993-10,1993-10-11,approximate_and_incomplete,First five days of Altis fighting; actual first date uncertain,conflict,Library_Variants/Master Political V2(2).txt dated 1993-10-11
+T042,1993-10-11,1993-10-11,day,"RBD report: Altis stalemate, Turkey holds airport terminal, Greece radar ridge",primary_file,Library_Variants/Master Political V2(2).txt
+T043,1993-10,1993-10,month,Altis Day 6: Alpha destroyed; Charlie at airport; airdropped M113 lost; Echo contested positions,user_confirmed_recovery,prior Altis RP user statement
+T044,1993-10,1993-10,month,UN observed ceasefire and buffer zone with Turkey retaining airport/food supplies,user_confirmed_recovery,prior Altis RP user statement

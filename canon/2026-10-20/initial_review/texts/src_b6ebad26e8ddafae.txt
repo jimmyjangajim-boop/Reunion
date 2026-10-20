@@ -1,0 +1,279 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/REUNION ORDER OF BATTLE – DALMATIA (UPDATED 11 AUG 1992).docx
+
+[1] REUNION ORDER OF BATTLE – DALMATIA (UPDATED 11 AUG 1992)
+[2] A. Ground Forces – In-Theater
+[3] 1. 3rd Infantry Regiment (3,500 troops)
+[4] Status: Forward deployment in coastal and inland defensive sectors.
+ Quality: Well-trained, no combat experience.
+ Morale: Moderate; shaken by recent shelling and helicopter shoot-down.
+ Composition:
+[5] 3 × Infantry Battalions
+[6] Each with rifle companies equipped with mix of FAMAS rifles & older NATO small arms.
+[7] Light AT teams (LAWs, some RPG-7s captured or purchased cheaply).
+[8] Mortar platoons (60mm & 81mm).
+[9] Regimental Support
+[10] 9 × US-made 1980s APCs (M113-derivatives; functional but aging).
+[11] 6 × Field Artillery Guns (likely 105mm or 122mm equivalent).
+[12] 12 × AAA pieces (old-school autocannons; insufficient vs modern aircraft).
+[13] Transport trucks (logistics backbone, vulnerable to interdiction/sabotage).
+[14] Capabilities:
+[15] Static defense.
+[16] Light maneuver along coastal roads.
+[17] Limited cross-country mobility.
+[18] Cannot sustain heavy armor confrontation without assistance.
+[20] 2. 2nd Armored Angels Regiment (5,000 troops)
+[21] Status: Held as operational reserve in central Dalmatia.
+ Quality: Good training; mixed combat experience (some Evinos vets in staff).
+ Morale: High but concerned about equipment issues.
+[22] Key Equipment
+[23] Armor
+[24] 4 × M1A1 Abrams tanks
+[25] Poorly maintained.
+[26] Spare parts scarcity; reverse-engineered components failing early.
+[27] Fire control and optics reliability down ~30–40%.
+[28] Mobility acceptable; armor still formidable.
+[29] 15 × Light Tanks (1970s–80s vintage)
+[30] Likely AMX-13, Vickers Mk3, or similar class.
+[31] Good for fire support; useless against modern Croatian T-55/T-72 fleets.
+[32] Mechanized / Motorized
+[33] 20 × APCs (mix of M113s & domestic light armor)
+[34] 60 × Troop Transports (soft-skin trucks)
+[35] Capabilities:
+[36] Best armored punch Reunion can field in Dalmatia.
+[37] Capable of limited counterattacks, but logistics & maintenance reduce staying power.
+[38] Vulnerable if Croatian artillery pins them before maneuver.
+[40] B. Air Assets – Assigned to Dalmatia AO
+[41] 1. Fighters – 28 total
+[42] Breakdown (assumed):
+[43] 18–20 front-line fighters (Mirage III/V? F-5? F-16 early blocks if acquired from US?).
+[44] 8–10 older interceptors.
+[45] Condition:
+ Good pilots, aviation fuel constrained, SAM radar coverage degraded.
+[46] 2. CAS Aircraft – 5
+[47] Light attack craft (Alpha Jets, A-37s, or domestic equivalents).
+[48] Effective for counter-insurgency, vulnerable to Croatian AA.
+[49] 3. Jamming Aircraft (French) – 2
+[50] Critical strategic assets.
+[51] Used sparingly due to maintenance concerns.
+[52] Needed to degrade Croatian artillery targeting and disrupt UDF radios.
+[53] 4. Attack Helicopters – 8 (Lynx-type)
+[54] Current readiness: 7, after one shot down 11 Aug.
+ Capabilities:
+[55] Excellent anti-armor ambusher.
+[56] Vulnerable at medium altitude.
+[57] Requires secure forward arming and refueling points (FARPs).
+[59] C. Ground-Based Air Defense & Radar
+[60] Domestic SAM network at ~20% strength.
+[61] Many radars destroyed or degraded from Soviet SEAD earlier in 1992.
+[62] Coverage gaps across:
+[63] Inland valleys,
+[64] Dalmatian mountain approaches,
+[65] Rear-area bridges.
+[66] Current effect:
+ Croatian fighters or drones can probe at will unless your fighters intercept.
+[68] D. Logistics Summary
+[69] Ports secure thanks to Reunion Navy.
+[70] Overland logistics: weak, vulnerable to:
+[71] Bridge destruction,
+[72] Ambushes,
+[73] Mortar attacks on supply nodes.
+[74] Fuel & ammo stockpiles:
+[75] Poorly dispersed.
+[76] Lightly guarded.
+[77] High sabotage risk.
+[79] II. ASSUMED CROATIAN OOB – AUG 11, 1992 (RNIO ESTIMATE)
+[80] 1. Deployed to Dalmatian Border (Confirmed)
+[81] Croatian Brigade #1 (Deployed early August)
+[82] 2–3 Infantry Battalions (combat experienced; some fought Serbs recently)
+[83] 1 Mechanized Company (BTRs, BMP-1s, or M-80 Yugoslav IFVs)
+[84] 1 Recon Company
+[85] Artillery Battalion
+[86] 122mm and 152mm towed artillery
+[87] ~12–18 tubes
+[88] Possibly 122mm MRLs
+[89] Croatian Brigade #2 (Detected 11 August – Moving into Position)
+[90] Likely composition:
+[91] 2 infantry battalions
+[92] 1 tank company (T-55s, possibly a handful of T-72s rotated from other fronts)
+[93] 1 artillery battery
+[94] Engineers for mine-laying and breaching
+[96] 2. UDF (Unified Dalmatian Front) – Updated Assessment
+[97] Strength:
+ Estimated 1,500–3,000 fighters dispersed across the interior.
+[98] Equipment:
+[99] Small arms.
+[100] RPGs.
+[101] 60/82mm mortars.
+[102] New intel: Presence of T-72s (captured, smuggled, or covert Croatian delivery).
+[103] Likely roles:
+[104] Border harassment
+[105] Sabotage
+[106] Anti-armor ambushes
+[107] They are preparing coordinated movements with Croatian regulars.
+[109] III. RNIO INTELLIGENCE BRIEF – 11 AUGUST 1992
+[110] CLASSIFICATION: TOP SECRET – EYES ONLY
+ To: President Donahue, General Hartmann, Joint Military Staff
+ From: RNIO – Dalmatian Desk
+ Time: 11 AUG 1992, 21:45
+[112] SUBJECT: Escalating Croatian Military Activity, UDF Mobilization & Reunion OOB Review
+[114] 1. NEW EVENTS – 11 AUG
+[115] A. Croatian Forces Shot Down Reunion Lynx Attack Helicopter
+[116] Incident occurred inside our territory near the Brac–Makarska sector.
+[117] Croatian statement (radio intercept):
+
+
+ “Training fire impacted unidentified aircraft. No hostile intent.”
+[118] This is false.
+ Trajectory and radar logs confirm a deliberate engagement, likely from a MANPADS team embedded with their forward companies.
+[119] Implication:
+ Croatia is willing to use lethal force preemptively while hiding behind “accident” framing.
+[121] B. Second Croatian Brigade Identified Moving to Border
+[122] Satellite cues + SIGINT indicate:
+[123] HQ vehicles,
+[124] 2 infantry battalion columns,
+[125] 1 tank company,
+[126] Artillery battery following via mountain road.
+[127] Arrival estimated within 48–72 hours.
+[128] This matches pre-offensive staging doctrine.
+[130] C. UDF Armored Presence (T-72s)
+[131] Reliable spotting by recon drone & QRF patrol:
+[132] At least 2 T-72s,
+[133] Possibly 1–2 more concealed in a farm complex.
+[134] Located near the tri-border area (Bosnia/Croatia/Reunion zone).
+[135] Assessment:
+ These are not militia-acquired; delivery is state-supported.
+[137] D. Smuggling Incident – Construction Ship
+[138] Debrief of detained crew confirms:
+[139] Orders came from Croatian Ministry of Defense intermediaries.
+[140] Cargo included:
+[141] AT guns, heavy machine guns, recoilless rifles, mortar rounds.
+[142] Intended recipients:
+[143] UDF cells in Split hinterland and coastal towns.
+[144] Implication:
+ Croatia is preparing the battlefield for a hybrid escalation.
+[146] 2. RNIO THREAT ASSESSMENT
+[147] Croatia’s Strategic Angle
+[148] Zagreb is shaping the situation for a limited offensive (COA-2) by late 1992 or early 1993.
+[149] Indicators:
+[150] Two brigades massed on frontier.
+[151] Artillery range-finding under guise of “exercises.”
+[152] Increased UDF activity + armored elements.
+[153] Direct engagement of Reunion aircraft.
+[154] Their objective is likely:
+[155] Territorial rollback of our coastal holdings,
+[156] Fragmentation of our logistical axis,
+[157] Forcing political concessions or withdrawal.
+[159] 3. REUNION OOB (DALMATIA) – AUG 11, 1992
+[160] (Summarized for staff use)
+[161] 3rd Infantry Regiment – 3,500
+[162] 3 infantry battalions
+[163] 9 APCs
+[164] 6 artillery guns
+[165] 12 AAA guns
+[166] Light AT assets
+[167] Morale moderate
+[168] 2nd Armored Angels Regiment – 5,000
+[169] 4 × M1A1 Abrams (poor maintenance state)
+[170] 15 × Light Tanks (1970s–80s)
+[171] 20 APCs
+[172] 60 transports
+[173] High morale, moderate readiness
+[174] Air Assets
+[175] 28 fighters
+[176] 5 CAS
+[177] 2 French ECM aircraft
+[178] 8 attack helicopters → now 7
+[179] Ground-Based Air Defense
+[180] Domestic SAM/Radar at ~20% capability
+[181] Logistics
+[182] SLOC safe
+[183] Overland routes fragile
+[184] Fuel/ammo depots weakly defended
+[186] 4. ASSUMED CROATIAN OOB – AUG 11
+[187] Brigade #1
+[188] 2–3 infantry battalions
+[189] Recon company
+[190] Mechanized company
+[191] Full artillery battalion (122/152mm, possibly MRLs)
+[192] Brigade #2
+[193] 2 infantry battalions
+[194] 1 tank company (T-55/T-72 mix)
+[195] Artillery battery
+[196] Engineers
+[197] UDF Forces
+[198] 1,500–3,000 personnel
+[199] Mortars, RPGs, small arms
+[200] T-72 presence confirmed
+[201] Strong cross-border support networks
+[203] 5. PLANS DRAWN UP BY STAFF – DEFENSIVE CONTINGENCY OPTIONS
+[204] PLAN A – HOLD THE COAST / AVOID PROVOCATION
+[205] Consolidate around:
+[206] Port,
+[207] Main junction,
+[208] Fuel/ammo depots.
+[209] Increase patrols & early warning.
+[210] Advantages:
+[211] Low political risk.
+[212] Avoids triggering full Croatian offensive.
+[213] Disadvantages:
+[214] Yields initiative.
+[215] Allows UDF infiltration.
+[217] PLAN B – ELASTIC DEFENSE / ARMORED COUNTER-ATTACK
+[218] Use 3rd Infantry to hold fixed points.
+[219] Deploy 2nd Armored Angels for:
+[220] Rapid counterattack against Croatian spearheads,
+[221] Encirclement of isolated UDF groups.
+[222] Advantages:
+[223] Retains mobility.
+[224] Uses armored assets before Croatian artillery suppresses them.
+[225] Disadvantages:
+[226] High fuel cost.
+[227] Abrams reliability low.
+[228] If counterattack fails, line collapses.
+[230] PLAN C – PREEMPTIVE SHAPING OPERATIONS
+[231] Limited airstrikes (if justified) on UDF armor & staging areas.
+[232] Recon raids into suspected Croatian forward observation posts.
+[233] Sabotage teams targeting Croatian bridgeheads.
+[234] Advantages:
+[235] Disrupts enemy build-up.
+[236] Sends political signal.
+[237] Disadvantages:
+[238] Risk of escalation before we’re ready.
+[239] Could justify Croatian offensive.
+[241] PLAN D – STRATEGIC WITHDRAWAL TO HARDPOINTS
+[242] Abandon inland outposts.
+[243] Compress forces around:
+[244] Port,
+[245] Coastal fortifications,
+[246] Preset defensive zones.
+[247] Advantages:
+[248] Dense defense, easier supply.
+[249] Reduces UDF ambush exposure.
+[250] Disadvantages:
+[251] Cedes territory.
+[252] Encourages Croatian claim of “Reunion retreat.”
+[254] 6. CLOSE CALLS (PAST 72 HOURS)
+[255] Artillery shells landed within 200m of our Site D-12 ammo dump.
+[256] Likely deliberate ranging.
+[257] If they walk fire in 2–3km, the dump is lost.
+[258] UDF ambush on convoy near inland road P-7.
+[259] No casualties, but AT gun emplacement was pre-dug.
+[260] SIGINT detected Croatian artillery nets referencing “Blue Eagle axis,” believed to be our primary reinforcement corridor.
+[261] Croatian recon patrol crossed 300m into our territory before retreating when spotted.
+[262] Testing reaction time.
+[264] 7. CROATIAN PRESIDENT (FOR RECORD)
+[265] President Franjo Tuđman
+[266] Nationalist, strategic opportunist.
+[267] Sees Dalmatia as Croatian by right and Reunion as temporary occupier.
+[268] Believes Reunion is overextended after Evinos.
+[269] His military council is pushing for a late ’92 or early ’93 correction operation.
+[271] 8. RNIO CONCLUSION (BLUNT)
+[272] Croatia is preparing the battlefield.
+[273] UDF is no longer a guerrilla sideshow; it is becoming a forward element of Croatian operational planning.
+[274] Your helicopter being shot down marks the transition from covert hostility to deliberate pressure.
+[275] If we do nothing, Croatia will:
+[276] Finish massing forces,
+[277] Let UDF soften our logistics,
+[278] Launch a limited offensive that forces a political settlement unfavorable to us.
+[279] Dalmatia will slip away.
+[280] Unless we reshape the situation NOW.

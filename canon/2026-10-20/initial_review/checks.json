@@ -1,0 +1,92 @@
+[
+  {
+    "id": "air_cost_sum",
+    "topic": "procurement",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Military!C20 comment",
+    "observed_json": "{\"budget_b\": 25, \"personnel_b\": 7, \"project_transfer_b\": 2.9, \"remaining_b\": 1.1}",
+    "calculated_json": "{\"explained_plus_personnel_transfer_remaining_b\": 14.553, \"itemized_equipment_b\": 3.553, \"unexplained_b\": 10.447}",
+    "status": "needs_decision",
+    "explanation": "Unlisted procurement, sustainment or another figure may explain this; none is invented."
+  },
+  {
+    "id": "aircraft_definition",
+    "topic": "classification",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Military!B5",
+    "observed_json": "27",
+    "calculated_json": "{\"cas\": 5, \"ew\": 2, \"fighters\": 20, \"sum_all_listed\": 27}",
+    "status": "definition_note",
+    "explanation": "Earlier detailed OOB includes two ECM aircraft inside the 27 labelled combat aircraft. Preserve the raw label and show the composition; do not silently treat 27 as fighter/CAS aircraft."
+  },
+  {
+    "id": "altis_strength",
+    "topic": "casualties",
+    "source_id": "src_d3ffad383db533f6",
+    "locator": "word/document.xml:paragraphs 21-25",
+    "observed_json": "{\"headline_casualty_percent_approx\": 44, \"headline_effective\": 61}",
+    "calculated_json": "{\"casualties\": 89, \"casualty_percent_from_categories\": 55.625, \"effective_if_categories_exhaustive\": 71, \"kia\": 41, \"mia\": 15, \"original_strength\": 160, \"subunit_effective_sum\": 71, \"wia\": 33}",
+    "status": "needs_decision",
+    "explanation": "Subunit rows sum to 71 effective and 89 casualties, contradicting 61 effective and approximately 44% casualties."
+  },
+  {
+    "id": "army_cost_sum",
+    "topic": "procurement",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Military!C19 comment",
+    "observed_json": "{\"claimed_spent_b\": 23, \"left_b\": 2, \"personnel_b\": 10}",
+    "calculated_json": "{\"itemized_equipment_b\": 4.541, \"unexplained_to_claimed_spent_b\": 8.459, \"with_personnel_b\": 14.541}",
+    "status": "needs_decision",
+    "explanation": "Listed item costs do not explain the comment total; do not invent the missing costs."
+  },
+  {
+    "id": "budget_sum",
+    "topic": "budget",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Economy!B13:B26 versus E7",
+    "observed_json": "250.0",
+    "calculated_json": "255.0",
+    "status": "needs_decision",
+    "explanation": "Category allocations sum to 255B; headline spending is 250B. At unchanged revenue, category-based deficit would be 95B, not 90B."
+  },
+  {
+    "id": "coverage_excludes_oil",
+    "topic": "formula",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Dashboard!B15",
+    "observed_json": "\"AVERAGE(Projects!H2:H7)\"",
+    "calculated_json": "{\"current_all_seven_coverage\": 1, \"omitted_row\": 8}",
+    "status": "scope_note",
+    "explanation": "Oil row is omitted. Currently all seven projects are 100% funded, so the displayed average happens to remain 100%."
+  },
+  {
+    "id": "project_costs",
+    "topic": "projects",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Projects!F16:G16",
+    "observed_json": "{\"after_fudge_b\": 41.6, \"gross_b\": 61.6}",
+    "calculated_json": "{\"deductions_b\": 20.0, \"gross_b\": 61.6}",
+    "status": "needs_decision",
+    "explanation": "Funding source transfers do not ordinarily reduce a project total cost. Scope and accounting intent need confirmation."
+  },
+  {
+    "id": "rail_eta",
+    "topic": "formula",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Projects!J6",
+    "observed_json": "35098",
+    "calculated_json": "{\"formula\": \"references row 5 instead of row 6\", \"row5_months\": 39.2, \"row6_months\": 62.5}",
+    "status": "confirmed_formula_reference_error",
+    "explanation": "J6 uses G5/E5/K5/I5, copying the energy-project forecast into the rail row. Original workbook was not edited."
+  },
+  {
+    "id": "seats",
+    "topic": "parliament",
+    "source_id": "src_bcb9f282108154c9",
+    "locator": "Politics!B15:B21",
+    "observed_json": "400",
+    "calculated_json": "400.0",
+    "status": "pass",
+    "explanation": "Six blocs sum to the stated 400 seats. This does not establish filled/voting seats or constitutional legality."
+  }
+]

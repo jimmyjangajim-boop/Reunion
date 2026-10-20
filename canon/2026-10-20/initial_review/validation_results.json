@@ -1,0 +1,121 @@
+{
+  "checks_passed": 29,
+  "checks": [
+    {
+      "check": "SQLite integrity",
+      "result": "pass"
+    },
+    {
+      "check": "Foreign key integrity",
+      "result": "pass"
+    },
+    {
+      "check": "All 46 channels parsed",
+      "result": "pass"
+    },
+    {
+      "check": "All export message totals match",
+      "result": "pass"
+    },
+    {
+      "check": "1,140 unique messages retained",
+      "result": "pass"
+    },
+    {
+      "check": "Every original blob checksum matches",
+      "result": "pass"
+    },
+    {
+      "check": "Sources reference blobs with correct byte counts",
+      "result": "pass"
+    },
+    {
+      "check": "Original upload unchanged: Reunion Archives.zip",
+      "result": "pass"
+    },
+    {
+      "check": "All archive members byte-preserved: Reunion Archives.zip",
+      "result": "pass"
+    },
+    {
+      "check": "Original upload unchanged: REUNION-20261020T035402Z-1-001.zip",
+      "result": "pass"
+    },
+    {
+      "check": "All archive members byte-preserved: REUNION-20261020T035402Z-1-001.zip",
+      "result": "pass"
+    },
+    {
+      "check": "Latest tracker unchanged",
+      "result": "pass"
+    },
+    {
+      "check": "All six prior text files unchanged",
+      "result": "pass"
+    },
+    {
+      "check": "All three tracker versions have 730 cells and 6 comments",
+      "result": "pass"
+    },
+    {
+      "check": "Every normalized candidate has evidence",
+      "result": "pass"
+    },
+    {
+      "check": "Latest snapshot is not assigned an invented effective date",
+      "result": "pass"
+    },
+    {
+      "check": "Only governing user instructions produce confirmed candidates",
+      "result": "pass"
+    },
+    {
+      "check": "No procurement counted as delivered or operational",
+      "result": "pass"
+    },
+    {
+      "check": "King and heir have different permanent identities",
+      "result": "pass"
+    },
+    {
+      "check": "Darius retained as canonical VP",
+      "result": "pass"
+    },
+    {
+      "check": "September 10 casualties remain separately classified and reconcile",
+      "result": "pass"
+    },
+    {
+      "check": "27 answerable review questions retained",
+      "result": "pass"
+    },
+    {
+      "check": "No user answers or canon resolutions invented",
+      "result": "pass"
+    },
+    {
+      "check": "Known contradictions retained",
+      "result": "pass"
+    },
+    {
+      "check": "Every passage searchable without duplication",
+      "result": "pass"
+    },
+    {
+      "check": "Search returns Rehn, Altis and procurement evidence",
+      "result": "pass"
+    },
+    {
+      "check": "All supplied sources have review coverage",
+      "result": "pass"
+    },
+    {
+      "check": "Backup restoration reproduces all relational tables",
+      "result": "pass"
+    },
+    {
+      "check": "Reimport preserves all source, passage, message, cell, comment, attachment, candidate and question counts without duplicates",
+      "result": "pass"
+    }
+  ]
+}

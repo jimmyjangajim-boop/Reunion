@@ -1,0 +1,42 @@
+[
+  {
+    "old_claim_id": "cl_036b6f5815510aa118d8",
+    "new_fact_id": "cf_6f26a4896d2412392d21",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_d401f5b189ea84a14489",
+    "new_fact_id": "cf_b2a12fb1226e4be17d5e",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_17f9efd6e8b5cc30b9d9",
+    "new_fact_id": "cf_b2a12fb1226e4be17d5e",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_694d7456794126a408cc",
+    "new_fact_id": "cf_f10ccd4ac4feffc851ea",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_05d9a6135f31a179ade3",
+    "new_fact_id": "cf_aff80b5b6283e471bb00",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_4269143c8751439365cd",
+    "new_fact_id": "cf_3a1be7bb1d9f75f7a895",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_f469eb6842d80bc12e37",
+    "new_fact_id": "cf_2c042ad1eb45205a258d",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  },
+  {
+    "old_claim_id": "cl_e9f357501100a70ed51e",
+    "new_fact_id": "cf_24b5979b5ddb687fd4c5",
+    "reason": "New user decision or delegated reconciliation. Original payload and evidence retained."
+  }
+]

@@ -1,0 +1,121 @@
+SOURCE Reunion Archives.zip!Reunion Archives/Rumbling Reunion Party - The Greek War (1973) _ The Yugoslav War(1991)_ - dice-roller [1029946737923723345].html
+
+[1029956474752999465] DiceParser#0764 | Wednesday, October 12, 2022 10:19 PM | UTC 2022-10-13T03:19:19.247000+00:00
+# 1
+Details:[1d10 (1)]
+
+[1029956765653139557] big_zo | Wednesday, October 12, 2022 10:20 PM | UTC 2022-10-13T03:20:28.603000+00:00
+6 MORALE AND SUPPLY
+
+[1029957753042653257] DiceParser#0764 | Wednesday, October 12, 2022 10:24 PM | UTC 2022-10-13T03:24:24.015000+00:00
+# 7
+Details:[1d20 (7)]
+
+[1029957792225841265] big_zo | Wednesday, October 12, 2022 10:24 PM | UTC 2022-10-13T03:24:33.357000+00:00
+MINOR ATTRITION
+
+[1030332696444030976] DiceParser#0764 | Thursday, October 13, 2022 11:14 PM | UTC 2022-10-14T04:14:17.488000+00:00
+# 42
+Details:[1d56 (42)]
+
+[1030333305830256660] DiceParser#0764 | Thursday, October 13, 2022 11:16 PM | UTC 2022-10-14T04:16:42.777000+00:00
+# 4
+Details:[1d20 (4)]
+
+[1030333333999210507] DiceParser#0764 | Thursday, October 13, 2022 11:16 PM | UTC 2022-10-14T04:16:49.493000+00:00
+# 1
+Details:[1d20 (1)]
+
+[1030336083906535475] DiceParser#0764 | Thursday, October 13, 2022 11:27 PM | UTC 2022-10-14T04:27:45.122000+00:00
+# 5
+Details:[1d10 (5)]
+
+[1030348199069745152] DiceParser#0764 | Friday, October 14, 2022 12:15 AM | UTC 2022-10-14T05:15:53.602000+00:00
+# 23
+Details:[1d42 (23)]
+
+[1031051408155344906] DiceParser#0764 | Saturday, October 15, 2022 10:50 PM | UTC 2022-10-16T03:50:11.713000+00:00
+# 20
+Details:[1d20 (20)]
+
+[1031051480532271104] DiceParser#0764 | Saturday, October 15, 2022 10:50 PM | UTC 2022-10-16T03:50:28.969000+00:00
+# 6
+Details:[1d20 (6)]
+
+[1031051507065442304] DiceParser#0764 | Saturday, October 15, 2022 10:50 PM | UTC 2022-10-16T03:50:35.295000+00:00
+# 1
+Details:[1d20 (1)]
+
+[1031057078057447425] DiceParser#0764 | Saturday, October 15, 2022 11:12 PM | UTC 2022-10-16T04:12:43.523000+00:00
+# 36
+Details:[3d20 (9 13 14)]
+
+[1034082829660864593] DiceParser#0764 | Monday, October 24, 2022 7:35 AM | UTC 2022-10-24T12:35:58.921000+00:00
+# 12
+Details:[1d20 (12)]
+
+[1034655063219642398] hobo_mpik | Tuesday, October 25, 2022 9:29 PM | UTC 2022-10-26T02:29:50.033000+00:00
+/r command: 1d20
+
+[1034655106538405948] DiceParser#0764 | Tuesday, October 25, 2022 9:30 PM | UTC 2022-10-26T02:30:00.361000+00:00
+# 10
+Details:[1d20 (10)]
+
+[1034655117284212766] DiceParser#0764 | Tuesday, October 25, 2022 9:30 PM | UTC 2022-10-26T02:30:02.923000+00:00
+# 15
+Details:[1d20 (15)]
+
+[1043057558832824350] hobo_mpik | Friday, November 18, 2022 12:58 AM | UTC 2022-11-18T06:58:21.098000+00:00
+1d100
+
+[1043226447692714048] DiceParser#0764 | Friday, November 18, 2022 12:09 PM | UTC 2022-11-18T18:09:27.340000+00:00
+# 43
+Details:[1d100 (43)]
+
+[1043226461139648532] DiceParser#0764 | Friday, November 18, 2022 12:09 PM | UTC 2022-11-18T18:09:30.546000+00:00
+# 72
+Details:[1d100 (72)]
+
+[1043226531243245651] DiceParser#0764 | Friday, November 18, 2022 12:09 PM | UTC 2022-11-18T18:09:47.260000+00:00
+# 27
+Details:[1d100 (27)]
+
+[1043227248616034304] DiceParser#0764 | Friday, November 18, 2022 12:12 PM | UTC 2022-11-18T18:12:38.295000+00:00
+# 58
+Details:[1d100 (58)]
+
+[1043301908292583494] DiceParser#0764 | Friday, November 18, 2022 5:09 PM | UTC 2022-11-18T23:09:18.549000+00:00
+# 4
+Details:[1d10 (4)]
+
+[1049509370255380552] DiceParser#0764 | Monday, December 5, 2022 8:15 PM | UTC 2022-12-06T02:15:32.810000+00:00
+# 14
+Details:[1d20 (14)]
+
+[1114804627565727744] DiceParser#0764 | Sunday, June 4, 2023 1:35 AM | UTC 2023-06-04T06:35:35.280000+00:00
+# 20
+Details:[1d20 (20)]
+
+[1227750685848633457] big_zo | Wednesday, April 10, 2024 5:42 PM | UTC 2024-04-10T22:42:54.011000+00:00
+?r 1d100
+
+[1227750687048339496] Dice Roller#6944 | Wednesday, April 10, 2024 5:42 PM | UTC 2024-04-10T22:42:54.297000+00:00
+╔═════════════════╗
+║      1d100      ║
+╠══════════╤══════╣
+║  rolls   │ sum  ║
+╟──────────┼──────╢
+║    87    │ [87] ║
+╚══════════╧══════╝
+
+[1310661501249523772] superjokerpowers | Monday, November 25, 2024 11:40 AM | UTC 2024-11-25T17:40:52.811000+00:00
+?r 1d60
+
+[1310661502117875773] Dice Roller#6944 | Monday, November 25, 2024 11:40 AM | UTC 2024-11-25T17:40:53.018000+00:00
+╔═════════════════╗
+║      1d60       ║
+╠══════════╤══════╣
+║  rolls   │ sum  ║
+╟──────────┼──────╢
+║    57    │ [57] ║
+╚══════════╧══════╝

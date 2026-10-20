@@ -1,0 +1,3034 @@
+[
+  {
+    "id": "cl_01801788bfd1bdc097c2",
+    "entity": "AH-64",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 25,
+      "source_total_cost_usd": 375000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_df349145f8de01b0357c",
+    "entity": "Agricultural Modernization",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 0.28,
+      "eta_excel_serial": 34184,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.03,
+      "months_to_finish": 9.3,
+      "name": "Agricultural Modernization",
+      "paid_out_usd_b": 0.32,
+      "total_cost_usd_b": 0.6,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 0.28
+    },
+    "evidence": [
+      {
+        "id": "p_7082df12c68231afdcdf",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_b57ce4e929fb5900d1c5",
+    "entity": "Blackhawk",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 36,
+      "source_total_cost_usd": 324000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_12f420ded4e0b9f03c9a",
+    "entity": "C-130",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 10,
+      "source_total_cost_usd": 200000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_0eecfdaef1328a0bed6a",
+    "entity": "Chinook",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 15,
+      "source_total_cost_usd": 225000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_513096e5bcbb1fb6669b",
+    "entity": "Cobra",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 10,
+      "source_total_cost_usd": 100000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_10c7fc296ae341d69788",
+    "entity": "Dalmatian Development Program",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 5.4,
+      "eta_excel_serial": 35249,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.12,
+      "months_to_finish": 45,
+      "name": "Dalmatian Development Program",
+      "paid_out_usd_b": 1.1,
+      "total_cost_usd_b": 6.5,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 5.4
+    },
+    "evidence": [
+      {
+        "id": "p_a997bedbe154db8049f6",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 3"
+      }
+    ]
+  },
+  {
+    "id": "cl_34f8a3913e4d5a3662a9",
+    "entity": "Defense Infrastructure",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 1.4,
+      "eta_excel_serial": 34427,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.08,
+      "months_to_finish": 17.5,
+      "name": "Defense Infrastructure",
+      "paid_out_usd_b": 1.4,
+      "total_cost_usd_b": 2.8,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 1.4
+    },
+    "evidence": [
+      {
+        "id": "p_9413b6ed6cafaa69706a",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 7"
+      }
+    ]
+  },
+  {
+    "id": "cl_2cf7fdf65339f5e499df",
+    "entity": "E-3 Sentry",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 2,
+      "source_total_cost_usd": 400000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_873af85de0d5be3cb63f",
+    "entity": "Energy & Industrial Expansion",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 9.8,
+      "eta_excel_serial": 35098,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.25,
+      "months_to_finish": 39.2,
+      "name": "Energy & Industrial Expansion",
+      "paid_out_usd_b": 5.2,
+      "total_cost_usd_b": 15.0,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 9.8
+    },
+    "evidence": [
+      {
+        "id": "p_e41ca349d0bd0be4bfbf",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_5663275dd73dad9a9e81",
+    "entity": "F-16 newer version",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 12,
+      "source_total_cost_usd": 600000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_b55a79e819b2a9379a28",
+    "entity": "F-16 older version",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 12,
+      "source_total_cost_usd": 180000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_da77d78715c47003b4d3",
+    "entity": "FV432",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 300,
+      "source_total_cost_usd": 150000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_a2cd1965f5e56185cc1b",
+    "entity": "Falcon 20, source spelling Flacon",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 5,
+      "source_total_cost_usd": 100000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_3988d605c1d898fa39cd",
+    "entity": "Horizon Dynamics",
+    "predicate": "company_working_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Source explicitly labels valuations and some ownership as estimates. Do not promote those estimates to confirmed canon.",
+    "value": {
+      "activity": "Military-industrial consolidation, procurement backbone, strategic defense production",
+      "control_description": "State-backed defense industrial consolidation project (still forming)",
+      "name": "Horizon Dynamics",
+      "political_tie": "Executive / Defense technocrats / Curro-aligned industrial policy",
+      "source_qualification": "Role canon, ownership+value estimated",
+      "working_value_usd_b": 6.0
+    },
+    "evidence": [
+      {
+        "id": "p_5fbc2c0cc4bb5e778311",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Companies!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_53e8ad92d03cb5508b87",
+    "entity": "Jaguar",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 11,
+      "source_total_cost_usd": 198000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_60578db773978fb32930",
+    "entity": "KC-135",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 3,
+      "source_total_cost_usd": 180000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_779c54e3ddf71c05a09b",
+    "entity": "LAV-25",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 75,
+      "source_total_cost_usd": 112000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_85aa26bb372b77588a19",
+    "entity": "Leopard, variant unspecified",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 35,
+      "source_total_cost_usd": 175000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_bd0314c29af88a5295b8",
+    "entity": "Little Bird",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 30,
+      "source_total_cost_usd": 30000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_4fad9bd6aeb87dea4de3",
+    "entity": "M102 towed howitzer",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 200,
+      "source_total_cost_usd": 60000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_b689e0144211226a4f2f",
+    "entity": "M109 howitzer",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 100,
+      "source_total_cost_usd": 150000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_426aa5379baf5b8a0f9e",
+    "entity": "M1A1 Abrams",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 175,
+      "source_total_cost_usd": 1050000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_914e4de88c179f1f64f8",
+    "entity": "M2 Bradley",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 400,
+      "source_total_cost_usd": 800000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_724bc8625cb89f64996f",
+    "entity": "M270 MLRS",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 30,
+      "source_total_cost_usd": 120000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_3007ea20bec416a08312",
+    "entity": "Marder IFV",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 300,
+      "source_total_cost_usd": 450000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_b29964acc1cb23db0bc5",
+    "entity": "Mirage 2000C",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 24,
+      "source_total_cost_usd": 1320000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_385ab27e7d9ddef3bb5f",
+    "entity": "National Energy Directorate",
+    "predicate": "company_working_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Source explicitly labels valuations and some ownership as estimates. Do not promote those estimates to confirmed canon.",
+    "value": {
+      "activity": "State energy arm; controls majority oil rights; licensing, offshore coordination, refinery strategy",
+      "control_description": "State majority / government-controlled",
+      "name": "National Energy Directorate",
+      "political_tie": "Executive / Curro technocrats / state",
+      "source_qualification": "Canon + working value estimate",
+      "working_value_usd_b": 18.0
+    },
+    "evidence": [
+      {
+        "id": "p_d2c79b6d583eedbcd56b",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Companies!row 3"
+      }
+    ]
+  },
+  {
+    "id": "cl_9ba52163c081c5d8615d",
+    "entity": "National Infrastructure Spine",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 13.0,
+      "eta_excel_serial": 35036,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.35,
+      "months_to_finish": 37.1,
+      "name": "National Infrastructure Spine",
+      "paid_out_usd_b": 7.0,
+      "total_cost_usd_b": 20.0,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 13
+    },
+    "evidence": [
+      {
+        "id": "p_7a183925d858b332ccd4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 2"
+      }
+    ]
+  },
+  {
+    "id": "cl_6559d297bbc868cb8870",
+    "entity": "National Oil Drilling",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 4.5,
+      "eta_excel_serial": 34792,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.15,
+      "months_to_finish": 30,
+      "name": "National Oil Drilling",
+      "paid_out_usd_b": 8.5,
+      "total_cost_usd_b": 13.0,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 4.5
+    },
+    "evidence": [
+      {
+        "id": "p_12a1db5794e80d7536ac",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 8"
+      }
+    ]
+  },
+  {
+    "id": "cl_cd814f4e4a55b354a419",
+    "entity": "Puma",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 30,
+      "source_total_cost_usd": 120000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_752a55b09e6511749835",
+    "entity": "Rail Modernization",
+    "predicate": "project_financial_snapshot",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "funded_not_completed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "ETAs are forecasts; commitments are not disbursements. Overlapping project scopes remain unconfirmed.",
+    "value": {
+      "committed_usd_b": 2.5,
+      "eta_excel_serial": 35098,
+      "funding_coverage": 1,
+      "monthly_execution_usd_b": 0.04,
+      "months_to_finish": 62.5,
+      "name": "Rail Modernization",
+      "paid_out_usd_b": 1.2,
+      "total_cost_usd_b": 3.7,
+      "unfunded_gap_usd_b": 0,
+      "work_left_usd_b": 2.5
+    },
+    "evidence": [
+      {
+        "id": "p_7f523425b5fd00e0ba95",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Projects!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_8f55775875d8a5bf9ae8",
+    "entity": "Royla Oil",
+    "predicate": "company_working_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Source explicitly labels valuations and some ownership as estimates. Do not promote those estimates to confirmed canon.",
+    "value": {
+      "activity": "Oil development vehicle; offshore capital; elite patronage and political leverage hub",
+      "control_description": "King Zo holding network (majority); 15% stake in Royla sold to Shao Luxian Chinese partner",
+      "name": "Royla Oil",
+      "political_tie": "Zo / RCA / business elite",
+      "source_qualification": "Canon + working value estimate",
+      "working_value_usd_b": 4.8
+    },
+    "evidence": [
+      {
+        "id": "p_2b60effe37b9aac55f0d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Companies!row 2"
+      }
+    ]
+  },
+  {
+    "id": "cl_567a9f05abf81aa1c172",
+    "entity": "Tornado GR.1A",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Air Force",
+      "quantity": 5,
+      "source_total_cost_usd": 375000000
+    },
+    "evidence": [
+      {
+        "id": "p_c7cfa2961d1ae5066aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C20 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_9f8caec6baefb554afb6",
+    "entity": "Various support vehicles",
+    "predicate": "procurement_batch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "delivery_unconfirmed",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Comment is not delivery evidence. Earlier baseline describes corresponding modernization orders as undelivered. Do not add to operational inventory.",
+    "value": {
+      "branch_budget": "Army",
+      "quantity": 800,
+      "source_total_cost_usd": 300000000
+    },
+    "evidence": [
+      {
+        "id": "p_6518c21901eafd86b8be",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!C19 comment"
+      }
+    ]
+  },
+  {
+    "id": "cl_02f97d33db5c2198991f",
+    "entity": "Younger Industries",
+    "predicate": "company_working_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Source explicitly labels valuations and some ownership as estimates. Do not promote those estimates to confirmed canon.",
+    "value": {
+      "activity": "Defense manufacturing, transport, radar and electronics, military-industrial supplier",
+      "control_description": "Younger industrial bloc / private-family aligned",
+      "name": "Younger Industries",
+      "political_tie": "VP Younger / pro-modernization officers / industry",
+      "source_qualification": "Role canon, ownership+value estimated",
+      "working_value_usd_b": 9.5
+    },
+    "evidence": [
+      {
+        "id": "p_33e7ce76bb29ade348f6",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Companies!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_1a5554ff5b5f0969c9c0",
+    "entity": "air_force",
+    "predicate": "awacs_status",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "None operational",
+    "evidence": [
+      {
+        "id": "p_e527a0bed86f00e10ead",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 9"
+      }
+    ]
+  },
+  {
+    "id": "cl_ab707a6caa159f4f3209",
+    "entity": "air_force",
+    "predicate": "source_label_combat_aircraft",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "aircraft",
+      "value": 27.0
+    },
+    "evidence": [
+      {
+        "id": "p_69036c47396e42e7e5c3",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_2fa2bb41ece5659e3746",
+    "entity": "air_force",
+    "predicate": "tanker_status",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "None operational",
+    "evidence": [
+      {
+        "id": "p_e527a0bed86f00e10ead",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 9"
+      }
+    ]
+  },
+  {
+    "id": "cl_8fbd73e7a7cbfcce13fd",
+    "entity": "altis",
+    "predicate": "ceasefire_and_un_observers",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "reported_completed",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "buffer_zone": true,
+      "supplies_delivered": true,
+      "turkish_position": "airport"
+    },
+    "evidence": [
+      {
+        "id": "p_3276538398e8c072217d",
+        "source_id": "src_a4f570637eea4856",
+        "path": "Reunion Archives/Rumbling Reunion Party - Disco - general-information-and-news [996694714499727390].html",
+        "locator": "message 1495837261265375477"
+      }
+    ]
+  },
+  {
+    "id": "cl_036b6f5815510aa118d8",
+    "entity": "amalia_rehn",
+    "predicate": "reported_death_and_succession",
+    "world_date_text": "1992-06-24",
+    "date_precision": "day",
+    "canon_status": "provisional",
+    "operational_status": "reported_completed",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "cause": "car crash",
+      "successor": "Emilio Curro"
+    },
+    "evidence": [
+      {
+        "id": "p_b88e596ae3792709b925",
+        "source_id": "src_a4f570637eea4856",
+        "path": "Reunion Archives/Rumbling Reunion Party - Disco - general-information-and-news [996694714499727390].html",
+        "locator": "message 1447834232293429330"
+      }
+    ]
+  },
+  {
+    "id": "cl_5537ace78b92a4a34a0b",
+    "entity": "armed_forces",
+    "predicate": "attack_helicopters",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "aircraft",
+      "value": 8.0
+    },
+    "evidence": [
+      {
+        "id": "p_69036c47396e42e7e5c3",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_5b6a5f758ff9b60a5fd9",
+    "entity": "armed_forces",
+    "predicate": "broad_active_duty",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "persons",
+      "value": 70000.0
+    },
+    "evidence": [
+      {
+        "id": "p_d960ec85f700ff6d2bda",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_dc87aebfaec81b8bf50d",
+    "entity": "army",
+    "predicate": "light_tanks",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "vehicles",
+      "value": 29.0
+    },
+    "evidence": [
+      {
+        "id": "p_e7be59fc387ed5264a7d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_9b7ae3d0e22ed0b48688",
+    "entity": "army",
+    "predicate": "modern_mbts",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "vehicles",
+      "value": 31.0
+    },
+    "evidence": [
+      {
+        "id": "p_e7be59fc387ed5264a7d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_e75c1ca0d7736036fc20",
+    "entity": "army",
+    "predicate": "older_mbts",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "vehicles",
+      "value": 18.0
+    },
+    "evidence": [
+      {
+        "id": "p_e7be59fc387ed5264a7d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_f1685d25e8dd4f7870ec",
+    "entity": "army",
+    "predicate": "operational_tube_artillery",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "pieces",
+      "value": 12.0
+    },
+    "evidence": [
+      {
+        "id": "p_e7be59fc387ed5264a7d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_92f50d38a6af472181fa",
+    "entity": "army",
+    "predicate": "reserve",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "persons",
+      "value": 32000.0
+    },
+    "evidence": [
+      {
+        "id": "p_d960ec85f700ff6d2bda",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_f31ccf52840dbcb8414f",
+    "entity": "dalmatia_1992_09_10",
+    "predicate": "casualty_report",
+    "world_date_text": "1992-09-10",
+    "date_precision": "day",
+    "canon_status": "provisional",
+    "operational_status": "reported_losses",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "KIA": 560,
+      "MIA": 260,
+      "POW": 370,
+      "WIA": 1330,
+      "report_cutoff": "12:00",
+      "total": 2520
+    },
+    "evidence": [
+      {
+        "id": "p_f699ff7a02a9a7791bbe",
+        "source_id": "src_6fee1cf7f20314a3",
+        "path": "Reunion Archives/Rumbling Reunion Party - Balkans 1990- - battle-records [1261399129519689748].html",
+        "locator": "message 1449495998761144430"
+      }
+    ]
+  },
+  {
+    "id": "cl_48967fd0f01e547a062c",
+    "entity": "dax_donahue_ii",
+    "predicate": "national_approval",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "percent",
+      "value": 41.0
+    },
+    "evidence": [
+      {
+        "id": "p_4e86d591c50a35294357",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_1671a9dec8d93ccddcd0",
+    "entity": "dax_donahue_ii",
+    "predicate": "runoff_result",
+    "world_date_text": "1992-07-05",
+    "date_precision": "day",
+    "canon_status": "provisional",
+    "operational_status": "reported_result",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "Donahue_Younger_approx_percent": 59,
+      "Hartmann_approx_percent": 41
+    },
+    "evidence": [
+      {
+        "id": "p_a058615c4bc3798e8e6c",
+        "source_id": "src_a4f570637eea4856",
+        "path": "Reunion Archives/Rumbling Reunion Party - Disco - general-information-and-news [996694714499727390].html",
+        "locator": "message 1447490234265636948"
+      }
+    ]
+  },
+  {
+    "id": "cl_1f45d4b648fddeb49d21",
+    "entity": "defense_budget",
+    "predicate": "branch_allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 15.0,
+      "branch": "MISSILE/RADAR",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_18051c0c1c63d6a243a5",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 23"
+      }
+    ]
+  },
+  {
+    "id": "cl_4bce411777b4b53517be",
+    "entity": "defense_budget",
+    "predicate": "branch_allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 7.9,
+      "branch": "NAVY",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_b88cf95627cdf7fd3ee8",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 21"
+      }
+    ]
+  },
+  {
+    "id": "cl_89f536d30db3edf945df",
+    "entity": "defense_budget",
+    "predicate": "branch_allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 10.0,
+      "branch": "MARINES",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_5ae224496f2cd9095359",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 22"
+      }
+    ]
+  },
+  {
+    "id": "cl_a68f22fbb47e5fea5873",
+    "entity": "defense_budget",
+    "predicate": "branch_allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 25.0,
+      "branch": "AIR FORCE",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_436f23fc6ae401949b4d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 20"
+      }
+    ]
+  },
+  {
+    "id": "cl_c90acfbfd525fca9a8f8",
+    "entity": "defense_budget",
+    "predicate": "branch_allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 25.0,
+      "branch": "ARMY",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_52429ae9da923e932d4b",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 19"
+      }
+    ]
+  },
+  {
+    "id": "cl_00121f911171a85ff820",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "Croatia",
+      "forecast_next_move": "Watch for treaty breaches",
+      "leverage_over_reunion": "Legal treaty manipulation",
+      "notes": "Can nullify over small infractions",
+      "posture": "Cold peace",
+      "private_assessment": "Treaty brittle, can weaponize violations",
+      "reunion_leverage": "Some quiet deterrence only",
+      "risk_rating": 4.0
+    },
+    "evidence": [
+      {
+        "id": "p_49a942f3857a9b09b251",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 13"
+      }
+    ]
+  },
+  {
+    "id": "cl_09e492277e7c280a8a98",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "United States",
+      "forecast_next_move": "Pressure quietly if Donahue overreaches",
+      "leverage_over_reunion": "FMS, IMF/market pressure, Bosnia intel awareness",
+      "notes": "Support continues if stable",
+      "posture": "Strategic but conditional",
+      "private_assessment": "Wants stability, compliance, no reckless drift",
+      "reunion_leverage": "Regional utility / anti-Soviet buffer role",
+      "risk_rating": 4.0
+    },
+    "evidence": [
+      {
+        "id": "p_3b01ef1303c910fb6aa4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_8186375e5e1369f275cf",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "Turkey",
+      "forecast_next_move": "Deepen quiet coordination",
+      "leverage_over_reunion": "Military access / regional channel",
+      "notes": "Still pragmatic, not unconditional",
+      "posture": "Improving",
+      "private_assessment": "Useful partner against Greece/USSR pressure",
+      "reunion_leverage": "Regional partnership, shared concerns",
+      "risk_rating": 2.0
+    },
+    "evidence": [
+      {
+        "id": "p_d11c1ad7ceb3c2ec5068",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_85e4bfcc55c2b424bc27",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "France",
+      "forecast_next_move": "Stay engaged but cautious",
+      "leverage_over_reunion": "Can slow hardware flow",
+      "notes": "Watching internal stability",
+      "posture": "Warming",
+      "private_assessment": "Useful counterbalance, arms and industrial link",
+      "reunion_leverage": "Procurement and political access",
+      "risk_rating": 2.0
+    },
+    "evidence": [
+      {
+        "id": "p_0931610c592a1a9b0816",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 8"
+      }
+    ]
+  },
+  {
+    "id": "cl_ac294f80cd149bbb66aa",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "Greece",
+      "forecast_next_move": "Push on overlap and diplomacy",
+      "leverage_over_reunion": "Oil overlap, regional narrative pressure",
+      "notes": "Altis makes relations worse",
+      "posture": "Complicated / rival",
+      "private_assessment": "Wary of Reunion-Turkey warming, holds grudge",
+      "reunion_leverage": "Can internationalize dispute exposure",
+      "risk_rating": 5.0
+    },
+    "evidence": [
+      {
+        "id": "p_49714a85a80e5291e31e",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 7"
+      }
+    ]
+  },
+  {
+    "id": "cl_cae034c2f58acb3682a5",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "USSR",
+      "forecast_next_move": "Keep probing maritime/oil zone",
+      "leverage_over_reunion": "Military pressure, intimidation, gray-zone pressure",
+      "notes": "Most dangerous external actor",
+      "posture": "Probing / opportunistic",
+      "private_assessment": "Wants leverage, delay oil, test cohesion",
+      "reunion_leverage": "Reunion navy can complicate but not dominate",
+      "risk_rating": 5.0
+    },
+    "evidence": [
+      {
+        "id": "p_77ef2809c35d0805d495",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_cbcb69786af61049b7ec",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "Serbia",
+      "forecast_next_move": "Stay useful while hedging",
+      "leverage_over_reunion": "Disclosure threat, quiet leverage",
+      "notes": "Will recalc if pressured",
+      "posture": "Tactical cooperation",
+      "private_assessment": "Pragmatic, not loyal",
+      "reunion_leverage": "Security cooperation / shared enemies",
+      "risk_rating": 2.0
+    },
+    "evidence": [
+      {
+        "id": "p_5b616c588d19a508b2d7",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 12"
+      }
+    ]
+  },
+  {
+    "id": "cl_d92271296e33bf04b635",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "Bosnia",
+      "forecast_next_move": "Information warfare / proxy trouble",
+      "leverage_over_reunion": "Blackmail, regional propaganda",
+      "notes": "Religious-framing risk",
+      "posture": "Hostile",
+      "private_assessment": "Would weaponize narrative and leaks",
+      "reunion_leverage": "Quiet pressure via Serbia / intel",
+      "risk_rating": 5.0
+    },
+    "evidence": [
+      {
+        "id": "p_b804aaea84c930e0b40d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 11"
+      }
+    ]
+  },
+  {
+    "id": "cl_f3f20981d1b8000b2948",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "UN",
+      "forecast_next_move": "Push monitoring and mediation",
+      "leverage_over_reunion": "Investigation / sanctions narrative if you slip",
+      "notes": "Already observing related crises",
+      "posture": "Monitoring / soft-watch",
+      "private_assessment": "Cares about optics and restraint",
+      "reunion_leverage": "Can use as multilateral cover",
+      "risk_rating": 3.0
+    },
+    "evidence": [
+      {
+        "id": "p_3f7407cdf8841d124a6d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 10"
+      }
+    ]
+  },
+  {
+    "id": "cl_fe613a8bb7708c3ce6a7",
+    "entity": "foreign_relations",
+    "predicate": "source_assessment",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "assessment_not_outcome",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "actor": "Italy",
+      "forecast_next_move": "Stay neutral unless wider war",
+      "leverage_over_reunion": "Limited diplomatic weight",
+      "notes": "No major military alignment",
+      "posture": "Neutral-positive",
+      "private_assessment": "Wants stability in Adriatic / Med",
+      "reunion_leverage": "Trade and economic ties",
+      "risk_rating": 1.0
+    },
+    "evidence": [
+      {
+        "id": "p_4cf93a9b05689f7779ec",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Foreign!row 9"
+      }
+    ]
+  },
+  {
+    "id": "cl_11c327547a763f369d5a",
+    "entity": "king_zo_iii",
+    "predicate": "national_approval",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "percent",
+      "value": 48.0
+    },
+    "evidence": [
+      {
+        "id": "p_4e86d591c50a35294357",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_9ef34c6cfcc5940044d1",
+    "entity": "navy",
+    "predicate": "submarines",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "vessels",
+      "value": 9.0
+    },
+    "evidence": [
+      {
+        "id": "p_69036c47396e42e7e5c3",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_e556c3b43f4753a89962",
+    "entity": "navy",
+    "predicate": "surface_combatants_including_carrier",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "vessels",
+      "value": 42.0
+    },
+    "evidence": [
+      {
+        "id": "p_69036c47396e42e7e5c3",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_011fb32602d858cba9e1",
+    "entity": "parliament",
+    "predicate": "bloc_seats",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "bloc": "LUP",
+      "line": "Anti-war / anti-militarization",
+      "seats": 95.0,
+      "status": "Disciplined"
+    },
+    "evidence": [
+      {
+        "id": "p_2f7d0b1643211f511538",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 18"
+      }
+    ]
+  },
+  {
+    "id": "cl_2fd0101c5b6c40c420fe",
+    "entity": "parliament",
+    "predicate": "bloc_seats",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "bloc": "Dalmatian Autonomy Bloc",
+      "line": "Treaty grievance politics",
+      "seats": 18.0,
+      "status": "Angry"
+    },
+    "evidence": [
+      {
+        "id": "p_c1403ebee60b0cbbf714",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 19"
+      }
+    ]
+  },
+  {
+    "id": "cl_7880d3560cc1fc14263b",
+    "entity": "parliament",
+    "predicate": "bloc_seats",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "bloc": "Independents / Fringe",
+      "line": "Seat-by-seat bargaining",
+      "seats": 23.0,
+      "status": "Transactional"
+    },
+    "evidence": [
+      {
+        "id": "p_e67fedc97ab8691b0961",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 20"
+      }
+    ]
+  },
+  {
+    "id": "cl_a99c4b32376ce3cb8987",
+    "entity": "parliament",
+    "predicate": "bloc_seats",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "bloc": "RCA",
+      "line": "Royalist / anti-republic",
+      "seats": 82.0,
+      "status": "Organized"
+    },
+    "evidence": [
+      {
+        "id": "p_c0fd407de39aedd1930f",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 16"
+      }
+    ]
+  },
+  {
+    "id": "cl_c0f6e3e22fb12f007119",
+    "entity": "parliament",
+    "predicate": "bloc_seats",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "bloc": "RRP",
+      "line": "Executive-leaning but divided",
+      "seats": 118.0,
+      "status": "Fragmented"
+    },
+    "evidence": [
+      {
+        "id": "p_8c3f0809ef1f7fdb92bf",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 15"
+      }
+    ]
+  },
+  {
+    "id": "cl_ecc3cd60e1d3a93240be",
+    "entity": "parliament",
+    "predicate": "bloc_seats",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "bloc": "NSF",
+      "line": "Security-first / anti-UN",
+      "seats": 64.0,
+      "status": "Fragmented"
+    },
+    "evidence": [
+      {
+        "id": "p_055ebf4af2787f75f1cb",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 17"
+      }
+    ]
+  },
+  {
+    "id": "cl_52e6f68d4ee4a06dc2bc",
+    "entity": "parliament",
+    "predicate": "dissolution",
+    "world_date_text": "1992-10-03",
+    "date_precision": "day",
+    "canon_status": "provisional",
+    "operational_status": "reported_completed",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "duration_months": 3,
+      "time": "06:00"
+    },
+    "evidence": [
+      {
+        "id": "p_704343a8f443b39b3bc8",
+        "source_id": "src_a4f570637eea4856",
+        "path": "Reunion Archives/Rumbling Reunion Party - Disco - general-information-and-news [996694714499727390].html",
+        "locator": "message 1492263875633090731"
+      }
+    ]
+  },
+  {
+    "id": "cl_a39ae99c11a0d3669e03",
+    "entity": "parliament",
+    "predicate": "seats_in_practice",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "confirmed",
+    "operational_status": "unknown",
+    "authority": "explicit_user_instruction",
+    "notes": "Retained governing instruction. Current snapshot effective date remains unresolved; no invented appointment/reign date.",
+    "value": 400,
+    "evidence": [
+      {
+        "id": "p_session_instructions",
+        "source_id": "src_session_instructions",
+        "path": "Session governing instructions.md",
+        "locator": "visible project instructions and current user message"
+      }
+    ]
+  },
+  {
+    "id": "cl_163b96fd4533c7cd9168",
+    "entity": "parliament",
+    "predicate": "session_status",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "Disbanded by president (temporary override)",
+    "evidence": [
+      {
+        "id": "p_a6b8f0469a5bed63fb0f",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_8b3f512cba334f33b7fd",
+    "entity": "reunion",
+    "predicate": "croatian_settlement",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "confirmed",
+    "operational_status": "unknown",
+    "authority": "explicit_user_instruction",
+    "notes": "Retained governing instruction. Current snapshot effective date remains unresolved; no invented appointment/reign date.",
+    "value": {
+      "frontier": "just north of Šibenik",
+      "Šibenik": "DMZ"
+    },
+    "evidence": [
+      {
+        "id": "p_session_instructions",
+        "source_id": "src_session_instructions",
+        "path": "Session governing instructions.md",
+        "locator": "visible project instructions and current user message"
+      }
+    ]
+  },
+  {
+    "id": "cl_cf2d7622fbd51747cd87",
+    "entity": "reunion",
+    "predicate": "current_oil_revenue_status",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "No meaningful revenue",
+    "evidence": [
+      {
+        "id": "p_169917519c79cbab3b85",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 29"
+      }
+    ]
+  },
+  {
+    "id": "cl_4269143c8751439365cd",
+    "entity": "reunion",
+    "predicate": "deficit_headline",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "USD",
+      "value": 90000000000
+    },
+    "evidence": [
+      {
+        "id": "p_3b837701bdefc7c52949",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 7"
+      }
+    ]
+  },
+  {
+    "id": "cl_1e6a66f50126e7d15571",
+    "entity": "reunion",
+    "predicate": "finance_succession",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "confirmed",
+    "operational_status": "unknown",
+    "authority": "explicit_user_instruction",
+    "notes": "Retained governing instruction. Current snapshot effective date remains unresolved; no invented appointment/reign date.",
+    "value": [
+      "Dr. Amalia Rehn",
+      "Emilio Curro"
+    ],
+    "evidence": [
+      {
+        "id": "p_session_instructions",
+        "source_id": "src_session_instructions",
+        "path": "Session governing instructions.md",
+        "locator": "visible project instructions and current user message"
+      }
+    ]
+  },
+  {
+    "id": "cl_a7e628bbc2f104b36ede",
+    "entity": "reunion",
+    "predicate": "fx_reserves",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "USD",
+      "value": 38000000000.0
+    },
+    "evidence": [
+      {
+        "id": "p_c890986f107d66930f3a",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_17f9efd6e8b5cc30b9d9",
+    "entity": "reunion",
+    "predicate": "gdp",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "RMC",
+      "value": 2320000000000.0
+    },
+    "evidence": [
+      {
+        "id": "p_5101ce66f7abe6dd1617",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_d401f5b189ea84a14489",
+    "entity": "reunion",
+    "predicate": "gdp",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "USD",
+      "value": 400000000000.0
+    },
+    "evidence": [
+      {
+        "id": "p_5101ce66f7abe6dd1617",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_2a0b7e8382beb44cf9ed",
+    "entity": "reunion",
+    "predicate": "government_mechanics",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "Executive governing via emergency authority",
+    "evidence": [
+      {
+        "id": "p_f94561388a38fda7bf0d",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_e9f357501100a70ed51e",
+    "entity": "reunion",
+    "predicate": "heir_designation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "confirmed",
+    "operational_status": "unknown",
+    "authority": "explicit_user_instruction",
+    "notes": "Retained governing instruction. Current snapshot effective date remains unresolved; no invented appointment/reign date.",
+    "value": "Zo III",
+    "evidence": [
+      {
+        "id": "p_session_instructions",
+        "source_id": "src_session_instructions",
+        "path": "Session governing instructions.md",
+        "locator": "visible project instructions and current user message"
+      }
+    ]
+  },
+  {
+    "id": "cl_d2f49340f2aec24b7ef4",
+    "entity": "reunion",
+    "predicate": "inflation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "fraction",
+      "value": 0.038
+    },
+    "evidence": [
+      {
+        "id": "p_c890986f107d66930f3a",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_30d7953643c0cf2be1bb",
+    "entity": "reunion",
+    "predicate": "market_fx_high",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "RMC/USD",
+      "value": "6.3"
+    },
+    "evidence": [
+      {
+        "id": "p_585c396d0710c36e47b4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_52276236308bbdc84812",
+    "entity": "reunion",
+    "predicate": "market_fx_low",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "RMC/USD",
+      "value": "6.1"
+    },
+    "evidence": [
+      {
+        "id": "p_585c396d0710c36e47b4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_a8173fcb9cc7e2172082",
+    "entity": "reunion",
+    "predicate": "official_fx",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "5.8 RMC/USD",
+    "evidence": [
+      {
+        "id": "p_585c396d0710c36e47b4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_cc57d8d8892a076b75e8",
+    "entity": "reunion",
+    "predicate": "president",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "Dax Donahue",
+    "evidence": [
+      {
+        "id": "p_4e86d591c50a35294357",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_f469eb6842d80bc12e37",
+    "entity": "reunion",
+    "predicate": "public_debt",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "USD",
+      "value": 120000000000.0
+    },
+    "evidence": [
+      {
+        "id": "p_5a4bc104cf7ef2cc3af6",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 8"
+      }
+    ]
+  },
+  {
+    "id": "cl_7f7717b9d38d4ee3b391",
+    "entity": "reunion",
+    "predicate": "real_growth",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "fraction",
+      "value": 0.012
+    },
+    "evidence": [
+      {
+        "id": "p_c890986f107d66930f3a",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_53951c97cd2bb9ec5e98",
+    "entity": "reunion",
+    "predicate": "reigning_monarch",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": "Zo III",
+    "evidence": [
+      {
+        "id": "p_4e86d591c50a35294357",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Politics!row 5"
+      },
+      {
+        "id": "p_session_instructions",
+        "source_id": "src_session_instructions",
+        "path": "Session governing instructions.md",
+        "locator": "visible project instructions and current user message"
+      }
+    ]
+  },
+  {
+    "id": "cl_05d9a6135f31a179ade3",
+    "entity": "reunion",
+    "predicate": "revenue_headline",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "USD",
+      "value": 160000000000.0
+    },
+    "evidence": [
+      {
+        "id": "p_3b837701bdefc7c52949",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 7"
+      }
+    ]
+  },
+  {
+    "id": "cl_694d7456794126a408cc",
+    "entity": "reunion",
+    "predicate": "spending_headline",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "USD",
+      "value": 250000000000.0
+    },
+    "evidence": [
+      {
+        "id": "p_3b837701bdefc7c52949",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 7"
+      }
+    ]
+  },
+  {
+    "id": "cl_ea92477237bad0d92f9d",
+    "entity": "reunion",
+    "predicate": "tracker_date_serial",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "Excel 1900 serial",
+      "value": 33880.0
+    },
+    "evidence": [
+      {
+        "id": "p_1cde1e3cdad94d7eac83",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Dashboard!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_f2bdb40fd759b0a6d38b",
+    "entity": "reunion",
+    "predicate": "vice_president",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "confirmed",
+    "operational_status": "unknown",
+    "authority": "explicit_user_instruction",
+    "notes": "Retained governing instruction. Current snapshot effective date remains unresolved; no invented appointment/reign date.",
+    "value": "Darius Younger",
+    "evidence": [
+      {
+        "id": "p_session_instructions",
+        "source_id": "src_session_instructions",
+        "path": "Session governing instructions.md",
+        "locator": "visible project instructions and current user message"
+      }
+    ]
+  },
+  {
+    "id": "cl_0d18f8cc1063f32386c5",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 10.0,
+      "category": "Debt service",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_c6cd4ccdda31ba3ee2f0",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 21"
+      }
+    ]
+  },
+  {
+    "id": "cl_4cdec864a74112338488",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 18.0,
+      "category": "Intelligence / RNIA",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_b56f5848f6cf3c63e4f6",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 22"
+      }
+    ]
+  },
+  {
+    "id": "cl_50e6970c7ac1df21efc2",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 10.0,
+      "category": "Interior / police / RIA",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_92cdd05638df92a80c2f",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 14"
+      }
+    ]
+  },
+  {
+    "id": "cl_5af86011337f8bd1257c",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 10.0,
+      "category": "Veterans + health",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_c7b80884da9db7d8672b",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 15"
+      }
+    ]
+  },
+  {
+    "id": "cl_5eacb38dace24fca34f2",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 10.0,
+      "category": "Social supports + housing",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_0ff773b64c155c1cfe76",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 20"
+      }
+    ]
+  },
+  {
+    "id": "cl_63ae213d01dbd163765b",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 11.0,
+      "category": "Agriculture + food",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_276871c655ea47a010fb",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 19"
+      }
+    ]
+  },
+  {
+    "id": "cl_6447ed5cde840a7028cf",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 21.0,
+      "category": "Contingency reserve",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_31eb36206358738713db",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 24"
+      }
+    ]
+  },
+  {
+    "id": "cl_75ab065ea36e023f4ebf",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 18.0,
+      "category": "Education / training",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_87f40606545abaacf592",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 18"
+      }
+    ]
+  },
+  {
+    "id": "cl_8b99307135a03ca63d1f",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 2.0,
+      "category": "Soviet treaty line",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_5d5e57628b45df20a713",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 25"
+      }
+    ]
+  },
+  {
+    "id": "cl_9f82da48c91c904d0fac",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 20.0,
+      "category": "Infrastructure",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_10dff3ce09d5788a2373",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 16"
+      }
+    ]
+  },
+  {
+    "id": "cl_b401b0da2f968726358c",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 10.0,
+      "category": "Admin + justice",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_0e15ae76a9c36bb98c53",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 23"
+      }
+    ]
+  },
+  {
+    "id": "cl_dda63c0326f73a63f357",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 15.0,
+      "category": "Energy & industry",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_42a03432ab4ebcc2f16c",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 17"
+      }
+    ]
+  },
+  {
+    "id": "cl_e069a6cf65c88b0522cd",
+    "entity": "reunion_budget",
+    "predicate": "allocation",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "budget_status_unspecified",
+    "authority": "latest_tracker_user_designated",
+    "notes": "",
+    "value": {
+      "amount": 100.0,
+      "category": "Defense & readiness",
+      "unit": "USD billions"
+    },
+    "evidence": [
+      {
+        "id": "p_ed4da9d39659e9b19400",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Economy!row 13"
+      }
+    ]
+  },
+  {
+    "id": "cl_314fe3a1a635e36e5ef5",
+    "entity": "ria_national_guard",
+    "predicate": "personnel",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Tracker effective date unresolved. Cached formula results preserved, not recalculated source values.",
+    "value": {
+      "unit": "persons",
+      "value": 17000.0
+    },
+    "evidence": [
+      {
+        "id": "p_d960ec85f700ff6d2bda",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Military!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_50a876c2e943fbd90ea4",
+    "entity": "rnio_act_1992",
+    "predicate": "presidential_signature",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "reported_signed",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "source_spelling": "rhino act of 1992"
+    },
+    "evidence": [
+      {
+        "id": "p_7514ff1a2813f4c5eb75",
+        "source_id": "src_acbc9f510e64c4df",
+        "path": "Reunion Archives/Rumbling Reunion Party - Disco - president [1447813556098830366].html",
+        "locator": "message 1447990919612727379"
+      }
+    ]
+  },
+  {
+    "id": "cl_02502c1a575e3909be62",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Near balanced",
+      "exports": "Light industrial goods, agricultural goods",
+      "imports": "Food, transit goods, regional industrial inputs",
+      "partner": "Balkan neighbors",
+      "qualification": "Grouped estimate for sheet usability",
+      "relationship": "Mixed",
+      "tier": "Secondary"
+    },
+    "evidence": [
+      {
+        "id": "p_c18ff7c37048eb48d443",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 9"
+      }
+    ]
+  },
+  {
+    "id": "cl_594e9ef206964785320e",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Small surplus / quiet",
+      "exports": "Industrial goods, agricultural goods, quiet service flows",
+      "imports": "Quiet channels, selected overland trade, industrial/agricultural exchange",
+      "partner": "Serbia",
+      "qualification": "Relationship canon; exact trade mix estimated",
+      "relationship": "Tactical cooperation",
+      "tier": "Secondary"
+    },
+    "evidence": [
+      {
+        "id": "p_0f77ad8ec79b0f334f60",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 8"
+      }
+    ]
+  },
+  {
+    "id": "cl_829d995a6dd73f964cf2",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Deficit",
+      "exports": "Minerals, light industrial goods, services",
+      "imports": "Aviation parts, defense equipment, electronics channels",
+      "partner": "United States",
+      "qualification": "Canon directly ties US to defense-heavy trade and leverage",
+      "relationship": "Strategic but conditional",
+      "tier": "Primary"
+    },
+    "evidence": [
+      {
+        "id": "p_a6e62e4729fcecdd889a",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 6"
+      }
+    ]
+  },
+  {
+    "id": "cl_b39791ef4cd3ce19c1bd",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Capital inflow / strategic",
+      "exports": "Future energy access, minerals, long-term industrial access",
+      "imports": "Capital link, possible machinery financing, strategic investment",
+      "partner": "China",
+      "qualification": "Canon confirms new capital link and Chinese partner in Royla",
+      "relationship": "New capital link",
+      "tier": "Secondary"
+    },
+    "evidence": [
+      {
+        "id": "p_7cbc96563657b7f4a05f",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 7"
+      }
+    ]
+  },
+  {
+    "id": "cl_badff66b75264d378aa1",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Mild deficit",
+      "exports": "Refined metals, maritime services, light industrial goods",
+      "imports": "Aviation parts, defense systems, industrial finance",
+      "partner": "France",
+      "qualification": "Canon partner; Mirage/defense relationship makes this strategically heavy",
+      "relationship": "Warming",
+      "tier": "Primary"
+    },
+    "evidence": [
+      {
+        "id": "p_413d6f045a94855ab4a4",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 2"
+      }
+    ]
+  },
+  {
+    "id": "cl_c9005fbd99eb38a081b5",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Mild deficit",
+      "exports": "Refined metals, light industrial goods",
+      "imports": "Advanced machine tools, industrial equipment",
+      "partner": "Germany",
+      "qualification": "Canon directly names advanced machine tools from Germany",
+      "relationship": "Pragmatic",
+      "tier": "Primary"
+    },
+    "evidence": [
+      {
+        "id": "p_19d0cda53b8792bcd281",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 5"
+      }
+    ]
+  },
+  {
+    "id": "cl_cef7a7100d851e644872",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Near balanced",
+      "exports": "Maritime services, refined metals, agricultural goods",
+      "imports": "Defense cooperation inputs, transport links, selected industrial goods",
+      "partner": "Turkey",
+      "qualification": "Canon partner; relationship strategically rising",
+      "relationship": "Improving",
+      "tier": "Primary"
+    },
+    "evidence": [
+      {
+        "id": "p_701149f20e698d18de20",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 4"
+      }
+    ]
+  },
+  {
+    "id": "cl_db8ea0b4ec71f49e2379",
+    "entity": "trade_partners",
+    "predicate": "partner_profile",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "unknown",
+    "authority": "latest_tracker_user_designated",
+    "notes": "Retain estimated goods mixes and grouped partners as estimates.",
+    "value": {
+      "balance_description": "Near balanced",
+      "exports": "Refined metals, maritime services, agricultural goods",
+      "imports": "Shipping inputs, industrial goods, commercial services",
+      "partner": "Italy",
+      "qualification": "Canon partner; exact goods mix estimated from geography and economy",
+      "relationship": "Neutral-positive",
+      "tier": "Primary"
+    },
+    "evidence": [
+      {
+        "id": "p_0ced00a0689db4b0634c",
+        "source_id": "src_bcb9f282108154c9",
+        "path": "Reunion campaign tracker(1).xlsx",
+        "locator": "Trade Partners!row 3"
+      }
+    ]
+  },
+  {
+    "id": "cl_3692326a53fffff2ce02",
+    "entity": "younger_industries_legacy",
+    "predicate": "legacy_scope_notice",
+    "world_date_text": null,
+    "date_precision": "unknown",
+    "canon_status": "provisional",
+    "operational_status": "scope_unresolved",
+    "authority": "discord_reported_event",
+    "notes": "New evidence staged for review; reported dates are not silently used to settle conflicting chronology.",
+    "value": {
+      "text": "Everything before this is no longer relavent and classified. Don't even bother it's all gone"
+    },
+    "evidence": [
+      {
+        "id": "p_6820389e8e24c2ab7b64",
+        "source_id": "src_c4bf91a67273cb81",
+        "path": "Reunion Archives/Rumbling Reunion Party - Disco - younger-industries [1008429359121576027].html",
+        "locator": "message 1464093460578570325"
+      }
+    ]
+  }
+]

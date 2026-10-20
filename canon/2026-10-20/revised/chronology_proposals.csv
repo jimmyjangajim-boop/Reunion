@@ -1,0 +1,6 @@
+id,event,proposed_date,status,reason,depends_on
+current,Current national snapshot,1992-10-18,needs_user_date_confirmation,After all October 16 parliamentary reporting and the corrected October 6–11 Altis combat.,
+dissolution,Three-month parliamentary dissolution,1992-10-17,needs_user_date_confirmation,Moves the old October 3 suspension after the October 6/9 bills and October 16 parliamentary activity.,current
+altis_ceasefire,Altis ceasefire and buffer zone,1992-10-17,needs_user_date_confirmation,"Exactly one day before proposed current date, per Q21.",current
+final_election,Final presidential election round,1992-06-21,needs_user_date_confirmation,Use the originally named June 21 election as the final round; supersede the incompatible July 5 runoff.,government_calendar_confirmation
+inauguration,Donahue takes office; Rehn appointed,1992-06-23,needs_user_date_confirmation,Allows Rehn’s death two days after appointment and Curro’s succession on confirmed June 25.,final_election

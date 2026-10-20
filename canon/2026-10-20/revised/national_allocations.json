@@ -1,0 +1,106 @@
+[
+  {
+    "category": "Defense & readiness",
+    "previous_usd": 100000000000,
+    "reconciled_usd": 82000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Interior / police / security",
+    "previous_usd": 10000000000,
+    "reconciled_usd": 10000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Veterans + health",
+    "previous_usd": 10000000000,
+    "reconciled_usd": 10000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Infrastructure",
+    "previous_usd": 20000000000,
+    "reconciled_usd": 27000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Energy & industry",
+    "previous_usd": 15000000000,
+    "reconciled_usd": 28000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Education / training",
+    "previous_usd": 18000000000,
+    "reconciled_usd": 18000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Agriculture + food",
+    "previous_usd": 11000000000,
+    "reconciled_usd": 11000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Social supports + housing",
+    "previous_usd": 10000000000,
+    "reconciled_usd": 10000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Debt service",
+    "previous_usd": 10000000000,
+    "reconciled_usd": 10000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Intelligence / RIA",
+    "previous_usd": 18000000000,
+    "reconciled_usd": 18000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Admin + justice",
+    "previous_usd": 10000000000,
+    "reconciled_usd": 10000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Contingency reserve",
+    "previous_usd": 21000000000,
+    "reconciled_usd": 19000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  },
+  {
+    "category": "Soviet treaty line",
+    "previous_usd": 2000000000,
+    "reconciled_usd": 2000000000,
+    "status": "budget_allotment_not_cash",
+    "authority": "user_total_with_delegated_distribution",
+    "notes": "The 18B movement is an internal reallocation; legal authorization remains unverified."
+  }
+]

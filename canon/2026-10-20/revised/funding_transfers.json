@@ -1,0 +1,62 @@
+[
+  {
+    "id": "t_spine_navy",
+    "from_envelope": "Navy",
+    "to_envelope": "National Infrastructure Spine",
+    "amount_usd": 2000000000,
+    "operational_status": "allotted_not_cash",
+    "in_world_authorization": "not_established",
+    "presidential_awareness": "probably_not_informed",
+    "authority": "delegated_reconciliation_Q07_Q10"
+  },
+  {
+    "id": "t_spine_air",
+    "from_envelope": "Air Force",
+    "to_envelope": "National Infrastructure Spine",
+    "amount_usd": 900000000,
+    "operational_status": "allotted_not_cash",
+    "in_world_authorization": "not_established",
+    "presidential_awareness": "probably_not_informed",
+    "authority": "delegated_reconciliation_Q07_Q10"
+  },
+  {
+    "id": "t_dalmatia",
+    "from_envelope": "Navy",
+    "to_envelope": "Dalmatian Development Program",
+    "amount_usd": 4100000000,
+    "operational_status": "allotted_not_cash",
+    "in_world_authorization": "not_established",
+    "presidential_awareness": "probably_not_informed",
+    "authority": "delegated_reconciliation_Q07_Q10"
+  },
+  {
+    "id": "t_oil_navy",
+    "from_envelope": "Navy",
+    "to_envelope": "National Oil Drilling",
+    "amount_usd": 11000000000,
+    "operational_status": "allotted_not_cash",
+    "in_world_authorization": "not_established",
+    "presidential_awareness": "probably_not_informed",
+    "authority": "delegated_reconciliation_Q07_Q10"
+  },
+  {
+    "id": "t_oil_existing",
+    "from_envelope": "Contingency reserve",
+    "to_envelope": "National Oil Drilling",
+    "amount_usd": 2000000000,
+    "operational_status": "allotted_not_cash",
+    "in_world_authorization": "not_established",
+    "presidential_awareness": "unknown",
+    "authority": "delegated_reconciliation_Q07_Q10"
+  },
+  {
+    "id": "t_defense_topup",
+    "from_envelope": "Existing Air Force envelope",
+    "to_envelope": "Defense Infrastructure",
+    "amount_usd": 200000000,
+    "operational_status": "allotted_not_cash",
+    "in_world_authorization": "not_established",
+    "presidential_awareness": "unknown",
+    "authority": "delegated_reconciliation_Q07_Q10"
+  }
+]

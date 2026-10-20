@@ -1,0 +1,88 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/Emilio Financial Report September 31, 1992.docx
+
+[1] Financial Report September 30th, 1992
+[2] Using $1 = 5.8 RMC:
+[3] Baseline ~ $500B USD → 2.9T RMC
+ (500,000,000,000 × 5.8 = 2,900,000,000,000 RMC)
+[4] Target ~ $400B USD → 2.32T RMC
+ (400,000,000,000 × 5.8 = 2,320,000,000,000 RMC)
+[5] So to “drop” from ~$500B to ~$400B in USD terms, Reunion’s GDP would be about 2.32T RMC at the same conversion rate.
+[6] You wrote “now 2.4B RMC.” If that’s literal, it implies ~$414M USD GDP, which is an extinction-level collapse. I’m treating it as the obvious typo: 2.4T RMC, which equals:
+[7] 2.4T RMC / 5.8 = ~$413.8B USD
+[8] That lines up cleanly with your “roughly $400B” target.
+[10] Ministry of Finance — Financial Situation Report
+[11] As of 30 September 1992
+[12] Executive summary
+[13] Reunion’s GDP (USD-equivalent) has fallen from roughly $500B at the start of Donahue’s term to roughly $400–414B by end-September (≈ 2.32–2.40T RMC). The drop is driven by a war shock + confidence shock layering on top of an already strained post-Greece economy.
+[14] The state has also expanded spending across most ministries while major packages (rail, ports, veterans, food stabilization, Dalmatian governance, digital modernization, security laws) create ongoing commitments. Revenues are weakening while obligations are rising — the mismatch is now the central threat.
+[16] 1) Where the money is coming from (state revenue)
+[17] Primary sources (typical shares):
+[18] Consumption taxes (VAT/sales) — largest single stream; currently softening due to closures and reduced import volume.
+[19] Customs & port fees — volatile; war risk and port insecurity sharply reduce throughput and raise insurance/handling costs.
+[20] Payroll/income taxes — weakening as layoffs and shortened hours spread.
+[21] Resource royalties & export duties — still strong structurally, but pressured by:
+[22] disrupted logistics,
+[23] price concessions demanded by buyers due to risk,
+[24] and Bern treaty delivery obligations (explained below).
+[25] SOE dividends / state enterprise profits — down as industry output falls and input costs rise.
+[26] One-off receipts — asset sales, emergency levies, fines: politically sensitive and inconsistent.
+[27] What changed since early-term baseline
+[28] Revenue isn’t “gone,” but it’s becoming less collectible and less reliable:
+[29] merchants and manufacturers delay payments,
+[30] imports slow (hurts VAT/customs),
+[31] risk premiums and hoarding distort normal trade,
+[32] and informal/black-market activity expands.
+[34] 2) Where the money is going (expenditure pressures)
+[35] Even before the September shocks, Donahue had already signed a stack of spending and commitment bills. By late September, the biggest drains look like this:
+[36] A) War + security state costs (fast-rising)
+[37] Defense readiness and replacement after Dalmatia losses (spares, repairs, ammo, convoy protection, air operations).
+[38] Internal security / port security driven by sabotage fears and incidents like Ploče.
+[39] RNIA and counter-infiltration activity (even if not openly budgeted, it bleeds into Interior/Defense lines).
+[40] B) Reconstruction and modernization commitments (large and sticky)
+[41] From your enacted framework (NRIPA / RMEA / HTESA / NDIDMA / THRCRA and related):
+[42] Infrastructure corridor spending (rail, roads, ports).
+[43] Digital modernization (tax/customs/social systems, data centre).
+[44] Housing restitution and rebuild zones (grants + capped-profit contracts).
+[45] C) Social/veterans stabilization (politically unavoidable)
+[46] Veterans reintegration + mental health services (VRMHSA).
+[47] Retraining bridges and technical education expansion (HTESA + retraining acts).
+[48] Food and staple stabilization (TFPS-GRA).
+[49] Welfare/housing support scaling due to closures and household distress.
+[50] D) Rail and energy industrial policy (big capex + long payback)
+[51] French diesel procurement + local heavy maintenance licensing buildout (workshops, training, tooling).
+[52] German electric traction package (10-year spares framework + advisors).
+[53] Energy and industry expansion (including “drill/refine” approach in Curro’s push), which is high spend now, uncertain cashflow later.
+[54] E) Debt service (now politically central)
+[55] Existing debt servicing plus the new US loan servicing line (whatever the final schedule is in your canon) is now a confidence anchor: markets care less about your speeches than whether you can pay.
+[57] 3) The Bern Treaty obligation (why it matters right now)
+[58] $425M USD equivalent in rare earths/crystals/gems over 6 years starting July 1992:
+[59] ~$70.83M/year of export value committed
+[60] at 5.8 = ~410.8M RMC/year in external-value deliveries
+[61] This hits Reunion in two ways:
+[62] Hard-currency capacity: those exports can’t be redirected to earn flexible FX for imports/reserves.
+[63] Fiscal capacity: the state’s tax/royalty/dividend take from that stream is effectively “spoken for” or diminished.
+[64] It’s not the whole problem, but it makes the current squeeze tighter at exactly the worst time.
+[66] 4) What’s causing the GDP drop (from ~$500B to ~$400B)
+[67] This is the combined effect of real output loss and risk pricing:
+[68] Real economy shocks
+[69] War disruption in Dalmatia: ports and corridors operate below capacity; supply lines become fragile; projects pause or get destroyed.
+[70] Industrial interruption: factories lose inputs, lose credit, or lose workers to mobilization.
+[71] Collapse in tourism and discretionary services: immediate decline when a country looks unstable.
+[72] Higher logistics costs: insurance, security, longer routing, convoy discipline costs, delays.
+[73] Confidence/finance shocks
+[74] Loan backlash and political fracture: raises perceived sovereign risk; tighter credit; fewer contracts; more cash-only behavior.
+[75] Port legitimacy crisis (Ploče): the single worst signal for trade confidence—“can the state secure a port city?”
+[76] Capital flight / hoarding behavior: people shift into hard goods and foreign currency; reduces investable capital and tax compliance.
+[77] Net: even if some sectors are still producing, the economy becomes less transactable and less financeable — which is what drives a big GDP-equivalent markdown.
+[79] 5) What’s not being handled well (problem areas)
+[80] Execution capacity: too many big programs at once (rail + ports + digital + housing + energy + war). That’s how money leaks and timelines slip.
+[81] Internal order funding vs reality: if Interior/RNIA lines don’t match the security environment, you lose the nodes and everything else becomes waste.
+[82] Deficit credibility: expanded budgets + falling revenue is a recipe for either inflationary financing, arrears, or forced cuts midstream.
+[84] 6) What should be prioritized to survive the deficit
+[85] If Donahue wants the country to stay intact, Finance should recommend priorities in this order:
+[86] Ports + fuel + medicine + spare parts (keep the state’s arteries open)
+[87] Debt service discipline + transparent ring-fencing (stop the confidence bleed)
+[88] War sustainment focused on logistics, not vanity procurement
+[89] Only infrastructure that protects economic nodes (ports, rail chokepoints, power reliability)
+[90] Targeted food stabilization to prevent riots and radicalization
+[91] Pause or tranche the long-payback expansions until markets stabilize (especially anything that invites corruption or disaster risk)

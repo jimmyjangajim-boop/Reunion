@@ -1,0 +1,239 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/1946 CONSTITUTION – OUTLINE AND LAWS.docx
+
+[1] 1946 CONSTITUTION – OUTLINE
+[2] 1. Preamble & Foundational Principles
+[3] Adopted after the 1930s civil war and the collapse of the old absolute monarchy.
+[4] Core ideas:
+[5] Reunion is a democratic republic built to prevent:
+[6] One-party rule,
+[7] Military dictatorship,
+[8] Absolute monarchy returning.
+[9] It acknowledges:
+[10] The “historic role of the Crown” and keeps the King as a symbolic Head of State,
+[11] But vests real power in elected institutions.
+[12] No one’s touched the text since 1946; all the bending has been done via ordinary laws and “interpretation.”
+[14] 2. Article I – The State & Institutions
+[15] Form of State
+[16] “Unitary, indivisible Republic of Reunion.”
+[17] Islands (Northern / Central / Southern / Dalmatia / fringe islands) recognized as administrative regions, not full federal units.
+[18] The monarchy is described as a “hereditary Crown within the Republic, guardian of continuity and dignity of the State.”
+[19] Separation of Powers
+[20] Legislative: Assembly of the Republic (unicameral).
+[21] Executive: President of the Republic + Council of Ministers.
+[22] Judiciary: independent courts, plus a Constitutional Court.
+[23] Outdated part:
+ Text still references a “President of the Council of Ministers” as if there’s a Prime Minister, but in practice that role has fused into the Presidency by statute and custom. The constitution was never updated to reflect that.
+[25] 3. Article II – Rights & Duties of Citizens
+[26] This is your de-facto “bill of rights.” It’s noble and also shot through with 1940s paranoia.
+[27] Citizenship
+[28] Jus sanguinis as default:
+[29] Child of a Reunionist citizen is a citizen.
+[30] Jus soli only for:
+[31] Children born on Reunion soil to stateless parents or unknown parentage.
+[32] Naturalization:
+[33] Left to statute (see Immigration Code below).
+[34] Equality Clause
+[35] “All citizens are equal before the law without distinction of origin, creed, or political conviction.”
+[36] Then a nasty fudge line:
+[37] “The law may provide distinctions where required to protect public order, public morals, or the national character.”
+[38] That “national character” phrase is a legal cancer – it justifies all sorts of abuse.
+[39] Fundamental Rights
+[40] Textually guaranteed:
+[41] Freedom of expression, press, and opinion.
+[42] Freedom of assembly and association.
+[43] Freedom of religion and conscience.
+[44] Inviolability of the home and correspondence.
+[45] Right to due process and defense in criminal matters.
+[46] Right to vote and stand for office at age 18.
+[47] But all of them are subject to a familiar carve-out:
+ “except as limited by law in the interests of security, public order, and the protection of the democratic and republican order.”
+[48] That’s the hole every government has driven a truck through.
+[49] Duties
+[50] Pay taxes.
+[51] Serve in the defense of the Republic (basis for conscription law).
+[52] Respect the Constitution and “democratic institutions.”
+[54] 4. Article III – Executive Power
+[55] President of the Republic
+[56] Election:
+[57] Direct popular vote.
+[58] Term: 4 years.
+[59] Re-election:
+[60] No limit to terms
+[61] Non-consecutive terms allowed (hence multiple Hartmann-party presidents across decades).
+[62] Powers:
+[63] Appoints and dismisses ministers and the “President of the Council” (Prime Minister in theory, merged into President in practice).
+[64] Promulgates laws; can send a bill back once for reconsideration.
+[65] Can call referendums on major constitutional/political issues.
+[66] Supreme Commander of Armed Forces.
+[67] Can declare a State of Emergency (see Article IV).
+[68] May dissolve the Assembly once per term lasting a duration of 3 months with additional extensions granted of up to 6 month extensions at a time. new elections will be held for parliament.
+[69] The constitution never codified the current “no Prime Minister” reality. Legally, a hostile Assembly could try to argue parts of the executive architecture are unconstitutional.
+[70] The King
+[71] Symbolic Head of State:
+[72] Signs treaties ceremonially.
+[73] Delivers annual “Address to the Nation.”
+[74] Has the right to be consulted, to counsel, and to warn.
+[75] Reserve powers (vaguely drafted):
+[76] In “grave constitutional crisis,” the King may:
+[77] Appeal directly to the people,
+[78] Request the Assembly to reconsider legislation that, in his view, “gravely harms the constitutional order”.
+[79] All of this requires countersignature from the President or a Minister to be valid, but the text is hazy enough that royalists and republicans can both spin it.
+[81] 5. Article IV – Legislature
+[82] Assembly of the Republic
+[83] Originally 200 members, elected every 4 years.
+[84] Constitution text: “The Assembly shall consist of no fewer than 150 and no more than 300 deputies.”
+[85] You recently expanded to 400 seats by statute – strictly speaking, that’s constitutionally dubious. Halvik knows it; everyone decided not to open that can of worms… yet.
+[86] Electoral system:
+[87] Proportional representation, multi-member constituencies by island/region.
+[88] Parties must respect “democratic principles”; openly anti-democratic parties may be banned by law.
+[89] Powers:
+[90] Passes ordinary laws, budget, taxes.
+[91] Can impeach the President (2/3 majority) for “high crimes and grave violations of the Constitution.”
+[92] Confirms key appointments (Constitutional Court, some judges, RNIA Director under new statute).
+[94] 6. Article V – Judiciary
+[95] Guarantees judicial independence “subject only to the Constitution and the law.”
+[96] Constitutional Court
+[97] 9 judges.
+[98] Appointed by:
+[99] President (3),
+[100] Assembly (3),
+[101] King (3).
+[102] 12-year non-renewable terms.
+[103] Powers:
+[104] Review laws for constitutionality.
+[105] Rule on disputes between state organs.
+[106] Rule on party bans and some electoral disputes.
+[107] In practice, appointments have been heavily politicized; this Court has been more cautious than assertive.
+[108] Ordinary Courts
+[109] Supreme Court of Cassation at the top.
+[110] Regional courts and local courts under it.
+[112] 7. Article VI – Emergency & Security Provisions
+[113] President can declare a State of Emergency:
+[114] Initially for up to 90 days.
+[115] Must be notified to Assembly within 24 hours.
+[116] Assembly can approve, modify, or revoke by simple majority.
+[117] Under emergency:
+[118] Freedom of assembly and strike may be suspended.
+[119] Curfews imposed.
+[120] Extended detention without charge up to 30 days.
+[121] Military and RIA can be deployed internally under special rules.
+[122] This is the legal basis for the communist crackdowns, the martial law in Reunion City after the Parliament attack, etc.
+[123] No modern safeguards – no explicit prohibition on torture, no explicit ban on blanket censorship.
+[125] 8. Article VII – Amendments
+[126] Amendments require:
+[127] 2/3 majority in the Assembly.
+[128] A second 2/3 vote at least six months later.
+[129] Countersignature by President and King.
+[130] Optional referendum if 1/3 of Assembly or President requests it.
+[131] Threshold is so high that everyone has preferred to work around the constitution instead of updating it. That’s why it’s still half-1946, half-ad hoc practice.
+[133] II. KEY LAWS – OUTLINE
+[134] Now, the main legal pillars sitting on top of that constitution, shaped by your presidential list:
+[135] 1. Electoral & Parties Law
+[136] Electoral Law of 1952, revised 1968, 1981:
+[137] Establishes PR system, seat allocation, thresholds.
+[138] Parties must register and accept constitutional order.
+[139] Party bans allowed for:
+[140] Advocating violent overthrow,
+[141] Explicitly anti-democratic ideologies.
+[142] Parties & Campaign Finance Act (1981):
+[143] Regulates donations, public funding.
+[144] Very weak enforcement until recently; lots of loopholes oligarchs and factions exploit.
+[146] 2. Immigration & Nationality Framework
+[147] Primarily:
+[148] Immigration & Nationality Code of 1971
+[149] Amended 1983 (post-Hartmann leftist era) and 1990 (in response to Greek and Balkan instability).
+[150] Key points:
+[151] Entry & Residence:
+[152] Visa regime with:
+[153] Preference for:
+[154] Reunion diaspora,
+[155] Skilled workers,
+[156] Investors.
+[157] Broad discretion to deny entry for:
+[158] “Threats to the constitutional order,”
+[159] National security,
+[160] Serious criminal record.
+[161] This has historically been used to keep out both foreign communists and foreign right-wing militants.
+[162] Naturalization:
+[163] Standard path:
+[164] 10 years legal residence.
+[165] Language and civic test.
+[166] Clean criminal record.
+[167] Demonstrated “integration into Reunion society.”
+[168] Diaspora / ethnic-return path:
+[169] 3–5 years residence, test may be waived.
+[170] Designed to bring back Reunionists or their descendants.
+[171] Asylum / Refugees:
+[172] 1990 Asylum Law brought in:
+[173] Narrow asylum grounds.
+[174] Very high bar for proof.
+[175] Broad discretion for Interior and Security to deny on “security” grounds.
+[176] This is all very 20th-century – restrictive, opaque, and ripe for abuse. It also has basically no modern framework for long-term migrant integration.
+[178] 3. Freedom of Expression, Press & Public Order
+[179] Grounded in several acts:
+[180] Public Order & Social Peace Act (1950)
+[181] Bans “organizations advocating the violent overthrow of the constitutional order.”
+[182] Allows authorities to ban demonstrations if they “threaten public peace or constitutional values.”
+[183] Press & Broadcast Act (1962)
+[184] Licensing for broadcast media.
+[185] Defamation criminalized.
+[186] “Insulting the Crown or the Republic’s institutions” is a criminal offence.
+[187] Vague “offence to public morals” clause allows censorship.
+[188] National Security & Subversive Activities Act (1977) (Hartmann-era, leftist security obsessions):
+[189] Criminalizes:
+[190] “Propaganda in service of a foreign power hostile to the Republic.”
+[191] “Apology for political violence.”
+[192] Used primarily against communists in Torrental protests, but on paper it’s ideology-agnostic.
+[193] De jure, free speech exists. De facto:
+[194] The state has wide latitude to ban gatherings and speech that it deems:
+[195] “Subversive,”
+[196] “Anti-constitutional,” or
+[197] “Morally harmful.”
+[198] Halvik, if he wants a freer modern state, has to either:
+[199] Reform these laws, or
+[200] Push constitutional court challenges against their vaguer parts.
+[202] 4. Term Limits & Presidency in Law
+[203] Beyond the Constitution:
+[204] Presidential Elections Act (1951)
+[205] Clarifies:
+[206] 4-year term.
+[207] Two consecutive terms maximum per individual.
+[208] Non-consecutive terms allowed.
+[209] Provides:
+[210] If the President dies or resigns:
+[211] The Speaker of the Assembly becomes Acting President until elections in 90 days.
+[212] There’s no statutory recall mechanism; only impeachment (2/3 Assembly) and elections. That’s why Strevo stepping down after his stroke requires a political, not legal, process.
+[214] 5. Defense, RIA/RNIA & Internal Security
+[215] Defense & Armed Forces Act (1963)
+[216] Codifies civilian control; conscription; structure of army, navy, air force.
+[217] RIA Statute (1969)
+[218] Created RIA as hybrid internal security + intelligence organ.
+[219] Granted broad powers under emergency conditions:
+[220] Surveillance,
+[221] Detention handoff,
+[222] Internal ops.
+[223] RNIA Reorganization Act (1992)
+[224] Your new law:
+[225] Creates RNIA as a separate, civilian intel agency.
+[226] Strips RIA of formal intel analysis role; redefines it as a national-guard-like security force.
+[227] Adds parliamentary oversight and a 3/5 confirmation rule for RNIA Director.
+[228] The Constitution hasn’t been updated to reflect this dual structure; it still speaks vaguely of “security organs.”
+[230] 6. Criminal Code & Procedure
+[231] Still largely based on:
+[232] Penal Code 1948, heavily amended but structurally old.
+[233] Code of Criminal Procedure 1954.
+[234] Problems:
+[235] Outdated offences remain:
+[236] “Insult to foreign heads of state.”
+[237] Broad “offence to public morals.”
+[238] “Subversive assembly” with vague wording.
+[239] Procedural issues:
+[240] Pre-trial detention rules were written with internal wars and political violence in mind; authorities can hold suspects longer than most modern European systems.
+[241] Weak protection of the right to counsel during the first 24–48 hours of detention, especially under emergency laws.
+[242] If Halvik wants to modernize justice, this is a prime target.
+[244] 7. Labor, Unions & Strikes
+[245] Labor Relations Act (1960) and Trade Union Act (1974):
+[246] Recognize unions and the right to strike.
+[247] But:
+[248] Strikes can be banned in a wide range of “essential services.”
+[249] Emergency laws let the state suspend strikes at will.

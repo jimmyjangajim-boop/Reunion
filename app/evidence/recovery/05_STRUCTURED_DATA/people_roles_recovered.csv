@@ -1,0 +1,30 @@
+id,name,role_or_connection,in_universe_period,source_status,warning
+P001,King Aurelios Leandros Steiner I,King of Reunion; elderly 1725 monarch,Early 1725,user_approved_baseline,Died very early 1725
+P002,King Aurelios Leandros Steiner II,Young successor to Aurelios I,1725 onward,user_approved_baseline,Was 23 at beginning of 1725
+P003,King Zo III,Current ceremonial monarch,1992 baseline,user_override,Prior chat references Zo IV; do not auto-reconcile
+P004,Zo III (young heir),Heir to reigning King Zo III,Current unspecified,user_override,"Duplicate regnal numeral, user clarification needed"
+P005,Dax Donahue,President after July 1992 runoff,1992,user_approved_baseline,59% runoff in recovered account
+P006,Darius Younger,Vice President,1992,user_override,Jack Younger superseded
+P007,Adrien Strevo,Predecessor president until stroke/resignation,Early 1992,chat_recap,Exact swearing-out date unknown
+P008,Ezra Hartmann,Field marshal/security leader/presidential candidate,1992,chat_recap,Different Hartmann family names appear throughout history
+P009,Ebin Hartman,General in war recaps,March 1992,chat_recap,Surname differs from Hartmann; do not auto-merge
+P010,Henry Steiner,Inferno Division leader in story setup,1992,provisional_chat_recap,May be character card rather than resolved canon
+P011,Caldus Rhéon,Grand Admiral killed after Zo Manor attack,1992-03-21,chat_recap,GRU attribution suspected
+P012,Séraphin Douant,Interim naval/RMC representative,After 1992-03-21,provisional_chat_recap,May precede or be different office than Kallistrat
+P013,Séraphin Valerius Kallistrat,Duke; Rhéon's ex-chief; later Grand Admiral,1992 / later,chat_recap_plus_primary,Appointment sequence requires checking
+P014,Dr. Amalia Rehn,Finance Minister briefly; killed in car crash,1992 unspecified,user_override,Exact appointment/death date missing
+P015,Emilio Curro,Finance Minister after Rehn; infrastructure/energy planner,1992,user_override_plus_primary,Plan statuses differ
+P016,Elena Virelli,RBD anchor/correspondent,1992-10-03 and 1993-10-11,primary_library_variants,Source is in-universe news article
+P017,Somov Antonovich,Soviet Premier mentioned in Bern talks,March 1992,chat_recap,Verify exact title and surname format
+P018,Iosif Belanov,Soviet/RP negotiation figure,March 1992,chat_recap,Exact title unknown
+P019,Semion Sokolov,Soviet military/political figure,1992,chat_recap,Role to locate
+P020,Brigadier Stavros Papanikolaou,Greek figure in war recaps,March 1992,chat_recap,Exact role to locate
+P021,Ilene Bastros,Named military/political character,1992,chat_recap,Full job from original needed
+P022,Henri DeSalle,Named political/military figure,1992,chat_recap,Full job from original needed
+P023,Lucien Bardot,Named political/military figure,1992,chat_recap,Full job from original needed
+P024,Emil Gaudé,Named minister/treaty participant,1992,chat_recap,Full office requires confirmation
+P025,Clément Verne,Named political/military figure,1992,chat_recap,Full job from original needed
+P026,Marielle Zorn,Named political/military figure,1992,chat_recap,Full job from original needed
+P027,Cyrille Marcaine,Colonel in war recaps,March 1992,chat_recap,Full role to locate
+P028,Major General Verrin,Named Reunion general,1992,chat_recap,First name and role unknown
+P029,Franjo Tuđman,Croatian president in story setting,1992,chat_recap,"Actual-world historical name, fictional-context claims need primary source"

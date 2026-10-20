@@ -1,0 +1,106 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/ “Horizon Dynamics”_.docx
+
+[1] Here’s how everyone else reacts in early October 1992 when Strevo drops the “Horizon Dynamics” consolidation bomb and the Crown piles in.
+[2] 1) Parliament’s immediate posture
+[3] RRP (centrist institutionalists)
+[4] Not opposed, but they refuse to rubber-stamp a “royal + Curro megacorp” during a credibility crisis.
+[5] They push for hard guardrails: procurement transparency, audited capitalization, conflict-of-interest walls, and export controls consistent with state policy.
+[6] RCA (royalists)
+[7] All-in, loudly. They frame it as “national revival” and “sovereignty through industry.”
+[8] They want Royla and Crown-linked suppliers in the ecosystem (steel, ports, security).
+[9] NSF (security-nationalists)
+[10] All-in, but with strings: security vetting, closed committees, and “strategic secrecy” exemptions.
+[11] They push for Horizon to become the backbone of a permanent mobilization economy.
+[12] LUP (labor/left)
+[13] Split:
+[14] pro-jobs wing supports consolidation if it means domestic employment, worker protections, and civilian tech spillovers.
+[15] civil-liberties wing treats it as a “royal-industrial coup by balance sheet” and demands oversight and limits.
+[16] Dalmatian lists/minors
+[17] Mostly transactional: they want guarantees that Horizon’s truck/logistics production benefits Dalmatia supply chains, not just the core islands.
+[18] Net result: Parliament moves fast, but only if it can brand this as “national champion + strict oversight”, not a carve-up.
+[20] 2) What Finance/Justice/Energy demand before they’ll let it proceed
+[21] Even with Strevo offering transparency, the system will force structure, because the political cost of “ethics panic” is real.
+[22] The required “clean-room” conditions
+[23] Ownership clarity: Strevo’s 70% net worth injection can’t sit in a murky bucket. The clean solution the Finance Committee demands is:
+[24] Strevo funds Horizon via non-voting preferred equity or convertible debt (publicly disclosed terms),
+[25] while Curro (70%) and the King (30%) hold the voting common shares only if Curro places his stake in a blind trust / managed holding while he’s Finance Minister.
+[26] Procurement firewall: Horizon cannot bid on state contracts unless:
+[27] tenders are run under PPACRA rules,
+[28] and an independent procurement panel signs off.
+[29] Export control compliance: Parliament inserts language that all sensitive exports require Cabinet approval and must follow “Reunion strategic interest” rules.
+[30] Security oversight: RNIA/Interior require:
+[31] vetting of all foreign technical staff,
+[32] and strict control of remote diagnostics and comms systems.
+[33] Translation: Parliament won’t stop it, but it will chain it to oversight so it doesn’t become the country’s next corruption engine.
+[35] 3) The bill that actually passes (early October)
+[36] BILL No. 207/1992 — Horizon Dynamics National Consolidation & Mobilization Act (HDNCMA)
+[37] Passed: 9 October 1992
+ Sponsors: RCA + NSF + RRP modernization bloc (with LUP concessions)
+ Key provisions:
+[38] Authorizes mergers/buyouts of designated defense-industrial firms into Horizon Dynamics.
+[39] Creates a Strategic Industrial Board (Finance + Energy + Defense + Justice + one parliamentary oversight seat) with veto power over:
+[40] major acquisitions,
+[41] related-party contracts,
+[42] export destinations,
+[43] and any “dual-use electronics” procurement.
+[44] Requires public disclosure of capitalization structure, beneficial ownership, and annual audited accounts.
+[45] Mandates local content and workforce training pipelines (HTESA tie-in).
+[46] Vote sketch (typical outcome):
+[47] RRP: strong majority for (with a chunk abstaining over conflicts)
+[48] RCA/NSF: overwhelmingly for
+[49] LUP: split (jobs wing votes yes; civil-liberties wing votes no/abstain)
+[50] Dalmatian lists: mostly yes if logistics guarantees included
+[52] 4) Who gets bought into Horizon (what survives)
+[53] The Ministry of Energy & Industry’s consolidation list targets the “still-alive” shells:
+[54] Lucania Motor Works (vehicle assembly + heavy diesel capability)
+[55] Steinberg Ordnance & Foundry (metalwork, castings, barrels, industrial machining)
+[56] Reunion Avionics & Instruments Group (electronics, radios, basic radar components)
+[57] Torrental Heavy Logistics Works (trailers, cranes, port equipment)
+[58] Reunion Systems Integration Bureau (small R&D office that becomes Horizon’s “brain”)
+[59] Parliament insists a few civilian-leaning subsidiaries stay separately audited to prevent military slush funds from swallowing everything.
+[61] 5) The four “big projects” — how the state reacts
+[62] Project 1: Heavy logistics trucks (MAZ-537-like, plus smaller variant)
+[63] Reception: best received of the four. Everyone understands trucks = logistics = survival.
+ Defense and Infrastructure committees immediately earmark it as a priority because:
+[64] it supports Dalmatia supply resilience,
+[65] it supports rail/port reconstruction,
+[66] it can export regionally later.
+[67] Problem ministries flag: steel supply, engine supply chain, and QA discipline.
+[68] Project 2: Radar competitive with a NATO market
+[69] Reception: politically popular, technically hard.
+ The military wants it; RRP wants “exportable industry”; but engineers warn:
+[70] “competitive NATO radar” is not a 12–18 month win; it’s multi-year R&D + supply chain maturity.
+[71] So Parliament frames it as:
+[72] Phase 1: reliable coastal/ground surveillance radars for Reunion first
+[73] Phase 2: export-grade systems later if credible
+[74] Project 3: Broad electronics modernization capability
+[75] Reception: universally supported if it stays dual-use.
+ NDIDMA and HTESA give it cover: “modern chips, secure comms, industrial controls.”
+ Justice Ministry demands strict compliance language so this doesn’t become an illegal procurement circus.
+[76] Project 4: “Harpyiae” air-superiority fighter using MiG wreckage + a modern French jet purchase
+[77] Reception: the most controversial.
+[78] Defense hawks love the dream, but the professional military/technocrats call it what it is: expensive, slow, and politically risky.
+[79] France will sell aircraft, but they’ll insist on end-use controls and will not bless a scheme that looks like cloning or tech diversion.
+[80] RNIA and Justice are alarmed by anything resembling backdoor acquisition of controlled US components.
+[81] So Parliament’s likely compromise:
+[82] Approve purchase of a modern French air-superiority platform for immediate capability (e.g., Mirage 2000C/B era) under strict terms, and
+[83] authorize a long-range domestic R&D program focused on avionics, materials, and flight testing—without pretending a clean-sheet air-superiority fighter appears quickly.
+[85] 6) The corporate bidding/positioning you asked for
+[86] Foreign majors (lobbying pressure)
+[87] They don’t bid for “percentages of Horizon” directly at first; they bid for:
+[88] joint ventures, supply contracts, engine lines, radar subassemblies, avionics modules, and tooling packages.
+[89] Likely lobbying actors:
+[90] Dassault / Thomson-CSF (France) around aircraft and radar
+[91] US firms will be cautious and lawyer-heavy because of export control issues
+[92] Domestic power plays
+[93] Younger Industries: bids to become the prime domestic subcontractor (engines, heavy manufacturing, logistics fleet), and tries to lock in truck production as “civil + military.”
+[94] Curro (small play): triggers immediate ethics scrutiny. Even if it’s clean, Parliament forces his stake to be insulated while he’s Finance Minister.
+[95] King Zo / Royla: goes huge—wins influence through:
+[96] capital injection,
+[97] port logistics and security contracts,
+[98] and board control pressure.
+[99] Who “gets what” (politically plausible allocation)
+[100] Curro’s 70% voting stake only survives if placed behind a compliance wall (managed holding/blind trust structure while in office).
+[101] Royla’s 30% buys board seats and strategic control language, but Parliament blocks Royla from being the sole gatekeeper on exports or procurement awards.
+[102] Strevo’s big money goes in as preferred capital with transparent terms, so Parliament can say: “He’s funding national industry, not buying a private army.”
+[104] If you want, I can write the committee hearing summary (the objections, the amendments, the exact “ethics firewall” clauses), and a one-page Horizon corporate structure showing how Strevo’s massive investment fits without contradicting the Curro/Zo 70/30 ownership split.

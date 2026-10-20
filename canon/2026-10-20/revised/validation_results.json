@@ -1,0 +1,146 @@
+{
+  "checks_passed": 35,
+  "result": "pass",
+  "checks": [
+    {
+      "check": "SQLite integrity",
+      "result": "pass"
+    },
+    {
+      "check": "Foreign key integrity",
+      "result": "pass"
+    },
+    {
+      "check": "All 88 source blobs retain their hashes",
+      "result": "pass"
+    },
+    {
+      "check": "Every source references its complete original blob",
+      "result": "pass"
+    },
+    {
+      "check": "All 46 Discord channels and 1,140 unique messages retained",
+      "result": "pass"
+    },
+    {
+      "check": "Every export message count matches",
+      "result": "pass"
+    },
+    {
+      "check": "All three workbooks retain 730 cells and 6 comments",
+      "result": "pass"
+    },
+    {
+      "check": "3,930 passages are searchable exactly once",
+      "result": "pass"
+    },
+    {
+      "check": "All 27 answers have one decision each",
+      "result": "pass"
+    },
+    {
+      "check": "Answer file matches immutable user source",
+      "result": "pass"
+    },
+    {
+      "check": "All 40 new facts link to answer evidence",
+      "result": "pass"
+    },
+    {
+      "check": "No heir and no canonical Jakob",
+      "result": "pass"
+    },
+    {
+      "check": "Henry is cousin and Inferno commander, with no heir designation",
+      "result": "pass"
+    },
+    {
+      "check": "Ezra ancestry remains bounded rather than invented",
+      "result": "pass"
+    },
+    {
+      "check": "RIA and RNG remain distinct",
+      "result": "pass"
+    },
+    {
+      "check": "Unit 17 operational status is separate from formal approval",
+      "result": "pass"
+    },
+    {
+      "check": "Rehn and Curro use confirmed June 25",
+      "result": "pass"
+    },
+    {
+      "check": "Altis replacement casualty categories reconcile",
+      "result": "pass"
+    },
+    {
+      "check": "255B national allocation and 82B defense reconcile",
+      "result": "pass"
+    },
+    {
+      "check": "Every branch allocation reconciles",
+      "result": "pass"
+    },
+    {
+      "check": "95B deficit remains a projection",
+      "result": "pass"
+    },
+    {
+      "check": "Defense transfers total 18B and contingency 2B",
+      "result": "pass"
+    },
+    {
+      "check": "Seven projects reconcile funding without claiming physical completion",
+      "result": "pass"
+    },
+    {
+      "check": "Project total is 61.6B with 24.72B source-paid and 36.88B committed",
+      "result": "pass"
+    },
+    {
+      "check": "25 procurement batches retain source quantities and total costs",
+      "result": "pass"
+    },
+    {
+      "check": "No ordered batch is counted as delivered or operational",
+      "result": "pass"
+    },
+    {
+      "check": "Each delivery plan conserves ordered quantity",
+      "result": "pass"
+    },
+    {
+      "check": "Delivery waves stay within declared windows and remain planning only",
+      "result": "pass"
+    },
+    {
+      "check": "Oil survey and future production remain separate",
+      "result": "pass"
+    },
+    {
+      "check": "Horizon ownership and Strevo investment use distinct denominators",
+      "result": "pass"
+    },
+    {
+      "check": "All five calendar proposals remain unconfirmed",
+      "result": "pass"
+    },
+    {
+      "check": "Only one answer application, with app unchanged",
+      "result": "pass"
+    },
+    {
+      "check": "SQLite backup reproduces all relational contents",
+      "result": "pass"
+    },
+    {
+      "check": "Decision history rejects UPDATE",
+      "result": "pass"
+    },
+    {
+      "check": "Decision history rejects DELETE",
+      "result": "pass"
+    }
+  ]
+}

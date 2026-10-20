@@ -1,0 +1,141 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/FINAL PAPER — SOVEREIGN STABILIZATION TERM LOAN AGREEMENT.docx
+
+[1] FINAL PAPER — SOVEREIGN STABILIZATION TERM LOAN AGREEMENT
+[2] (United States – Republic of Reunion)
+ Date: September __, 1992 (effective upon satisfaction of Conditions Precedent)
+[3] 1. Parties
+[4] The United States of America, acting through the U.S. Department of the Treasury (“Lender”).
+[5] The Republic of Reunion, acting through the Ministry of Finance and with acknowledgment by the Reunion Central Bank (“Borrower”).
+[6] 2. Purpose and Permitted Uses
+[7] 2.1 Facility Purpose
+[8] This facility is a stabilization and reconstruction loan intended to support:
+[9] (a) critical infrastructure repair (power, ports, rail infrastructure, water/sewage, roads, logistics nodes);
+[10] (b) medical and veteran services;
+[11] (c) civil defense sustainment (maintenance, spare parts, communications, protective/defensive logistics); and Military spending
+[12] (d) procurement of rebuilding equipment and technical services under monitored, competitive processes.
+[13] 2.2 Prohibited Uses (Absolute)
+[14] No proceeds may be used directly or indirectly for:
+[15] (i) covert procurement pipelines, arms trafficking, smuggling, or third-party arming;
+[16] (ii) financing or expanding militias outside formal state command;
+[17] (iii) off-budget security spending or any expenditure not recorded within the Borrower’s audited public accounts;
+[18] (iv) payments to any sanctioned/blacklisted entity designated by the Lender.
+[19] Breach of Section 2.2 is an Event of Default.
+[20] 3. Principal, Currency, and Exchange Convention
+[21] 3.1 Principal
+[22] USD 90,000,000 (“Principal”).
+[23] 3.2 RMC Reference (Borrower’s stated rate)
+[24] For reporting purposes only, using the Borrower’s stated convention: $1 USD = 5.8 RMC.
+ Principal reference: 522,000,000 RMC.
+[25] All payments are due in USD.
+[26] 4. Fees and Costs
+[27] 4.1 Upfront Facility and Monitoring Fee
+[28] 3.0% of Principal due at closing:
+[29] USD 2,700,000 (reference: 15,660,000 RMC).
+[30] 4.2 Borrower Costs
+[31] Borrower bears reasonable costs of monitoring, audit support, and verification travel under this Agreement.
+[32] 5. Interest
+[33] 5.1 Rate
+[34] 12.00% fixed per annum on outstanding principal.
+[35] 5.2 Default Interest
+[36] Upon an Event of Default, interest increases by +2.00% (to 14.00%) on all overdue amounts until cured and paid.
+[37] 6. Tenor, Structure, and Repayment
+[38] 6.1 Tenor
+[39] 10 years from Closing Date (“Maturity Date”).
+[40] 6.2 Repayment Structure
+[41] Year 1: interest-only
+[42] Years 2–10: nine (9) equal annual payments of principal + interest
+[43] 6.3 Payment Schedule (Amounts)
+[44] All figures rounded to the nearest dollar.
+[45] Year 1 (Interest-Only):
+[46] USD 10,800,000 (ref: 62,640,000 RMC)
+[47] Years 2–10 (Equal Annual Payments):
+[48] USD 16,891,100 per year (ref: 97,968,380 RMC per year)
+[49] 6.4 Total Amounts (Illustrative)
+[50] Total repaid (principal + interest): USD 162,819,900 (ref: 944,355,419 RMC)
+[51] Total including fee (Section 4.1): USD 165,519,900 (ref: 960,015,419 RMC)
+[52] 7. Disbursement (Tranches) — “Leash” Mechanics
+[53] 7.1 Tranche Plan
+[54] Principal is disbursed as follows, subject to conditions:
+[55] Tranche A: USD 30,000,000 at Closing
+[56] Tranches B–G: USD 10,000,000 each, quarterly over the next 18 months (6 tranches total)
+[57] 7.2 Conditions for Each Tranche
+[58] Each tranche after Closing requires:
+[59] (a) submission and acceptance of audited expenditure statements for prior tranches;
+[60] (b) verification that spending complied with Section 2 (Permitted Uses);
+[61] (c) continued acceptance and access for the monitoring mission (Section 9);
+[62] (d) no uncured Event of Default.
+[63] 7.3 Suspension
+[64] Lender may suspend or cancel undisbursed tranches if:
+[65] any prohibited use is suspected with credible evidence pending review, or
+[66] monitoring access is obstructed, or
+[67] the Borrower fails reporting deadlines by more than 30 days.
+[68] 8. “Lockbox” Debt Service Covenant (Security Without Collateral)
+[69] 8.1 Dedicated Debt Service Account
+[70] Borrower shall establish a dedicated Debt Service Account held at a mutually agreed correspondent bank (“Lockbox”).
+[71] 8.2 Monthly Funding Requirement
+[72] Borrower shall fund the Lockbox monthly with an amount sufficient to cover the next scheduled payment with a 90-day buffer, sourced from customs and port receipts and/or other agreed sovereign revenue streams.
+[73] 8.3 Trigger
+[74] If the Lockbox falls below the required buffer for 30 consecutive days, the Lender may:
+[75] suspend tranches, and/or
+[76] require additional controls on revenue routing until restored.
+[77] 9. Oversight, Monitoring, and Procurement Controls
+[78] 9.1 Monitoring Mission
+[79] Borrower accepts a U.S. Treasury Monitoring Mission with access to:
+[80] contracts, invoices, tender files, delivery confirmations, and recipient ministries;
+[81] site visits for major infrastructure purchases;
+[82] interviews with procurement officials and auditors.
+[83] 9.2 Procurement Rules
+[84] For any contract ≥ USD 250,000, Borrower shall:
+[85] use competitive tendering unless emergency-waived in writing with justification;
+[86] record awards in the national procurement registry;
+[87] retain full documentation for inspection.
+[88] 9.3 Reporting
+[89] Borrower provides quarterly reports including:
+[90] tranche spending ledger;
+[91] project status and milestones;
+[92] variance explanations;
+[93] macro indicators (inflation, FX reserves, deficit).
+[94] 10. Governance and Conduct Covenants (Non-Financial)
+[95] Borrower covenants that during the term:
+[96] (a) Borrower will maintain enforceable detention and evidence-handling rules previously accepted publicly;
+[97] (b) Borrower will not materially obstruct international monitoring arrangements it has agreed to;
+[98] (c) Borrower will maintain central bank operational reporting discipline consistent with its monetary stability framework;
+[99] (d) Borrower will not route loan proceeds through any unofficial security structures.
+[100] 11. Events of Default
+[101] Each of the following constitutes an Event of Default:
+[102] Non-payment of any amount due (with a 10-day cure for technical failure).
+[103] Any breach of Prohibited Uses (Section 2.2).
+[104] Material misrepresentation in any report or certification.
+[105] Obstruction/expulsion of the Monitoring Mission (Section 9).
+[106] Unlawful diversion of proceeds or refusal to provide documentation.
+[107] Cross-default to other external sovereign debt above an agreed threshold.
+[108] 12. Remedies
+[109] Upon an Event of Default, Lender may:
+[110] suspend/cancel undisbursed tranches;
+[111] apply default interest (Section 5.2);
+[112] accelerate repayment (declare amounts immediately due);
+[113] require enhanced controls over the Lockbox routing.
+[114] 13. Optional Rate Step-Down (Only After Performance)
+[115] 13.1 Step-Down Eligibility
+[116] After 18 consecutive months of full compliance (clean audits, no prohibited use, full monitoring access), Lender may reduce the rate on the remaining balance to 10.50% fixed effective at the next anniversary.
+[117] 13.2 No Entitlement
+[118] This is discretionary. Any compliance breach voids eligibility.
+[119] 14. Governing Law and Venue
+[120] Governing law: New York law (commercial terms), with disputes subject to jurisdiction in U.S. federal courts as designated by the Lender, and waiver of sovereign immunity to the extent customary for sovereign borrowing instruments.
+[121] 15. Entire Agreement
+[122] This document and its schedules constitute the entire agreement, superseding prior discussions.
+[124] Annex A — GDP Burden (Reunion)
+[125] You gave: GDP = 18–20 billion RMC, and $1 = 5.8 RMC, so GDP in USD is roughly $3.10B–$3.45B.
+[126] Principal as % of GDP
+[127] 522,000,000 RMC / 18,000,000,000 RMC = 2.90%
+[128] 522,000,000 RMC / 20,000,000,000 RMC = 2.61%
+[129] So the loan is ~2.6%–2.9% of GDP.
+[130] Annual debt service as % of GDP (10-year option)
+[131] Year 1 interest: 62.64M RMC
+[132] 0.348% of GDP (if 18B) to 0.313% (if 20B)
+[133] Years 2–10 payment: 97.97M RMC
+[134] 0.544% of GDP (if 18B) to 0.490% (if 20B)
+[136] Signed
+
+George H. W Bush
+[138] Dax Donahue II

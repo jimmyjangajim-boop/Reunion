@@ -1,0 +1,8 @@
+name,total_authorized_usd,source_paid_out_usd,source_committed_usd,unfunded_usd,physical_status,scope_policy,authority
+National Infrastructure Spine,20000000000,7000000000,13000000000,0,ongoing_or_planned_not_completed,"Distinct accounting scope. Core-island civil roads/ports/grid excludes separately ledgered rail, Dalmatian, defense and oil packages.",tracker_plus_delegated_scope_reconciliation
+Dalmatian Development Program,6500000000,1100000000,5400000000,0,ongoing_or_planned_not_completed,Dedicated ring-fenced program; shared invoices must be allocated to one program only.,tracker_plus_delegated_scope_reconciliation
+Agricultural Modernization,600000000,320000000,280000000,0,ongoing_or_planned_not_completed,Dedicated ring-fenced program; shared invoices must be allocated to one program only.,tracker_plus_delegated_scope_reconciliation
+Energy & Industrial Expansion,15000000000,5200000000,9800000000,0,ongoing_or_planned_not_completed,Energy and industrial modernization excludes the separately ledgered oil program.,tracker_plus_delegated_scope_reconciliation
+Rail Modernization,3700000000,1200000000,2500000000,0,ongoing_or_planned_not_completed,Dedicated ring-fenced program; shared invoices must be allocated to one program only.,tracker_plus_delegated_scope_reconciliation
+Defense Infrastructure,2800000000,1400000000,1400000000,0,ongoing_or_planned_not_completed,Dedicated ring-fenced program; shared invoices must be allocated to one program only.,tracker_plus_delegated_scope_reconciliation
+National Oil Drilling,13000000000,8500000000,4500000000,0,ongoing_or_planned_not_completed,Dedicated ring-fenced program; shared invoices must be allocated to one program only.,tracker_plus_delegated_scope_reconciliation

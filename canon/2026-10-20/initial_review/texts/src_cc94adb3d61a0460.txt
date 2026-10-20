@@ -1,0 +1,215 @@
+SOURCE REUNION-20261020T035402Z-1-001.zip!REUNION/Reunion campaign tracker.xlsm
+
+
+## ReadMe
+A1=Reunion Campaign Tracker (Google Sheets starter)
+A2=What this file is | B2=A compact state tracker for politics, economy, military readiness, and geopolitics. Upload this .xlsx to Google Sheets and use it as the single campaign dashboard.
+A3=Formula notes | B3=Majority threshold = INT(Total Seats/2)+1. Coalition seats = SUM of parties flagged Yes. Deficit = Spending - Revenue. Deficit % GDP = Deficit/GDP. Debt % GDP = Debt/GDP. Readiness/Pressure scores are weighted averages based on 1-5 ratings.
+
+## Dashboard
+A1=Reunion Campaign Dashboard
+A3=Current campaign state
+A4=Current status | B4=Parliament disbanded; Altis ceasefire in effect; UN observers on island | D4=33880.0
+A5=Political stability | B5=44.6 [formula=Politics!B7] | C5=Military readiness | D5=48 [formula=Military!H4] | E5=Economic strain | F5=56.2 [formula=Economy!H9] | G5=Foreign pressure | H5=66 [formula=Foreign!K4]
+A6=Recommended stance | B6=Stabilize internally, avoid reckless escalation, keep controlled assertion at sea
+A8=Quick facts | G8=What matters right now | H8=Current state | I8=Why it matters
+A9=President | B9=Dax Donahue [formula=Politics!B5] | D9=President approval | E9=41 [formula=Politics!D5] | G9=Parliament | H9=Disbanded | I9=Still politically real even while suspended
+A10=King | B10=Zo III [formula=Politics!F5] | D10=King approval | E10=48 [formula=Politics!H5] | G10=Economy | H10=Stretched but functioning | I10=Debt + capital build + no oil cash yet
+A11=Parliament seats | B11=400 [formula=Politics!B21] | D11=Majority threshold | E11=201 [formula=Politics!B22] | G11=Military | H11=Navy strong, everything else thin | I11=Artillery, AWACS, tanker, SAM gaps are real
+A12=GDP (USD B) | B12=400 [formula=Economy!E4/1000000000] | D12=Deficit % GDP | E12=0.225 [formula=Economy!H8] | G12=USSR front | H12=Active pressure | I12=Most dangerous external coercion line
+A13=Public debt % GDP | B13=0.3 [formula=Economy!E8] | D13=Combat aircraft | E13=27 [formula=Military!B5] | G13=Turkey channel | H13=Useful but limited | I13=Partner, not savior
+A14=Artillery pieces | B14=12 [formula=Military!H6] | D14=Most dangerous actor | E14=USSR [formula=Foreign!K5] | G14=UN posture | H14=Monitoring / soft-watch | I14=Optics matter
+A15=Project Funding Coverage | B15=1 [formula=ROUND(AVERAGE(Projects!H2:H7),2)]
+
+## Politics
+A1=Politics / Public Mood
+A3=Leadership & state status
+A4=33880 [formula=Dashboard!D4] | B4=Post Parliament | D4=Parliament status | E4=Disbanded by president (temporary override)
+A5=President | B5=Dax Donahue | C5=Approval % | D5=41.0 | E5=King | F5=Zo III | G5=Approval % | H5=48.0
+A6=Government mechanics | B6=Executive governing via emergency authority | C6=Efficient Cabinet
+A7=Political stability score (0-100) | B7=44.6 [formula=ROUND(((((D5/100)*4)+(10-B10)+(10-D10)+(10-F10)+(10-H10))/44)*100,1)] | E7=Notes | F7=Lower is worse; derived from approval + risk scores
+A9=Core political risks (1-10)
+A10=Coup Risk | B10=4.0 | C10=Civil Unrest | D10=5.0 | E10=Parliamentary Collapse | F10=10.0 | G10=Foreign Intervention | H10=3.0
+A11=Public mood estimate
+A12=Right of Center % | B12=35.0 | C12=Concerned moderates % | D12=40.0 | E12=Left of Center % | F12=25.0
+A14=Party / Bloc | B14=Seats | C14=Status | D14=Current line | E14=Govt usable right now? | F14=Notes
+A15=RRP | B15=118.0 | C15=Fragmented | D15=Executive-leaning but divided | E15=No | F15=Donahue base, but not fully controllable
+A16=RCA | B16=82.0 | C16=Organized | D16=Royalist / anti-republic | E16=No | F16=Zo-aligned, opportunistic
+A17=NSF | B17=64.0 | C17=Fragmented | D17=Security-first / anti-UN | E17=No | F17=Would back harder external posture
+A18=LUP | B18=95.0 | C18=Disciplined | D18=Anti-war / anti-militarization | E18=No | F18=Will resist reckless escalation
+A19=Dalmatian Autonomy Bloc | B19=18.0 | C19=Angry | D19=Treaty grievance politics | E19=No | F19=Treaty anger still active
+A20=Independents / Fringe | B20=23.0 | C20=Transactional | D20=Seat-by-seat bargaining | E20=No | F20=Can be peeled issue by issue
+A21=Total Seats | B21=400 [formula=SUM(B15:B20)]
+A22=Majority Threshold | B22=201 [formula=INT(B21/2)+1]
+
+## Economy
+A1=Economy / Curro Control Sheet
+A3=Macro snapshot
+A4=Baseline date | B4=33880 [formula=Dashboard!D4] | D4=GDP (USD) | E4=4.0E11 | F4=GDP (RMC) | G4=2.32E12
+A5=Real growth % | B5=0.012 | D5=Inflation % | E5=0.038 | G5=FX reserves (USD) | H5=3.8E10
+A6=Official FX | B6=5.8 RMC/USD | D6=Market FX low | E6=6.1 | G6=Market FX high | H6=6.3
+A7=Revenue (USD) | B7=1.6E11 | D7=Spending (USD) | E7=2.5E11 | G7=Deficit (USD) | H7=90000000000 [formula=E7-B7]
+A8=Debt (USD) | B8=1.2E11 | D8=Debt % GDP | E8=0.3 [formula=B8/E4] | G8=Deficit % GDP | H8=0.225 [formula=H7/E4]
+A9=Avg bond yield low | B9=0.064 | D9=Avg bond yield high | E9=0.071 | G9=Economic strain score (0-100) | H9=56.2 [formula=ROUND((H8*100*1.5)+(E8*100*0.5)+(B5*100*2)+IF(H4<50000000000,5,0),1)]
+A12=Budget categories (USD billions) | B12=Budget | C12=Notes
+A13=Defense & readiness | B13=100.0 | C13=Wartime-level burden
+A14=Interior / police / RIA | B14=10.0 | C14=Internal stability
+A15=Veterans + health | B15=10.0 | C15=Politically untouchable
+A16=Infrastructure | B16=20.0 | C16=Spine + ports + grid
+A17=Energy & industry | B17=15.0 | C17=Oil gamble / industry
+A18=Education / training | B18=18.0 | C18=Long-payoff capacity
+A19=Agriculture + food | B19=11.0 | C19=Food security + rural stability
+A20=Social supports + housing | B20=10.0 | C20=Urban pressure valve
+A21=Debt service | B21=10.0 | C21=Will rise if yields spike
+A22=Intelligence / RNIA | B22=18.0 | C22=Opaque but critical
+A23=Admin + justice | B23=10.0 | C23=Known waste zone
+A24=Contingency reserve | B24=21.0 | C24=Shock absorber
+A25=Soviet treaty line | B25=2.0 | C25=Buys time
+A26=Total spending | B26=255 [formula=SUM(B13:B25)]
+A28=Quick read
+A29=Oil revenue live now? | B29=No meaningful revenue | D29=Construction sector | E29=Overheating
+A30=Investor flight | B30=Low-to-moderate | D30=Military sustainment window | E30=12-24 months at current path
+A31=Main budget risk | B31=Defense + capital buildout before oil monetization | D31=Most flexible cash | E31=Contingency reserve
+
+## Projects
+A1=Project | B1=Total Cost $B | C1=Paid Out $B | D1=Committed $B | E1=Unfunded Gap $B | F1=Work Left $B | G1=Monthly Execution $B | H1=Funding Coverage % | I1=Months to Finish | J1=Earliest ETA | K1=As Of Date | L1=Risk | M1=Funding Bar | N1=Notes
+A2=National Infrastructure Spine | B2=20.0 | C2=7.0 | D2=13.0 | E2=0 [formula=MAX(B2-C2-D2,0)] | F2=13 [formula=MAX(B2-C2,0)] | G2=0.35 | H2=1 [formula=(C2+D2)/B2] | I2=37.1 [formula=IF(G2<=0,"",ROUND(F2/G2,1))] | J2=35036 [formula=IF(OR(G2<=0,E2>0),"Needs funding",EDATE(K2,ROUNDUP(I2,0)))] | K2=33880 [formula=Dashboard!D4] | L2=Watch [formula=IF(G2<=0,"Set rate",IF(E2>0,"Funding gap",IF(I2>48,"Long",IF(I2>24,"Watch","On track"))))] | M2=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H2,{""charttype"",""bar"";""max"",1})"),"")]
+A3=Dalmatian Development Program | B3=6.5 | C3=1.1 | D3=5.4 | E3=0 | F3=5.4 | G3=0.12 | H3=1 | I3=45 | J3=35249 | K3=33880 [formula=Dashboard!D4] | L3=Watch | M3=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H3,{""charttype"",""bar"";""max"",1})"),"")]
+A4=Agricultural Modernization | B4=0.6 | C4=0.32 | D4=0.28 | E4=0 | F4=0.28 | G4=0.03 | H4=1 | I4=9.3 | J4=34184 | K4=33880 [formula=Dashboard!D4] | L4=On track | M4=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H4,{""charttype"",""bar"";""max"",1})"),"")]
+A5=Energy & Industrial Expansion | B5=15.0 | C5=5.2 | D5=9.8 | E5=0 | F5=9.8 | G5=0.25 | H5=1 | I5=39.2 | J5=35098 | K5=33880 [formula=Dashboard!D4] | L5=Watch | M5=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H5,{""charttype"",""bar"";""max"",1})"),"")]
+A6=Rail Modernization | B6=3.7 | C6=1.2 | D6=2.5 | E6=0 | F6=2.5 | G6=0.04 | H6=1 | I6=62.5 | J6=35098 [formula=IF(OR(G5<=0,E5>0),"Needs funding",EDATE(K5,ROUNDUP(I5,0)))] | K6=33880 [formula=Dashboard!D4] | L6=Long | M6=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H6,{""charttype"",""bar"";""max"",1})"),"")]
+A7=Defense Infrastructure | B7=2.8 | C7=1.4 | D7=1.4 | E7=0 | F7=1.4 | G7=0.08 | H7=1 | I7=17.5 | J7=34427 [formula=IF(OR(G7<=0,E7>0),"Needs funding",EDATE(K7,ROUNDUP(I7,0)))] | K7=33880 [formula=Dashboard!D4] | L7=On track | M7=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H7,{""charttype"",""bar"";""max"",1})"),"")]
+A8=National Oil Drilling | B8=13.0 | C8=8.5 | D8=4.5 | E8=0 | F8=4.5 | G8=0.15 | H8=1 | I8=30 | J8=34792 | K8=33880 [formula=Dashboard!D4] | L8=Watch | M8=None [formula=IFERROR(__xludf.DUMMYFUNCTION("SPARKLINE(H8,{""charttype"",""bar"";""max"",1})"),"")]
+A11=Unfunded_Gap_B = money still not locked
+A12=Work_Left_B = remaining execution left, even if funded
+A13=Funding_Coverage_% = how much of the total is already paid or locked
+A14=Months_to_Finish = based on your monthly execution input
+A15=Earliest_ETA = projected completion date from the canon date you enter | F15=TOTAL COST ALL PROJECTS BEFORE FUDGE | G15=TOTAL COST AFTER FUDGE
+A16=Risk = quick management flag | F16=61.6 [formula=SUM(B2:B8)] | G16=41.6 [formula=SUM(B2:B8)-2.9-4.1-13]
+
+## Companies
+A1=Company | B1=Ownership / Control | C1=Working Value USD $B | D1=What They Do | E1=Political Tie | F1=Canon or Estimate
+A2=Royla Oil | B2=King Zo holding network (majority); 15% stake in Royla sold to Shao Luxian Chinese partner | C2=4.8 | D2=Oil development vehicle; offshore capital; elite patronage and political leverage hub | E2=Zo / RCA / business elite | F2=Canon + working value estimate
+A3=National Energy Directorate | B3=State majority / government-controlled | C3=18.0 | D3=State energy arm; controls majority oil rights; licensing, offshore coordination, refinery strategy | E3=Executive / Curro technocrats / state | F3=Canon + working value estimate
+A4=Younger Industries | B4=Younger industrial bloc / private-family aligned | C4=9.5 | D4=Defense manufacturing, transport, radar and electronics, military-industrial supplier | E4=VP Younger / pro-modernization officers / industry | F4=Role canon, ownership+value estimated
+A5=Horizon Dynamics | B5=State-backed defense industrial consolidation project (still forming) | C5=6.0 | D5=Military-industrial consolidation, procurement backbone, strategic defense production | E5=Executive / Defense technocrats / Curro-aligned industrial policy | F5=Role canon, ownership+value estimated
+
+## Trade Partners
+A1=Partner | B1=Tier | C1=Main Imports From Partner | D1=Main Exports To Partner | E1=Strategic Importance 1 to 5 | F1=Current Relationship | G1=Working Trade Balance | H1=Notes
+A2=France | B2=Primary | C2=Aviation parts, defense systems, industrial finance | D2=Refined metals, maritime services, light industrial goods | E2=5.0 | F2=Warming | G2=Mild deficit | H2=Canon partner; Mirage/defense relationship makes this strategically heavy
+A3=Italy | B3=Primary | C3=Shipping inputs, industrial goods, commercial services | D3=Refined metals, maritime services, agricultural goods | E3=4.0 | F3=Neutral-positive | G3=Near balanced | H3=Canon partner; exact goods mix estimated from geography and economy
+A4=Turkey | B4=Primary | C4=Defense cooperation inputs, transport links, selected industrial goods | D4=Maritime services, refined metals, agricultural goods | E4=4.0 | F4=Improving | G4=Near balanced | H4=Canon partner; relationship strategically rising
+A5=Germany | B5=Primary | C5=Advanced machine tools, industrial equipment | D5=Refined metals, light industrial goods | E5=5.0 | F5=Pragmatic | G5=Mild deficit | H5=Canon directly names advanced machine tools from Germany
+A6=United States | B6=Primary | C6=Aviation parts, defense equipment, electronics channels | D6=Minerals, light industrial goods, services | E6=5.0 | F6=Strategic but conditional | G6=Deficit | H6=Canon directly ties US to defense-heavy trade and leverage
+A7=China | B7=Secondary | C7=Capital link, possible machinery financing, strategic investment | D7=Future energy access, minerals, long-term industrial access | E7=3.0 | F7=New capital link | G7=Capital inflow / strategic | H7=Canon confirms new capital link and Chinese partner in Royla
+A8=Serbia | B8=Secondary | C8=Quiet channels, selected overland trade, industrial/agricultural exchange | D8=Industrial goods, agricultural goods, quiet service flows | E8=2.0 | F8=Tactical cooperation | G8=Small surplus / quiet | H8=Relationship canon; exact trade mix estimated
+A9=Balkan neighbors | B9=Secondary | C9=Food, transit goods, regional industrial inputs | D9=Light industrial goods, agricultural goods | E9=2.0 | F9=Mixed | G9=Near balanced | H9=Grouped estimate for sheet usability
+A15=Type | B15=Category | C15=Current_Status | D15=Primary_Partners | E15=Strategic_Note
+A16=Import | B16=Aviation parts | C16=High dependence | D16=United States; France | E16=Critical for air force sustainment and modernization
+A17=Import | B17=Electronics | C17=Moderate | D17=United States; Japan | E17=Canon lists electronics imports; Japan appears here as source even though not a top strategic partner
+A18=Import | B18=Advanced machine tools | C18=High | D18=Germany | E18=Important for industrial and defense productivity
+A19=Import | B19=Petroleum derivatives | C19=Moderate | D19=External mix | E19=Oil is not online yet, so refined dependency remains
+A20=Import | B20=Specialty steel | C20=Moderate | D20=External mix | E20=Important for industry and defense inputs
+A21=Export | B21=Minerals (rare earths, crystals) | C21=Strong | D21=France; Germany; US; China | E21=High-value export base
+A22=Export | B22=Refined metals | C22=Strong | D22=Italy; Germany; Turkey | E22=Industrial backbone export
+A23=Export | B23=Maritime trade services | C23=Strong | D23=Italy; Turkey; France | E23=Geography makes this a structural advantage
+A24=Export | B24=Agricultural goods | C24=Moderate | D24=Balkans; Italy; Turkey | E24=Politically stabilizing, economically useful
+A25=Export | B25=Light industrial goods | C25=Moderate | D25=Balkans; Germany; Italy | E25=Depends on domestic industrial stability
+A26=Export | B26=Future oil (speculative) | C26=Not online | D26=N/A | E26=Transformative later, meaningless right now
+
+## Military
+A1=Military / Readiness
+A3=Force snapshot
+A4=Active duty (broad total) | B4=70000.0 | C4=Army reserve | D4=32000.0 | E4=RIA / National Guard | F4=17000.0 | G4=Readiness score (0-100) | H4=48 [formula=ROUND((SUM(B12:B16)/COUNT(B12:B16))*20,1)]
+A5=Combat aircraft | B5=27.0 | C5=Attack helicopters | D5=8.0 | E5=Surface combatants | F5=42.0 | G5=Submarines | H5=9.0
+A6=Modern MBTs | B6=31.0 | C6=Light tanks | D6=29.0 | E6=Older MBTs | F6=18.0 | G6=Artillery pieces | H6=12.0
+A7=Fuel reserve (full wartime tempo, days low) | B7=10.0 | C7=Fuel reserve (days high) | D7=14.0 | E7=Artillery high-intensity days low | F7=5.0 | G7=Artillery days high | H7=7.0
+A8=Ammo reserve (full wartime tempo, days low) | B8=28.0 | C8=Ammo reserve (days high)  | D8=35.0
+A9=Air defense | B9=Limited / sparse | C9=AWACS | D9=None operational | E9=Tankers | F9=None operational
+A11=Readiness ratings (1-5) | B11=Rating | C11=Why it looks like this | G11=Main bottlenecks
+A12=Ground force readiness | B12=2.0 | C12=Too little artillery, mixed armor, uneven mobilization | G12=Artillery shortage | H12=12 operational tube pieces only
+A13=Air force readiness | B13=2.0 | C13=27 combat aircraft, no AWACS, no tankers | G13=Air warning gap | H13=No operational AWACS
+A14=Naval readiness | B14=4.0 | C14=Strong navy, but wider-war survivability still questionable with limited air | G14=Aerial refueling gap | H14=No tanker fleet
+A15=Air defense readiness | B15=2.0 | C15=Sparse HAWK coverage, limited redundancy | G15=SAM / radar weakness | H15=Known sites, thin redundancy
+A16=Logistics sustainment | B16=2.0 | C16=Short artillery depth, limited prolonged high-intensity sustainment | G16=Sustainment issue | H16=5-7 days high-intensity artillery, 10-14 days full-tempo fuel
+A18=Budget categories (USD billions) | B18=Budget ($B) | C18=Notes
+A19=ARMY | B19=25.0
+A20=AIR FORCE | B20=25.0
+A21=NAVY | B21=7.9
+A22=MARINES | B22=10.0
+A23=MISSILE/RADAR | B23=15.0
+
+## Foreign
+A1=Foreign Relations / Geopolitics
+A3=Actor | B3=Official posture | C3=Private reality | D3=Leverage over Reunion | E3=Leverage we hold | F3=Risk (1-5) | G3=Likely next move | H3=Notes | J3=Geopolitical quick score
+A4=United States | B4=Strategic but conditional | C4=Wants stability, compliance, no reckless drift | D4=FMS, IMF/market pressure, Bosnia intel awareness | E4=Regional utility / anti-Soviet buffer role | F4=4.0 | G4=Pressure quietly if Donahue overreaches | H4=Support continues if stable | J4=Average external pressure score (0-100) | K4=66 [formula=ROUND((SUM(F4:F13)/COUNT(F4:F13))*20,1)]
+A5=USSR | B5=Probing / opportunistic | C5=Wants leverage, delay oil, test cohesion | D5=Military pressure, intimidation, gray-zone pressure | E5=Reunion navy can complicate but not dominate | F5=5.0 | G5=Keep probing maritime/oil zone | H5=Most dangerous external actor | J5=Most dangerous actor | K5=USSR
+A6=Turkey | B6=Improving | C6=Useful partner against Greece/USSR pressure | D6=Military access / regional channel | E6=Regional partnership, shared concerns | F6=2.0 | G6=Deepen quiet coordination | H6=Still pragmatic, not unconditional | J6=Best practical partner | K6=Turkey/France (conditional)
+A7=Greece | B7=Complicated / rival | C7=Wary of Reunion-Turkey warming, holds grudge | D7=Oil overlap, regional narrative pressure | E7=Can internationalize dispute exposure | F7=5.0 | G7=Push on overlap and diplomacy | H7=Altis makes relations worse
+A8=France | B8=Warming | C8=Useful counterbalance, arms and industrial link | D8=Can slow hardware flow | E8=Procurement and political access | F8=2.0 | G8=Stay engaged but cautious | H8=Watching internal stability
+A9=Italy | B9=Neutral-positive | C9=Wants stability in Adriatic / Med | D9=Limited diplomatic weight | E9=Trade and economic ties | F9=1.0 | G9=Stay neutral unless wider war | H9=No major military alignment
+A10=UN | B10=Monitoring / soft-watch | C10=Cares about optics and restraint | D10=Investigation / sanctions narrative if you slip | E10=Can use as multilateral cover | F10=3.0 | G10=Push monitoring and mediation | H10=Already observing related crises
+A11=Bosnia | B11=Hostile | C11=Would weaponize narrative and leaks | D11=Blackmail, regional propaganda | E11=Quiet pressure via Serbia / intel | F11=5.0 | G11=Information warfare / proxy trouble | H11=Religious-framing risk
+A12=Serbia | B12=Tactical cooperation | C12=Pragmatic, not loyal | D12=Disclosure threat, quiet leverage | E12=Security cooperation / shared enemies | F12=2.0 | G12=Stay useful while hedging | H12=Will recalc if pressured
+A13=Croatia | B13=Cold peace | C13=Treaty brittle, can weaponize violations | D13=Legal treaty manipulation | E13=Some quiet deterrence only | F13=4.0 | G13=Watch for treaty breaches | H13=Can nullify over small infractions
+
+## Campaign_Log
+A1=Date | B1=Event | C1=Type | D1=Main effect on politics | E1=Main effect on military / economy
+A2=1992-10-03 baseline | B2=Canonical baseline loaded from uploaded files | C2=Reference | D2=Use as hard baseline for approvals, seats, budget, foreign posture | E2=Use as hard baseline for GDP, debt, military posture
+A3=Current campaign | B3=President dissolved parliament (temporary) | C3=Domestic politics | D3=Executive stronger short-term; parliament still latent | E3=No direct force gain; higher optics risk
+A4=Current campaign | B4=Altis ceasefire with UN observers and buffer zone | C4=Foreign / military | D4=Greece-Turkey crisis frozen, not solved | E4=Localized conflict paused; Turkey still at airport
+A5=33880.0 | B5=Budget finalization. Projects funded 100%. Military budget nearly complete. | C5=Domestic Economy | D5=Projects went ever so slightly overbudget, some numbers have been fudged | E5=Departments will begin work on Curros projects
+COMMENT Projects!N2 2.9B from Air Force
+======
+COMMENT Projects!N3 4.1B From navy
+======
+COMMENT Projects!N8 13B from navy
+======
+COMMENT Military!C19 Total 25 Billion 
+Troop cost 10. Billion
+total spent 23 Billion
+left 2 Billion
+
+
+Artillery:
+M109 Howitzer:100=150,000,000
+M270 MLRS= 30=120,000,000
+M102 howitzer(towed)200=60,000,000
+Helicopters:
+Cobras:10=100,000,000
+AH-64: 25=375,000,000
+Blackhawk:36=324,000,000
+LittleBrid:30=30,000,000
+Pumas 30=120,000,000
+Chinook 15=225,000,000
+MBT:
+M1A1 Abram:175=1,050,000,000
+Leopard:35=175,000,000
+IFV
+M2 Bradley:400=800,000,000
+Marder IFV:300=450,000,000
+APC 
+FV432:300=150,000,000
+Recon
+Lav-25: 75=112,000,000
+Support Vehicles
+800=300,000,000
+All kind
+======
+COMMENT Military!C20 Air Force 
+Troop cost:7 Billion
+1.1 Billion left (2.9 Billion taken from leftover to Projects)
+
+
+F-16(newer version):12=600,000,000
+F-16(older version):12=180,000,000
+Flacon 20:5=100,000,000
+E-3 Sentry:2=400,000,000
+C-130:10=200,000,000
+KC-135 Stratotankers:3=180,000,000
+Mirage 2000C:24=1,320,000,000
+Tornado GR.1A:5=375,000,000
+Jaguar:11=198,000,000
+======
+COMMENT Military!C21 Down 17.1 $B from projects
+======
