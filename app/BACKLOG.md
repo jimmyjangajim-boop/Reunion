@@ -1,6 +1,6 @@
 # Current next task
 
-Implement the latest usability directive's Step 4: a compact searchable Historical Archive with record detail and evidence on demand. Shared layout, Cabinet and the combined Battle / After-Action Report workflow are implemented. See docs/USABILITY_REFINEMENT.md. Then refine Parliament/Treasury; balanced budget reallocations remain later. Preserve financial canon and existing records.
+Implement the latest usability directive's Step 5: refine Parliament and Treasury as purpose-built department workspaces, preserving their existing report/vote/ledger services and accepted financial canon. Shared layout, Cabinet, combined Battle / After-Action Reports and the compact searchable Archive are implemented. See docs/USABILITY_REFINEMENT.md. Balanced budget reallocations and broader report-first prerequisite creation remain later.
 
 The older backlog follows for preserved context.
 

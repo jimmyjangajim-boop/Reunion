@@ -1,6 +1,6 @@
 # Current session status
 
-See `docs/IMPLEMENTATION_STATUS.md`, `docs/SESSION_HANDOFF.md` and `docs/VALIDATION.md` for the current reviewed canon and Report Center. The combined Battles workflow and migrations 006–007 are now implemented; Archive usability is next. The previous delivery status below is retained as historical implementation context; its heir, Rehn-date, source-coverage and Altis-year limitations are superseded by the current documents.
+See `docs/IMPLEMENTATION_STATUS.md`, `docs/SESSION_HANDOFF.md` and `docs/VALIDATION.md` for the current reviewed canon and Report Center. The combined Battles workflow, migrations 006–007 and compact searchable Archive are now implemented; Parliament/Treasury usability is next. The previous delivery status below is retained as historical implementation context; its heir, Rehn-date, source-coverage and Altis-year limitations are superseded by the current documents.
 
 # Implementation status
 

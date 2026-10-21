@@ -7,8 +7,8 @@ The user's exact instruction is preserved in repository `docs/USER_USABILITY_DIR
 | 1. Shared layout | Implemented; code/SSR checks passed | Grouped navigation, section descriptions, compact spacing, responsive controls, readable claim labels/values and expandable technical evidence. Browser verification remains pending. |
 | 2. Cabinet | Implemented; domain/API/SSR checks passed | Leadership, ministry roster, distinct deputies/institutions/history, searchable offices and clickable source-backed profiles. Inline creation of a supplied person and appointment is atomic. No portraits or unknown biographical details were invented. |
 | 3. Battles and casualties | Implemented; domain/API/SSR checks passed | Dedicated Battles workspace preserves an English account, creates/selects a battle and supplied formations, records categorized casualties/equipment losses/outcomes and approves one transaction. Bounded suggestions stay editable. Browser verification remains pending. |
-| 4. Archive | Next | Shared metadata disclosure improved, but a dedicated compact searchable library replacing endless claim cards remains unfinished. |
-| 5. Parliament/Treasury | Planned | Existing workflows and accepted values preserved. Broader department redesign remains unfinished. |
+| 4. Archive | Implemented; domain/API/SSR checks passed | Paginated records, timeline, sources/entities, full detail/evidence, filters and paginated original-text FTS. Historical records/statuses remain intact; browser verification remains pending. |
+| 5. Parliament/Treasury | Next | Existing workflows and accepted values preserved. Broader department redesign remains unfinished. |
 | 6. Report-first completion | Existing bounded foundation | Movement, bill and six financial-stage reports work. Bounded battle suggestions now exist; general prose extraction and an optional AI/provider layer remain unfinished. |
 
 ## Cabinet behavior
@@ -40,3 +40,16 @@ The earlier reviewed import superseded the 1993 Altis assertions/timeline rows w
 ## Validation and delivery
 
 See VALIDATION.md. Migrations 006–007 preserve prior report actions and legislative/financial evidence while adding append-only battle report history and loss participant attribution. No dependency change was needed. The Windows copy must receive updated `app/src`, `app/migrations` and `app/scripts`, keep its data/evidence and RNAS_DB selection, run `npm.cmd run setup`, then restart. The separate hosted Site remains unchanged.
+
+
+## Archive behavior, 21 October 2026
+
+The Historical Archive now has Records, Timeline, Sources, Entities and Original text collections. Compact tables show 25 results at a time. Long titles/values are clamped in rows; a native dialog exposes the full text, status, historical precision, replacement history, source excerpts and expandable technical record. Existing Add Historical Record, Timeline entry and Entity forms remain available. Record/entity/source navigation uses actual IDs and evidence foreign keys, not invented participation or fuzzy name relationships. Closing a detail or source keeps the current collection/filter/page while the workspace remains open.
+
+All historical statuses are available by default. Superseded/rejected records are labeled in detail; explicit replacement links show the retained earlier/replacement values. The 1725 collection stays accessible in Archive while active administration behavior is unchanged. Source evidence never becomes confirmed canon merely because it appears in a search result. The six reattached text sources still match the existing immutable originals byte for byte.
+
+Filters cover words, category, canon, entity, cited source, 1725/other collections and historical date windows. Date filters match overlapping known bounds, with an explicit option for dates without known bounds. Unknown/relative dates do not acquire exact days. Unknown dates sort last; recording timestamps are separate. Archive covers all historical dates rather than inheriting the dashboard date selector. Metadata-only source/entity tabs ignore inapplicable date/canon filters.
+
+Original text uses a new read-only paginated FTS endpoint with total/page counts, stable ranking/tie order, optional source selection and exact line references. It searches beyond the earlier global search's 80-result cap, which is retained for compatibility. Up to 12 literal search words are matched together; raw FTS operators are not executed. Loading/error/empty states and canceled obsolete requests are handled. Source drawer provenance distinguishes stored text checksums from original artifact checksums/container/path/extraction metadata when supplied.
+
+This slice changes presentation and read APIs only. It adds no migration, imports or canonical records and does not change financial values. Normalized metadata still comes from the existing overview payload and is filtered/paged in memory; original-text passages are paged in SQLite. General curation proposals, inline related-entity creation inside every historical-event form and a complete semantic entity/event graph remain later report-first work.

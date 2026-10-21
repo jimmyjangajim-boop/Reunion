@@ -48,7 +48,7 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - Steps 1–2 preserved all 48 live tables. The subsequent battle slice below narrowly audits two legacy Altis year labels; accepted financial canon remains unchanged.
 - Browser interaction/visual QA remains pending under the managed-preview restriction. Broader Archive/Parliament/Treasury redesign remains unfinished.
 
-## Current completed slice: Battles and after-action reports
+## Battles and after-action reports
 
 - Migrations 006–007 preserve report action IDs/status/targets and both prior evidence tables, adding append-only battle phase/participant/casualty/loss/evidence/asset-effect history and explicit loss participant attribution.
 - Dedicated Battles navigation and one New Battle / After-Action Report workflow create/select a battle, preserve an English original, enter participants, categorized known casualties, equipment losses and outcome, then review/correct/approve or reject. Supplied formations can be created inline; unresolved names need not become OOB units.
@@ -57,7 +57,15 @@ Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLi
 - Explicit tracked asset loss/damage requires count 1, exact date, eligible state and chronology/assignment checks. Prior asset states/assignments are preserved. No personnel/readiness, anonymous inventory, territory, procurement or financial effects are inferred.
 - Bounded read-only English suggestions propose limited date/place/formation/count fields. Review supplies name/reference, outcome, loss attribution and any missing details. This is not general language extraction or an AI provider.
 - B026/B027 now read relative “October 1992” with two before/after audits under reviewed user authority; original wording, provisional status and unknown exact days remain intact. All other preexisting data is unchanged except migration rows. No production reports or test fixtures were inserted.
-- Next is the compact searchable Archive. Browser interaction/visual QA remains pending; the separate hosted Site is unchanged.
+- The compact searchable Archive is implemented below. Browser interaction/visual QA remains pending; the separate hosted Site is unchanged.
+
+## Current completed slice: compact searchable Archive
+
+- Replaced the endless archive claim-card feed with paginated collections for Records, Timeline, Sources, Entities and Original text. Compact results open native detail dialogs with full values, source excerpts, exact replacement links and expandable historical/technical metadata.
+- Added word/category/canon/entity/source/1725-collection/date-window filters, stable ordering, bounded pages and explicit unknown-date inclusion. Historical precision is preserved; source/entity metadata is not misleadingly date-filtered. All statuses remain available, while 1725 stays outside active administration.
+- Original-text search uses a read-only validated FTS endpoint with true totals and pagination beyond the existing global search's 80-result cap. Source passages open the immutable line viewer. Original-artifact metadata is available separately from stored-text hashes. No search result is promoted to canon.
+- Existing creation forms remain accessible; this is not a new curation or general linked-event authoring service. Normalized lists reuse the overview payload and page in memory; FTS passages page in SQLite. Browser interaction/visual verification is pending.
+- All 54 live table contents remain unchanged, schema stays 1–7, and there are no production report/test fixtures. The six attached source files match their archived originals. Next is Parliament/Treasury usability with existing financial canon preserved.
 
 ## Remaining limits
 

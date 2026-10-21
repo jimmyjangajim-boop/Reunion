@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { searchArchiveText } from "../../../lib/archive-search.ts";
 import { randomUUID } from "node:crypto";
 import { getDb, all, one, transaction, audit } from "../../../lib/db.ts";
 import {
@@ -38,8 +39,22 @@ export async function GET(req: NextRequest) {
     if (view === "source") {
       const s = one(db, "SELECT * FROM sources WHERE id=?", q.get("id"));
       if (!s) throw Error("Source not found");
-      return NextResponse.json(s);
+      return NextResponse.json({
+        ...s,
+        artifact:
+          one(db, "SELECT * FROM source_artifacts WHERE source_id=?", s.id) ??
+          null,
+      });
     }
+    if (view === "archive_search")
+      return NextResponse.json(
+        searchArchiveText(db, {
+          query: q.get("q") ?? "",
+          source: q.get("source") || null,
+          page: q.get("page") ?? 1,
+          size: q.get("size") ?? 25,
+        }),
+      );
     if (view === "search")
       return NextResponse.json({
         results: search(db, q.get("q") ?? ""),

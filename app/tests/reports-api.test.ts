@@ -357,3 +357,100 @@ it("suggests a battle without writes and atomically approves reviewed facts into
     storage.one(db, "SELECT count(*) n FROM battle_report_records")!.n,
   ).toBe(1);
 });
+it("pages original Archive text beyond 80 passages without changing canon or money", async () => {
+  const db = storage.getDb();
+  const { createUserSource } = await import("../src/lib/canon.ts");
+  const lines = Array.from(
+      { length: 86 },
+      (_, i) => `Archivepaginationfixture source line ${i + 1}.`,
+    ),
+    id = createUserSource(db, lines.join("\n"));
+  db.prepare("DELETE FROM source_fts WHERE source_id=?").run(id);
+  for (let i = 0; i < lines.length; i++)
+    db.prepare(
+      "INSERT INTO source_fts(text,source_id,line_start,line_end) VALUES(?,?,?,?)",
+    ).run(lines[i], id, i + 1, i + 1);
+  const before = storage.one(db, "SELECT total_changes() n")!.n,
+    overview = await import("../src/app/api/rnas/route.ts");
+  const firstResponse = await overview.GET(
+    new NextRequest(
+      "http://localhost/api/rnas?view=archive_search&q=Archivepaginationfixture",
+    ),
+  );
+  expect(firstResponse.status).toBe(200);
+  const first = await firstResponse.json();
+  expect(first).toMatchObject({ total: 86, page: 1, pages: 4, size: 25 });
+  expect(first.rows).toHaveLength(25);
+  const last = await (
+    await overview.GET(
+      new NextRequest(
+        "http://localhost/api/rnas?view=archive_search&q=Archivepaginationfixture&page=4&source=" +
+          id,
+      ),
+    )
+  ).json();
+  expect(last.rows).toHaveLength(11);
+  expect(last.rows[0]).toMatchObject({
+    source_id: id,
+    line_start: 76,
+    line_end: 76,
+  });
+  expect(storage.one(db, "SELECT total_changes() n")!.n).toBe(before);
+});
+it("validates Archive search parameters and safely treats FTS operators as search words", async () => {
+  const overview = await import("../src/app/api/rnas/route.ts");
+  for (const query of [
+    "page=-1",
+    "size=101",
+    "page=bad",
+    "q=" + "x".repeat(2001),
+  ])
+    expect(
+      (
+        await overview.GET(
+          new NextRequest(
+            "http://localhost/api/rnas?view=archive_search&" + query,
+          ),
+        )
+      ).status,
+    ).toBe(400);
+  const blank = await (
+    await overview.GET(
+      new NextRequest("http://localhost/api/rnas?view=archive_search"),
+    )
+  ).json();
+  expect(blank).toMatchObject({ total: 0, rows: [] });
+  expect(
+    (
+      await overview.GET(
+        new NextRequest(
+          "http://localhost/api/rnas?view=archive_search&q=" +
+            encodeURIComponent('" OR * NEAR()'),
+        ),
+      )
+    ).status,
+  ).toBe(200);
+});
+it("returns immutable source text and distinct original-artifact provenance to the source drawer", async () => {
+  const db = storage.getDb(),
+    source = storage.one(
+      db,
+      "SELECT * FROM source_artifacts WHERE original_sha256 IS NOT NULL LIMIT 1",
+    )!,
+    original = storage.one(
+      db,
+      "SELECT * FROM sources WHERE id=?",
+      source.source_id,
+    )!;
+  const overview = await import("../src/app/api/rnas/route.ts"),
+    response = await overview.GET(
+      new NextRequest(
+        "http://localhost/api/rnas?view=source&id=" + source.source_id,
+      ),
+    );
+  expect(response.status).toBe(200);
+  const result = await response.json();
+  expect(result.content).toBe(original.content);
+  expect(result.sha256).toBe(original.sha256);
+  expect(result.artifact).toEqual({ ...source });
+});

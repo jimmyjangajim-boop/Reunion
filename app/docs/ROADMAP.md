@@ -2,7 +2,7 @@
 
 Governing directive: repository `docs/USER_DIRECTIVE_V3.txt`, supplied 20 October 2026. Continue the existing Next.js/SQLite implementation.
 
-Latest user priority: follow the usability sequence in USABILITY_REFINEMENT.md. Shared layout, Cabinet roster/profile and combined battle/after-action steps are implemented; next complete the compact searchable Archive, then Parliament/Treasury and broader report-first interaction. Preserve all accepted financial values. The older phase plan remains below as long-term context.
+Latest user priority: follow the usability sequence in USABILITY_REFINEMENT.md. Shared layout, Cabinet roster/profile, combined battle/after-action and compact searchable Archive steps are implemented; next refine Parliament/Treasury, then broader report-first interaction. Preserve all accepted financial values. The older phase plan remains below as long-term context.
 
 1. Phase 0: complete historical normalization, field-aware adjudication and per-message provenance. Original recovery and the reviewed 20 October source set are now searchable; processing is not historical completeness.
 2. Phase 1: the Report Center now supports movement orders/arrivals, explicit sourced bill stages and archive statements. Six financial stages and explicit additional appropriations now work through reviewed reports. Next add balanced reallocations, preserving funding limits and avoiding duplicate spending.

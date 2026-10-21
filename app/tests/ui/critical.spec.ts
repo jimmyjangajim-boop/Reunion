@@ -268,11 +268,49 @@ test("combined battle report reviews casualties once and persists after reload",
   await expect(
     page.getByRole("cell", { name, exact: false }).first(),
   ).toBeVisible();
-  const phase = page
-    .locator("details")
-    .filter({
-      has: page.locator("summary", { hasText: name + " · UI-PHASE-1" }),
-    });
+  const phase = page.locator("details").filter({
+    has: page.locator("summary", { hasText: name + " · UI-PHASE-1" }),
+  });
   await phase.locator("summary").click();
   await expect(phase).toContainText("KIA 32 · WIA 114 · MIA not reported");
+});
+test("Archive filters, source-linked details and original text search keep historical records accessible", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await navigate(page, "Historical Archive");
+  await expect(page.locator(".archive-table tbody tr")).toHaveCount(25);
+  await page
+    .getByLabel("Canon status", { exact: true })
+    .selectOption("superseded");
+  await page.getByLabel("Filter records").fill("Jack Younger");
+  await page.locator(".archive-title").first().click();
+  const detail = page.getByRole("dialog");
+  await expect(detail).toContainText("Preserved superseded record");
+  await expect(detail).toContainText("Darius Younger");
+  await page.getByRole("button", { name: "Close record", exact: true }).click();
+  await expect(page.getByLabel("Filter records")).toHaveValue("Jack Younger");
+  await page
+    .getByRole("button", { name: "Clear filters", exact: true })
+    .click();
+  await page.getByLabel("Historical collection").selectOption("1725");
+  await expect(page.locator(".archive-table")).toContainText(
+    "1725 archive only",
+  );
+  await page.getByRole("tab", { name: "Original text", exact: true }).click();
+  await page
+    .getByLabel("Search original text", { exact: true })
+    .fill("Darius Younger");
+  await page
+    .getByRole("button", { name: "Search originals", exact: true })
+    .click();
+  await page.locator(".archive-passages .text-button").first().click();
+  await expect(
+    page.getByRole("dialog", { name: "Original source" }),
+  ).toBeVisible();
+  await expect(page.locator(".source-lines")).toContainText("Darius Younger");
+  await page.getByRole("button", { name: "Close source" }).click();
+  await expect(
+    page.getByRole("tab", { name: "Original text", exact: true }),
+  ).toHaveAttribute("aria-selected", "true");
 });

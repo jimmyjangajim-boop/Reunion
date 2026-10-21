@@ -4,6 +4,8 @@ import type { FormEvent, ReactNode } from "react";
 import ReportCenter from "./ReportCenter";
 import CabinetWorkspace from "./CabinetWorkspace";
 import BattleWorkspace from "./BattleWorkspace";
+import ArchiveWorkspace from "./ArchiveWorkspace";
+import type { ArchiveTab } from "../lib/archive-view.ts";
 type R = Record<string, any>;
 const navGroups = [
   {
@@ -284,7 +286,7 @@ export default function Console() {
     [menu, setMenu] = useState(false),
     [filter, setFilter] = useState(""),
     [category, setCategory] = useState("all"),
-    [tab, setTab] = useState("records"),
+    [tab, setTab] = useState<ArchiveTab>("records"),
     [reviewTab, setReviewTab] = useState("conflict"),
     [issueState, setIssueState] = useState("open"),
     [source, setSource] = useState<R | null>(null),
@@ -766,6 +768,7 @@ export default function Console() {
                         onClick={() => {
                           go("Historical Archive");
                           setFilter("1725");
+                          setTab("records");
                         }}
                       >
                         Open historical records
@@ -992,108 +995,17 @@ export default function Console() {
                 </>
               )}
               {section === "Historical Archive" && (
-                <>
-                  <div className="tabs">
-                    {["records", "sources", "timeline"].map((t) => (
-                      <button
-                        key={t}
-                        className={tab === t ? "selected" : ""}
-                        onClick={() => setTab(t)}
-                      >
-                        {t}
-                      </button>
-                    ))}
-                  </div>
-                  {toolbar}
-                  {tab === "records" && (
-                    <>
-                      <p className="muted">
-                        {filtered.length} normalized claims. Secondary recovery
-                        remains provisional unless explicitly adjudicated.
-                      </p>
-                      <div className="record-grid">
-                        {filtered.map(factCard)}
-                      </div>
-                    </>
-                  )}
-                  {tab === "sources" && (
-                    <Table
-                      headers={[
-                        "Original source",
-                        "Evidence rank",
-                        "Kind",
-                        "Bytes",
-                        "SHA-256",
-                      ]}
-                      rows={d.sources
-                        .filter((s: R) =>
-                          s.filename
-                            .toLowerCase()
-                            .includes(filter.toLowerCase()),
-                        )
-                        .map((s: R) => [
-                          <button
-                            className="text-button"
-                            onClick={() => openSource(s.id)}
-                          >
-                            {s.filename}
-                          </button>,
-                          "Tier " + s.tier,
-                          s.kind,
-                          s.bytes,
-                          <code className="hash" title={s.sha256}>
-                            {s.sha256.slice(0, 16)}…
-                          </code>,
-                        ])}
-                    />
-                  )}{" "}
-                  {tab === "timeline" && (
-                    <>
-                      <div className="section-heading">
-                        <h2>Historical timeline</h2>
-                        <button onClick={() => setForm("timeline")}>
-                          + Timeline entry
-                        </button>
-                      </div>
-                      <div className="timeline">
-                        {d.timeline
-                          .filter(
-                            (t: R) =>
-                              (category === "all" || t.category === category) &&
-                              t.title
-                                .toLowerCase()
-                                .includes(filter.toLowerCase()),
-                          )
-                          .sort((a: R, b: R) =>
-                            dateLabel(a).localeCompare(dateLabel(b)),
-                          )
-                          .map((t: R) => (
-                            <article key={t.id}>
-                              <div className="timeline-date">
-                                {dateLabel(t)}
-                              </div>
-                              <div className="timeline-body">
-                                <div className="tags">
-                                  <Badge>{t.category}</Badge>
-                                  <Badge
-                                    tone={
-                                      t.canon === "confirmed" ? "green" : ""
-                                    }
-                                  >
-                                    {t.canon}
-                                  </Badge>
-                                  <span>Tier {t.tier}</span>
-                                </div>
-                                <h3>{t.title}</h3>
-                                <p className="muted small">{t.note}</p>
-                                {sourceLink(t)}
-                              </div>
-                            </article>
-                          ))}
-                      </div>
-                    </>
-                  )}
-                </>
+                <ArchiveWorkspace
+                  records={d.records}
+                  timeline={d.timeline}
+                  sources={d.sources}
+                  entities={d.entities}
+                  tab={tab}
+                  onTabChange={setTab}
+                  openSource={openSource}
+                  onAdd={setForm}
+                  initialQuery={filter}
+                />
               )}
               {section === "Canon Review Center" && (
                 <>
@@ -1979,6 +1891,29 @@ export default function Console() {
                 × Close
               </button>
             </div>
+            <details className="source-provenance">
+              <summary>Source provenance and extraction</summary>
+              <p className="hash">Stored source SHA-256: {source.sha256}</p>
+              <p>
+                Stored path: {source.path} · {source.bytes} bytes ·{" "}
+                {source.kind}
+              </p>
+              {source.artifact && (
+                <>
+                  <p>
+                    Original container: {source.artifact.original_container}
+                  </p>
+                  <p>Original artifact path: {source.artifact.original_path}</p>
+                  <p className="hash">
+                    Original artifact SHA-256: {source.artifact.original_sha256}
+                  </p>
+                  <p>
+                    Original artifact: {source.artifact.original_bytes} bytes ·{" "}
+                    {source.artifact.extraction_status}
+                  </p>
+                </>
+              )}
+            </details>
             <div className="source-lines">
               {source.content.split("\n").map((line: string, i: number) => (
                 <div
