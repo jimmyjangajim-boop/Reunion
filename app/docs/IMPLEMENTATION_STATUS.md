@@ -1,3 +1,11 @@
+# Architecture audit update, 22 October 2026
+
+Architecture/integrity audit supersedes the prior next-task recommendation: do not begin major expansion before the open findings in ARCHITECTURE_AUDIT.md are considered. See FEATURE_RUNDOWN.md for every current workflow and limitation, AUDIT_VALIDATION.md for fresh verification, and repository ARCHITECTURE.md for boundaries.
+
+Fixed unsafe reviewed-import rollback, manual/report financial inconsistency, backdated future hierarchy cycles, weak restore validation, Windows Python selection, legacy battle-write bypass and route-owned ordinary record writes. Local start commands now bind loopback. OOB uses the shared latest-observation read model. No schema, approved financial value, original source or existing canon changed.
+
+Reconstructed the checked reviewed seed after loss of the earlier chat; no prior runtime database was recovered. All 54 tables match the pre-edit backup; portable restore verified. This is not recovery of unknown later reports. Fresh verification: 156 domain/API tests, 26 desktop/phone browser flows, typecheck, production build and original-source hashes passed. Remaining major subsystems and temporal/scale risks are listed honestly in the audit/rundown.
+
 # Current implementation status, 20 October 2026
 
 Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLite/FTS5. Existing government, parliamentary, military, fiscal, treaty and time tools remain bounded vertical slices, documented in the root application IMPLEMENTATION_STATUS.md.

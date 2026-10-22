@@ -4,6 +4,8 @@ import { all, one, transaction, audit } from "./db.ts";
 import type { DB, Row } from "./db.ts";
 import { createUserSource } from "./canon.ts";
 import { exactDate, dateValue, historicalDateSchema, bounds } from "./dates.ts";
+import { recordManualFinancial } from "./financial-reports.ts";
+import { validateUnitParent } from "./unit-hierarchy.ts";
 const text = z.string().trim().min(1).max(20000),
   amount = z.coerce.number().int().nonnegative().safe();
 const optNum = (v: any) =>
@@ -101,7 +103,7 @@ export function unitSnapshot(db: DB, date: string) {
   exactDate.parse(date);
   return all(
     db,
-    "SELECT u.*,s.date observed_on,s.parent_id,s.personnel_low,s.personnel_high FROM units u JOIN unit_states s ON s.unit_id=u.id WHERE s.date=(SELECT MAX(t.date) FROM unit_states t WHERE t.unit_id=u.id AND t.date<=?)",
+    "SELECT u.*,s.date observed_on,s.parent_id,s.personnel_low,s.personnel_high,s.commander,s.readiness FROM units u JOIN unit_states s ON s.unit_id=u.id WHERE s.date=(SELECT MAX(t.date) FROM unit_states t WHERE t.unit_id=u.id AND t.date<=?)",
     date,
   );
 }
@@ -192,49 +194,7 @@ export function vote(db: DB, input: RInput) {
   return { id };
 }
 export function ledgerEntry(db: DB, input: RInput) {
-  const budget = required(db, "budgets", input.budget_id);
-  const stage = z
-      .enum([
-        "proposed",
-        "authorized",
-        "appropriated",
-        "committed",
-        "disbursed",
-        "actual",
-        "returned",
-        "canceled",
-        "transfer",
-      ])
-      .parse(input.stage),
-    n = amount.parse(input.amount);
-  const current = one(
-    db,
-    "SELECT COALESCE(SUM(amount),0) total FROM ledger WHERE budget_id=? AND stage=?",
-    budget.id,
-    stage,
-  )!.total;
-  if (
-    ["committed", "disbursed", "actual"].includes(stage) &&
-    current + n > budget.appropriated &&
-    !input.override_reason?.trim()
-  )
-    throw Error(
-      `Authorization warning: ${stage} entries would exceed the ${budget.currency} ${budget.appropriated} appropriation. Supply an explicit override reason.`,
-    );
-  const id = randomUUID();
-  db.prepare(
-    "INSERT INTO ledger(id,budget_id,date,stage,amount,memo,override_reason,source_id) VALUES(?,?,?,?,?,?,?,?)",
-  ).run(
-    id,
-    budget.id,
-    exactDate.parse(input.date),
-    stage,
-    n,
-    text.parse(input.memo),
-    nullable(input.override_reason),
-    nullable(input.source_id),
-  );
-  return { id, warning: current + n > budget.appropriated };
+  return recordManualFinancial(db, input);
 }
 export function recordUnitState(db: DB, input: RInput) {
   const unit = required(db, "units", input.unit_id);
@@ -242,21 +202,8 @@ export function recordUnitState(db: DB, input: RInput) {
     parent = nullable(input.parent_id);
   if (parent) {
     required(db, "units", parent);
-    let cursor: string | null = parent;
-    const seen = new Set([unit.id]);
-    while (cursor) {
-      if (seen.has(cursor))
-        throw Error("Chain of command would contain a cycle");
-      seen.add(cursor);
-      cursor =
-        one(
-          db,
-          "SELECT parent_id FROM unit_states WHERE unit_id=? AND date<=? ORDER BY date DESC LIMIT 1",
-          cursor,
-          date,
-        )?.parent_id ?? null;
-    }
   }
+  validateUnitParent(db, unit.id, parent, date);
   const low = optNum(input.personnel_low),
     high = optNum(input.personnel_high);
   if (low !== null && high !== null && high < low)
@@ -335,6 +282,7 @@ export function appoint(db: DB, input: RInput) {
 }
 type RInput = Record<string, any>;
 export function adminAction(db: DB, input: RInput): any {
+  if (input.action === "ledger") return ledgerEntry(db, input);
   return transaction(db, () => {
     let result: any;
     const action = text.parse(input.action),
@@ -459,9 +407,6 @@ export function adminAction(db: DB, input: RInput): any {
         result = { id };
         break;
       }
-      case "ledger":
-        result = ledgerEntry(db, input);
-        break;
       case "project": {
         const src = createUserSource(db, text.parse(input.source_text));
         db.prepare("INSERT INTO projects VALUES(?,?,?,?,?,?,?,?,?,?,?)").run(
@@ -480,39 +425,11 @@ export function adminAction(db: DB, input: RInput): any {
         result = { id };
         break;
       }
-      case "battle": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare("INSERT INTO battles VALUES(?,?,?,?,?,?,?)").run(
-          id,
-          text.parse(input.name),
-          JSON.stringify(historicalDateSchema.parse(input.date_info)),
-          nullable(input.theater),
-          nullable(input.outcome),
-          z.enum(["provisional", "confirmed", "disputed"]).parse(input.canon),
-          src,
+      case "battle":
+      case "casualty":
+        throw Error(
+          "Use New Battle / After-Action Report in Battles; military effects require reviewed report approval.",
         );
-        result = { id };
-        break;
-      }
-      case "casualty": {
-        required(db, "battles", input.battle_id);
-        if (input.unit_id) required(db, "units", input.unit_id);
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare("INSERT INTO casualties VALUES(?,?,?,?,?,?,?,?)").run(
-          id,
-          input.battle_id,
-          nullable(input.unit_id),
-          text.parse(input.report_group),
-          z
-            .enum(["KIA", "WIA", "MIA", "POW", "unspecified"])
-            .parse(input.category),
-          amount.parse(input.count),
-          z.enum(["provisional", "confirmed", "disputed"]).parse(input.canon),
-          src,
-        );
-        result = { id };
-        break;
-      }
       case "location": {
         const src = createUserSource(db, text.parse(input.source_text));
         const lat = nullable(input.latitude),

@@ -8,6 +8,95 @@ async function navigate(page: any, name: string) {
     .getByRole("button", { name, exact: false })
     .click();
 }
+
+test("Treasury form shares reference validation and persists a sourced entry", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await navigate(page, "Economy & Treasury");
+  const name = "UI funding fixture " + Date.now();
+  const reference = "UI-PAY-" + Date.now();
+  await page
+    .getByRole("button", { name: "+ Appropriation", exact: true })
+    .click();
+  await page.getByLabel("Budget / program", { exact: true }).fill(name);
+  await page
+    .getByLabel("Legally appropriated amount, whole currency units")
+    .fill("100");
+  await page
+    .getByLabel("Appropriation authority / original decision")
+    .fill("Test-only funding authority");
+  await page.getByRole("button", { name: "Save record", exact: true }).click();
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
+  await page
+    .getByRole("button", { name: "+ Ledger entry", exact: true })
+    .click();
+  await page
+    .getByLabel("Appropriation", { exact: true })
+    .selectOption({ label: name });
+  await page
+    .getByLabel("Accounting stage", { exact: true })
+    .selectOption("disbursed");
+  await page
+    .getByLabel("Amount, whole currency units", { exact: true })
+    .fill("40");
+  await page
+    .getByLabel("Transaction reference", { exact: true })
+    .fill(reference);
+  await page.getByLabel("Purpose", { exact: true }).fill("Test-only payment");
+  await page
+    .getByLabel("Original financial authority / evidence")
+    .fill("Test-only payment evidence");
+  await page.getByRole("button", { name: "Save record", exact: true }).click();
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
+  await page.reload();
+  await navigate(page, "Economy & Treasury");
+  await expect(
+    page.getByRole("cell", { name: reference, exact: true }),
+  ).toBeVisible();
+});
+
+test("all department pages render without client errors", async ({
+  page,
+}, testInfo) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/");
+  for (const name of [
+    "Dashboard",
+    "National Report Center",
+    "Government",
+    "Cabinet & Institutions",
+    "Parliament",
+    "Economy & Treasury",
+    "Territory & Population",
+    "Armed Forces",
+    "Battles",
+    "Military Map",
+    "Foreign Relations",
+    "Domestic Security",
+    "Historical Archive",
+    "Events & Time",
+    "Canon Review Center",
+    "Imports & Backups",
+  ]) {
+    await navigate(page, name);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    if (
+      [
+        "Dashboard",
+        "Cabinet & Institutions",
+        "Economy & Treasury",
+        "Historical Archive",
+      ].includes(name)
+    )
+      await page.screenshot({
+        path: testInfo.outputPath(name.replaceAll(/[^a-z]/gi, "-") + ".png"),
+        fullPage: true,
+      });
+  }
+  expect(errors).toEqual([]);
+});
 test("baseline dashboard, global search and immutable cited source", async ({
   page,
 }) => {
@@ -73,7 +162,7 @@ test("review side-by-side evidence, reasoned decision, and normal entity entry",
     .getByLabel("Reason for decision")
     .fill("Keep both identities distinct pending the original royal register.");
   await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("Saved");
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
   await navigate(page, "Historical Archive");
   await page.getByRole("button", { name: "+ Entity", exact: true }).click();
   await page
@@ -81,7 +170,7 @@ test("review side-by-side evidence, reasoned decision, and normal entity entry",
     .fill("UI audit entity " + Date.now());
   await page.getByLabel("Entity type").selectOption("organization");
   await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("Saved");
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
 });
 test("ordered movement appears in register without completed deployment", async ({
   page,
@@ -97,7 +186,7 @@ test("ordered movement appears in register without completed deployment", async 
     .getByLabel("Mission / movement type")
     .fill("UI test reinforcement order");
   await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("Saved");
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
   await expect(
     page.getByRole("cell", { name: "ordered", exact: true }).first(),
   ).toBeVisible();
@@ -191,10 +280,12 @@ test("government has one resolved entry per office and preserves 1725 in the arc
     page.getByText("No designated heir", { exact: true }),
   ).toBeVisible();
   await navigate(page, "Historical Archive");
-  await page.getByLabel("Filter records").fill("1725");
-  await expect(
-    page.getByText("King Aurelios Leandros Steiner I", { exact: true }).first(),
-  ).toBeVisible();
+  await page
+    .getByRole("combobox", { name: "Historical collection", exact: true })
+    .selectOption("1725");
+  await expect(page.locator(".archive-table")).toContainText(
+    "King Aurelios Leandros Steiner I",
+  );
 });
 test("Cabinet roster opens a source-backed minister profile with progressive evidence", async ({
   page,
@@ -281,7 +372,7 @@ test("Archive filters, source-linked details and original text search keep histo
   await navigate(page, "Historical Archive");
   await expect(page.locator(".archive-table tbody tr")).toHaveCount(25);
   await page
-    .getByLabel("Canon status", { exact: true })
+    .getByRole("combobox", { name: "Canon status", exact: true })
     .selectOption("superseded");
   await page.getByLabel("Filter records").fill("Jack Younger");
   await page.locator(".archive-title").first().click();
@@ -293,7 +384,9 @@ test("Archive filters, source-linked details and original text search keep histo
   await page
     .getByRole("button", { name: "Clear filters", exact: true })
     .click();
-  await page.getByLabel("Historical collection").selectOption("1725");
+  await page
+    .getByRole("combobox", { name: "Historical collection", exact: true })
+    .selectOption("1725");
   await expect(page.locator(".archive-table")).toContainText(
     "1725 archive only",
   );

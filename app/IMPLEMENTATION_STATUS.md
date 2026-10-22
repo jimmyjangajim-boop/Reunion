@@ -1,3 +1,7 @@
+# Architecture audit, 22 October 2026
+
+Current status and recovery limits: [architecture audit](docs/ARCHITECTURE_AUDIT.md), [full feature rundown](docs/FEATURE_RUNDOWN.md), [validation](docs/AUDIT_VALIDATION.md), and [architecture](../ARCHITECTURE.md). The reviewed baseline is recovered and verified; no deleted-chat runtime database was found. Architecture fixes precede the previously recommended interface expansion. Older claims below are historical context.
+
 # Current session status
 
 See `docs/IMPLEMENTATION_STATUS.md`, `docs/SESSION_HANDOFF.md` and `docs/VALIDATION.md` for the current reviewed canon and Report Center. The combined Battles workflow, migrations 006–007 and compact searchable Archive are now implemented; Parliament/Treasury usability is next. The previous delivery status below is retained as historical implementation context; its heir, Rehn-date, source-coverage and Altis-year limitations are superseded by the current documents.

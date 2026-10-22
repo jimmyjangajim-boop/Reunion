@@ -1165,6 +1165,27 @@ export function rollbackImport(db: DB, id: string) {
   return transaction(db, () => {
     const batch = one(db, "SELECT * FROM import_batches WHERE id=?", id);
     if (!batch) throw Error("Import not found");
+    if (
+      batch.name.startsWith("User-adjudicated canon review") ||
+      one(
+        db,
+        "SELECT 1 FROM audit WHERE action='import_reviewed_canon' AND target=?",
+        id,
+      ) ||
+      one(
+        db,
+        "SELECT 1 FROM assertions old JOIN assertions replacement ON old.superseded_by=replacement.id WHERE replacement.batch_id=?",
+        id,
+      ) ||
+      one(
+        db,
+        "SELECT 1 FROM decisions d JOIN issues i ON i.id=d.issue_id JOIN assertions a ON a.id=i.a_id OR a.id=i.b_id WHERE a.batch_id=? LIMIT 1",
+        id,
+      )
+    )
+      throw Error(
+        "Reviewed canon cannot use generic rollback. Restore a verified backup or record a reviewed correction; dependent supersessions and decisions must be preserved.",
+      );
     if (batch.name.startsWith("Reunion canon recovery"))
       throw Error(
         "Initial recovery cannot be rolled back. Restore a verified backup instead.",
