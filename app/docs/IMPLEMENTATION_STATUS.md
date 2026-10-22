@@ -1,3 +1,15 @@
+# Project finance reconciliation — 22 October 2026
+
+User requested project-finance comparison and fixes against Reunion campaign tracker.xlsx. See PROJECT_FINANCE_AUDIT.md for findings, exact cell references and corrected values. The supplied workbook equals the archived reviewed tracker byte-for-byte. Reconciled the stale recovery project projection: Spine committed 10.1B→13B, Dalmatia 1.3B→5.4B, Defense Infrastructure 1.2B→1.4B; added National Oil Drilling (13B cost, 8.5B paid, 4.5B committed). Seven projects total 61.6B cost, 24.72B source-paid, 36.88B remaining committed, zero funding gap. All are funded; no completion or production is inferred.
+
+Approved national budget 255B, defense 82B and every canonical assertion remain unchanged. Old workbook 250B/100B values are not replayed. Rail ETA formula and after-fudge cost deduction are documented defects, not accepted facts. UI now distinguishes cost, paid, committed, gap and funding coverage. No migration/dependency/new ledger entries. All 59 tables compared: only projects and append-only audit changed; 57 other tables identical.
+
+Shared project-reconciliation.ts verifies the original, source lines and checksum, refuses customized/stale rows, applies the whole repair atomically and uses an idempotent audit receipt. npm run reconcile:projects previews; add -- --apply to execute. scripts/import.ts invokes it after reviewed import during setup, so fresh reconstructions retain the fix. Project funding calculations require explicit tracker semantics and keep currencies/unknowns separate. Do not silently reapply old seed rows to a later installation.
+
+Validation: 178 domain/API tests, 36 desktop/emulated-phone checks, typecheck, source verification and production build. Pre-change runtime backups: app/backups/before-project-reconciliation-2026-10-22.sqlite and .zip. Preservation results: app/backups/project-reconciliation-preservation-check.json (ignored). Post-fix portable backup: app/backups/projects-reconciled-2026-10-22.zip; isolated restore app/data/project-reconciliation-restore-proof.sqlite matches all 59 live tables. Schema remains 1–8. No runtime databases/backups committed.
+
+Branch fix/project-finance-reconciliation-2026-10-22 builds on feature/treasury-2026-10-22. Earlier feature PRs remain dependencies. Hosted Site unchanged. Resume the directive's separately tested Parliament increment after this finance correction; do not restart the architecture audit.
+
 # Treasury update — 22 October 2026
 
 The dated Treasury display increment is complete. See [TREASURY_REDESIGN.md](TREASURY_REDESIGN.md) for exact coverage, validation and limitations. Six economic headlines, comparison bars, defense share, program funding and separate appropriation/transaction/evidence registers now replace the generic economic card grid. No data, approved financial amounts, schema or dependencies changed. All 59 tables match the checkpoint and isolated restored copy. Undated economic references never substitute into historical charts. Appropriation base commencement remains unknown and explicitly labeled.

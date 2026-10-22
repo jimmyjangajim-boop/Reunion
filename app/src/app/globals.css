@@ -2054,3 +2054,35 @@ body {
 .treasury-workspace meter::-moz-meter-bar {
   background: #416b60;
 }
+.project-totals {
+  border-block: 1px solid var(--line);
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+.project-totals dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+.project-totals dt {
+  font-size: 0.85rem;
+}
+.project-totals dd {
+  margin: 0.4rem 0;
+  font:
+    1.5rem Georgia,
+    serif;
+  color: #234b46;
+}
+.project-programs td {
+  vertical-align: top;
+}
+.project-programs details {
+  min-width: 12rem;
+}
+@media (max-width: 700px) {
+  .project-totals dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

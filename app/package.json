@@ -20,7 +20,8 @@
     "backup": "node --experimental-strip-types scripts/backup.ts",
     "backup:portable": "node --experimental-strip-types scripts/export-portable.ts",
     "restore": "node --experimental-strip-types scripts/restore.ts",
-    "check:sources": "node scripts/verify-sources.mjs"
+    "check:sources": "node scripts/verify-sources.mjs",
+    "reconcile:projects": "node --experimental-strip-types scripts/reconcile-projects.ts"
   },
   "dependencies": {
     "next": "16.4.2",

@@ -1,5 +1,6 @@
 "use client";
 import { useState, type ReactNode } from "react";
+import ProjectPrograms from "./ProjectPrograms";
 import {
   money,
   treasuryView,
@@ -219,56 +220,7 @@ export default function TreasuryWorkspace(p: Props) {
       </nav>
       {tab === "Programs" && (
         <section>
-          <h3>Infrastructure & government programs</h3>
-          <p>
-            Source snapshots apply only within their recorded observation
-            window. Paid and committed amounts are separate; funding is not
-            proof of implementation or legal appropriation.
-          </p>
-          <Register
-            headers={[
-              "Program / observation",
-              "Planned",
-              "Authorized",
-              "Committed",
-              "Paid in source",
-              "Paid / planned",
-              "Evidence",
-            ]}
-            rows={v.projects.map((r) => [
-              <>
-                <strong>{r.name}</strong>
-                <p>
-                  {JSON.parse(r.date_json).label} · {r.operation}
-                </p>
-              </>,
-              exactMoney(r.planned, r.currency),
-              exactMoney(r.approved, r.currency),
-              exactMoney(r.committed, r.currency),
-              exactMoney(r.paid, r.currency),
-              r.planned !== null &&
-              r.planned > 0 &&
-              r.paid !== null &&
-              r.paid >= 0 &&
-              r.paid <= r.planned ? (
-                <>
-                  <meter
-                    aria-label={`${r.name}: source paid against planned`}
-                    min={0}
-                    max={r.planned}
-                    value={r.paid}
-                  />
-                  {((100 * r.paid) / r.planned).toFixed(1)}% funding paid
-                </>
-              ) : (
-                "Not established"
-              ),
-              <>
-                {source(r.source_id)}
-                <p>{r.notes}</p>
-              </>,
-            ])}
-          />
+          <ProjectPrograms projects={v.projects} source={source} />
           {v.uncertainProjects.length > 0 && (
             <details>
               <summary>

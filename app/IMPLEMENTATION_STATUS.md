@@ -1,3 +1,7 @@
+# Project finance correction
+
+See docs/PROJECT_FINANCE_AUDIT.md: seven projects reconciled to the archived tracker; approved national budget unchanged.
+
 # Treasury display update
 
 See docs/TREASURY_REDESIGN.md for the dated dashboard, preserved data and current validation. This completes only the Treasury increment, not the remaining redesign phases.
