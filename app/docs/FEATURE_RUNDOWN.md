@@ -1,3 +1,7 @@
+# Records-first update, 22 October 2026
+
+New Record is now the primary creation interface: category → type → purpose-built form → readable review → explicit save. It has nine guided types with database-backed drafts, linked identities/source citations and immutable save receipts, plus access to seven existing specialized workflows. See UNIFIED_RECORDS.md for exact coverage and remaining phases, and UNIFIED_RECORDS_VALIDATION.md for the new 169-test/34-browser-check results. RNAS is now primarily records/archive/administration; simulation and AI-first extraction expansion are frozen. The earlier inventory below remains useful for preserved subsystems, but its report-first priority and schema-7 counts are superseded.
+
 # RNAS full feature rundown
 
 Verified against the repository and local reconstructed baseline on 22 October 2026. This is a feature inventory, not a claim that every historical statement has been normalized or every requested subsystem is finished. See `AUDIT_VALIDATION.md` for exact checks.

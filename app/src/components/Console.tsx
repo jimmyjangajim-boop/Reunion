@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
+import NewRecordWorkspace from "./NewRecordWorkspace";
+import type { GuidedKind, RecordDefinition } from "../lib/record-registry.ts";
 import ReportCenter from "./ReportCenter";
 import CabinetWorkspace from "./CabinetWorkspace";
 import BattleWorkspace from "./BattleWorkspace";
@@ -12,6 +14,7 @@ const navGroups = [
     title: "National overview",
     items: [
       ["Dashboard", "◈"],
+      ["New Record", "+"],
       ["National Report Center", "▤"],
     ],
   },
@@ -46,6 +49,8 @@ const navGroups = [
   },
 ];
 const pageDescriptions: Record<string, string> = {
+  "New Record":
+    "Create a record, preserve its evidence, and review its links before saving.",
   Dashboard: "Leadership, national priorities, and decisions awaiting review.",
   Government:
     "National leadership and royal succession, with earlier records kept in profiles.",
@@ -299,6 +304,13 @@ export default function Console() {
     [reviewAction, setReviewAction] = useState("unresolved"),
     [preview, setPreview] = useState<R | null>(null),
     [battleReportId, setBattleReportId] = useState<string | null>(null);
+  const [newRecordKind, setNewRecordKind] = useState<GuidedKind | undefined>(),
+    [newRecordSession, setNewRecordSession] = useState(0);
+  function startRecord(kind?: GuidedKind) {
+    setNewRecordKind(kind);
+    setNewRecordSession((n) => n + 1);
+    go("New Record");
+  }
   async function refresh() {
     const r = await fetch("/api/rnas?date=" + date);
     const json = await r.json();
@@ -583,7 +595,9 @@ export default function Console() {
                   key={name}
                   className={section === name ? "active" : ""}
                   aria-current={section === name ? "page" : undefined}
-                  onClick={() => go(name)}
+                  onClick={() =>
+                    name === "New Record" ? startRecord() : go(name)
+                  }
                 >
                   <span className="nav-icon" aria-hidden="true">
                     {icon}
@@ -724,19 +738,58 @@ export default function Console() {
             </>
           ) : (
             <>
+              {section === "New Record" && (
+                <NewRecordWorkspace
+                  key={newRecordSession}
+                  initialKind={newRecordKind}
+                  context={{
+                    entities: d.entities,
+                    currentEntities: d.currentEntities,
+                    offices: d.offices,
+                    units: d.units,
+                    locations: d.locations,
+                    sources: d.sources,
+                  }}
+                  onSaved={refresh}
+                  onOpen={(kind) =>
+                    go(
+                      kind === "bill"
+                        ? "Parliament"
+                        : kind === "appointment"
+                          ? "Cabinet & Institutions"
+                          : kind === "unit"
+                            ? "Armed Forces"
+                            : kind === "deployment"
+                              ? "Military Map"
+                              : kind === "treaty"
+                                ? "Foreign Relations"
+                                : "Historical Archive",
+                    )
+                  }
+                  onExisting={(definition: RecordDefinition) => {
+                    if (definition.mode !== "existing") return;
+                    if (
+                      ["Battles", "Imports & Backups"].includes(
+                        definition.destination,
+                      )
+                    ) {
+                      setBattleReportId(null);
+                      go(definition.destination);
+                    } else setForm(definition.destination);
+                  }}
+                />
+              )}
               {section === "Dashboard" && (
                 <>
                   <section className="panel split">
                     <div>
-                      <h2>Record what happened</h2>
+                      <h2>One place to create a national record</h2>
                       <p>
-                        Submit one report, review the proposed changes, and
-                        update Reunion together.
+                        Choose a category, complete the right form, and review
+                        the record before adding it to Reunion.
                       </p>
                     </div>
-                    <button onClick={() => go("National Report Center")}>
-                      Write a national report
-                    </button>
+                    <button onClick={() => startRecord()}>New Record</button>
                   </section>
                   <div className="date-band">
                     <div>
@@ -1003,7 +1056,11 @@ export default function Console() {
                   tab={tab}
                   onTabChange={setTab}
                   openSource={openSource}
-                  onAdd={setForm}
+                  onAdd={(form) =>
+                    form === "timeline"
+                      ? startRecord("historical_event")
+                      : setForm(form)
+                  }
                   initialQuery={filter}
                 />
               )}
@@ -1118,7 +1175,7 @@ export default function Console() {
                 <CabinetWorkspace
                   cabinet={d.cabinet}
                   leadershipOnly
-                  onAppoint={() => setForm("appointment")}
+                  onAppoint={() => startRecord("appointment")}
                   onOffice={() => setForm("office")}
                   onDecision={() => setForm("assertion")}
                   onSource={openSource}
@@ -1127,7 +1184,7 @@ export default function Console() {
               {section === "Cabinet & Institutions" && (
                 <CabinetWorkspace
                   cabinet={d.cabinet}
-                  onAppoint={() => setForm("appointment")}
+                  onAppoint={() => startRecord("appointment")}
                   onOffice={() => setForm("office")}
                   onSource={openSource}
                 />
@@ -1137,7 +1194,9 @@ export default function Console() {
                   <div className="section-heading">
                     <h2>Assembly record</h2>
                     <div className="inline-controls">
-                      <button onClick={() => setForm("bill")}>+ Bill</button>
+                      <button onClick={() => startRecord("bill")}>
+                        + Bill
+                      </button>
                       <button
                         className="secondary"
                         onClick={() => setForm("vote")}
@@ -1202,16 +1261,29 @@ export default function Console() {
                     headers={[
                       "Identifier",
                       "Bill",
+                      "Sponsor",
                       "Stage",
                       "Introduction",
                       "Effective",
+                      "Evidence",
                     ]}
                     rows={d.bills.map((b: R) => [
                       b.identifier,
                       b.title || "Title not reported",
+                      b.sponsor || "Not recorded",
                       b.stage,
                       b.introduced_date,
                       b.effective_date,
+                      b.source_id ? (
+                        <button
+                          className="text-button"
+                          onClick={() => openSource(b.source_id)}
+                        >
+                          Source
+                        </button>
+                      ) : (
+                        "Not recorded"
+                      ),
                     ])}
                   />
                   <h2>Reported legislative history</h2>
@@ -1267,7 +1339,7 @@ export default function Console() {
               {section === "Armed Forces" && (
                 <>
                   <div className="toolbar">
-                    <button onClick={() => setForm("unit")}>
+                    <button onClick={() => startRecord("unit")}>
                       + Military unit
                     </button>
                     <button
@@ -1278,7 +1350,7 @@ export default function Console() {
                     </button>
                     <button
                       className="secondary"
-                      onClick={() => setForm("movement")}
+                      onClick={() => startRecord("deployment")}
                     >
                       Order movement
                     </button>
@@ -1410,7 +1482,7 @@ export default function Console() {
                 <>
                   <div className="section-heading">
                     <h2>Deployment register</h2>
-                    <button onClick={() => setForm("movement")}>
+                    <button onClick={() => startRecord("deployment")}>
                       + Movement order
                     </button>
                   </div>
@@ -1649,7 +1721,9 @@ export default function Console() {
                 <>
                   <div className="section-heading">
                     <h2>Treaty register</h2>
-                    <button onClick={() => setForm("treaty")}>+ Treaty</button>
+                    <button onClick={() => startRecord("treaty")}>
+                      + Treaty
+                    </button>
                   </div>
                   {d.treaties.map((t: R) => (
                     <article className="record" key={t.id}>

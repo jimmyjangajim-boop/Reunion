@@ -1,5 +1,7 @@
 # Reunion National Administration System
 
+RNAS is primarily a national records system, historical archive and administrative database. The latest [records directive](docs/USER_RECORDS_DIRECTIVE.txt) supersedes earlier simulation/AI-first priorities. [New Record](app/docs/UNIFIED_RECORDS.md) provides category → type → form → review → save, durable drafts and shared domain operations. Existing Report Center and specialized workflows remain available. Simulation expansion is frozen.
+
 GitHub is the main store for application source, original evidence, canonical JSON seeds, migrations and project documentation. Live SQLite data and runtime backups are stored separately.
 
 Start with [session handoff](app/docs/SESSION_HANDOFF.md), [implementation status](app/docs/IMPLEMENTATION_STATUS.md) and the [governing V3 directive](docs/USER_DIRECTIVE_V3.txt). The latest user canon review is under canon/2026-10-20/revised/.

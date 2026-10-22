@@ -93,7 +93,7 @@ it("protects an ordinary import after its claims receive a review decision", () 
 it("verifies current schema and rejects unsupported migrations", () => {
   const db = openDatabase(":memory:");
   try {
-    expect(verifyDatabase(db)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    expect(verifyDatabase(db)).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
     db.prepare("INSERT INTO migrations VALUES(999,'test')").run();
     expect(() => verifyDatabase(db)).toThrow("migration versions");
   } finally {

@@ -1,3 +1,7 @@
+# Priority update: records-first
+
+Follow repository docs/USER_RECORDS_DIRECTIVE.txt and this folder UNIFIED_RECORDS.md. Unified creation and connected records precede the dated Treasury redesign, Parliament, directories and universal search. Freeze simulation/automatic decision-making/AI-first extraction expansion. Versioned record exchange can be planned without building a campaign simulator. Earlier long-term items below remain deferred rather than deleted.
+
 # RNAS roadmap
 
 Governing directive: repository `docs/USER_DIRECTIVE_V3.txt`, supplied 20 October 2026. Continue the existing Next.js/SQLite implementation.

@@ -1,6 +1,6 @@
 # Focused architecture audit — 22 October 2026
 
-Base: `485a3cf62327807def3ae18e8a47aa7d4ab8a156`. Scope: protect/recover data, repair structural integrity, verify current features. The attached earlier audit and usability proposal were reference material, not instructions to execute another full redesign.
+Base: `485a3cf62327807def3ae18e8a47aa7d4ab8a155`. Scope: protect/recover data, repair structural integrity, verify current features. The attached earlier audit and usability proposal were reference material, not instructions to execute another full redesign.
 
 ## Findings
 

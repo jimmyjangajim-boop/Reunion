@@ -1,0 +1,48 @@
+.new-record-workspace { max-width: 1060px; min-width: 0; width: 100%; }
+.record-steps { display: flex; flex-wrap: wrap; gap: 12px 24px; list-style: none; padding: 0 0 22px; margin: 0 0 24px; border-bottom: 1px solid var(--line); color: var(--muted); }
+.record-steps li { display: flex; align-items: center; gap: 7px; font-size: 12px; }
+.record-steps li span { display: inline-grid; place-items: center; height: 23px; width: 23px; border: 1px solid var(--line); border-radius: 50%; }
+.record-steps [aria-current] { color: var(--green); font-weight: 700; }
+.record-steps [aria-current] span { color: white; background: var(--green); border-color: var(--green); }
+.record-picker { display: grid; grid-template-columns: minmax(180px, 240px) minmax(0, 1fr); border: 1px solid var(--line); background: #fffefa; margin: 22px 0; }
+.record-picker nav { display: flex; flex-direction: column; gap: 8px; padding: 18px; border-right: 1px solid var(--line); background: #eef0e9; }
+.record-picker nav button { text-align: left; }
+.record-picker section { padding: 20px; min-width: 0; }
+.record-picker h3 { margin: 0 0 16px; }
+.record-picker-intro { margin: 0; color: var(--muted); max-width: 44ch; }
+button.record-type { display: flex; flex-direction: column; gap: 5px; width: 100%; text-align: left; background: transparent; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 15px 0; color: var(--ink); }
+button.record-type strong { font-size: 16px; }
+button.record-type span { font-weight: 400; }
+button.record-type small { font-weight: 400; color: var(--green); }
+.record-editor { background: #fffefa; padding: 24px; border: 1px solid var(--line); }
+.record-editor > fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.record-editor fieldset fieldset { border: 0; border-top: 1px solid var(--line); margin: 24px 0; padding: 18px 0 0; min-width: 0; }
+.record-editor legend { padding: 0 10px 0 0; color: var(--green); font-weight: 700; }
+.record-field { display: flex; flex-direction: column; gap: 6px; margin: 0 0 18px; min-width: 0; }
+.record-field > span { font-weight: 600; }
+.record-field small { color: var(--muted); font-size: 12px; }
+.record-field input, .record-field textarea, .record-field select { width: 100%; border: 1px solid #bdc6c1; border-radius: 4px; padding: 10px 12px; min-width: 0; color: var(--ink); background: white; }
+.record-field textarea { resize: vertical; }
+.record-field select[multiple] { min-height: 130px; }
+.record-editor details { margin-bottom: 20px; }
+.record-editor details > summary { cursor: pointer; margin-bottom: 12px; color: var(--green); }
+.record-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line); margin-top: 20px; }
+.record-review { background: #fffefa; padding: 24px; border: 1px solid var(--line); margin-bottom: 24px; overflow-wrap: anywhere; }
+.record-review dl { margin: 0 0 24px; }
+.record-review dl > div { display: grid; grid-template-columns: minmax(140px, 1fr) minmax(0, 3fr); gap: 20px; border-bottom: 1px solid var(--line); padding: 12px 0; }
+.record-review dt { color: var(--muted); }
+.record-review dd { margin: 0; white-space: pre-wrap; }
+.record-review h3 { margin-top: 24px; }
+.record-draft-list { margin-top: 40px; }
+.record-draft-list .table-scroll { max-width: 100%; }
+.record-draft-list table { width: 100%; }
+.record-draft-list td { overflow-wrap: anywhere; }
+@media(max-width: 650px) {
+  .record-picker { grid-template-columns: 1fr; }
+  .record-picker nav { border-right: 0; border-bottom: 1px solid var(--line); }
+  .record-picker section, .record-editor, .record-review { padding: 16px; }
+  .record-review dl > div { grid-template-columns: 1fr; gap: 4px; }
+  .record-steps { gap: 10px; }
+  .record-steps li { font-size: 11px; }
+  .record-actions button { flex: 1 1 130px; }
+}

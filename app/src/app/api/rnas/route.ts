@@ -174,11 +174,23 @@ export async function GET(req: NextRequest) {
       db,
       "SELECT a.*,e.name person,o.name office FROM appointments a JOIN entities e ON e.id=a.person_id JOIN offices o ON o.id=a.office_id ORDER BY a.sequence,a.start_date",
     );
+    const eventLinks = all(
+      db,
+      "SELECT l.timeline_id,e.id,e.name,e.kind FROM timeline_entities l JOIN entities e ON e.id=l.entity_id",
+    );
     const timeline = all(
       db,
       "SELECT t.*,s.filename,s.tier FROM timeline t LEFT JOIN sources s ON s.id=t.source_id",
+    ).map((event) => ({
+      ...event,
+      related_entities: eventLinks.filter(
+        (link) => link.timeline_id === event.id,
+      ),
+    }));
+    const bills = all(
+      db,
+      "SELECT b.*,s.person_id sponsor_id FROM bills b LEFT JOIN bill_sponsors s ON s.bill_id=b.id",
     );
-    const bills = all(db, "SELECT * FROM bills");
     const cabinet = cabinetView({
       date,
       records: viewData.records,

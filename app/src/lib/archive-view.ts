@@ -133,6 +133,12 @@ export function archiveRows(
     }
     if (tab === "records" && f.entity !== "all" && r.entity_id !== f.entity)
       return false;
+    if (
+      tab === "timeline" &&
+      f.entity !== "all" &&
+      !(r.related_entities ?? []).some((e: R) => e.id === f.entity)
+    )
+      return false;
     const haystack = [
       archiveTitle(tab, r),
       r.id,

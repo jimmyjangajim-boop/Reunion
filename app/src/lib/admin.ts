@@ -5,6 +5,8 @@ import type { DB, Row } from "./db.ts";
 import { createUserSource } from "./canon.ts";
 import { exactDate, dateValue, historicalDateSchema, bounds } from "./dates.ts";
 import { recordManualFinancial } from "./financial-reports.ts";
+import { recordEvidence } from "./record-evidence.ts";
+import { relatedPerson } from "./related-person.ts";
 import { validateUnitParent } from "./unit-hierarchy.ts";
 const text = z.string().trim().min(1).max(20000),
   amount = z.coerce.number().int().nonnegative().safe();
@@ -261,7 +263,10 @@ export function appoint(db: DB, input: RInput) {
         a.id,
       );
     }
-  const src = createUserSource(db, text.parse(input.explanation)),
+  const src = recordEvidence(db, {
+      ...input,
+      source_text: input.explanation,
+    }).source_id,
     id = randomUUID();
   const info = date
     ? dateValue("day", date)
@@ -283,338 +288,323 @@ export function appoint(db: DB, input: RInput) {
 type RInput = Record<string, any>;
 export function adminAction(db: DB, input: RInput): any {
   if (input.action === "ledger") return ledgerEntry(db, input);
-  return transaction(db, () => {
-    let result: any;
-    const action = text.parse(input.action),
-      id = randomUUID();
-    switch (action) {
-      case "unit": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare(
-          "INSERT INTO units(id,name,branch,unit_type,source_id) VALUES(?,?,?,?,?)",
-        ).run(
-          id,
-          text.parse(input.name),
-          text.parse(input.branch),
-          text.parse(input.unit_type),
-          src,
-        );
-        result = { id };
-        break;
-      }
-      case "unit_state":
-        result = recordUnitState(db, input);
-        break;
-      case "movement":
-        result = recordMovement(db, input);
-        break;
-      case "complete_movement":
-        result = completeMovement(db, input);
-        break;
-      case "asset": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare("INSERT INTO assets VALUES(?,?,?,?,?)").run(
-          id,
-          text.parse(input.name),
-          text.parse(input.type),
-          text.parse(input.operation),
-          src,
-        );
-        result = { id };
-        break;
-      }
-      case "assignment":
-        result = assignAsset(db, input);
-        break;
-      case "office":
-        db.prepare("INSERT INTO offices(id,name,authority) VALUES(?,?,?)").run(
-          id,
-          text.parse(input.name),
-          text.parse(input.authority),
-        );
-        result = { id };
-        break;
-      case "appointment": {
-        let appointmentInput = input;
-        const name = nullable(input.new_person_name);
-        if (name) {
-          text.parse(name);
-          if (input.person_id?.trim())
-            throw Error(
-              "Select an existing person or supply a new name, not both.",
-            );
-          if (
-            one(
-              db,
-              "SELECT id FROM entities WHERE lower(name)=lower(?) AND kind='person'",
-              name,
-            )
-          )
-            throw Error(
-              "A person with this name already exists. Select that person.",
-            );
-          const personId = randomUUID();
-          db.prepare(
-            "INSERT INTO entities(id,name,kind,description) VALUES(?,?,'person',?)",
-          ).run(personId, name, "Created from a user-approved appointment");
-          appointmentInput = {
-            ...input,
-            person_id: personId,
-            explanation:
-              text.parse(input.explanation) + "\nNamed appointee: " + name,
-          };
-          audit(
-            db,
-            "create_appointment_person",
-            personId,
-            null,
-            { name, kind: "person" },
-            input.explanation,
-          );
-        }
-        result = appoint(db, appointmentInput);
-        break;
-      }
-      case "bill": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare(
-          "INSERT INTO bills(id,identifier,title,sponsor,summary,introduced_date,source_id) VALUES(?,?,?,?,?,?,?)",
-        ).run(
-          id,
-          text.parse(input.identifier),
-          text.parse(input.title),
-          nullable(input.sponsor),
-          text.parse(input.summary),
-          exactDate.parse(input.date),
-          src,
-        );
-        result = { id };
-        break;
-      }
-      case "vote":
-        result = vote(db, input);
-        break;
-      case "budget": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare("INSERT INTO budgets VALUES(?,?,?,?,?,?)").run(
-          id,
-          text.parse(input.name),
-          z.coerce.number().int().min(1).max(9999).parse(input.fiscal_year),
-          text.parse(input.currency),
-          amount.parse(input.appropriated),
-          src,
-        );
-        result = { id };
-        break;
-      }
-      case "project": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        db.prepare("INSERT INTO projects VALUES(?,?,?,?,?,?,?,?,?,?,?)").run(
-          id,
-          text.parse(input.name),
-          text.parse(input.operation),
-          JSON.stringify(historicalDateSchema.parse(input.date_info)),
-          optNum(input.planned),
-          optNum(input.approved),
-          optNum(input.paid),
-          optNum(input.committed),
-          nullable(input.currency),
-          text.parse(input.notes),
-          src,
-        );
-        result = { id };
-        break;
-      }
-      case "battle":
-      case "casualty":
-        throw Error(
-          "Use New Battle / After-Action Report in Battles; military effects require reviewed report approval.",
-        );
-      case "location": {
-        const src = createUserSource(db, text.parse(input.source_text));
-        const lat = nullable(input.latitude),
-          lon = nullable(input.longitude);
-        if ((lat === null) !== (lon === null))
-          throw Error("Provide both coordinates or neither");
-        db.prepare("INSERT INTO locations VALUES(?,?,?,?,?,?,?,?,?)").run(
-          id,
-          text.parse(input.name),
-          text.parse(input.kind),
-          lat === null ? null : z.coerce.number().min(-90).max(90).parse(lat),
-          lon === null ? null : z.coerce.number().min(-180).max(180).parse(lon),
-          nullable(input.sovereignty),
-          nullable(input.control),
-          nullable(input.administration),
-          src,
-        );
-        result = { id };
-        break;
-      }
-      case "treaty": {
-        const src = createUserSource(db, text.parse(input.source_text)),
-          info = historicalDateSchema.parse(input.date_info),
-          operation = z
-            .enum(["proposal", "approved", "completed", "canceled"])
-            .parse(input.operation);
-        db.prepare("INSERT INTO treaties VALUES(?,?,?,?,?,?,?)").run(
-          id,
-          text.parse(input.name),
-          operation,
-          JSON.stringify(info),
-          text.parse(input.terms),
-          nullable(input.signatories),
-          src,
-        );
-        if (
-          input.location_id &&
-          input.restriction &&
-          operation !== "proposal" &&
-          operation !== "canceled"
-        ) {
-          required(db, "locations", input.location_id);
-          const [lo, hi] = bounds(info);
-          db.prepare(
-            "INSERT INTO restrictions(id,treaty_id,location_id,description,start_date,end_date,scope) VALUES(?,?,?,?,?,?,?)",
-          ).run(
-            randomUUID(),
-            id,
-            input.location_id,
-            text.parse(input.restriction),
-            info.precision === "day" ? lo : null,
-            null,
-            info.precision === "day" ? "interval" : "undated",
-          );
-        }
-        result = { id };
-        break;
-      }
-      case "parse_event": {
-        const date = exactDate.parse(input.date),
-          statement = text.parse(input.text);
-        const match =
-          /^(?:The President orders|Order)\s+(.+?)\s+to\s+(.+?)[.!]?$/i.exec(
-            statement,
-          );
-        const actions: Row[] = [],
-          unresolved: string[] = [];
-        if (match) {
-          const units = all(
-              db,
-              "SELECT * FROM units WHERE lower(name)=lower(?)",
-              match[1].trim(),
-            ),
-            locations = all(
-              db,
-              "SELECT * FROM locations WHERE lower(name)=lower(?)",
-              match[2].trim(),
-            );
-          if (units.length === 1 && locations.length === 1)
-            actions.push({
-              kind: "movement",
-              unit_id: units[0].id,
-              location_id: locations[0].id,
-              date,
-              operation: "ordered",
-              mission: statement,
-            });
-          else
-            unresolved.push(
-              "Exact unit and destination could not be uniquely identified. Use the structured movement form.",
-            );
-        } else
-          unresolved.push(
-            "This text needs structured review. Use sourced facts, movement, bill, or appropriation forms. No outcomes inferred.",
-          );
-        db.prepare(
-          "INSERT INTO event_drafts(id,title,date,actions_json,explanation) VALUES(?,?,?,?,?)",
-        ).run(
-          id,
-          statement,
-          date,
-          JSON.stringify(actions),
-          JSON.stringify({ unresolved }),
-        );
-        result = { id, title: statement, date, actions, unresolved };
-        break;
-      }
-      case "advance_preview": {
-        const date = exactDate.parse(input.date),
-          current =
-            one(db, "SELECT value FROM settings WHERE key=?", "in_world_date")
-              ?.value ?? "1992-10-03";
-        if (date <= current)
-          throw Error(
-            "Choose a date after the recorded clock. Historical viewing uses the date selector.",
-          );
-        const actions = [
-          {
-            kind: "clock",
-            date,
-            description: `Move recorded clock from ${current} to ${date}. No historical outcomes or deliveries will be created.`,
-          },
-        ];
-        db.prepare(
-          "INSERT INTO event_drafts(id,title,date,actions_json) VALUES(?,?,?,?)",
-        ).run(id, "Advance time to " + date, date, JSON.stringify(actions));
-        result = {
-          id,
-          title: "Advance time to " + date,
-          date,
-          actions,
-          pending: all(
-            db,
-            "SELECT u.name,m.operation FROM movements m JOIN units u ON u.id=m.unit_id WHERE m.date<=? AND m.operation IN ('planned','ordered')",
-            date,
-          ),
-        };
-        break;
-      }
-      case "approve_event": {
-        const draft = required(db, "event_drafts", input.id);
-        if (draft.operation !== "draft") throw Error("Draft already applied");
-        if (
-          draft.explanation &&
-          JSON.parse(draft.explanation).unresolved?.length
-        )
-          throw Error(
-            "Resolve unknown entities with structured forms before approval",
-          );
-        const actions = JSON.parse(draft.actions_json);
-        if (!actions.length) throw Error("No supported changes in draft");
-        for (const a of actions) {
-          if (a.kind === "movement") recordMovement(db, a);
-          else if (a.kind === "clock") {
-            const current = one(
-              db,
-              "SELECT value FROM settings WHERE key=?",
-              "in_world_date",
-            )?.value;
-            if (current && a.date <= current)
-              throw Error("Time draft is stale");
-            db.prepare(
-              "INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value",
-            ).run("in_world_date", exactDate.parse(a.date));
-          } else throw Error("Unsupported transaction action");
-        }
-        db.prepare(
-          "UPDATE event_drafts SET operation='applied' WHERE id=?",
-        ).run(draft.id);
-        result = { id: draft.id };
-        break;
-      }
-      default:
-        throw Error("Unsupported operation");
+  return transaction(db, () => applyAdminAction(db, input));
+}
+
+/** Shared operation inside a caller-owned transaction. Ledger has its own command. */
+export function applyAdminAction(db: DB, input: RInput): any {
+  let result: any;
+  const action = text.parse(input.action),
+    id = randomUUID();
+  switch (action) {
+    case "unit": {
+      const src = recordEvidence(db, input).source_id;
+      db.prepare(
+        "INSERT INTO units(id,name,branch,unit_type,source_id) VALUES(?,?,?,?,?)",
+      ).run(
+        id,
+        text.parse(input.name),
+        text.parse(input.branch),
+        text.parse(input.unit_type),
+        src,
+      );
+      result = { id };
+      break;
     }
-    audit(
-      db,
-      action,
-      result?.id ?? id,
-      null,
-      input,
-      input.explanation ||
-        input.source_text ||
-        "Explicit user-approved form submission",
-    );
-    return result;
-  });
+    case "unit_state":
+      result = recordUnitState(db, input);
+      break;
+    case "movement":
+      result = recordMovement(db, input);
+      break;
+    case "complete_movement":
+      result = completeMovement(db, input);
+      break;
+    case "asset": {
+      const src = createUserSource(db, text.parse(input.source_text));
+      db.prepare("INSERT INTO assets VALUES(?,?,?,?,?)").run(
+        id,
+        text.parse(input.name),
+        text.parse(input.type),
+        text.parse(input.operation),
+        src,
+      );
+      result = { id };
+      break;
+    }
+    case "assignment":
+      result = assignAsset(db, input);
+      break;
+    case "office":
+      db.prepare("INSERT INTO offices(id,name,authority) VALUES(?,?,?)").run(
+        id,
+        text.parse(input.name),
+        text.parse(input.authority),
+      );
+      result = { id };
+      break;
+    case "appointment": {
+      const person = relatedPerson(
+        db,
+        input.person_id,
+        input.new_person_name,
+        text.parse(input.explanation),
+      );
+      if (!person) throw Error("Select or name the appointee");
+      result = appoint(db, {
+        ...input,
+        person_id: person.id,
+        explanation: input.new_person_name?.trim()
+          ? input.explanation + "\nNamed appointee: " + person.name
+          : input.explanation,
+      });
+      break;
+    }
+    case "bill": {
+      const sponsor = relatedPerson(
+        db,
+        input.sponsor_id,
+        input.new_sponsor_name,
+        input.source_text || "Explicit sourced bill entry",
+      );
+      const src = recordEvidence(db, input).source_id;
+      db.prepare(
+        "INSERT INTO bills(id,identifier,title,sponsor,summary,introduced_date,source_id) VALUES(?,?,?,?,?,?,?)",
+      ).run(
+        id,
+        text.parse(input.identifier),
+        text.parse(input.title),
+        input.sponsor_id || input.new_sponsor_name
+          ? (sponsor?.name ?? null)
+          : nullable(input.sponsor),
+        text.parse(input.summary),
+        exactDate.parse(input.date),
+        src,
+      );
+      if (sponsor)
+        db.prepare("INSERT INTO bill_sponsors VALUES(?,?)").run(id, sponsor.id);
+      result = { id };
+      break;
+    }
+    case "vote":
+      result = vote(db, input);
+      break;
+    case "budget": {
+      const src = createUserSource(db, text.parse(input.source_text));
+      db.prepare("INSERT INTO budgets VALUES(?,?,?,?,?,?)").run(
+        id,
+        text.parse(input.name),
+        z.coerce.number().int().min(1).max(9999).parse(input.fiscal_year),
+        text.parse(input.currency),
+        amount.parse(input.appropriated),
+        src,
+      );
+      result = { id };
+      break;
+    }
+    case "project": {
+      const src = createUserSource(db, text.parse(input.source_text));
+      db.prepare("INSERT INTO projects VALUES(?,?,?,?,?,?,?,?,?,?,?)").run(
+        id,
+        text.parse(input.name),
+        text.parse(input.operation),
+        JSON.stringify(historicalDateSchema.parse(input.date_info)),
+        optNum(input.planned),
+        optNum(input.approved),
+        optNum(input.paid),
+        optNum(input.committed),
+        nullable(input.currency),
+        text.parse(input.notes),
+        src,
+      );
+      result = { id };
+      break;
+    }
+    case "battle":
+    case "casualty":
+      throw Error(
+        "Use New Battle / After-Action Report in Battles; military effects require reviewed report approval.",
+      );
+    case "location": {
+      const src = createUserSource(db, text.parse(input.source_text));
+      const lat = nullable(input.latitude),
+        lon = nullable(input.longitude);
+      if ((lat === null) !== (lon === null))
+        throw Error("Provide both coordinates or neither");
+      db.prepare("INSERT INTO locations VALUES(?,?,?,?,?,?,?,?,?)").run(
+        id,
+        text.parse(input.name),
+        text.parse(input.kind),
+        lat === null ? null : z.coerce.number().min(-90).max(90).parse(lat),
+        lon === null ? null : z.coerce.number().min(-180).max(180).parse(lon),
+        nullable(input.sovereignty),
+        nullable(input.control),
+        nullable(input.administration),
+        src,
+      );
+      result = { id };
+      break;
+    }
+    case "treaty": {
+      const src = recordEvidence(db, input).source_id,
+        info = historicalDateSchema.parse(input.date_info),
+        operation = z
+          .enum(["proposal", "approved", "completed", "canceled"])
+          .parse(input.operation);
+      db.prepare("INSERT INTO treaties VALUES(?,?,?,?,?,?,?)").run(
+        id,
+        text.parse(input.name),
+        operation,
+        JSON.stringify(info),
+        text.parse(input.terms),
+        nullable(input.signatories),
+        src,
+      );
+      if (
+        input.location_id &&
+        input.restriction &&
+        operation !== "proposal" &&
+        operation !== "canceled"
+      ) {
+        required(db, "locations", input.location_id);
+        const [lo, hi] = bounds(info);
+        db.prepare(
+          "INSERT INTO restrictions(id,treaty_id,location_id,description,start_date,end_date,scope) VALUES(?,?,?,?,?,?,?)",
+        ).run(
+          randomUUID(),
+          id,
+          input.location_id,
+          text.parse(input.restriction),
+          info.precision === "day" ? lo : null,
+          null,
+          info.precision === "day" ? "interval" : "undated",
+        );
+      }
+      result = { id };
+      break;
+    }
+    case "parse_event": {
+      const date = exactDate.parse(input.date),
+        statement = text.parse(input.text);
+      const match =
+        /^(?:The President orders|Order)\s+(.+?)\s+to\s+(.+?)[.!]?$/i.exec(
+          statement,
+        );
+      const actions: Row[] = [],
+        unresolved: string[] = [];
+      if (match) {
+        const units = all(
+            db,
+            "SELECT * FROM units WHERE lower(name)=lower(?)",
+            match[1].trim(),
+          ),
+          locations = all(
+            db,
+            "SELECT * FROM locations WHERE lower(name)=lower(?)",
+            match[2].trim(),
+          );
+        if (units.length === 1 && locations.length === 1)
+          actions.push({
+            kind: "movement",
+            unit_id: units[0].id,
+            location_id: locations[0].id,
+            date,
+            operation: "ordered",
+            mission: statement,
+          });
+        else
+          unresolved.push(
+            "Exact unit and destination could not be uniquely identified. Use the structured movement form.",
+          );
+      } else
+        unresolved.push(
+          "This text needs structured review. Use sourced facts, movement, bill, or appropriation forms. No outcomes inferred.",
+        );
+      db.prepare(
+        "INSERT INTO event_drafts(id,title,date,actions_json,explanation) VALUES(?,?,?,?,?)",
+      ).run(
+        id,
+        statement,
+        date,
+        JSON.stringify(actions),
+        JSON.stringify({ unresolved }),
+      );
+      result = { id, title: statement, date, actions, unresolved };
+      break;
+    }
+    case "advance_preview": {
+      const date = exactDate.parse(input.date),
+        current =
+          one(db, "SELECT value FROM settings WHERE key=?", "in_world_date")
+            ?.value ?? "1992-10-03";
+      if (date <= current)
+        throw Error(
+          "Choose a date after the recorded clock. Historical viewing uses the date selector.",
+        );
+      const actions = [
+        {
+          kind: "clock",
+          date,
+          description: `Move recorded clock from ${current} to ${date}. No historical outcomes or deliveries will be created.`,
+        },
+      ];
+      db.prepare(
+        "INSERT INTO event_drafts(id,title,date,actions_json) VALUES(?,?,?,?)",
+      ).run(id, "Advance time to " + date, date, JSON.stringify(actions));
+      result = {
+        id,
+        title: "Advance time to " + date,
+        date,
+        actions,
+        pending: all(
+          db,
+          "SELECT u.name,m.operation FROM movements m JOIN units u ON u.id=m.unit_id WHERE m.date<=? AND m.operation IN ('planned','ordered')",
+          date,
+        ),
+      };
+      break;
+    }
+    case "approve_event": {
+      const draft = required(db, "event_drafts", input.id);
+      if (draft.operation !== "draft") throw Error("Draft already applied");
+      if (draft.explanation && JSON.parse(draft.explanation).unresolved?.length)
+        throw Error(
+          "Resolve unknown entities with structured forms before approval",
+        );
+      const actions = JSON.parse(draft.actions_json);
+      if (!actions.length) throw Error("No supported changes in draft");
+      for (const a of actions) {
+        if (a.kind === "movement") recordMovement(db, a);
+        else if (a.kind === "clock") {
+          const current = one(
+            db,
+            "SELECT value FROM settings WHERE key=?",
+            "in_world_date",
+          )?.value;
+          if (current && a.date <= current) throw Error("Time draft is stale");
+          db.prepare(
+            "INSERT INTO settings(key,value) VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value",
+          ).run("in_world_date", exactDate.parse(a.date));
+        } else throw Error("Unsupported transaction action");
+      }
+      db.prepare("UPDATE event_drafts SET operation='applied' WHERE id=?").run(
+        draft.id,
+      );
+      result = { id: draft.id };
+      break;
+    }
+    default:
+      throw Error("Unsupported operation");
+  }
+  audit(
+    db,
+    action,
+    result?.id ?? id,
+    null,
+    input,
+    input.explanation ||
+      input.source_text ||
+      "Explicit user-approved form submission",
+  );
+  return result;
 }
