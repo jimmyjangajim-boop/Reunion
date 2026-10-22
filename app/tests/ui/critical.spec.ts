@@ -64,6 +64,7 @@ test("all department pages render without client errors", async ({
   await page.goto("/");
   for (const name of [
     "Dashboard",
+    "New Record",
     "National Report Center",
     "Government",
     "Cabinet & Institutions",
@@ -85,6 +86,7 @@ test("all department pages render without client errors", async ({
     if (
       [
         "Dashboard",
+        "New Record",
         "Cabinet & Institutions",
         "Economy & Treasury",
         "Historical Archive",
@@ -180,13 +182,35 @@ test("ordered movement appears in register without completed deployment", async 
   await page
     .getByRole("button", { name: "+ Movement order", exact: true })
     .click();
-  await page.getByLabel("Unit", { exact: true }).selectOption("unit-3inf");
-  await page.getByLabel("Destination").selectOption({ label: "Dalmatia" });
+  await page.getByLabel("Formation", { exact: true }).selectOption("unit-3inf");
   await page
-    .getByLabel("Mission / movement type")
+    .getByLabel("Destination", { exact: true })
+    .selectOption({ label: "Dalmatia" });
+  await page.getByLabel("Order date", { exact: true }).fill("1992-10-08");
+  await page
+    .getByLabel("Movement status", { exact: true })
+    .selectOption("ordered");
+  await page
+    .getByLabel("Mission or order", { exact: true })
     .fill("UI test reinforcement order");
-  await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
+  await page
+    .getByLabel("Original evidence or source citation", { exact: true })
+    .fill("UI test order authority");
+  await page
+    .getByRole("button", { name: "Review record", exact: true })
+    .click();
+  await page
+    .getByLabel("Approval reason", { exact: true })
+    .fill("Accept supplied test order");
+  await page
+    .getByRole("button", { name: "Approve and save record", exact: true })
+    .click();
+  await expect(
+    page.getByRole("heading", { name: "Saved record", exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Open related registry", exact: true })
+    .click();
   await expect(
     page.getByRole("cell", { name: "ordered", exact: true }).first(),
   ).toBeVisible();

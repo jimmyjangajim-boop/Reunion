@@ -1,6 +1,12 @@
 # RNAS architecture
 
-Updated 22 October 2026. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed.
+Updated 22 October 2026. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed. The newest product directive is `docs/USER_RECORDS_DIRECTIVE.txt`: records and administration are primary; simulation expansion and AI-first extraction are frozen.
+
+## Unified record entry
+
+`record-registry.ts` defines client-safe categories, guided record types, existing-workflow destinations and contracts. `NewRecordWorkspace.tsx` orchestrates category/form/review/draft/receipt navigation; purpose-built forms live under `components/records/`. `record-drafts.ts` validates supported schemas, preserves incomplete drafts, rehearses existing commands inside a rolled-back transaction, detects stale reviews, then commits record/relations/citations/receipt/audit atomically. No generated JSON is rendered as the review interface.
+
+Migration 008 adds durable drafts/receipts, source citations and explicit bill-sponsor, treaty-participant and timeline-entity links. Canonical targets remain in the existing domain tables. Drafts are not a second national database. `record-evidence.ts` validates citations/preserves original wording; `related-person.ts` shares person resolution. Existing reports and specialized Battles/financial operations remain available as supported registry destinations. See `app/docs/UNIFIED_RECORDS.md` for the bounded delivered scope.
 
 ## Components and boundaries
 
@@ -23,7 +29,7 @@ Paths without a directory in the table are under `app/src/lib/` unless otherwise
 
 - Runtime selection: `RNAS_DB`, otherwise `app/data/reunion.sqlite`. SQLite persists across process restarts; Git and a deleted development environment do not preserve later runtime records automatically.
 - `openDatabase()` enables foreign keys/WAL, applies pending numbered migrations and runs the existing narrowly authorized Altis correction. It is not a read-only inspection API. Recovery verification opens `DatabaseSync` with `readOnly: true` instead.
-- Append migrations; never rewrite applied migrations. This audit adds no migration. Current schema is 1–7.
+- Append migrations; never rewrite applied migrations. The audit added no migration; the subsequent unified-records slice adds migration 008. Current schema is 1–8.
 - Original sources and extracted text retain their separate hashes. Sources, review decisions, report reviews and applicable evidence/history tables are protected by database triggers. Canon status and operational status are separate.
 - Keep original evidence and checked JSON seeds in Git. Exclude live SQLite databases, runtime backups, staged uploads, credentials, dependencies and builds.
 - The approved $255B annual/$82B defense framework is retained as canon. It is not automatically a set of legally appropriated operational accounts or realized cash transactions. Do not manufacture accounts/spending to fill the Treasury screen.
@@ -31,6 +37,7 @@ Paths without a directory in the table are under `app/src/lib/` unless otherwise
 ## Commands and transaction ownership
 
 - `adminAction()` owns a transaction for ordinary explicit administration forms. Low-level movement/appointment/vote/unit-state helpers operate inside the caller's transaction when several effects are combined.
+- `applyAdminAction()` is the same operation inside the guided-record command's transaction. `insertEntity()`/`insertTimelineEntry()` are similarly caller-owned cores of the existing transaction-owning record commands. Do not call these cores outside a transaction. Final record save, all explicitly supplied inline identities, typed relationships, source citations, receipt and audit share one transaction. Repeat final requests return the already-saved receipt; saved receipts/citations are protected against mutation.
 - Manual `ledgerEntry()` delegates to `recordManualFinancial()`, which owns its transaction. `adminAction()` dispatches ledger requests before opening its generic transaction. Do not nest `transaction()`; SQLite's helper uses `BEGIN IMMEDIATE` and has no savepoint abstraction.
 - Manual finance and approved reports use the same private `writeFinancial()` and `validateFinancial()`. Both enforce dated funding, future cumulative consequences, whole units, stage-specific references, explicit appropriation increases and reasoned overrun overrides. Report evidence adds the exact report-action/source lines; manual evidence is preserved through the sourced entry and audit.
 - `approveReport()` owns the transaction for selected report actions, timeline, evidence and audit. `recordFinancial()`, `recordLegislation()` and `recordBattleReport()` participate in it. A failure rolls back the whole selected set.

@@ -1,3 +1,9 @@
+# Current update — records-first slice, 22 October 2026
+
+The newest USER_RECORDS_DIRECTIVE.txt reduces scope to records/archive/administration and freezes simulation/AI-first expansion. See UNIFIED_RECORDS.md and UNIFIED_RECORDS_VALIDATION.md. New Record is available on the homepage/persistent navigation with a typed registry, nine modular guided types, durable drafts, readable review and explicit transactional approval. Seven existing specialized workflows are accessible alongside them. Sponsor, appointee, treaty-state and event-entity relationships are connected and preserved.
+
+Schema 1–8; all 53 prior data tables unchanged, five new tables empty in the working database. Source/financial/canon values preserved. 169 domain/API and 34 desktop/phone browser checks pass, plus typecheck/build/source hashes and isolated 59-table portable restore. Larger redesign/search/exchange phases remain unfinished; do not present the entire new directive as complete.
+
 # Architecture audit update, 22 October 2026
 
 Architecture/integrity audit supersedes the prior next-task recommendation: do not begin major expansion before the open findings in ARCHITECTURE_AUDIT.md are considered. See FEATURE_RUNDOWN.md for every current workflow and limitation, AUDIT_VALIDATION.md for fresh verification, and repository ARCHITECTURE.md for boundaries.

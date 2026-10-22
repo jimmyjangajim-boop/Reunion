@@ -35,7 +35,7 @@ Ignored runtime files under `app/`:
 - `data/reunion.sqlite` — usable reconstructed reviewed baseline
 - `data/restore-baseline-check.sqlite`, `data/portable-restored.sqlite` — isolated restore checks
 
-Code checkpoint: initial commit `485a3cf62327807def3ae18e8a47aa7d4ab8a156`, local tag and GitHub branch `checkpoint/architecture-audit-2026-10-22`. A standalone pre-audit Git bundle is one directory above the checkout. Runtime backups are deliberately not in Git.
+Code checkpoint: initial commit `485a3cf62327807def3ae18e8a47aa7d4ab8a155`, local tag and GitHub branch `checkpoint/architecture-audit-2026-10-22`. A standalone pre-audit Git bundle is one directory above the checkout. Runtime backups are deliberately not in Git.
 
 No prior live database was recovered from the checked local project/backup locations or downloaded repository ZIP. The user reported deleting the broken chat that held it. This run reconstructs the checked reviewed seed, not unknown later runtime activity. The reconstructed baseline has zero reports, operational budget accounts and ledger entries; historical economic canon remains preserved.
 

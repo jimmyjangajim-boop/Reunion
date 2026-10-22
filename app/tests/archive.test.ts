@@ -167,7 +167,7 @@ it("sorts historical windows with unknown dates last without mutating input", ()
   ).toEqual(["r4", "r2", "r3", "r1"]);
   expect(JSON.stringify(rows)).toBe(before);
 });
-it("keeps timeline source filters distinct from source/entity metadata filters", () => {
+it("filters timeline entity links while keeping source metadata filters separate", () => {
   const events = [
     {
       id: "e",
@@ -177,11 +177,15 @@ it("keeps timeline source filters distinct from source/entity metadata filters",
       category: "history",
       canon: "provisional",
       operation: "proposal",
+      related_entities: [{ id: "person-1", name: "Known participant" }],
     },
   ];
   expect(
-    archiveRows("timeline", events, f({ source: "s1", entity: "ignored" })),
+    archiveRows("timeline", events, f({ source: "s1", entity: "person-1" })),
   ).toHaveLength(1);
+  expect(archiveRows("timeline", events, f({ entity: "unrelated" }))).toEqual(
+    [],
+  );
   expect(archiveRows("timeline", events, f({ source: "s2" }))).toEqual([]);
   expect(
     archiveRows(

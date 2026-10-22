@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./new-records.css";
 :root {
   --navy: #14243a;
   --ink: #243349;

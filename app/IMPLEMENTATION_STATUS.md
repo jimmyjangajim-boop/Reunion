@@ -1,3 +1,7 @@
+# Current records-first increment
+
+See [unified records](docs/UNIFIED_RECORDS.md), [validation](docs/UNIFIED_RECORDS_VALIDATION.md) and [current handoff](docs/SESSION_HANDOFF.md). New Record is primary, with nine guided types and preserved specialized tools. Schema 8 is required. Simulation expansion is frozen. Older status below is historical context.
+
 # Architecture audit, 22 October 2026
 
 Current status and recovery limits: [architecture audit](docs/ARCHITECTURE_AUDIT.md), [full feature rundown](docs/FEATURE_RUNDOWN.md), [validation](docs/AUDIT_VALIDATION.md), and [architecture](../ARCHITECTURE.md). The reviewed baseline is recovered and verified; no deleted-chat runtime database was found. Architecture fixes precede the previously recommended interface expansion. Older claims below are historical context.

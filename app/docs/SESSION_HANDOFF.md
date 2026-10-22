@@ -1,8 +1,22 @@
+# Session handoff — unified records, 22 October 2026
+
+Latest user directive: repository docs/USER_RECORDS_DIRECTIVE.txt. RNAS is primarily a national records/archive/administration system. The architecture audit is complete; do not restart it. Freeze autonomous simulation, automatic national decisions and AI-first extraction expansion while preserving functioning code. This supersedes the earlier report-first/simulation priorities below.
+
+Read UNIFIED_RECORDS.md, UNIFIED_RECORDS_VALIDATION.md and repository ARCHITECTURE.md. First tested increment: prominent New Record entry; five categories; typed registry with nine guided forms and seven existing specialized workflow destinations. Guided forms save incomplete drafts, review human-readable effects/links/unknowns, then require explicit approval/reason. Drafts persist in SQLite and backups; final saves are transactional/idempotent, and changed dependencies require re-review.
+
+Native forms cover sourced people/institutions/organizations, bill+linked existing/new sponsor, appointment+existing/new person, formation, deployment order, treaty+participating states/one missing state, and historical event+multiple existing entities/one missing entity. Natural department actions reuse them. Timeline entity links are visible in Archive; Parliament shows sponsor/source. Existing Battles, vote, finance, project, location and source tools remain accessible; their interfaces are not all converted to guided drafts.
+
+Migration 008 adds five draft/citation/link tables. Backups made before migration; all 53 prior data tables remain identical, only migrations gain version 8. Five new tables remain empty in production. No new canon, economic values or fixtures were inserted. All 59 tables match an isolated schema-8 portable restore. Latest working DB remains app/data/reunion.sqlite; use the schema-8 portable backup documented in UNIFIED_RECORDS_VALIDATION.md.
+
+Validation: 169 domain/API tests, 34 desktop/phone browser tests, typecheck, production build, 14 source hashes and recovery checks passed. Branch feature/unified-records-2026-10-22 builds on audit commit a2fd6a94ead2a8c655a5289af240e03ca058125e. Work is a bounded first slice, not all six phases. Hosted Site unchanged.
+
+Next: follow the requested incremental order. Close missing connected-record cases as needed; then build a dated Treasury display from existing verified economic records without changing approved amounts or inventing charts. Parliament, Cabinet/military directories and full universal search follow separately. Versioned subsystem exchange/bulk import previews remain future work; no separate campaign simulator or live integration now.
+
 # Session handoff, 22 October 2026 — architecture and recovery
 
 User priority: audit/repair architecture before any additional major RNAS features, preserve canon and approved budget, then provide every-feature rundown. Attachments were references, not a new six-step redesign instruction. Read repository ARCHITECTURE.md, this folder ARCHITECTURE_AUDIT.md, FEATURE_RUNDOWN.md and AUDIT_VALIDATION.md first. These supersede the earlier next-task priority below.
 
-Checkout: local `Reunion/rnas`, application in `app/`, work branch `audit/architecture-2026-10-22`. Starting commit 485a3cf62327807def3ae18e8a47aa7d4ab8a156 is protected by local checkpoint tag, GitHub checkpoint branch and separate Git bundle. Never commit runtime databases/backups.
+Checkout: local `Reunion/rnas`, application in `app/`, work branch `audit/architecture-2026-10-22`. Starting commit 485a3cf62327807def3ae18e8a47aa7d4ab8a155 is protected by local checkpoint tag, GitHub checkpoint branch and separate Git bundle. Never commit runtime databases/backups.
 
 The old chat was deleted and no earlier live RNAS database was recovered in the checked locations. Rebuilt reviewed baseline has 123 sources, 90 entities, 157 assertions, 47 timeline rows, 27 battles, 5 units and zero later reports/operational budgets/ledger entries. Approved historical financial assertions remain intact. Do not infer that the empty operational ledger is lost canon or populate it automatically.
 
