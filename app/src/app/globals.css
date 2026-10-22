@@ -1916,3 +1916,141 @@ body {
   overflow: auto;
   flex-shrink: 0;
 }
+
+/* Treasury: a dated financial overview with evidence below the registers. */
+.treasury-masthead {
+  background: var(--navy, #172e3b);
+  color: #f4f0e6;
+  padding: 1.6rem 1.8rem;
+  border-top: 3px solid var(--gold, #ad9361);
+}
+.treasury-masthead h2 {
+  color: inherit;
+  margin: 0.4rem 0;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+}
+.treasury-masthead p {
+  max-width: 65ch;
+}
+.treasury-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  background: #faf8f2;
+}
+.treasury-metrics article {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+}
+.treasury-metrics h3 {
+  font-size: 0.85rem;
+  font-family: inherit;
+  margin: 0 0 0.5rem;
+}
+.treasury-metrics strong {
+  font:
+    1.8rem Georgia,
+    serif;
+  color: #234b46;
+}
+.treasury-metrics p,
+.treasury-panel p {
+  font-size: 0.85rem;
+}
+.treasury-comparisons {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.treasury-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: #faf8f2;
+}
+.treasury-panel h3 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+}
+.treasury-workspace meter {
+  display: block;
+  width: 100%;
+  height: 1.4rem;
+  accent-color: #416b60;
+}
+.treasury-bar {
+  margin: 1.2rem 0;
+}
+.treasury-bar > div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.treasury-share {
+  display: block;
+  font:
+    2.8rem Georgia,
+    serif;
+  color: #234b46;
+}
+.treasury-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.treasury-workspace td {
+  max-width: 28rem;
+  overflow-wrap: anywhere;
+}
+.treasury-workspace details {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  margin-top: 1rem;
+}
+.treasury-workspace summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .treasury-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .treasury-comparisons {
+    grid-template-columns: 1fr;
+  }
+  .treasury-metrics article {
+    padding: 0.8rem;
+  }
+  .treasury-metrics strong {
+    font-size: 1.35rem;
+  }
+  .treasury-masthead {
+    padding: 1rem;
+  }
+}
+/* Keep complete currency amounts readable; the register scrolls on narrow screens. */
+.treasury-workspace td:nth-child(2),
+.treasury-workspace td:nth-child(3),
+.treasury-workspace td:nth-child(4),
+.treasury-workspace td:nth-child(5) {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.treasury-workspace table {
+  min-width: 900px;
+}
+.treasury-workspace meter::-webkit-meter-bar {
+  background: #e1e5df;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.treasury-workspace meter::-webkit-meter-optimum-value {
+  background: #416b60;
+}
+.treasury-workspace meter::-moz-meter-bar {
+  background: #416b60;
+}

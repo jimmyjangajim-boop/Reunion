@@ -1,3 +1,9 @@
+# Treasury update — 22 October 2026
+
+The dated Treasury display increment is complete. See [TREASURY_REDESIGN.md](TREASURY_REDESIGN.md) for exact coverage, validation and limitations. Six economic headlines, comparison bars, defense share, program funding and separate appropriation/transaction/evidence registers now replace the generic economic card grid. No data, approved financial amounts, schema or dependencies changed. All 59 tables match the checkpoint and isolated restored copy. Undated economic references never substitute into historical charts. Appropriation base commencement remains unknown and explicitly labeled.
+
+Validation: 174 domain/API tests, 36 desktop/emulated-phone browser checks, typecheck, build and 14 source hashes passed. Runtime recovery evidence is in app/backups/treasury-preservation-check.json (ignored). Checkpoint tag checkpoint/treasury-2026-10-22 protects unified-records commit 6c7d070. Branch feature/treasury-2026-10-22 builds on feature/unified-records-2026-10-22; prior review branches remain dependencies. Hosted Site unchanged. Next: a separately tested Parliament increment. All later directive phases remain pending.
+
 # Records-first update, 22 October 2026
 
 New Record is now the primary creation interface: category → type → purpose-built form → readable review → explicit save. It has nine guided types with database-backed drafts, linked identities/source citations and immutable save receipts, plus access to seven existing specialized workflows. See UNIFIED_RECORDS.md for exact coverage and remaining phases, and UNIFIED_RECORDS_VALIDATION.md for the new 169-test/34-browser-check results. RNAS is now primarily records/archive/administration; simulation and AI-first extraction expansion are frozen. The earlier inventory below remains useful for preserved subsystems, but its report-first priority and schema-7 counts are superseded.

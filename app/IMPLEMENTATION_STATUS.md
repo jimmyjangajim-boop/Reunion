@@ -1,3 +1,7 @@
+# Treasury display update
+
+See docs/TREASURY_REDESIGN.md for the dated dashboard, preserved data and current validation. This completes only the Treasury increment, not the remaining redesign phases.
+
 # Current records-first increment
 
 See [unified records](docs/UNIFIED_RECORDS.md), [validation](docs/UNIFIED_RECORDS_VALIDATION.md) and [current handoff](docs/SESSION_HANDOFF.md). New Record is primary, with nine guided types and preserved specialized tools. Schema 8 is required. Simulation expansion is frozen. Older status below is historical context.

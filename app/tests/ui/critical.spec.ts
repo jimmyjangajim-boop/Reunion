@@ -51,6 +51,7 @@ test("Treasury form shares reference validation and persists a sourced entry", a
   await expect(page.locator(".notice[role=status]")).toContainText("Saved");
   await page.reload();
   await navigate(page, "Economy & Treasury");
+  await page.getByRole("button", { name: "Transactions", exact: true }).click();
   await expect(
     page.getByRole("cell", { name: reference, exact: true }),
   ).toBeVisible();
