@@ -70,3 +70,9 @@ The aggregate overview still loads almost every domain and evidence per assertio
 Local commands now bind to `127.0.0.1`. Origin checks are browser protections, not authentication. Network/public deployment needs an explicit access-control design; this audit does not provide one.
 
 See `app/docs/ARCHITECTURE_AUDIT.md`, `app/docs/FEATURE_RUNDOWN.md` and `app/docs/BACKUP_AND_RESTORE.md`.
+
+## Treasury read boundary
+
+`TreasuryWorkspace.tsx` owns the fiscal overview, register disclosure and source navigation. It has no database access or writes. `treasury-view.ts` is a pure typed read adapter over the existing API snapshot, project observations and ledger. The server remains responsible for source-tier/canon resolution and `appropriationAt()`; the adapter additionally guards headline validity, filters dated transactions/project windows and preserves unknowns. Approved manual/report financial commands remain unchanged.
+
+Do not parse arbitrary report text into charts. The adapter explicitly supports the existing economic predicates and unambiguous USD-billion/percentage values; unsupported formats remain in evidence. New indicator schemas should integrate through validated domain operations and extend this adapter with provenance/currency/date tests. Never fill dated metrics from undated reviewed references or convert reported program payments into synthetic ledger entries. Unknown appropriation base commencement remains labeled; fiscal-year exclusion is not proof of legal validity. No cross-currency or cross-stage spending total is inferred.

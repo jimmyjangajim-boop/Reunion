@@ -4,6 +4,7 @@ import type { FormEvent, ReactNode } from "react";
 import NewRecordWorkspace from "./NewRecordWorkspace";
 import type { GuidedKind, RecordDefinition } from "../lib/record-registry.ts";
 import ReportCenter from "./ReportCenter";
+import TreasuryWorkspace from "./TreasuryWorkspace";
 import CabinetWorkspace from "./CabinetWorkspace";
 import BattleWorkspace from "./BattleWorkspace";
 import ArchiveWorkspace from "./ArchiveWorkspace";
@@ -1550,127 +1551,16 @@ export default function Console() {
                 </>
               )}
               {section === "Economy & Treasury" && (
-                <>
-                  <div className="toolbar">
-                    <button onClick={() => setForm("budget")}>
-                      + Appropriation
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("ledger")}
-                    >
-                      + Ledger entry
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("project")}
-                    >
-                      + Project
-                    </button>
-                  </div>
-                  <div className="record-grid">
-                    {selected
-                      .filter((r: R) => r.category === "economic")
-                      .map(factCard)}
-                  </div>
-                  <div className="alert">
-                    The reviewed annual framework is $255B, including $82B for
-                    defense. At the retained $160B revenue estimate, the
-                    projected deficit is $95B. Allocations, multi-year
-                    commitments, and actual cash spending remain separate.
-                  </div>
-                  <h2>Appropriation ledger</h2>
-                  <Table
-                    headers={[
-                      "Budget / program",
-                      "Fiscal year",
-                      "Appropriated",
-                      "Committed entries",
-                      "Disbursed entries",
-                      "Actual entries",
-                    ]}
-                    rows={d.budgets.map((b: R) => [
-                      b.name,
-                      b.fiscal_year,
-                      `${b.currency} ${b.appropriated_asof.toLocaleString()}`,
-                      ...["committed", "disbursed", "actual"].map((stage) =>
-                        d.ledger
-                          .filter(
-                            (l: R) =>
-                              l.budget_id === b.id &&
-                              l.stage === stage &&
-                              l.date <= date,
-                          )
-                          .reduce((sum: number, l: R) => sum + l.amount, 0)
-                          .toLocaleString(),
-                      ),
-                    ])}
-                  />
-                  <p className="footnote">
-                    Commitments, disbursements, and actuals are separate stage
-                    totals, never added together as spending. Transfers do not
-                    count as expenditure. Limits reflect recorded base amounts
-                    and dated report increases; the original base commencement
-                    may be unknown.
-                  </p>
-                  <Table
-                    headers={[
-                      "Date",
-                      "Stage",
-                      "Amount",
-                      "Budget / currency",
-                      "Reference",
-                      "Memo",
-                      "Authorization override",
-                      "Evidence",
-                    ]}
-                    rows={d.ledger.map((l: R) => [
-                      l.date,
-                      l.stage,
-                      l.amount.toLocaleString(),
-                      `${d.budgets.find((b: R) => b.id === l.budget_id)?.name || "Unknown"} / ${d.budgets.find((b: R) => b.id === l.budget_id)?.currency || "Unknown"}`,
-                      l.reference || "Legacy entry",
-                      l.memo,
-                      l.override_reason,
-                      <span key={l.id}>
-                        {l.evidence.map((s: R) => (
-                          <button
-                            key={s.report_action_id}
-                            className="text-button"
-                            onClick={() => openSource(s.source_id)}
-                          >
-                            Source lines {s.line_start}–{s.line_end}
-                          </button>
-                        ))}
-                      </span>,
-                    ])}
-                  />
-                  <h2>Economic project snapshots</h2>
-                  <Table
-                    headers={[
-                      "Project",
-                      "Observed",
-                      "Planned cost",
-                      "Approved",
-                      "Paid",
-                      "Committed",
-                      "State / evidence",
-                    ]}
-                    rows={d.projects.map((p: R) => [
-                      p.name,
-                      dateLabel(p),
-                      p.planned?.toLocaleString(),
-                      p.approved?.toLocaleString(),
-                      p.paid?.toLocaleString(),
-                      p.committed?.toLocaleString(),
-                      <>
-                        {p.operation}
-                        <br />
-                        {sourceLink(p)}
-                      </>,
-                    ])}
-                  />
-                </>
+                <TreasuryWorkspace
+                  date={date}
+                  snapshot={d.snapshot}
+                  records={d.records}
+                  projects={d.projects}
+                  budgets={d.budgets}
+                  ledger={d.ledger}
+                  onCreate={setForm}
+                  openSource={openSource}
+                />
               )}
               {section === "Territory & Population" && (
                 <>
