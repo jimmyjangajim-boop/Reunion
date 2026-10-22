@@ -26,6 +26,22 @@ test("Treasury charts, evidence and program windows follow the selected date", a
       exact: false,
     }),
   ).toBeVisible();
+  const totals = treasury.getByLabel("USD project totals", { exact: true });
+  await expect(totals).toContainText("7 programs");
+  await expect(totals).toContainText("USD 61.6B");
+  await expect(totals).toContainText("USD 24.72B");
+  await expect(totals).toContainText("USD 36.88B");
+  const oil = treasury
+    .getByRole("row")
+    .filter({ hasText: "National Oil Drilling" });
+  await expect(oil).toContainText("USD 13,000,000,000");
+  await expect(oil).toContainText("100.0% funded");
+  await expect(
+    treasury.getByRole("meter", {
+      name: "National Infrastructure Spine: funding coverage",
+      exact: true,
+    }),
+  ).toHaveAttribute("value", "1");
   await page.screenshot({
     path: info.outputPath("treasury.png"),
     fullPage: true,

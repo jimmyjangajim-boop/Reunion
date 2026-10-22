@@ -1,0 +1,158 @@
+{
+  "format": "rnas-project-reconciliation-v1",
+  "source_id": "REVIEW-src_bcb9f282108154c9",
+  "original_sha256": "3561412d6b408773a5abdd05d94f8c1c3531f7da5d8a7e41d005f0c9fe133656",
+  "original_path": "evidence/canon-review-2026-10-20/originals/Reunion campaign tracker(1).xlsx",
+  "as_of": "1992-10-03",
+  "rows": [
+    {
+      "id": "spine",
+      "row": 2,
+      "source_line": 74,
+      "name": "National Infrastructure Spine",
+      "planned": 20000000000,
+      "paid": 7000000000,
+      "committed": 13000000000,
+      "monthly_execution": 350000000,
+      "before": {
+        "id": "spine",
+        "name": "National Infrastructure Spine",
+        "operation": "unknown",
+        "date_json": "{\"precision\":\"day\",\"label\":\"1992-10-03\",\"earliest\":null,\"latest\":null,\"relation\":null}",
+        "planned": 20000000000,
+        "approved": null,
+        "paid": 7000000000,
+        "committed": 10100000000,
+        "currency": "USD",
+        "notes": "Ledger snapshot: total cost is not proof of legal appropriation. Source lines 122\u2013127.",
+        "source_id": "SRC-816bf7b7b98afecc74de"
+      }
+    },
+    {
+      "id": "dalmatia",
+      "row": 3,
+      "source_line": 75,
+      "name": "Dalmatian Development Program",
+      "planned": 6500000000,
+      "paid": 1100000000,
+      "committed": 5400000000,
+      "monthly_execution": 120000000,
+      "before": {
+        "id": "dalmatia",
+        "name": "Dalmatian Development Program",
+        "operation": "unknown",
+        "date_json": "{\"precision\":\"day\",\"label\":\"1992-10-03\",\"earliest\":null,\"latest\":null,\"relation\":null}",
+        "planned": 6500000000,
+        "approved": null,
+        "paid": 1100000000,
+        "committed": 1300000000,
+        "currency": "USD",
+        "notes": "Ledger snapshot: total cost is not proof of legal appropriation. Source lines 129\u2013134.",
+        "source_id": "SRC-816bf7b7b98afecc74de"
+      }
+    },
+    {
+      "id": "agriculture",
+      "row": 4,
+      "source_line": 76,
+      "name": "Agricultural Modernization",
+      "planned": 600000000,
+      "paid": 320000000,
+      "committed": 280000000,
+      "monthly_execution": 30000000,
+      "before": {
+        "id": "agriculture",
+        "name": "Agricultural Modernization",
+        "operation": "unknown",
+        "date_json": "{\"precision\":\"day\",\"label\":\"1992-10-03\",\"earliest\":null,\"latest\":null,\"relation\":null}",
+        "planned": 600000000,
+        "approved": null,
+        "paid": 320000000,
+        "committed": 280000000,
+        "currency": "USD",
+        "notes": "Ledger snapshot: total cost is not proof of legal appropriation. Source lines 136\u2013141.",
+        "source_id": "SRC-816bf7b7b98afecc74de"
+      }
+    },
+    {
+      "id": "energy",
+      "row": 5,
+      "source_line": 77,
+      "name": "Energy & Industrial Expansion",
+      "planned": 15000000000,
+      "paid": 5200000000,
+      "committed": 9800000000,
+      "monthly_execution": 250000000,
+      "before": {
+        "id": "energy",
+        "name": "Energy & Industrial Expansion",
+        "operation": "unknown",
+        "date_json": "{\"precision\":\"day\",\"label\":\"1992-10-03\",\"earliest\":null,\"latest\":null,\"relation\":null}",
+        "planned": 15000000000,
+        "approved": null,
+        "paid": 5200000000,
+        "committed": 9800000000,
+        "currency": "USD",
+        "notes": "Ledger snapshot: total cost is not proof of legal appropriation. Source lines 143\u2013148.",
+        "source_id": "SRC-816bf7b7b98afecc74de"
+      }
+    },
+    {
+      "id": "rail",
+      "row": 6,
+      "source_line": 78,
+      "name": "Rail Modernization",
+      "planned": 3700000000,
+      "paid": 1200000000,
+      "committed": 2500000000,
+      "monthly_execution": 40000000,
+      "before": {
+        "id": "rail",
+        "name": "Rail Modernization",
+        "operation": "unknown",
+        "date_json": "{\"precision\":\"day\",\"label\":\"1992-10-03\",\"earliest\":null,\"latest\":null,\"relation\":null}",
+        "planned": 3700000000,
+        "approved": null,
+        "paid": 1200000000,
+        "committed": 2500000000,
+        "currency": "USD",
+        "notes": "Ledger snapshot: total cost is not proof of legal appropriation. Source lines 150\u2013155.",
+        "source_id": "SRC-816bf7b7b98afecc74de"
+      }
+    },
+    {
+      "id": "defense-infra",
+      "row": 7,
+      "source_line": 79,
+      "name": "Defense Infrastructure",
+      "planned": 2800000000,
+      "paid": 1400000000,
+      "committed": 1400000000,
+      "monthly_execution": 80000000,
+      "before": {
+        "id": "defense-infra",
+        "name": "Defense Infrastructure",
+        "operation": "unknown",
+        "date_json": "{\"precision\":\"day\",\"label\":\"1992-10-03\",\"earliest\":null,\"latest\":null,\"relation\":null}",
+        "planned": 2800000000,
+        "approved": null,
+        "paid": 1400000000,
+        "committed": 1200000000,
+        "currency": "USD",
+        "notes": "Ledger snapshot: total cost is not proof of legal appropriation. Source lines 157\u2013162.",
+        "source_id": "SRC-816bf7b7b98afecc74de"
+      }
+    },
+    {
+      "id": "national-oil-drilling",
+      "row": 8,
+      "source_line": 80,
+      "name": "National Oil Drilling",
+      "planned": 13000000000,
+      "paid": 8500000000,
+      "committed": 4500000000,
+      "monthly_execution": 150000000,
+      "before": null
+    }
+  ]
+}
