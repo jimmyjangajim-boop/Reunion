@@ -501,16 +501,27 @@ export default function Console() {
     target: string,
   ) => {
     const r = get(entity, predicate);
+    const office = [...d.cabinet.leadership, ...d.cabinet.royal].find(
+      (row: R) => row.office === predicate,
+    );
     return (
       <button className="stat" onClick={() => go(target)}>
         <span className="eyebrow">{title}</span>
         <strong>
-          {r?.canon === "disputed"
-            ? "Disputed"
-            : (r?.value ?? "Unknown for this date")}
+          {office
+            ? office.status === "disputed"
+              ? "Disputed"
+              : (office.name ?? "Unknown for this date")
+            : r?.canon === "disputed"
+              ? "Disputed"
+              : (r?.value ?? "Unknown for this date")}
         </strong>
         <span className="stat-foot">
-          {r ? `${r.canon} · ${dateLabel(r)}` : "No dated evidence"}{" "}
+          {office
+            ? `${office.context}${office.observed_date ? " · " + office.observed_date : ""}`
+            : r
+              ? `${r.canon} · ${dateLabel(r)}`
+              : "No dated evidence"}{" "}
           <span>↗</span>
         </span>
       </button>
@@ -988,11 +999,8 @@ export default function Console() {
                         <div>
                           <span>Royal heir</span>
                           <strong>
-                            {d.government.find(
-                              (r: R) =>
-                                r.entity_id === "crown" &&
-                                r.predicate === "Heir",
-                            )?.value ?? "Unknown for this historical date"}
+                            {d.cabinet.royal.find((r: R) => r.office === "Heir")
+                              ?.name ?? "Unknown for this historical date"}
                           </strong>
                         </div>
                       </div>
@@ -1177,6 +1185,7 @@ export default function Console() {
                 <CabinetWorkspace
                   cabinet={d.cabinet}
                   leadershipOnly
+                  onNavigate={() => go("Cabinet & Institutions")}
                   onAppoint={() => startRecord("appointment")}
                   onOffice={() => setForm("office")}
                   onDecision={() => setForm("assertion")}
@@ -1186,6 +1195,7 @@ export default function Console() {
               {section === "Cabinet & Institutions" && (
                 <CabinetWorkspace
                   cabinet={d.cabinet}
+                  onNavigate={() => go("Government")}
                   onAppoint={() => startRecord("appointment")}
                   onOffice={() => setForm("office")}
                   onSource={openSource}
