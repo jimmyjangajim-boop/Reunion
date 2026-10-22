@@ -5,6 +5,7 @@ import NewRecordWorkspace from "./NewRecordWorkspace";
 import type { GuidedKind, RecordDefinition } from "../lib/record-registry.ts";
 import ReportCenter from "./ReportCenter";
 import TreasuryWorkspace from "./TreasuryWorkspace";
+import ParliamentWorkspace from "./ParliamentWorkspace";
 import CabinetWorkspace from "./CabinetWorkspace";
 import BattleWorkspace from "./BattleWorkspace";
 import ArchiveWorkspace from "./ArchiveWorkspace";
@@ -1191,151 +1192,19 @@ export default function Console() {
                 />
               )}
               {section === "Parliament" && (
-                <>
-                  <div className="section-heading">
-                    <h2>Assembly record</h2>
-                    <div className="inline-controls">
-                      <button onClick={() => startRecord("bill")}>
-                        + Bill
-                      </button>
-                      <button
-                        className="secondary"
-                        onClick={() => setForm("vote")}
-                      >
-                        Record vote
-                      </button>
-                    </div>
-                  </div>
-                  {d.chambers.map((c: R) => (
-                    <section key={c.id} className="panel">
-                      <div className="split">
-                        <h2>{c.actual_seats} seats in practice</h2>
-                        <Badge tone="red">
-                          Constitutional maximum {c.legal_max}
-                        </Badge>
-                      </div>
-                      <p className="muted">
-                        Snapshot {c.date}. Occupied seats:{" "}
-                        {c.occupied_seats ?? "not separately documented"}.{" "}
-                        {c.session_status}.
-                      </p>
-                      <div className="seat-bar">
-                        {d.parties
-                          .filter((p: R) => p.chamber_id === c.id)
-                          .map((p: R, i: number) => (
-                            <div
-                              key={p.id}
-                              title={`${p.party}: ${p.seats}`}
-                              style={{
-                                flex: p.seats,
-                                background: [
-                                  "#374d72",
-                                  "#b36c54",
-                                  "#b3985b",
-                                  "#55675d",
-                                  "#8795a9",
-                                  "#b4b8bd",
-                                ][i % 6],
-                              }}
-                            />
-                          ))}
-                      </div>
-                      <Table
-                        headers={[
-                          "Party / bloc",
-                          "Seats",
-                          "Government support",
-                        ]}
-                        rows={d.parties
-                          .filter((p: R) => p.chamber_id === c.id)
-                          .map((p: R) => [p.party, p.seats, p.support])}
-                      />
-                    </section>
-                  ))}
-                  <h2>Legislation</h2>
-                  <p className="muted">
-                    The register shows the furthest reported stage. Use the
-                    sourced history below for dates; undated reports do not
-                    establish a dated snapshot.
-                  </p>
-                  <Table
-                    headers={[
-                      "Identifier",
-                      "Bill",
-                      "Sponsor",
-                      "Stage",
-                      "Introduction",
-                      "Effective",
-                      "Evidence",
-                    ]}
-                    rows={d.bills.map((b: R) => [
-                      b.identifier,
-                      b.title || "Title not reported",
-                      b.sponsor || "Not recorded",
-                      b.stage,
-                      b.introduced_date,
-                      b.effective_date,
-                      b.source_id ? (
-                        <button
-                          className="text-button"
-                          onClick={() => openSource(b.source_id)}
-                        >
-                          Source
-                        </button>
-                      ) : (
-                        "Not recorded"
-                      ),
-                    ])}
-                  />
-                  <h2>Reported legislative history</h2>
-                  <Table
-                    headers={[
-                      "Bill",
-                      "Stage",
-                      "Reported date",
-                      "Effective date",
-                      "Evidence",
-                    ]}
-                    rows={d.billEvents.map((e: R) => [
-                      e.identifier,
-                      e.stage,
-                      e.date || "Unknown",
-                      e.effective_date || "Unknown",
-                      <span key={e.id}>
-                        {e.evidence.map((s: R) => (
-                          <button
-                            key={s.report_action_id}
-                            className="text-button"
-                            onClick={() => openSource(s.source_id)}
-                          >
-                            Source lines {s.line_start}–{s.line_end}
-                          </button>
-                        ))}
-                      </span>,
-                    ])}
-                  />
-                  <h2>Vote history</h2>
-                  <Table
-                    headers={[
-                      "Date",
-                      "Yes",
-                      "No",
-                      "Abstain",
-                      "Absent",
-                      "Vacant",
-                      "Result / configured rule",
-                    ]}
-                    rows={d.votes.map((v: R) => [
-                      v.date,
-                      v.yes,
-                      v.no,
-                      v.abstain,
-                      v.absent,
-                      v.vacancies,
-                      `${v.result}; ${v.rule_source}`,
-                    ])}
-                  />
-                </>
+                <ParliamentWorkspace
+                  date={date}
+                  chambers={d.chambers}
+                  parties={d.parties}
+                  bills={d.bills}
+                  events={d.billEvents}
+                  votes={d.votes}
+                  timeline={d.timeline}
+                  onBill={() => startRecord("bill")}
+                  onVote={() => setForm("vote")}
+                  onDate={setDate}
+                  openSource={openSource}
+                />
               )}
               {section === "Armed Forces" && (
                 <>

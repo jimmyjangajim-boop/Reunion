@@ -2086,3 +2086,148 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+.parliament-masthead {
+  background: var(--navy, #172e3b);
+  color: #f4f0e6;
+  padding: 1.6rem;
+  border-top: 3px solid var(--gold, #ad9361);
+}
+.parliament-masthead h2 {
+  font:
+    2rem Georgia,
+    serif;
+  color: inherit;
+  margin: 0.5rem 0;
+}
+.parliament-constitutional {
+  border-left: 3px solid var(--gold, #ad9361);
+  background: #f0ecdf;
+  padding: 1rem;
+}
+.parliament-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem;
+  background: #faf8f2;
+  border: 1px solid var(--line);
+}
+.parliament-seats {
+  width: 100%;
+  display: block;
+  max-height: 390px;
+}
+.parliament-seats text {
+  font:
+    18px Georgia,
+    serif;
+  fill: #243b4c;
+}
+.parliament-seats .chart-subtitle {
+  font:
+    11px Arial,
+    sans-serif;
+}
+.party-legend {
+  display: grid;
+  gap: 0.4rem;
+}
+.party-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+}
+.party-choice strong {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.party-choice[aria-pressed="true"] {
+  outline: 2px solid var(--gold, #ad9361);
+  outline-offset: 1px;
+}
+.party-swatch {
+  width: 0.8rem;
+  height: 0.8rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.party-choice small {
+  font-size: 0.75rem;
+}
+.party-profile,
+.bill-profile {
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  background: #f0f3ed;
+  border: 1px solid var(--line);
+}
+.parliament-workspace details {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+}
+.parliament-workspace summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.parliament-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+.parliament-filters {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.parliament-filters label:first-child {
+  flex: 1;
+  min-width: 12rem;
+}
+.parliament-workspace td {
+  max-width: 30rem;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+  .parliament-composition {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1rem;
+  }
+  .parliament-masthead {
+    padding: 1rem;
+  }
+  .party-choice {
+    min-height: 44px;
+  }
+}
+.parliament-filters label {
+  display: grid;
+  gap: 0.4rem;
+}
+.parliament-filters input,
+.parliament-filters select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+}
+.parliament-filters input:focus-visible,
+.parliament-filters select:focus-visible {
+  outline: 2px solid var(--gold, #ad9361);
+  outline-offset: 2px;
+}
+.parliament-seats text {
+  font-size: 16px;
+}
+.parliament-seats .chart-subtitle {
+  font-size: 9px;
+}

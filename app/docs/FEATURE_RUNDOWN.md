@@ -1,3 +1,13 @@
+# Parliament workspace — 22 October 2026
+
+Completed a bounded Parliament overview/registry increment. Read PARLIAMENT_WORKSPACE.md for exact scope and limits. The semicircle has 400 source-assigned seat dots, six selectable party profiles, and separate constitutional cap 300/unknown occupied count. Composition and suspension apply only to the recorded observation date; no automatic restoration is inferred. Historical observation buttons change the main date selector. Bills/votes default to dated views with an explicit full-register mode. Bill profiles/history preserve sources and do not use later or undated enactment as earlier status. The bill/sponsor workflow remains shared; future bill entries are available in All recorded dates. Parliamentary events preserve canon/date precision and exclude archive-only 1725.
+
+Individual member mandates/terms are not available. Members explains that absence; sponsors and party totals are not treated as named members. Party profiles are bounded count/support/source profiles, not invented biographies. Full member authoring, election series, sitting calendar and repeal model remain future work.
+
+No schema, dependency, canon, national budget, corrected project or other data change. All 59 tables match the checkpoint and isolated portable restore. Validation: 183 domain/API tests, 38 desktop/emulated-phone checks, typecheck, build and 14 source hashes passed. Before-edit backup app/backups/before-parliament-2026-10-22.sqlite and .zip (46 verified files); restore proof app/data/parliament-restore-proof.sqlite; preservation evidence app/backups/parliament-preservation-check.json. Runtime files remain ignored.
+
+Branch feature/parliament-2026-10-22 builds on project-finance commit 5bb7ab0; earlier PR branches remain dependencies. Hosted Site unchanged. Next continue Cabinet/government or military usability and universal search in separate tested increments under USER_RECORDS_DIRECTIVE.txt, retaining existing good Cabinet work. Do not restart the architecture audit or expand simulation. Individual member mandates remain explicitly unfinished.
+
 # Project finance reconciliation — 22 October 2026
 
 User requested project-finance comparison and fixes against Reunion campaign tracker.xlsx. See PROJECT_FINANCE_AUDIT.md for findings, exact cell references and corrected values. The supplied workbook equals the archived reviewed tracker byte-for-byte. Reconciled the stale recovery project projection: Spine committed 10.1B→13B, Dalmatia 1.3B→5.4B, Defense Infrastructure 1.2B→1.4B; added National Oil Drilling (13B cost, 8.5B paid, 4.5B committed). Seven projects total 61.6B cost, 24.72B source-paid, 36.88B remaining committed, zero funding gap. All are funded; no completion or production is inferred.
