@@ -191,6 +191,17 @@ export async function GET(req: NextRequest) {
       db,
       "SELECT b.*,s.person_id sponsor_id FROM bills b LEFT JOIN bill_sponsors s ON s.bill_id=b.id",
     );
+    const billEvents = all(
+      db,
+      "SELECT e.*,b.identifier FROM bill_events e JOIN bills b ON b.id=e.bill_id ORDER BY e.date,e.recorded_at,e.rowid",
+    ).map((e) => ({
+      ...e,
+      evidence: all(
+        db,
+        "SELECT * FROM bill_event_evidence WHERE event_id=?",
+        e.id,
+      ),
+    }));
     const cabinet = cabinetView({
       date,
       records: viewData.records,
@@ -201,6 +212,7 @@ export async function GET(req: NextRequest) {
       appointments,
       timeline,
       bills,
+      billEvents,
     });
     return NextResponse.json({
       date,
@@ -220,17 +232,7 @@ export async function GET(req: NextRequest) {
       chambers: all(db, "SELECT * FROM chambers"),
       parties: all(db, "SELECT * FROM party_seats"),
       bills,
-      billEvents: all(
-        db,
-        "SELECT e.*,b.identifier FROM bill_events e JOIN bills b ON b.id=e.bill_id ORDER BY e.date,e.recorded_at,e.rowid",
-      ).map((e) => ({
-        ...e,
-        evidence: all(
-          db,
-          "SELECT * FROM bill_event_evidence WHERE event_id=?",
-          e.id,
-        ),
-      })),
+      billEvents,
       votes: all(db, "SELECT * FROM votes"),
       units: all(db, "SELECT * FROM units"),
       unitStates: all(db, "SELECT * FROM unit_states ORDER BY date"),

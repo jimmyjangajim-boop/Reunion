@@ -1,3 +1,7 @@
+# Cabinet/Government directory update
+
+See docs/CABINET_DIRECTORY_REFINEMENT.md for connected office/person profiles, corrected historical views and preserved data.
+
 # Parliament display update
 
 See docs/PARLIAMENT_WORKSPACE.md for the dated chart, party profiles, legislative/vote registers and explicit missing member dataset. All existing data remains unchanged.

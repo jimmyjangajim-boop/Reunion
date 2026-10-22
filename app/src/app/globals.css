@@ -2231,3 +2231,91 @@ body {
 .parliament-seats .chart-subtitle {
   font-size: 9px;
 }
+.directory-navigation {
+  margin: 0 0 1rem;
+}
+.government-branch > h3 {
+  font-family: Georgia, serif;
+  margin: 1.2rem 0 0.65rem;
+}
+.profile-view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.profile-view-tabs button[aria-pressed="true"] {
+  outline: 2px solid var(--gold, #ad9361);
+  outline-offset: 1px;
+}
+.profile-date-context {
+  padding: 0.8rem;
+  border-left: 3px solid var(--gold, #ad9361);
+  background: #f4f1e8;
+}
+.ministry-link {
+  text-align: left;
+}
+.cabinet-table td small {
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+@media (max-width: 700px) {
+  .cabinet-roster {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+  .cabinet-roster table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+  .cabinet-roster thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .cabinet-roster tbody {
+    display: grid;
+    gap: 1rem;
+  }
+  .cabinet-roster tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--line);
+    background: #fff;
+  }
+  .cabinet-roster tbody th {
+    grid-column: 1/-1;
+    padding: 0.85rem;
+  }
+  .cabinet-roster tbody td {
+    padding: 0.65rem 0.85rem;
+    min-width: 0;
+    border: 0;
+  }
+  .cabinet-roster tbody td:nth-child(2),
+  .cabinet-roster tbody td:last-child {
+    grid-column: 1/-1;
+  }
+  .cabinet-roster td::before {
+    display: block;
+    content: attr(data-label);
+    font-size: 0.7rem;
+    color: var(--muted, #63706d);
+    margin-bottom: 0.3rem;
+  }
+  .cabinet-roster td:nth-child(2) .person-link {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .cabinet-roster tbody th {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+}

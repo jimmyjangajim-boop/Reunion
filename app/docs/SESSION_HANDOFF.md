@@ -1,3 +1,13 @@
+# Cabinet/Government directory refinement — 22 October 2026
+
+Extended the existing directory after explicit user approval. See CABINET_DIRECTORY_REFINEMENT.md. Ministry and official names open connected office/person profiles. Appointment/affiliation fields remain unknown when unsupported. Government separates Presidency and Crown; navigation connects Government and Cabinet. Mobile roster entries are labeled and readable without horizontal scrolling.
+
+Read-model corrections: office-specific term history; explicit dated leadership appointment resolution; common Cabinet projection for dashboard leadership widgets and directory; dated personal events/facts and legislation (shared billAtDate); separate undated references; all-dates history/source disclosures; no stale copied profile across date/payload changes. Exact role names only; no new canon or speculative officials. Original finance term dates remain undated and the reviewed succession fact is preserved, not silently transformed into term validity.
+
+All 59 live tables unchanged and identical to an isolated portable restore. No migration/dependency/financial edits. Validation: 190 domain/API tests, 44 desktop/emulated-phone browser checks, typecheck, build and 14 original-source hashes. Before-edit backups: app/backups/before-cabinet-directory-2026-10-22.sqlite and .zip (46 files). Restore proof: app/data/cabinet-directory-restore-proof.sqlite. Preservation report: app/backups/cabinet-directory-preservation-check.json (ignored).
+
+Branch feature/cabinet-directory-2026-10-22 builds on Parliament commit 0824dfcd. Prior review branches remain dependencies. Hosted Site unchanged. Next military organizational/administrative views and universal search in bounded increments. Do not restart architecture audit or expand simulation. Individual parliamentary mandate dataset and richer institutional/biographical histories remain unfinished.
+
 # Parliament workspace — 22 October 2026
 
 Completed a bounded Parliament overview/registry increment. Read PARLIAMENT_WORKSPACE.md for exact scope and limits. The semicircle has 400 source-assigned seat dots, six selectable party profiles, and separate constitutional cap 300/unknown occupied count. Composition and suspension apply only to the recorded observation date; no automatic restoration is inferred. Historical observation buttons change the main date selector. Bills/votes default to dated views with an explicit full-register mode. Bill profiles/history preserve sources and do not use later or undated enactment as earlier status. The bill/sponsor workflow remains shared; future bill entries are available in All recorded dates. Parliamentary events preserve canon/date precision and exclude archive-only 1725.
