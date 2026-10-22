@@ -1,3 +1,7 @@
+# Parliament display update
+
+See docs/PARLIAMENT_WORKSPACE.md for the dated chart, party profiles, legislative/vote registers and explicit missing member dataset. All existing data remains unchanged.
+
 # Project finance correction
 
 See docs/PROJECT_FINANCE_AUDIT.md: seven projects reconciled to the archived tracker; approved national budget unchanged.

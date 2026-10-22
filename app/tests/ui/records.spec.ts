@@ -126,6 +126,7 @@ test("Parliament creates a bill and missing sponsor through the central reviewed
   await page
     .getByRole("button", { name: "Open related registry", exact: true })
     .click();
+  await page.getByLabel("Parliament registry dates").selectOption("all");
   await expect(
     page.getByRole("cell", { name: title, exact: true }),
   ).toBeVisible();
