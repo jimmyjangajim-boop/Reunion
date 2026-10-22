@@ -1,0 +1,65 @@
+# RNAS architecture
+
+Updated 22 October 2026. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed.
+
+## Components and boundaries
+
+| Layer | Important files | Responsibility |
+| --- | --- | --- |
+| UI | `app/src/components/Console.tsx` | Navigation, loading, shared forms, remaining department displays and dialogs. Still too large; extract departments incrementally when their workflows change. |
+| Specialized UI | `CabinetWorkspace.tsx`, `BattleWorkspace.tsx`, `ArchiveWorkspace.tsx`, `ReportCenter.tsx` | Task-specific views and proposal editing. Never execute SQL or infer approved historical facts. |
+| HTTP | `app/src/app/api/{rnas,reports,import,backup}/route.ts` | Request guards, input transport, responses. Read SQL remains in the aggregate overview. Ordinary record mutations delegate to shared commands. |
+| Record commands | `app/src/lib/record-commands.ts` | Explicit entity, sourced assertion and timeline entry; validation, transaction and audit. |
+| Report orchestration | `app/src/lib/reports.ts` | Preserve exact originals, stage typed proposals, review revisions, reject/defer/partially approve, validate current state and atomically apply selected effects. |
+| Domain operations | `admin.ts`, `legislation.ts`, `financial-reports.ts`, `battle-reports.ts`, `unit-hierarchy.ts` | Shared movement, appointment, vote, dated unit hierarchy, legislation, finance and battle invariants. |
+| Historical canon | `canon.ts`, `dates.ts`, `administration-view.ts`, `cabinet-view.ts`, `archive-view.ts`, `chronology.ts` | Evidence authority, approval and supersession, partial dates, dated read models and narrowly authorized chronology corrections. |
+| Storage | `db.ts`, `app/migrations/` | SQLite connection, prepared-query helpers, migration application, transactions and audit append. |
+| Recovery | `database-validation.ts`, `app/scripts/{backup,restore,export-portable,check-integrity}.ts`, `verify-portable.py` | Consistent backups, portable evidence manifest verification, isolated restore and integrity/FK/migration validation. |
+| Simulation | Scenario branch of `reports.ts`; `docs/SIMULATION_DESIGN.md` | Persist hypothetical reports separately and prohibit their application to canon. No simulation engine or AI provider is implemented. |
+
+Paths without a directory in the table are under `app/src/lib/` unless otherwise specified. Read helpers return broad `Row` objects in many places; stronger domain DTOs remain incremental work, not an invitation to add a generic repository framework.
+
+## Database boundaries
+
+- Runtime selection: `RNAS_DB`, otherwise `app/data/reunion.sqlite`. SQLite persists across process restarts; Git and a deleted development environment do not preserve later runtime records automatically.
+- `openDatabase()` enables foreign keys/WAL, applies pending numbered migrations and runs the existing narrowly authorized Altis correction. It is not a read-only inspection API. Recovery verification opens `DatabaseSync` with `readOnly: true` instead.
+- Append migrations; never rewrite applied migrations. This audit adds no migration. Current schema is 1–7.
+- Original sources and extracted text retain their separate hashes. Sources, review decisions, report reviews and applicable evidence/history tables are protected by database triggers. Canon status and operational status are separate.
+- Keep original evidence and checked JSON seeds in Git. Exclude live SQLite databases, runtime backups, staged uploads, credentials, dependencies and builds.
+- The approved $255B annual/$82B defense framework is retained as canon. It is not automatically a set of legally appropriated operational accounts or realized cash transactions. Do not manufacture accounts/spending to fill the Treasury screen.
+
+## Commands and transaction ownership
+
+- `adminAction()` owns a transaction for ordinary explicit administration forms. Low-level movement/appointment/vote/unit-state helpers operate inside the caller's transaction when several effects are combined.
+- Manual `ledgerEntry()` delegates to `recordManualFinancial()`, which owns its transaction. `adminAction()` dispatches ledger requests before opening its generic transaction. Do not nest `transaction()`; SQLite's helper uses `BEGIN IMMEDIATE` and has no savepoint abstraction.
+- Manual finance and approved reports use the same private `writeFinancial()` and `validateFinancial()`. Both enforce dated funding, future cumulative consequences, whole units, stage-specific references, explicit appropriation increases and reasoned overrun overrides. Report evidence adds the exact report-action/source lines; manual evidence is preserved through the sourced entry and audit.
+- `approveReport()` owns the transaction for selected report actions, timeline, evidence and audit. `recordFinancial()`, `recordLegislation()` and `recordBattleReport()` participate in it. A failure rolls back the whole selected set.
+- Battles created from the military page or National Report Center use the Battles reviewed-report workflow. Old direct `battle`/`casualty` administration commands reject with guidance. Imported legacy rows remain intact. Do not restore those direct-write alternatives.
+- Reviewed canon imports cannot use generic rollback. A genuine reversal needs an explicit reviewed, dependency-aware operation, or restoration of a verified complete backup. Rejected replacements with superseded predecessors are not a valid reversal.
+
+## Historical semantics
+
+`dates.ts` retains exact days, months, years, ranges, relative dates and unknowns. Derived bounds assist retrieval; they do not establish invented event days.
+
+`snapshot()` resolves applicable canonical observations. `administrationView()` separately excludes archive-only 1725 material and superseded leadership from active administration. Archive/export access must keep the preserved history available.
+
+Cabinet uses `cabinetView()` rather than rendering all raw assertions. The OOB UI now uses the server's `unitSnapshot()`: latest preceding observations, explicitly labeled as observations. Hierarchy insertions validate every affected later change date until the unit's next observation. Do not infer new personnel/readiness from elapsed time.
+
+Some other department registers still show complete history under a selected dashboard date. Their semantics need explicit labeling and domain selectors before adding historical calculations. Do not globally filter imprecise records by guessed exact days.
+
+## Integrating a new feature
+
+1. Define the smallest domain operation and its invariants, dates, missing-data behavior and explicit effects.
+2. Reuse that operation from both structured forms and typed report approval. Providers may propose schema-validated actions; they must never execute generated SQL.
+3. Define transaction ownership. Preserve original input and append source-linked approval/audit history. Scenarios remain outside canon.
+4. Add a read model suited to the workflow. Keep database access out of client components; avoid another disconnected generic CRUD form.
+5. Add cross-system tests for failure atomicity, stale proposals, corroboration/conflicts, historical backdating and restart persistence as applicable.
+6. Run relevant tests, typecheck, original-source hashes, production build and critical browser flows. Update status/handoff and feature limitations.
+
+## Known maintenance work
+
+The aggregate overview still loads almost every domain and evidence per assertion. Prefer department-specific bounded read queries as archive volume grows. `Console.tsx`, importer and battle UI remain large; split along real workflows when editing them. The legacy event-draft path still parallels the Report Center for movement/time actions. Consolidate preserved drafts carefully rather than deleting history. No runtime dependency cycle was found in this audit's static import scan; it is not a whole-program proof.
+
+Local commands now bind to `127.0.0.1`. Origin checks are browser protections, not authentication. Network/public deployment needs an explicit access-control design; this audit does not provide one.
+
+See `app/docs/ARCHITECTURE_AUDIT.md`, `app/docs/FEATURE_RUNDOWN.md` and `app/docs/BACKUP_AND_RESTORE.md`.

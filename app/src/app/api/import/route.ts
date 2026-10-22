@@ -13,6 +13,7 @@ import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { getDb } from "../../../lib/db.ts";
 import { stageFiles } from "../../../lib/importer.ts";
+import { pythonCommand } from "../../../lib/python.ts";
 export const runtime = "nodejs";
 function walk(p: string): string[] {
   return readdirSync(p, { withFileTypes: true }).flatMap((e) =>
@@ -50,12 +51,15 @@ export async function POST(req: NextRequest) {
           out = path.join(temp, "expanded-" + i);
         writeFileSync(archive, content);
         const p = spawnSync(
-          "python3",
+          pythonCommand(),
           [path.resolve("scripts/extract_zip.py"), archive, out],
           { encoding: "utf8", timeout: 20000 },
         );
         if (p.status !== 0)
-          throw Error("ZIP rejected: " + p.stderr.slice(-1000));
+          throw Error(
+            "ZIP rejected: " +
+              (p.error?.message ?? p.stderr?.slice(-1000) ?? "Python failed"),
+          );
         for (const f of walk(out)) {
           if (!/\.(txt|md|csv|tsv|json|jsonl|png|jpe?g|webp|gif)$/i.test(f))
             continue;

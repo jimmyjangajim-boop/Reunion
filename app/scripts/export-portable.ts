@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 import { openDatabase } from "../src/lib/db.ts";
+import { pythonCommand } from "../src/lib/python.ts";
 const output = path.resolve(
   process.argv[2] ??
     path.join(
@@ -20,11 +21,15 @@ try {
   const snapshot = path.join(temp, "reunion.sqlite");
   await backup(db, snapshot);
   const result = spawnSync(
-    "python3",
+    pythonCommand(),
     ["scripts/package-backup.py", snapshot, path.resolve("evidence"), output],
     { stdio: "inherit" },
   );
-  if (result.status !== 0) throw Error("Portable backup failed");
+  if (result.status !== 0)
+    throw Error(
+      "Portable backup failed: " +
+        (result.error?.message ?? "check Python output"),
+    );
   console.log("Portable database and evidence backup:", output);
 } finally {
   db.close();

@@ -1295,8 +1295,9 @@ export default function Console() {
                   <section className="panel">
                     <h2>Order of battle · {date}</h2>
                     <p className="muted">
-                      Only dated unit-state observations are shown. Undocumented
-                      subsequent strength remains unknown.
+                      Latest recorded observation on or before the selected
+                      date. These are recorded observations, not a simulated
+                      update of strength or readiness.
                     </p>
                     <Table
                       headers={[
@@ -1308,17 +1309,15 @@ export default function Console() {
                         "Readiness",
                       ]}
                       rows={d.units.map((u: R) => {
-                        const s = d.unitStates.find(
-                          (r: R) => r.unit_id === u.id && r.date === date,
-                        );
+                        const s = d.unitSnapshot.find((r: R) => r.id === u.id);
                         return [
                           u.name,
                           `${u.branch} / ${u.unit_type}`,
                           s?.parent_id
                             ? d.units.find((r: R) => r.id === s.parent_id)?.name
                             : "Unknown / independent not established",
-                          s?.personnel_low
-                            ? s.personnel_high
+                          s?.personnel_low != null
+                            ? s.personnel_high != null
                               ? `${s.personnel_low.toLocaleString()}–${s.personnel_high.toLocaleString()}`
                               : `${s.personnel_low.toLocaleString()}+`
                             : "Unknown",
@@ -2057,8 +2056,6 @@ export default function Console() {
                       project: "Record economic project",
                       asset: "Register major asset",
                       assignment: "Assign major asset",
-                      battle: "Record a battle",
-                      casualty: "Record casualty report",
                       location: "Add geographic location",
                       treaty: "Register treaty",
                       parse_event: "Enter roleplay development",
@@ -2702,9 +2699,6 @@ export default function Console() {
                       "committed",
                       "disbursed",
                       "actual",
-                      "returned",
-                      "canceled",
-                      "transfer",
                     ]}
                     required
                   />
@@ -2715,8 +2709,27 @@ export default function Console() {
                     required
                   />
                   <Field
-                    name="memo"
-                    label="Purpose / transaction reference"
+                    name="reference"
+                    label="Transaction reference"
+                    help="Use the same reference for repeated evidence of one transaction."
+                    required
+                  />
+                  <Field
+                    name="appropriation_basis"
+                    label="Additional appropriation confirmation"
+                    options={[
+                      { value: "", label: "Not an additional appropriation" },
+                      {
+                        value: "increase",
+                        label: "Increase the existing limit by this amount",
+                      },
+                    ]}
+                    help="Required only for the appropriated stage. Other stages do not change the limit."
+                  />
+                  <Field name="memo" label="Purpose" type="textarea" required />
+                  <Field
+                    name="source_text"
+                    label="Original financial authority / evidence"
                     type="textarea"
                     required
                   />
@@ -2820,72 +2833,6 @@ export default function Console() {
                   <Field
                     name="explanation"
                     label="Assignment authority"
-                    type="textarea"
-                    required
-                  />
-                </>
-              )}
-              {form === "battle" && (
-                <>
-                  <Field name="name" label="Battle / operation" required />
-                  <Dates />
-                  <Field name="theater" label="Theater" />
-                  <Field
-                    name="outcome"
-                    label="Outcome, if resolved"
-                    type="textarea"
-                  />
-                  <Field
-                    name="canon"
-                    label="Canon approval"
-                    options={["provisional", "confirmed", "disputed"]}
-                    value="provisional"
-                  />
-                  <Field
-                    name="source_text"
-                    label="Original report"
-                    type="textarea"
-                    required
-                  />
-                </>
-              )}
-              {form === "casualty" && (
-                <>
-                  <Field
-                    name="battle_id"
-                    label="Battle"
-                    options={d.battles.map((b: R) => ({
-                      value: b.id,
-                      label: b.name,
-                    }))}
-                    required
-                  />
-                  <Field
-                    name="unit_id"
-                    label="Unit (optional)"
-                    options={unitOptions}
-                  />
-                  <Field
-                    name="report_group"
-                    label="Distinct report / phase identifier"
-                    required
-                  />
-                  <Field
-                    name="category"
-                    label="Casualty category"
-                    options={["KIA", "WIA", "MIA", "POW", "unspecified"]}
-                    required
-                  />
-                  <Field name="count" label="Count" type="number" required />
-                  <Field
-                    name="canon"
-                    label="Canon approval"
-                    options={["provisional", "confirmed", "disputed"]}
-                    value="provisional"
-                  />
-                  <Field
-                    name="source_text"
-                    label="Evidence and accounting caveats"
                     type="textarea"
                     required
                   />

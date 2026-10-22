@@ -1,3 +1,19 @@
+# Session handoff, 22 October 2026 — architecture and recovery
+
+User priority: audit/repair architecture before any additional major RNAS features, preserve canon and approved budget, then provide every-feature rundown. Attachments were references, not a new six-step redesign instruction. Read repository ARCHITECTURE.md, this folder ARCHITECTURE_AUDIT.md, FEATURE_RUNDOWN.md and AUDIT_VALIDATION.md first. These supersede the earlier next-task priority below.
+
+Checkout: local `Reunion/rnas`, application in `app/`, work branch `audit/architecture-2026-10-22`. Starting commit 485a3cf62327807def3ae18e8a47aa7d4ab8a156 is protected by local checkpoint tag, GitHub checkpoint branch and separate Git bundle. Never commit runtime databases/backups.
+
+The old chat was deleted and no earlier live RNAS database was recovered in the checked locations. Rebuilt reviewed baseline has 123 sources, 90 entities, 157 assertions, 47 timeline rows, 27 battles, 5 units and zero later reports/operational budgets/ledger entries. Approved historical financial assertions remain intact. Do not infer that the empty operational ledger is lost canon or populate it automatically.
+
+Database-only and portable restore succeeded into separate destinations; all 54 tables match the pre-edit backup exactly. Working database is `app/data/reunion.sqlite`. Portable backup is `app/backups/reunion-recovered-baseline-2026-10-22.zip`; keep independently of chats. Details and verification JSON paths are in AUDIT_VALIDATION.md.
+
+Repairs: reviewed-import rollback guards; shared financial validation/write for manual/report paths; future hierarchy checks; shared restore/FK/migration validator; platform-aware Python for portable/ZIP; ordinary record commands outside HTTP; removal of legacy battle/casualty bypass; loopback defaults and shared OOB snapshot. No migrations or canonical/financial row edits. Direct battle/casualty admin commands now reject; use reviewed Battles/Report Center.
+
+Fresh checks: 156 domain/API tests, 26 desktop/phone browser flows, typecheck, production build and all 14 source hashes passed. Prior browser-pending statements below are historical. The hosted Site remains unchanged. No general simulation/AI extraction, full accounting/procurement or complete historical department semantics is claimed.
+
+Next: retain backups; resolve per-register historical semantics and administrative projection tests; extract remaining department contracts/UI and bounded overview reads; consolidate legacy event drafts. Add new major domains only through shared reviewed operations. Preserve the open calendar questions and approved $255B/$82B framework.
+
 # Session handoff, 21 October 2026
 
 ## Start here
