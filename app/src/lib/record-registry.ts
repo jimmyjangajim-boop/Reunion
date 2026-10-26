@@ -210,3 +210,26 @@ export type RecordDraft = {
   target_id: string | null;
   updated_at: string;
 };
+
+export type SavedRecordDetails = {
+  id: string;
+  kind: GuidedKind;
+  title: string;
+  type: string;
+  fields: { label: string; value: string }[];
+  links: {
+    kind: "entity" | "unit";
+    id: string;
+    label: string;
+    relationship: string;
+  }[];
+  evidence: {
+    source_id: string;
+    filename: string;
+    line_start: number;
+    line_end: number;
+  }[];
+  currentSource: { id: string; filename: string } | null;
+  savedAt: string;
+  approvalReason: string;
+};

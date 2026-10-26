@@ -22,6 +22,7 @@ import AppointmentForm from "./records/AppointmentForm";
 import MilitaryForm from "./records/MilitaryForm";
 import ArchiveEventForm from "./records/ArchiveEventForm";
 import TreatyForm from "./records/TreatyForm";
+import SavedRecordDetails from "./SavedRecordDetails";
 import type { FormProps } from "./records/Fields";
 
 type DraftResult = RecordDraft & { receipt?: RecordReview };
@@ -100,13 +101,18 @@ export default function NewRecordWorkspace({
   onExisting,
   onSaved,
   onOpen,
+  onSource,
+  onRelated,
 }: {
   context: RecordContext;
   initialKind?: GuidedKind;
   onExisting: (definition: RecordDefinition) => void;
   onSaved: () => Promise<void>;
   onOpen: (kind: GuidedKind) => void;
+  onSource: (id: string, start?: number, end?: number) => void;
+  onRelated: (kind: "entity" | "unit", id: string) => void;
 }) {
+  const [detailsId, setDetailsId] = useState<string | null>(null);
   const initial = initialKind ? guidedDefinition(initialKind) : null;
   const [category, setCategory] = useState<RecordCategory | null>(
       initial?.category ?? null,
@@ -474,10 +480,28 @@ export default function NewRecordWorkspace({
             receipt are preserved.
           </p>
           {review && <Review review={review} />}
+          <button
+            type="button"
+            className="secondary"
+            aria-expanded={detailsId === draft.id}
+            onClick={() =>
+              setDetailsId(detailsId === draft.id ? null : draft.id)
+            }
+          >
+            {detailsId === draft.id ? "Hide saved record" : "Open saved record"}
+          </button>{" "}
           <button type="button" onClick={() => onOpen(draft.kind)}>
             Open related registry
           </button>
         </section>
+      )}
+      {stage === "saved" && draft && detailsId === draft.id && (
+        <SavedRecordDetails
+          key={draft.id}
+          receiptId={draft.id}
+          onSource={onSource}
+          onRelated={onRelated}
+        />
       )}
       {drafts.length > 0 && (
         <section className="record-draft-list">
@@ -498,7 +522,7 @@ export default function NewRecordWorkspace({
               </thead>
               <tbody>
                 {drafts.map((row) => (
-                  <tr key={row.id}>
+                  <tr key={row.id} data-receipt-id={row.id}>
                     <td>{row.title || "Untitled draft"}</td>
                     <td>{guidedDefinition(row.kind).title}</td>
                     <td>

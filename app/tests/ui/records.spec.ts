@@ -93,6 +93,13 @@ test("homepage entry saves an incomplete draft, resumes after reload, and preser
   await expect(
     page.getByRole("heading", { name: "Saved record", exact: true }),
   ).toBeVisible();
+  // The newly committed identity opens immediately, before any reload or registry search.
+  await page
+    .getByRole("button", { name: "Open saved record", exact: true })
+    .click();
+  await expect(
+    page.getByRole("region", { name: "Saved record details" }),
+  ).toContainText(name);
   await page.reload();
   await navigate(page, "New Record");
   const receipt = page

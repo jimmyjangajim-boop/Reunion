@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { getDb } from "../../../lib/db.ts";
+import { savedRecordDetails } from "../../../lib/saved-record-details.ts";
 import {
   listRecordDrafts,
   recordDraft,
@@ -25,6 +26,12 @@ function problem(error: unknown) {
 export async function GET(req: NextRequest) {
   try {
     const id = req.nextUrl.searchParams.get("id");
+    if (req.nextUrl.searchParams.get("view") === "target") {
+      if (!id) throw Error("Choose a saved receipt first.");
+      return NextResponse.json(savedRecordDetails(getDb(), id), {
+        headers: { "Cache-Control": "no-store" },
+      });
+    }
     return NextResponse.json(
       id
         ? { ...recordDraft(getDb(), id), receipt: recordReceipt(getDb(), id) }

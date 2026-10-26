@@ -1,3 +1,13 @@
+# Saved record details — 26 October 2026
+
+Completed a bounded receipt-to-record connection increment. Every guided saved receipt now has Open saved record, before or after reload. The exact target comes from the immutable receipt's stored kind/target_id; users can read its current fields, preserved citation lines, approval reason and recording timestamp without searching a department. Explicit sponsor/appointee/state/event relationships open Archive identities; formation links open the existing military profile. Open related registry remains available separately.
+
+The new saved-record-details.ts service is read-only behind /api/records?view=target&id=<receipt>. It permits only supported saved receipt kinds and fixed domain tables, preserves zero/unknown/partial dates, and returns a clear error for drafts/missing targets. Current stored fields across all dates are labeled separately from the original receipt and the historical date selector. No fuzzy joins, new record store, business mutation path or implicit domain effects. See SAVED_RECORD_DETAILS.md.
+
+Validation: 211 domain/API tests and 58 desktop/emulated-phone browser checks passed, including all nine guided targets, exact source lines, entity/unit profile links, a future-dated record with the selector unchanged, immediate post-save opening, reloads and failed-load retry. Typecheck, production build, 14 source hashes and visual desktop/phone review passed. All 59 production tables match the checkpoint and isolated portable restore. Backups app/backups/before-saved-record-details-2026-10-26.sqlite and .zip (46 verified files); restore proof app/data/saved-record-details-restore-proof.sqlite; ignored preservation JSON app/backups/saved-record-details-preservation-check.json.
+
+Branch feature/saved-record-details-2026-10-26 builds on b928bec (record-connections PR #8). Prior draft branches remain dependencies. No migrations/dependency/canon/financial/project edits or hosted Site deployment. General National Report Center remains mothballed, with working Battles/services retained. Remaining: universal typed-domain search, broader native profile integration (saved details are not complete departmental dossiers), more guided prerequisites/types, versioned subsystem import previews, mandates and procurement/accounting lifecycles.
+
 # Record selection and connected archive — 26 October 2026
 
 The latest user request supersedes earlier optional National Report Center availability. General NRC is mothballed; New Record and Battles remain the working entry points. See RECORD_CONNECTIONS.md for scope and limits.

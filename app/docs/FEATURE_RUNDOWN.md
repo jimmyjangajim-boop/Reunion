@@ -1,5 +1,7 @@
 # Latest changes — 26 October 2026
 
+All nine guided saved receipts now open the exact stored record, its source lines and explicitly linked people/states/formations. This works immediately after saving and when reopening a receipt. Current stored fields are labeled across all recorded dates, separately from the historical selector and preserved approval receipt. See [Saved record details](SAVED_RECORD_DETAILS.md).
+
 Broad categorized/searchable record choices and connected archive search are working. General National Report Center is mothballed at the user's request; its data/services and reviewed Battles workflow are preserved. Read [Record selection and connections](RECORD_CONNECTIONS.md) for the latest scope. The dated entries below retain earlier implementation history; the numbered feature guide reflects current behavior.
 
 # Military organization workspace — 25 October 2026

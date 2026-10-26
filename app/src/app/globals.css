@@ -2514,6 +2514,10 @@ body {
 .record-choice-picker small {
   overflow-wrap: anywhere;
 }
+.saved-record-details dd {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
 
 .archive-filter-row > .record-choice-picker {
   grid-column: span 2;

@@ -830,6 +830,20 @@ export default function Console() {
                     sources: d.sources,
                   }}
                   onSaved={refresh}
+                  onSource={openSource}
+                  onRelated={(kind, id) => {
+                    if (kind === "unit") {
+                      go("Armed Forces");
+                      setMilitaryUnitId(id);
+                    } else {
+                      const entity = d.entities.find((e: R) => e.id === id);
+                      if (entity) openArchive("entities", entity);
+                      else
+                        setError(
+                          "The linked archive identity is unavailable. Its saved receipt remains preserved.",
+                        );
+                    }
+                  }}
                   onOpen={(kind) =>
                     go(
                       kind === "bill"

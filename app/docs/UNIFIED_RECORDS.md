@@ -1,5 +1,7 @@
 # Unified records: first tested increment
 
+Latest addition, 26 October 2026: all nine saved guided types can open their exact target, original saved source lines and explicit related identities/formations. See SAVED_RECORD_DETAILS.md. The dated first-increment description and phase table below retain the earlier scope; current status is in IMPLEMENTATION_STATUS.md.
+
 22 October 2026. Governing request: `../../docs/USER_RECORDS_DIRECTIVE.txt`. RNAS is primarily a national records system, archive and administrative database. Simulation and AI-first extraction expansion are frozen; functioning report/scenario code is preserved.
 
 ## Delivered

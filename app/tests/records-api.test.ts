@@ -83,9 +83,34 @@ it("saves, reviews and approves a sourced provisional identity using readable re
   const detail = await receipt.json();
   expect(detail.status).toBe("saved");
   expect(detail.receipt.fields).toBeDefined();
+  const target = await route.GET(
+    new NextRequest("http://localhost/api/records?view=target&id=" + draft.id),
+  );
+  expect(target.status).toBe(200);
+  expect(target.headers.get("Cache-Control")).toBe("no-store");
+  expect(await target.json()).toMatchObject({
+    id: detail.target_id,
+    kind: "person",
+    title: "API fixture person",
+  });
   expect(
     storage.one(storage.getDb(), "SELECT canon FROM assertions")!.canon,
   ).toBe("provisional");
+});
+it("requires an existing saved receipt before opening its target", async () => {
+  const draft = await (
+    await post({
+      action: "draft",
+      kind: "unit",
+      payload: { name: "Incomplete fixture" },
+    })
+  ).json();
+  for (const suffix of ["", "&id=missing", "&id=" + draft.id]) {
+    const response = await route.GET(
+      new NextRequest("http://localhost/api/records?view=target" + suffix),
+    );
+    expect(response.status).toBe(400);
+  }
 });
 it("rejects unsupported kinds and never delegates arbitrary administrative actions", async () => {
   expect(
