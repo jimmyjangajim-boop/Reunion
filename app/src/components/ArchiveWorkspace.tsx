@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import RecordPicker from "./RecordPicker";
 import type { FormEvent } from "react";
 import {
   archiveRows,
@@ -430,6 +431,7 @@ export default function ArchiveWorkspace({
   openSource,
   onAdd,
   initialQuery = "",
+  initialSelection,
 }: {
   records: R[];
   timeline: R[];
@@ -440,6 +442,7 @@ export default function ArchiveWorkspace({
   openSource: (id: string, line?: number, end?: number) => void;
   onAdd: (form: string) => void;
   initialQuery?: string;
+  initialSelection?: { kind: ArchiveTab; item: R };
 }) {
   const [filters, setFilters] = useState<ArchiveFilters>({
       ...emptyArchiveFilters,
@@ -448,7 +451,7 @@ export default function ArchiveWorkspace({
     }),
     [page, setPage] = useState(1),
     [selected, setSelected] = useState<{ kind: ArchiveTab; item: R } | null>(
-      null,
+      initialSelection ?? null,
     );
   const [textDraft, setTextDraft] = useState(""),
     [textQuery, setTextQuery] = useState(""),
@@ -627,20 +630,16 @@ export default function ArchiveWorkspace({
         )}
         <div className="archive-filter-row">
           {(dated || tab === "text") && (
-            <label>
-              Source
-              <select
-                value={filters.source}
-                onChange={(e) => change("source", e.target.value)}
-              >
-                <option value="all">All sources</option>
-                {sources.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.filename}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <RecordPicker
+              label="Source"
+              options={sources.map((source) => ({
+                id: source.id,
+                name: source.filename,
+              }))}
+              value={filters.source === "all" ? "" : filters.source}
+              empty="All sources"
+              onChange={(id) => change("source", String(id) || "all")}
+            />
           )}
           {dated && (
             <>
@@ -686,20 +685,17 @@ export default function ArchiveWorkspace({
             </>
           )}
           {dated && (
-            <label>
-              Entity
-              <select
-                value={filters.entity}
-                onChange={(e) => change("entity", e.target.value)}
-              >
-                <option value="all">All entities</option>
-                {entities.map((e) => (
-                  <option key={e.id} value={e.id}>
-                    {e.name}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <RecordPicker
+              label="Entity"
+              options={entities.map((e) => ({
+                id: e.id,
+                name: e.name,
+                kind: e.kind,
+              }))}
+              value={filters.entity === "all" ? "" : filters.entity}
+              empty="All entities"
+              onChange={(id) => change("entity", String(id) || "all")}
+            />
           )}
           {tab !== "text" && (
             <label>

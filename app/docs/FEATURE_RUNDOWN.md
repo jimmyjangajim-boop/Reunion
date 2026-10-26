@@ -1,3 +1,7 @@
+# Latest changes — 26 October 2026
+
+Broad categorized/searchable record choices and connected archive search are working. General National Report Center is mothballed at the user's request; its data/services and reviewed Battles workflow are preserved. Read [Record selection and connections](RECORD_CONNECTIONS.md) for the latest scope. The dated entries below retain earlier implementation history; the numbered feature guide reflects current behavior.
+
 # Military organization workspace — 25 October 2026
 
 The reattached USER_RECORDS_DIRECTIVE confirms the records-first scope. This bounded military increment is documented in MILITARY_WORKSPACE.md. Armed Forces now has a searchable expandable formation hierarchy, sourced unit profiles, manpower/equipment records and a shared deployment/order register. Known ancestors remain in filtered search; missing/cyclic links are flagged, never silently repaired. Unknown parent means no established chain, not independence.
@@ -70,30 +74,23 @@ All 54 tables matched the checkpoint after this audit. No invented canon, test r
 
 - Sixteen destinations grouped into overview, administration, security/external affairs and records/decisions. Desktop sidebar and phone navigation toggle.
 - National historical-date selector, comparison against another date and concise department descriptions.
-- Global original-text search and entity matches; cited results open line-numbered sources.
-- Readable fact labels/values, expandable evidence and technical details, notices and validation errors.
+- Global search covers preserved source text, sourced facts, historical events and entity identities. Results open the exact archive detail, related records/events and line-numbered evidence. Archive matches cover all dates/statuses; they do not imply current approval. Specialized operational registers still have their own search.
+- Subject/related-record selectors share broad groups, name search and short pages. Multi-record checkboxes keep selected links visible across categories and draft reloads. Long source lists are searchable too. Readable fact labels/values, expandable evidence and technical details, notices and validation errors.
 - Historical precision distinguishes exact days, months, years, decades, ranges, before/after, relative and unknown dates. Recorded timestamps remain separate.
 - **Limit:** some operational department lists still show all recorded history beneath the global date. OOB now consistently uses latest preceding observations; Archive explicitly covers all dates. Do not interpret every department list as a complete historical snapshot.
 
 ## 2. National Dashboard — working bounded overview
 
 - Resolved President, Vice President, monarch and heir; economic position, government/territory context, armed-forces summary and review warnings.
-- Quick route to report submission and date comparison.
+- Quick route to New Record and date comparison.
 - Darius Younger is shown as VP; superseded Jack Younger evidence stays in Archive. No designated heir is preserved. 1725 material stays outside active national administration.
 - **Limit:** the dashboard reflects available sourced records. It does not calculate an autonomous national condition, updated production, treasury cash or simulated readiness.
 
-## 3. National Report Center — working, with bounded extraction
+## 3. National Report Center — mothballed at user request, 26 October 2026
 
-Main process: **write → preserve original → review proposed changes → correct details/reasons → approve selected changes**.
+The general center is removed from navigation and review entry points until reliable intake detection exists. Use New Record for explicit entries and Battles for reviewed after-action reports. No automatic detection, external AI or new simulation was added.
 
-- Accepts long text (up to 500,000 characters), title, optional exact report date, actual-record/scenario mode and a link to an earlier report for correction context.
-- Preserves exact submitted text and source identity. Lists report history, processing/review status and proposed actions.
-- Supports individual/bulk selection, partial approval, rejection, deferred pending items, reasoned edits and stale-review/revision protection.
-- Approval atomically writes selected department effects, source links, timeline and audit. Repeated submissions/approvals and corroborating references avoid duplicate effects.
-- Supported actions: movement orders, confirmed arrivals, archive events, reported bill stages, six financial stages, and structured battle reports.
-- Unsupported prose remains preserved with unresolved effects; the system does not pretend it updated every named department.
-- **Extraction limits:** movement names/phrasing, explicit bill/finance patterns and bounded battle suggestions. Arbitrary cabinet/diplomatic/multi-paragraph reports are not general AI extraction. No external AI provider is configured or invoked.
-- **Correction limit:** a corrective report can link to an earlier report; it does not automatically reverse already-applied domain effects.
+Existing report originals, proposals, audit/approval history, APIs and transactional domain services remain preserved. The working Battles workflow continues to use those services. Mothballing does not delete data or reverse earlier effects. General report review UI is intentionally unavailable; retained report data remains in full backups and the existing report API.
 
 ## 4. Government and monarchy — working read model; incomplete history
 
@@ -215,7 +212,7 @@ Main process: **write → preserve original → review proposed changes → corr
 ## Practical starting workflow
 
 1. Open the local app and select the relevant historical context.
-2. Use National Report Center for supported reported events; use Battles for a new/existing engagement with casualties or losses.
+2. Use New Record, choose a broad category and record type, then complete and review the explicit entry. Use Battles for a new/existing engagement with casualties or losses.
 3. Preserve what was actually reported. Leave unknown details unknown.
 4. Review each proposed effect and its evidence, correct ambiguities with a reason, then approve only the supported changes.
 5. Confirm the related department and Archive/history, then make a portable backup after meaningful sessions. Keep that backup independently of the chat.

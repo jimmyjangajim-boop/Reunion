@@ -1,4 +1,6 @@
 "use client";
+import RecordPicker from "../RecordPicker";
+import type { RecordOption } from "../../lib/record-choices.ts";
 import type {
   RecordFormData,
   RecordContext,
@@ -69,9 +71,19 @@ export function Select({
   p: FormProps;
   name: string;
   label: string;
-  options: { id: string; name: string }[];
+  options: RecordOption[];
   empty?: string;
 }) {
+  if (options.length > 10 || options.some((o) => o.kind))
+    return (
+      <RecordPicker
+        label={label}
+        options={options}
+        value={value(p, name)}
+        empty={empty}
+        onChange={(v) => p.set(name, v)}
+      />
+    );
   return (
     <label className="record-field">
       <span>{label}</span>
@@ -99,38 +111,19 @@ export function Many({
   p: FormProps;
   name: string;
   label: string;
-  options: { id: string; name: string }[];
+  options: RecordOption[];
 }) {
   return (
-    <label className="record-field">
-      <span>{label}</span>
-      <select
-        aria-label={label}
-        multiple
-        size={5}
-        value={
-          Array.isArray(p.values[name]) ? (p.values[name] as string[]) : []
-        }
-        onChange={(e) =>
-          p.set(
-            name,
-            Array.from(e.target.selectedOptions, (o) => o.value),
-          )
-        }
-      >
-        {options.map((o) => (
-          <option key={o.id} value={o.id}>
-            {o.name}
-          </option>
-        ))}
-      </select>
-      <small>
-        Choose any supplied related records. Use Ctrl/Command to select more
-        than one on a computer.
-      </small>
-    </label>
+    <RecordPicker
+      label={label}
+      options={options}
+      multiple
+      value={Array.isArray(p.values[name]) ? p.values[name] : []}
+      onChange={(v) => p.set(name, v)}
+    />
   );
 }
+
 export function HistoricalDateFields({ p }: { p: FormProps }) {
   const precision = value(p, "date_precision") || "unknown";
   return (

@@ -4,7 +4,7 @@ async function navigate(page: any, name: string) {
   if (await page.getByRole("button", { name: "Toggle navigation" }).isVisible())
     await page.getByRole("button", { name: "Toggle navigation" }).click();
   await page
-    .getByRole("navigation")
+    .getByRole("navigation", { name: "Main navigation" })
     .getByRole("button", { name, exact: false })
     .click();
 }
@@ -66,7 +66,6 @@ test("all department pages render without client errors", async ({
   for (const name of [
     "Dashboard",
     "New Record",
-    "National Report Center",
     "Government",
     "Cabinet & Institutions",
     "Parliament",
@@ -98,6 +97,14 @@ test("all department pages render without client errors", async ({
         fullPage: true,
       });
   }
+  await expect(
+    page
+      .getByRole("navigation", { name: "Main navigation" })
+      .getByRole("button", { name: "National Report Center", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByText(/National Report Center is mothballed/),
+  ).toBeVisible();
   expect(errors).toEqual([]);
 });
 test("baseline dashboard, global search and immutable cited source", async ({
@@ -110,7 +117,7 @@ test("baseline dashboard, global search and immutable cited source", async ({
   await expect(
     page.getByRole("button", { name: /VICE PRESIDENT Darius Younger/ }),
   ).toBeVisible();
-  await page.getByLabel("Search all sources").fill("Darius Younger");
+  await page.getByLabel("Search records and sources").fill("Darius Younger");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Search results" }),

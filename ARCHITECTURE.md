@@ -1,6 +1,6 @@
 # RNAS architecture
 
-Updated 22 October 2026. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed. The newest product directive is `docs/USER_RECORDS_DIRECTIVE.txt`: records and administration are primary; simulation expansion and AI-first extraction are frozen.
+Updated 26 October 2026. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed. The newest product directive is `docs/USER_RECORDS_DIRECTIVE.txt`: records and administration are primary; simulation expansion and AI-first extraction are frozen.
 
 ## Unified record entry
 
@@ -104,3 +104,12 @@ Unknown observation/term/affiliation/responsibility values must remain unknown. 
 Pure `military-view.ts` composes existing typed rows: it retains ancestors for search, flags unavailable/cyclic links without mutating history, preserves zero/unknown manpower, evaluates assignment intervals and point procurement observations, and attributes after-action rows only through explicit identities. The shared server `unitSnapshot()` supplies latest recorded state and source IDs; the client does not duplicate that selection query or turn observations into a simulation.
 
 Arrival dates and raw mutable movement status are distinct. A later-completed movement may be shown as ordered on an earlier date under the existing ordered-to-completed command invariant; no duplicate confirmation is offered. Unknown cancellation/completion dates remain uncertain. Guided receipt citations and append-only audit authority are read together; the API deduplicates identical authority explanations for display. All writes still use existing reviewed formation/deployment/battle operations and explicit asset/arrival commands. Procurement, assignments and latest asset condition have different date semantics and must not be collapsed into an inferred inventory.
+
+
+## Record selection, connected search and mothballed intake
+
+`RecordPicker.tsx` is shared presentation for legacy sourced-fact/reference fields, guided record choices and Archive entity/source filters. Pure `record-choices.ts` groups existing kinds into browsing categories; it never changes entity kinds. Single selections use short native-select pages; multiple selections use paged checkboxes and explicit removable relationships. Search/category/page changes preserve selected IDs. The existing draft/command validation remains authoritative, with no new SQL, schema, store or domain mutation path.
+
+`LinkedSearchRecords.tsx` reuses `archiveRows()` for sourced facts and historical events, so search and Browse all apply the same filters. Global entity results and normalized records open `ArchiveWorkspace` details by exact kind and ID, preserving source/record/event links. These results cover the archive across all dates/statuses and are labeled accordingly; do not resolve operational identities by fuzzy names or infer domain effects from a link. Specialized operational registers remain separate searches. Complete universal typed-domain search is still unfinished.
+
+The user's 26 October instruction supersedes the earlier optional Report Center priority: general National Report Center is mothballed. Keep its component and report APIs/domain services for preserved reports and the working Battles workflow. Do not remove or disable report transactions globally, delete report originals/history, or build automatic extraction to fill this gap. Main navigation/review routes use New Record; Imports & Backups explains the mothballed state.

@@ -1,3 +1,15 @@
+# Record selection and connected archive — 26 October 2026
+
+The latest user request supersedes earlier optional National Report Center availability. General NRC is mothballed; New Record and Battles remain the working entry points. See RECORD_CONNECTIONS.md for scope and limits.
+
+Shared selectors now offer broad browsing groups (People, Government & organizations, Military, Places & nations, Economy & projects, Other records), name search and short pages. Existing kinds and IDs are unchanged. Single choices show up to 12 matches plus any retained selection; multiple relationships show eight checkboxes per page with removable selected links. Filtering, paging and draft reloads retain explicit choices. Long source selectors and Archive entity/source filters use the same chooser.
+
+Global search adds normalized facts and historical events using the existing Archive filters. Facts/events/entity matches open exact archive details; related records/events and source evidence remain connected. Archive results cover all dates and canon statuses, explicitly labeled. This is not complete universal operational-register search; no fuzzy name-to-domain joins or automatic cross-system effects were added.
+
+Validation: 199 domain/API tests, 54 desktop/emulated-phone browser checks, typecheck, build and all 14 source hashes passed. The final layout correction is also browser-verified. Tests use isolated databases; no fixtures enter production. No schema, dependency, canon, budget or project changes. All 59 tables match the before-change checkpoint and isolated portable restore. Backups: app/backups/before-record-connections-2026-10-26.sqlite and .zip (46 verified files); restore proof app/data/record-connections-restore-proof.sqlite; preservation check app/backups/record-connections-preservation-check.json (ignored).
+
+Branch feature/record-connections-2026-10-26 builds on military commit ac06ce79. Earlier draft branches remain dependencies. Hosted Site unchanged. Remaining work: complete typed-domain search/detail navigation, additional specialized guided workflows/inline prerequisites, versioned subsystem import previews, parliamentary mandates and procurement/accounting lifecycles. Keep automatic extraction and simulation expansion frozen.
+
 # Military organization workspace — 25 October 2026
 
 The reattached USER_RECORDS_DIRECTIVE confirms the records-first scope. This bounded military increment is documented in MILITARY_WORKSPACE.md. Armed Forces now has a searchable expandable formation hierarchy, sourced unit profiles, manpower/equipment records and a shared deployment/order register. Known ancestors remain in filtered search; missing/cyclic links are flagged, never silently repaired. Unknown parent means no established chain, not independence.

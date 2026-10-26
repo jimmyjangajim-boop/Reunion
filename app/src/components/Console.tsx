@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
 import NewRecordWorkspace from "./NewRecordWorkspace";
 import type { GuidedKind, RecordDefinition } from "../lib/record-registry.ts";
-import ReportCenter from "./ReportCenter";
+import RecordPicker from "./RecordPicker";
+import LinkedSearchRecords from "./LinkedSearchRecords";
 import TreasuryWorkspace from "./TreasuryWorkspace";
 import ParliamentWorkspace from "./ParliamentWorkspace";
 import CabinetWorkspace from "./CabinetWorkspace";
@@ -19,7 +20,6 @@ const navGroups = [
     items: [
       ["Dashboard", "◈"],
       ["New Record", "+"],
-      ["National Report Center", "▤"],
     ],
   },
   {
@@ -67,8 +67,6 @@ const pageDescriptions: Record<string, string> = {
     "Funding limits, financial transactions, and major projects.",
   "Historical Archive":
     "Find historical records, original sources, and the national timeline.",
-  "National Report Center":
-    "Write what happened, review the changes, and approve them together.",
   "Canon Review Center":
     "Resolve contradictions, answer gaps, and review proposed changes.",
 };
@@ -180,11 +178,34 @@ function Field({
   name: string;
   label: string;
   type?: string;
-  options?: (string | { value: string; label: string })[];
+  options?: (string | { value: string; label: string; kind?: string })[];
   required?: boolean;
   value?: any;
   help?: string;
 }) {
+  const [selection, setSelection] = useState(String(value ?? ""));
+  if (
+    options &&
+    (options.length > 10 ||
+      options.some((o) => typeof o !== "string" && o.kind))
+  )
+    return (
+      <div className="field">
+        <RecordPicker
+          name={name}
+          label={label}
+          required={required}
+          value={selection}
+          onChange={(v) => setSelection(String(v))}
+          options={options.map((o) =>
+            typeof o === "string"
+              ? { id: o, name: o }
+              : { id: o.value, name: o.label, kind: o.kind },
+          )}
+        />
+        {help && <small>{help}</small>}
+      </div>
+    );
   return (
     <label className="field">
       <span>
@@ -308,6 +329,16 @@ export default function Console() {
     [reviewAction, setReviewAction] = useState("unresolved"),
     [preview, setPreview] = useState<R | null>(null),
     [battleReportId, setBattleReportId] = useState<string | null>(null);
+  const [archiveFocus, setArchiveFocus] = useState<{
+    kind: ArchiveTab;
+    item: R;
+    session: number;
+  } | null>(null);
+  function openArchive(kind: ArchiveTab, item: R) {
+    go("Historical Archive");
+    setArchiveFocus({ kind, item, session: Date.now() });
+    setTab(kind);
+  }
   const [militaryUnitId, setMilitaryUnitId] = useState<string | null>(null);
   const [newRecordKind, setNewRecordKind] = useState<GuidedKind | undefined>(),
     [newRecordSession, setNewRecordSession] = useState(0);
@@ -332,6 +363,7 @@ export default function Console() {
         ?.scrollIntoView({ block: "center" });
   }, [source]);
   function go(s: string) {
+    setArchiveFocus(null);
     setSection(s);
     setMenu(false);
     setFilter("");
@@ -534,6 +566,7 @@ export default function Console() {
   const entityOptions = d.entities.map((e: R) => ({
     value: e.id,
     label: e.name + " · " + e.kind,
+    kind: e.kind,
   }));
   const sourceOptions = d.sources.map((s: R) => ({
     value: s.id,
@@ -651,14 +684,24 @@ export default function Console() {
             className="global-search"
             onSubmit={async (e) => {
               e.preventDefault();
-              const r = await fetch(
-                "/api/rnas?view=search&q=" + encodeURIComponent(searchText),
-              );
-              setResults(await r.json());
+              try {
+                if (!searchText.trim())
+                  throw Error("Enter a name or phrase to search.");
+                const r = await fetch(
+                  "/api/rnas?view=search&q=" +
+                    encodeURIComponent(searchText.trim()),
+                );
+                const json = await r.json();
+                if (!r.ok) throw Error(json.error || "Search failed");
+                setError("");
+                setResults({ ...json, query: searchText.trim() });
+              } catch (e) {
+                setError((e as Error).message);
+              }
             }}
           >
             <input
-              aria-label="Search all sources"
+              aria-label="Search records and sources"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
               placeholder="Search the archive…"
@@ -727,15 +770,35 @@ export default function Console() {
               </div>
               <p className="muted">
                 Search covers original sources, secondary recovery notes, and
-                user entries.
+                user entries. Entity profiles open their linked facts and
+                events.
               </p>
               {results.entities?.map((r: R) => (
                 <div className="record" key={r.id}>
-                  <h3>{r.name}</h3>
+                  <h3>
+                    <button
+                      className="text-button"
+                      onClick={() => openArchive("entities", r)}
+                    >
+                      {r.name}
+                    </button>
+                  </h3>
                   <p>{r.description}</p>
                   <Badge>{r.kind}</Badge>
                 </div>
               ))}
+              <LinkedSearchRecords
+                query={results.query}
+                records={d.records}
+                timeline={d.timeline}
+                onOpen={openArchive}
+                onBrowse={(kind, query) => {
+                  go("Historical Archive");
+                  setTab(kind);
+                  setFilter(query);
+                }}
+              />
+              <h3>Original source text</h3>
               {results.results?.length ? (
                 results.results.map((r: R, i: number) => (
                   <article className="record" key={i}>
@@ -749,7 +812,7 @@ export default function Console() {
                   </article>
                 ))
               ) : (
-                <Empty>No source matches.</Empty>
+                <Empty>No source matches. Try a shorter name or phrase.</Empty>
               )}
             </>
           ) : (
@@ -1062,6 +1125,12 @@ export default function Console() {
               )}
               {section === "Historical Archive" && (
                 <ArchiveWorkspace
+                  key={archiveFocus?.session ?? "browse"}
+                  initialSelection={
+                    archiveFocus
+                      ? { kind: archiveFocus.kind, item: archiveFocus.item }
+                      : undefined
+                  }
                   records={d.records}
                   timeline={d.timeline}
                   sources={d.sources}
@@ -1086,8 +1155,8 @@ export default function Console() {
                   </div>
                   <div className="toolbar">
                     <div className="tabs">
-                      <button onClick={() => go("National Report Center")}>
-                        Proposed additions and changes
+                      <button onClick={() => startRecord()}>
+                        Create a reviewed record
                       </button>
                       {["conflict", "missing"].map((t) => (
                         <button
@@ -1376,21 +1445,6 @@ export default function Console() {
                   </Empty>
                 </>
               )}
-              {section === "National Report Center" && (
-                <ReportCenter
-                  date={date}
-                  units={d.units}
-                  locations={d.locations}
-                  bills={d.bills}
-                  budgets={d.budgets}
-                  onChanged={refresh}
-                  openSource={openSource}
-                  openBattleReport={(id?: string) => {
-                    setBattleReportId(id ?? null);
-                    go("Battles");
-                  }}
-                />
-              )}
               {section === "Events & Time" && (
                 <>
                   <div className="toolbar">
@@ -1452,6 +1506,12 @@ export default function Console() {
               )}
               {section === "Imports & Backups" && (
                 <>
+                  <p className="alert">
+                    National Report Center is mothballed pending reliable intake
+                    detection. Preserved reports remain in backups; Battles
+                    still supports reviewed after-action reports. Use New Record
+                    for other entries.
+                  </p>
                   <section className="panel">
                     <h2>Import original material</h2>
                     <p>
