@@ -123,6 +123,9 @@ test("baseline dashboard, global search and immutable cited source", async ({
     page.getByRole("heading", { name: "Search results" }),
   ).toBeVisible();
   await page
+    .getByLabel("Search category", { exact: true })
+    .selectOption("Sources");
+  await page
     .getByRole("button", { name: /CONFIRMED_USER_OVERRIDES.md/ })
     .first()
     .click();

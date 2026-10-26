@@ -31,6 +31,15 @@ test("military directory opens sourced unit profiles and preserves unknown stren
   await expect(
     profile.getByRole("cell", { name: "1992-10-03", exact: true }),
   ).toBeVisible();
+  await profile
+    .getByRole("button", { name: /View source/ })
+    .first()
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Original source", exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Close source", exact: true }).click();
+  await expect(profile).toContainText("1992-10-03");
   await profile.screenshot({ path: info.outputPath("unit-profile.png") });
   await profile
     .getByRole("button", { name: "Close unit profile", exact: true })

@@ -38,6 +38,18 @@ test("Cabinet connects ministry and officeholder profiles and respects historica
   await expect(
     profile.getByRole("heading", { name: "Gen. Marcus Thaler", exact: true }),
   ).toBeVisible();
+  await profile.getByText(/Sources and evidence/).click();
+  await profile
+    .getByRole("button", { name: /BASELINE/ })
+    .first()
+    .click();
+  await expect(
+    page.getByRole("dialog", { name: "Original source", exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Close source", exact: true }).click();
+  await expect(
+    profile.getByRole("heading", { name: "Gen. Marcus Thaler", exact: true }),
+  ).toBeVisible();
   await profile.getByRole("button", { name: "Close", exact: true }).click();
   await page.getByLabel("Search Cabinet").fill("");
   await page

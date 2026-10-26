@@ -56,7 +56,6 @@ export default function MilitaryUnitProfile(p: Props) {
       <button
         className="text-button"
         onClick={() => {
-          p.onClose();
           p.openSource(id, start, end);
         }}
       >
@@ -265,7 +264,6 @@ export default function MilitaryUnitProfile(p: Props) {
               p.onArrival(m);
             }}
             openSource={(id, start, end) => {
-              p.onClose();
               p.openSource(id, start, end);
             }}
           />

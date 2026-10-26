@@ -55,7 +55,6 @@ export default function CabinetProfile({
     return () => dialog.current?.close();
   }, []);
   const source = (e: R) => {
-    onClose();
     onSource(e.source_id, e.line_start, e.line_end);
   };
   return (

@@ -1,6 +1,6 @@
 # Saved record details
 
-26 October 2026. Records-first continuation; National Report Center stays mothballed.
+26 October 2026. Records-first continuation; National Report Center stays mothballed. Later universal-search work extracted the existing reader/presentation into domain-records.ts and RecordDetails.tsx; the saved receipt wrappers retain their own citations and approval metadata. See UNIVERSAL_SEARCH.md for current shared coverage.
 
 ## Finding and correction
 

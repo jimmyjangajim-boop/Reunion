@@ -4,7 +4,8 @@ import type { FormEvent, ReactNode } from "react";
 import NewRecordWorkspace from "./NewRecordWorkspace";
 import type { GuidedKind, RecordDefinition } from "../lib/record-registry.ts";
 import RecordPicker from "./RecordPicker";
-import LinkedSearchRecords from "./LinkedSearchRecords";
+import GlobalSearchWorkspace from "./GlobalSearchWorkspace";
+import SourceLayer from "./SourceLayer";
 import TreasuryWorkspace from "./TreasuryWorkspace";
 import ParliamentWorkspace from "./ParliamentWorkspace";
 import CabinetWorkspace from "./CabinetWorkspace";
@@ -338,6 +339,19 @@ export default function Console() {
     go("Historical Archive");
     setArchiveFocus({ kind, item, session: Date.now() });
     setTab(kind);
+  }
+  function openRelatedRecord(kind: "entity" | "unit", id: string) {
+    if (kind === "unit") {
+      go("Armed Forces");
+      setMilitaryUnitId(id);
+    } else {
+      const entity = data?.entities.find((e: R) => e.id === id);
+      if (entity) openArchive("entities", entity);
+      else
+        setError(
+          "The linked archive identity is unavailable. Its evidence remains preserved.",
+        );
+    }
   }
   const [militaryUnitId, setMilitaryUnitId] = useState<string | null>(null);
   const [newRecordKind, setNewRecordKind] = useState<GuidedKind | undefined>(),
@@ -687,14 +701,8 @@ export default function Console() {
               try {
                 if (!searchText.trim())
                   throw Error("Enter a name or phrase to search.");
-                const r = await fetch(
-                  "/api/rnas?view=search&q=" +
-                    encodeURIComponent(searchText.trim()),
-                );
-                const json = await r.json();
-                if (!r.ok) throw Error(json.error || "Search failed");
                 setError("");
-                setResults({ ...json, query: searchText.trim() });
+                setResults({ query: searchText.trim(), session: Date.now() });
               } catch (e) {
                 setError((e as Error).message);
               }
@@ -704,7 +712,7 @@ export default function Console() {
               aria-label="Search records and sources"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              placeholder="Search the archive…"
+              placeholder="Search national records…"
             />
             <button className="secondary" type="submit">
               Search
@@ -761,60 +769,35 @@ export default function Console() {
             </div>
           )}
           {results ? (
-            <>
-              <div className="section-heading">
-                <h2>Search results</h2>
-                <button className="secondary" onClick={() => setResults(null)}>
-                  Close search
-                </button>
-              </div>
-              <p className="muted">
-                Search covers original sources, secondary recovery notes, and
-                user entries. Entity profiles open their linked facts and
-                events.
-              </p>
-              {results.entities?.map((r: R) => (
-                <div className="record" key={r.id}>
-                  <h3>
-                    <button
-                      className="text-button"
-                      onClick={() => openArchive("entities", r)}
-                    >
-                      {r.name}
-                    </button>
-                  </h3>
-                  <p>{r.description}</p>
-                  <Badge>{r.kind}</Badge>
-                </div>
-              ))}
-              <LinkedSearchRecords
-                query={results.query}
-                records={d.records}
-                timeline={d.timeline}
-                onOpen={openArchive}
-                onBrowse={(kind, query) => {
-                  go("Historical Archive");
-                  setTab(kind);
-                  setFilter(query);
-                }}
-              />
-              <h3>Original source text</h3>
-              {results.results?.length ? (
-                results.results.map((r: R, i: number) => (
-                  <article className="record" key={i}>
-                    <div className="split">
-                      <h3>{sourceLink(r)}</h3>
-                      <Badge>
-                        Tier {r.tier} · {r.kind}
-                      </Badge>
-                    </div>
-                    <pre className="excerpt">{r.excerpt}</pre>
-                  </article>
-                ))
-              ) : (
-                <Empty>No source matches. Try a shorter name or phrase.</Empty>
-              )}
-            </>
+            <GlobalSearchWorkspace
+              key={results.session}
+              query={results.query}
+              onClose={() => setResults(null)}
+              onSource={openSource}
+              onRelated={openRelatedRecord}
+              onArchive={async (kind, id) => {
+                const tab =
+                  kind === "entity"
+                    ? "entities"
+                    : kind === "fact"
+                      ? "records"
+                      : "timeline";
+                let item = d[tab].find((r: R) => r.id === id);
+                if (!item) {
+                  const response = await fetch("/api/rnas?date=" + date);
+                  const current = await response.json();
+                  if (response.ok) {
+                    setData(current);
+                    item = current[tab].find((r: R) => r.id === id);
+                  }
+                }
+                if (item) openArchive(tab, item);
+                else
+                  setError(
+                    "The matching archive record is unavailable. Its source evidence remains preserved.",
+                  );
+              }}
+            />
           ) : (
             <>
               {section === "New Record" && (
@@ -831,19 +814,7 @@ export default function Console() {
                   }}
                   onSaved={refresh}
                   onSource={openSource}
-                  onRelated={(kind, id) => {
-                    if (kind === "unit") {
-                      go("Armed Forces");
-                      setMilitaryUnitId(id);
-                    } else {
-                      const entity = d.entities.find((e: R) => e.id === id);
-                      if (entity) openArchive("entities", entity);
-                      else
-                        setError(
-                          "The linked archive identity is unavailable. Its saved receipt remains preserved.",
-                        );
-                    }
-                  }}
+                  onRelated={openRelatedRecord}
                   onOpen={(kind) =>
                     go(
                       kind === "bill"
@@ -1632,12 +1603,7 @@ export default function Console() {
         </main>
       </div>
       {source && (
-        <div
-          className="overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Original source"
-        >
+        <SourceLayer onClose={() => setSource(null)}>
           <section className="source-drawer">
             <div className="drawer-heading">
               <div>
@@ -1700,7 +1666,7 @@ export default function Console() {
               ))}
             </div>
           </section>
-        </div>
+        </SourceLayer>
       )}
       {issue && !form && (
         <div

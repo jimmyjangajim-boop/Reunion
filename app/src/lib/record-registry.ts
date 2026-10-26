@@ -1,3 +1,4 @@
+import type { DomainRecordDetails } from "./record-catalog.ts";
 export const recordCategories = [
   "Government and Politics",
   "Military",
@@ -211,25 +212,8 @@ export type RecordDraft = {
   updated_at: string;
 };
 
-export type SavedRecordDetails = {
-  id: string;
+export type SavedRecordDetails = DomainRecordDetails & {
   kind: GuidedKind;
-  title: string;
-  type: string;
-  fields: { label: string; value: string }[];
-  links: {
-    kind: "entity" | "unit";
-    id: string;
-    label: string;
-    relationship: string;
-  }[];
-  evidence: {
-    source_id: string;
-    filename: string;
-    line_start: number;
-    line_end: number;
-  }[];
-  currentSource: { id: string; filename: string } | null;
   savedAt: string;
   approvalReason: string;
 };

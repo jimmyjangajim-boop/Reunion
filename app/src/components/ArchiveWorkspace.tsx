@@ -127,7 +127,6 @@ export function ArchiveDetail({
         )
       : [];
   const open = (e: R) => {
-    onClose();
     onSource(e.source_id, e.line_start ?? undefined, e.line_end ?? undefined);
   };
   const entity =

@@ -1,5 +1,7 @@
 # Latest changes — 26 October 2026
 
+Unified search now covers fourteen primary operational register types plus archive identities, facts, events, source metadata and preserved passages. Broad category/type filters, twelve-result pages, exact detail links and Back navigation are working. Source viewing keeps Archive, Cabinet and military profiles selected underneath. Verified with 218 domain/API tests and 66 desktop/emulated-phone checks. Read [Universal search coverage and limits](UNIVERSAL_SEARCH.md).
+
 All nine guided saved receipts now open the exact stored record, its source lines and explicitly linked people/states/formations. This works immediately after saving and when reopening a receipt. Current stored fields are labeled across all recorded dates, separately from the historical selector and preserved approval receipt. See [Saved record details](SAVED_RECORD_DETAILS.md).
 
 Broad categorized/searchable record choices and connected archive search are working. General National Report Center is mothballed at the user's request; its data/services and reviewed Battles workflow are preserved. Read [Record selection and connections](RECORD_CONNECTIONS.md) for the latest scope. The dated entries below retain earlier implementation history; the numbered feature guide reflects current behavior.
@@ -76,7 +78,7 @@ All 54 tables matched the checkpoint after this audit. No invented canon, test r
 
 - Sixteen destinations grouped into overview, administration, security/external affairs and records/decisions. Desktop sidebar and phone navigation toggle.
 - National historical-date selector, comparison against another date and concise department descriptions.
-- Global search covers preserved source text, sourced facts, historical events and entity identities. Results open the exact archive detail, related records/events and line-numbered evidence. Archive matches cover all dates/statuses; they do not imply current approval. Specialized operational registers still have their own search.
+- Unified search covers fourteen primary operational register types, archive identities/facts/events, source metadata and preserved passages. Broad category/type filters and twelve-result pages lead to exact records, explicit related records and original evidence. Results cover all dates/statuses and do not imply current approval. Department-specific searches remain available; detailed history child records have the limits documented in UNIVERSAL_SEARCH.md.
 - Subject/related-record selectors share broad groups, name search and short pages. Multi-record checkboxes keep selected links visible across categories and draft reloads. Long source lists are searchable too. Readable fact labels/values, expandable evidence and technical details, notices and validation errors.
 - Historical precision distinguishes exact days, months, years, decades, ranges, before/after, relative and unknown dates. Recorded timestamps remain separate.
 - **Limit:** some operational department lists still show all recorded history beneath the global date. OOB now consistently uses latest preceding observations; Archive explicitly covers all dates. Do not interpret every department list as a complete historical snapshot.

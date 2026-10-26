@@ -2518,6 +2518,40 @@ body {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+.source-layer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+}
+.search-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.search-filters label {
+  display: grid;
+  gap: 0.3rem;
+}
+.search-filters select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  background: white;
+}
+.search-results .record p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.global-search-workspace .saved-record-details {
+  margin-top: 1rem;
+}
 
 .archive-filter-row > .record-choice-picker {
   grid-column: span 2;
