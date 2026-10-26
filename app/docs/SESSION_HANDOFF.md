@@ -1,3 +1,15 @@
+# Military organization workspace — 25 October 2026
+
+The reattached USER_RECORDS_DIRECTIVE confirms the records-first scope. This bounded military increment is documented in MILITARY_WORKSPACE.md. Armed Forces now has a searchable expandable formation hierarchy, sourced unit profiles, manpower/equipment records and a shared deployment/order register. Known ancestors remain in filtered search; missing/cyclic links are flagged, never silently repaired. Unknown parent means no established chain, not independence.
+
+The shared unitSnapshot exposes existing state fields/provenance. Latest observations retain their dates; no national manpower sum, inferred readiness, inventory distribution or casualty deduction. Procurement uses point observation dates; explicit assignments use intervals, while the mutable asset register is labeled across all dates. Unit battle records use explicit participants/units, preserve phases/categories/unknowns and reuse Battles. No combat simulation or new write path.
+
+The deployment register is shared by Armed Forces, unit profiles and Military Map. It retains source receipts/approval evidence, treaty warnings and arrival confirmation. Orders, arrival and cancellation uncertainty remain distinct; future arrivals and their explanations do not leak into earlier views. No guessed map geometry. Full historical record modes are explicit. Existing critical order-creation checks now inspect future records through full history, then advance the selector before offering arrival.
+
+No schema/dependency/data/source changes. All 59 tables match the checkpoint and isolated restored copy. Validation: 197 domain/API tests, 50 desktop/emulated-phone browser checks, typecheck, production build and 14 source hashes passed. Before-edit backups app/backups/before-military-workspace-2026-10-25.sqlite and .zip (46 files); restore proof app/data/military-workspace-restore-proof.sqlite; preservation evidence app/backups/military-workspace-preservation-check.json (ignored).
+
+Branch feature/military-workspace-2026-10-25 builds on Cabinet commit 83840b0; earlier review branches remain dependencies. Hosted Site unchanged. Next universal typed-domain search/direct detail navigation, then additional specialized guided forms and versioned subsystem exchange/import previews. Batch inventory/service history, non-movement military order types, parliamentary mandates and richer administrative histories remain unfinished. Do not restart the architecture audit or expand simulation.
+
 # Cabinet/Government directory refinement — 22 October 2026
 
 Extended the existing directory after explicit user approval. See CABINET_DIRECTORY_REFINEMENT.md. Ministry and official names open connected office/person profiles. Appointment/affiliation fields remain unknown when unsupported. Government separates Presidency and Crown; navigation connects Government and Cabinet. Mobile roster entries are labeled and readable without horizontal scrolling.

@@ -7,6 +7,8 @@ import ReportCenter from "./ReportCenter";
 import TreasuryWorkspace from "./TreasuryWorkspace";
 import ParliamentWorkspace from "./ParliamentWorkspace";
 import CabinetWorkspace from "./CabinetWorkspace";
+import MilitaryWorkspace from "./MilitaryWorkspace";
+import DeploymentWorkspace from "./DeploymentWorkspace";
 import BattleWorkspace from "./BattleWorkspace";
 import ArchiveWorkspace from "./ArchiveWorkspace";
 import type { ArchiveTab } from "../lib/archive-view.ts";
@@ -306,6 +308,7 @@ export default function Console() {
     [reviewAction, setReviewAction] = useState("unresolved"),
     [preview, setPreview] = useState<R | null>(null),
     [battleReportId, setBattleReportId] = useState<string | null>(null);
+  const [militaryUnitId, setMilitaryUnitId] = useState<string | null>(null);
   const [newRecordKind, setNewRecordKind] = useState<GuidedKind | undefined>(),
     [newRecordSession, setNewRecordSession] = useState(0);
   function startRecord(kind?: GuidedKind) {
@@ -1217,133 +1220,36 @@ export default function Console() {
                 />
               )}
               {section === "Armed Forces" && (
-                <>
-                  <div className="toolbar">
-                    <button onClick={() => startRecord("unit")}>
-                      + Military unit
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("unit_state")}
-                    >
-                      Update unit / hierarchy
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => startRecord("deployment")}
-                    >
-                      Order movement
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => {
-                        setBattleReportId(null);
-                        go("Battles");
-                      }}
-                    >
-                      Record battle
-                    </button>
-                  </div>
-                  <section className="panel">
-                    <h2>Order of battle · {date}</h2>
-                    <p className="muted">
-                      Latest recorded observation on or before the selected
-                      date. These are recorded observations, not a simulated
-                      update of strength or readiness.
-                    </p>
-                    <Table
-                      headers={[
-                        "Formation",
-                        "Branch / type",
-                        "Parent",
-                        "Personnel",
-                        "Commander",
-                        "Readiness",
-                      ]}
-                      rows={d.units.map((u: R) => {
-                        const s = d.unitSnapshot.find((r: R) => r.id === u.id);
-                        return [
-                          u.name,
-                          `${u.branch} / ${u.unit_type}`,
-                          s?.parent_id
-                            ? d.units.find((r: R) => r.id === s.parent_id)?.name
-                            : "Unknown / independent not established",
-                          s?.personnel_low != null
-                            ? s.personnel_high != null
-                              ? `${s.personnel_low.toLocaleString()}–${s.personnel_high.toLocaleString()}`
-                              : `${s.personnel_low.toLocaleString()}+`
-                            : "Unknown",
-                          s?.commander,
-                          s?.readiness,
-                        ];
-                      })}
-                    />
-                  </section>
-                  <h2>Procurement batches</h2>
-                  <Table
-                    headers={[
-                      "Equipment",
-                      "Snapshot",
-                      "Ordered",
-                      "Delivered",
-                      "Operational",
-                      "Status",
-                    ]}
-                    rows={d.procurement.map((p: R) => [
-                      p.name,
-                      p.date,
-                      p.ordered,
-                      p.delivered,
-                      p.operational,
-                      <Badge>{p.operation}</Badge>,
-                    ])}
-                  />
-                  <div className="section-heading">
-                    <h2>Individually tracked assets</h2>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("asset")}
-                    >
-                      + Asset
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("assignment")}
-                    >
-                      Assign asset
-                    </button>
-                  </div>
-                  <Table
-                    headers={["Asset", "Type", "State"]}
-                    rows={d.assets.map((a: R) => [a.name, a.type, a.operation])}
-                  />
-                  <Table
-                    headers={["Asset", "Unit", "From", "Through"]}
-                    rows={d.assignments.map((a: R) => [
-                      a.asset,
-                      a.unit,
-                      a.start_date,
-                      a.end_date ?? "Open assignment",
-                    ])}
-                  />
-                  <section className="panel">
-                    <div className="section-heading">
-                      <h2>Battles and after-action records</h2>
-                      <button
-                        onClick={() => {
-                          setBattleReportId(null);
-                          go("Battles");
-                        }}
-                      >
-                        New Battle / After-Action Report
-                      </button>
-                    </div>
-                    <p className="muted">
-                      Create or select the battle and record participants, known
-                      casualties and equipment losses in one reviewed report.
-                    </p>
-                  </section>
-                </>
+                <MilitaryWorkspace
+                  date={date}
+                  units={d.units}
+                  snapshot={d.unitSnapshot}
+                  states={d.unitStates}
+                  assets={d.assets}
+                  assignments={d.assignments}
+                  procurement={d.procurement}
+                  movements={d.movements}
+                  phases={d.battleReports}
+                  casualties={d.casualties}
+                  battles={d.battles}
+                  selectedUnit={militaryUnitId}
+                  onUnit={setMilitaryUnitId}
+                  onCreate={() => startRecord("unit")}
+                  onUpdate={() => setForm("unit_state")}
+                  onOrder={() => startRecord("deployment")}
+                  onArrival={(m) => {
+                    setForm("complete_movement");
+                    setPreview(m);
+                  }}
+                  onAsset={() => setForm("asset")}
+                  onAssign={() => setForm("assignment")}
+                  onBattle={() => {
+                    setMilitaryUnitId(null);
+                    setBattleReportId(null);
+                    go("Battles");
+                  }}
+                  openSource={openSource}
+                />
               )}
               {section === "Battles" && (
                 <BattleWorkspace
@@ -1359,75 +1265,20 @@ export default function Console() {
                 />
               )}
               {section === "Military Map" && (
-                <>
-                  <div className="section-heading">
-                    <h2>Deployment register</h2>
-                    <button onClick={() => startRecord("deployment")}>
-                      + Movement order
-                    </button>
-                  </div>
-                  <div className="map-placeholder">
-                    <div className="map-grid" />
-                    <div>
-                      <span className="eyebrow">
-                        GEOGRAPHIC EVIDENCE REQUIRED
-                      </span>
-                      <h2>Named locations, no guessed coordinates.</h2>
-                      <p>
-                        No verified operational map or coordinates were
-                        supplied. The deployment register works with named
-                        places. Interactive markers and map annotation remain
-                        planned.
-                      </p>
-                    </div>
-                  </div>
-                  <Table
-                    headers={[
-                      "Unit",
-                      "Location",
-                      "Order date",
-                      "State",
-                      "Completed",
-                      "Treaty warning",
-                      "Action",
-                    ]}
-                    rows={d.movements.map((m: R) => [
-                      m.unit,
-                      m.location,
-                      m.date,
-                      <Badge>{m.operation}</Badge>,
-                      m.completed_date,
-                      m.warning,
-                      m.operation === "ordered" ? (
-                        <button
-                          className="secondary"
-                          onClick={() => {
-                            setForm("complete_movement");
-                            setPreview(m);
-                          }}
-                        >
-                          Confirm arrival
-                        </button>
-                      ) : null,
-                    ])}
-                  />
-                  <h2>Completed deployment history</h2>
-                  <Table
-                    headers={["Unit", "Location", "Arrival", "Mission"]}
-                    rows={d.movements
-                      .filter(
-                        (m: R) =>
-                          m.operation === "completed" &&
-                          m.completed_date <= date,
-                      )
-                      .map((m: R) => [
-                        m.unit,
-                        m.location,
-                        m.completed_date,
-                        m.mission,
-                      ])}
-                  />
-                </>
+                <DeploymentWorkspace
+                  date={date}
+                  movements={d.movements}
+                  onOrder={() => startRecord("deployment")}
+                  onArrival={(m) => {
+                    setForm("complete_movement");
+                    setPreview(m);
+                  }}
+                  onUnit={(id) => {
+                    setMilitaryUnitId(id);
+                    go("Armed Forces");
+                  }}
+                  openSource={openSource}
+                />
               )}
               {section === "Economy & Treasury" && (
                 <TreasuryWorkspace

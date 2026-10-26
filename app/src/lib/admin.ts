@@ -105,7 +105,7 @@ export function unitSnapshot(db: DB, date: string) {
   exactDate.parse(date);
   return all(
     db,
-    "SELECT u.*,s.date observed_on,s.parent_id,s.personnel_low,s.personnel_high,s.commander,s.readiness FROM units u JOIN unit_states s ON s.unit_id=u.id WHERE s.date=(SELECT MAX(t.date) FROM unit_states t WHERE t.unit_id=u.id AND t.date<=?)",
+    "SELECT u.*,s.date observed_on,s.id state_id,s.source_id observation_source_id,s.parent_id,s.personnel_low,s.personnel_high,s.authorized,s.commander,s.garrison,s.mission,s.supply,s.operation,s.readiness FROM units u JOIN unit_states s ON s.unit_id=u.id WHERE s.date=(SELECT MAX(t.date) FROM unit_states t WHERE t.unit_id=u.id AND t.date<=?)",
     date,
   );
 }

@@ -202,6 +202,22 @@ export async function GET(req: NextRequest) {
         e.id,
       ),
     }));
+    const movementCitations = all(
+      db,
+      "SELECT d.target_id,c.source_id,c.line_start,c.line_end FROM record_drafts d JOIN record_draft_citations c ON c.draft_id=d.id WHERE d.kind='deployment' AND d.status='saved'",
+    );
+    const movementAuthority = all(
+      db,
+      "SELECT DISTINCT target,action,explanation FROM audit WHERE action IN ('movement','complete_movement')",
+    );
+    const movements = all(
+      db,
+      "SELECT m.*,l.name location,u.name unit FROM movements m JOIN locations l ON l.id=m.location_id JOIN units u ON u.id=m.unit_id ORDER BY date",
+    ).map((m) => ({
+      ...m,
+      evidence: movementCitations.filter((c) => c.target_id === m.id),
+      authority: movementAuthority.filter((a) => a.target === m.id),
+    }));
     const cabinet = cabinetView({
       date,
       records: viewData.records,
@@ -237,10 +253,7 @@ export async function GET(req: NextRequest) {
       units: all(db, "SELECT * FROM units"),
       unitStates: all(db, "SELECT * FROM unit_states ORDER BY date"),
       unitSnapshot: unitSnapshot(db, date),
-      movements: all(
-        db,
-        "SELECT m.*,l.name location,u.name unit FROM movements m JOIN locations l ON l.id=m.location_id JOIN units u ON u.id=m.unit_id ORDER BY date",
-      ),
+      movements,
       procurement: all(db, "SELECT * FROM procurement"),
       assets: all(db, "SELECT * FROM assets"),
       assignments: all(

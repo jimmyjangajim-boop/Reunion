@@ -178,6 +178,7 @@ test("review side-by-side evidence, reasoned decision, and normal entity entry",
 test("ordered movement appears in register without completed deployment", async ({
   page,
 }) => {
+  const mission = "UI test reinforcement order " + Date.now();
   await page.goto("/");
   await navigate(page, "Military Map");
   await page
@@ -191,9 +192,7 @@ test("ordered movement appears in register without completed deployment", async 
   await page
     .getByLabel("Movement status", { exact: true })
     .selectOption("ordered");
-  await page
-    .getByLabel("Mission or order", { exact: true })
-    .fill("UI test reinforcement order");
+  await page.getByLabel("Mission or order", { exact: true }).fill(mission);
   await page
     .getByLabel("Original evidence or source citation", { exact: true })
     .fill("UI test order authority");
@@ -212,13 +211,20 @@ test("ordered movement appears in register without completed deployment", async 
   await page
     .getByRole("button", { name: "Open related registry", exact: true })
     .click();
+  await page.getByLabel("Movement dates", { exact: true }).selectOption("all");
+  const order = page.getByRole("row").filter({ hasText: mission });
   await expect(
-    page.getByRole("cell", { name: "ordered", exact: true }).first(),
+    order.getByRole("cell", { name: "ordered", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "Confirm arrival" }).first(),
+    order.getByRole("button", { name: "Confirm arrival", exact: true }),
+  ).toHaveCount(0);
+  await page.getByLabel("Historical Date Selector").fill("1992-10-08");
+  await expect(
+    order.getByRole("button", { name: "Confirm arrival", exact: true }),
   ).toBeVisible();
 });
+
 test("uploads staged text, searches it, and exports database backup", async ({
   page,
 }) => {

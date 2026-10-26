@@ -1,3 +1,7 @@
+# Military organization update
+
+See docs/MILITARY_WORKSPACE.md for searchable hierarchy, sourced unit profiles, equipment/manpower and shared deployment records, with explicit date and data limits.
+
 # Cabinet/Government directory update
 
 See docs/CABINET_DIRECTORY_REFINEMENT.md for connected office/person profiles, corrected historical views and preserved data.

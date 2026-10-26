@@ -2319,3 +2319,141 @@ body {
     max-width: none;
   }
 }
+.military-masthead {
+  background: var(--navy, #172e3b);
+  color: #f4f0e6;
+  border-top: 3px solid var(--gold, #ad9361);
+  padding: 1.5rem;
+}
+.military-masthead h2 {
+  color: inherit;
+  font:
+    2rem Georgia,
+    serif;
+  margin: 0.5rem 0;
+}
+.military-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+.military-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.military-filters label,
+.military-scope {
+  display: grid;
+  gap: 0.4rem;
+}
+.military-filters label:first-child {
+  flex: 1;
+  min-width: 12rem;
+}
+.military-filters input,
+.military-filters select,
+.military-scope select {
+  min-height: 44px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 4px;
+  font: inherit;
+}
+.military-note {
+  background: #f1eee2;
+  padding: 1rem;
+  border-left: 3px solid var(--gold, #ad9361);
+}
+.formation-tree,
+.formation-tree ul {
+  list-style: none;
+  padding-left: 0;
+}
+.formation-tree > li {
+  border: 1px solid var(--line);
+  margin: 0.6rem 0;
+  background: #faf8f2;
+}
+.formation-tree ul {
+  margin-left: 1rem;
+  border-left: 2px solid var(--line);
+  padding-left: 1rem;
+}
+.formation-tree summary {
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.formation-entry {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1.4fr) 1fr;
+  gap: 0.4rem 1rem;
+  padding: 1rem;
+}
+.formation-entry .formation-name {
+  font-family: Georgia, serif;
+  text-align: left;
+  font-size: 1.1rem;
+}
+.formation-entry small {
+  grid-column: 1/-1;
+  color: var(--muted, #64706d);
+}
+.formation-entry .formation-issue {
+  color: #7e402f;
+}
+.military-table table {
+  min-width: 680px;
+}
+.military-table td {
+  vertical-align: top;
+  max-width: 25rem;
+  overflow-wrap: anywhere;
+}
+.military-workspace details:not(.formation-tree details),
+.deployment-workspace details {
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+}
+.military-phase {
+  border-block: 1px solid var(--line);
+  margin: 1rem 0;
+  padding: 0.7rem 0;
+}
+.military-unit-profile .profile-facts {
+  margin: 1rem 0;
+}
+.military-unit-profile .military-table {
+  max-width: 100%;
+}
+@media (max-width: 700px) {
+  .formation-entry {
+    grid-template-columns: 1fr;
+  }
+  .military-filters label {
+    width: 100%;
+  }
+  .military-tabs button {
+    min-height: 44px;
+  }
+  .military-masthead {
+    padding: 1rem;
+  }
+}
+.military-table table {
+  table-layout: auto;
+}
+.military-table td,
+.military-table th {
+  min-width: 8rem;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.formation-name {
+  overflow-wrap: anywhere;
+}
