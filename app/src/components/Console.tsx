@@ -1,8 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
-import ReportCenter from "./ReportCenter";
+import NewRecordWorkspace from "./NewRecordWorkspace";
+import type { GuidedKind, RecordDefinition } from "../lib/record-registry.ts";
+import RecordPicker from "./RecordPicker";
+import GlobalSearchWorkspace from "./GlobalSearchWorkspace";
+import SourceLayer from "./SourceLayer";
+import TreasuryWorkspace from "./TreasuryWorkspace";
+import ParliamentWorkspace from "./ParliamentWorkspace";
 import CabinetWorkspace from "./CabinetWorkspace";
+import MilitaryWorkspace from "./MilitaryWorkspace";
+import DeploymentWorkspace from "./DeploymentWorkspace";
 import BattleWorkspace from "./BattleWorkspace";
 import ArchiveWorkspace from "./ArchiveWorkspace";
 import type { ArchiveTab } from "../lib/archive-view.ts";
@@ -12,7 +20,7 @@ const navGroups = [
     title: "National overview",
     items: [
       ["Dashboard", "◈"],
-      ["National Report Center", "▤"],
+      ["New Record", "+"],
     ],
   },
   {
@@ -46,6 +54,8 @@ const navGroups = [
   },
 ];
 const pageDescriptions: Record<string, string> = {
+  "New Record":
+    "Create a record, preserve its evidence, and review its links before saving.",
   Dashboard: "Leadership, national priorities, and decisions awaiting review.",
   Government:
     "National leadership and royal succession, with earlier records kept in profiles.",
@@ -58,8 +68,6 @@ const pageDescriptions: Record<string, string> = {
     "Funding limits, financial transactions, and major projects.",
   "Historical Archive":
     "Find historical records, original sources, and the national timeline.",
-  "National Report Center":
-    "Write what happened, review the changes, and approve them together.",
   "Canon Review Center":
     "Resolve contradictions, answer gaps, and review proposed changes.",
 };
@@ -171,11 +179,34 @@ function Field({
   name: string;
   label: string;
   type?: string;
-  options?: (string | { value: string; label: string })[];
+  options?: (string | { value: string; label: string; kind?: string })[];
   required?: boolean;
   value?: any;
   help?: string;
 }) {
+  const [selection, setSelection] = useState(String(value ?? ""));
+  if (
+    options &&
+    (options.length > 10 ||
+      options.some((o) => typeof o !== "string" && o.kind))
+  )
+    return (
+      <div className="field">
+        <RecordPicker
+          name={name}
+          label={label}
+          required={required}
+          value={selection}
+          onChange={(v) => setSelection(String(v))}
+          options={options.map((o) =>
+            typeof o === "string"
+              ? { id: o, name: o }
+              : { id: o.value, name: o.label, kind: o.kind },
+          )}
+        />
+        {help && <small>{help}</small>}
+      </div>
+    );
   return (
     <label className="field">
       <span>
@@ -299,6 +330,37 @@ export default function Console() {
     [reviewAction, setReviewAction] = useState("unresolved"),
     [preview, setPreview] = useState<R | null>(null),
     [battleReportId, setBattleReportId] = useState<string | null>(null);
+  const [archiveFocus, setArchiveFocus] = useState<{
+    kind: ArchiveTab;
+    item: R;
+    session: number;
+  } | null>(null);
+  function openArchive(kind: ArchiveTab, item: R) {
+    go("Historical Archive");
+    setArchiveFocus({ kind, item, session: Date.now() });
+    setTab(kind);
+  }
+  function openRelatedRecord(kind: "entity" | "unit", id: string) {
+    if (kind === "unit") {
+      go("Armed Forces");
+      setMilitaryUnitId(id);
+    } else {
+      const entity = data?.entities.find((e: R) => e.id === id);
+      if (entity) openArchive("entities", entity);
+      else
+        setError(
+          "The linked archive identity is unavailable. Its evidence remains preserved.",
+        );
+    }
+  }
+  const [militaryUnitId, setMilitaryUnitId] = useState<string | null>(null);
+  const [newRecordKind, setNewRecordKind] = useState<GuidedKind | undefined>(),
+    [newRecordSession, setNewRecordSession] = useState(0);
+  function startRecord(kind?: GuidedKind) {
+    setNewRecordKind(kind);
+    setNewRecordSession((n) => n + 1);
+    go("New Record");
+  }
   async function refresh() {
     const r = await fetch("/api/rnas?date=" + date);
     const json = await r.json();
@@ -315,6 +377,7 @@ export default function Console() {
         ?.scrollIntoView({ block: "center" });
   }, [source]);
   function go(s: string) {
+    setArchiveFocus(null);
     setSection(s);
     setMenu(false);
     setFilter("");
@@ -487,16 +550,27 @@ export default function Console() {
     target: string,
   ) => {
     const r = get(entity, predicate);
+    const office = [...d.cabinet.leadership, ...d.cabinet.royal].find(
+      (row: R) => row.office === predicate,
+    );
     return (
       <button className="stat" onClick={() => go(target)}>
         <span className="eyebrow">{title}</span>
         <strong>
-          {r?.canon === "disputed"
-            ? "Disputed"
-            : (r?.value ?? "Unknown for this date")}
+          {office
+            ? office.status === "disputed"
+              ? "Disputed"
+              : (office.name ?? "Unknown for this date")
+            : r?.canon === "disputed"
+              ? "Disputed"
+              : (r?.value ?? "Unknown for this date")}
         </strong>
         <span className="stat-foot">
-          {r ? `${r.canon} · ${dateLabel(r)}` : "No dated evidence"}{" "}
+          {office
+            ? `${office.context}${office.observed_date ? " · " + office.observed_date : ""}`
+            : r
+              ? `${r.canon} · ${dateLabel(r)}`
+              : "No dated evidence"}{" "}
           <span>↗</span>
         </span>
       </button>
@@ -506,6 +580,7 @@ export default function Console() {
   const entityOptions = d.entities.map((e: R) => ({
     value: e.id,
     label: e.name + " · " + e.kind,
+    kind: e.kind,
   }));
   const sourceOptions = d.sources.map((s: R) => ({
     value: s.id,
@@ -583,7 +658,9 @@ export default function Console() {
                   key={name}
                   className={section === name ? "active" : ""}
                   aria-current={section === name ? "page" : undefined}
-                  onClick={() => go(name)}
+                  onClick={() =>
+                    name === "New Record" ? startRecord() : go(name)
+                  }
                 >
                   <span className="nav-icon" aria-hidden="true">
                     {icon}
@@ -621,17 +698,21 @@ export default function Console() {
             className="global-search"
             onSubmit={async (e) => {
               e.preventDefault();
-              const r = await fetch(
-                "/api/rnas?view=search&q=" + encodeURIComponent(searchText),
-              );
-              setResults(await r.json());
+              try {
+                if (!searchText.trim())
+                  throw Error("Enter a name or phrase to search.");
+                setError("");
+                setResults({ query: searchText.trim(), session: Date.now() });
+              } catch (e) {
+                setError((e as Error).message);
+              }
             }}
           >
             <input
-              aria-label="Search all sources"
+              aria-label="Search records and sources"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              placeholder="Search the archive…"
+              placeholder="Search national records…"
             />
             <button className="secondary" type="submit">
               Search
@@ -688,55 +769,91 @@ export default function Console() {
             </div>
           )}
           {results ? (
-            <>
-              <div className="section-heading">
-                <h2>Search results</h2>
-                <button className="secondary" onClick={() => setResults(null)}>
-                  Close search
-                </button>
-              </div>
-              <p className="muted">
-                Search covers original sources, secondary recovery notes, and
-                user entries.
-              </p>
-              {results.entities?.map((r: R) => (
-                <div className="record" key={r.id}>
-                  <h3>{r.name}</h3>
-                  <p>{r.description}</p>
-                  <Badge>{r.kind}</Badge>
-                </div>
-              ))}
-              {results.results?.length ? (
-                results.results.map((r: R, i: number) => (
-                  <article className="record" key={i}>
-                    <div className="split">
-                      <h3>{sourceLink(r)}</h3>
-                      <Badge>
-                        Tier {r.tier} · {r.kind}
-                      </Badge>
-                    </div>
-                    <pre className="excerpt">{r.excerpt}</pre>
-                  </article>
-                ))
-              ) : (
-                <Empty>No source matches.</Empty>
-              )}
-            </>
+            <GlobalSearchWorkspace
+              key={results.session}
+              query={results.query}
+              onClose={() => setResults(null)}
+              onSource={openSource}
+              onRelated={openRelatedRecord}
+              onArchive={async (kind, id) => {
+                const tab =
+                  kind === "entity"
+                    ? "entities"
+                    : kind === "fact"
+                      ? "records"
+                      : "timeline";
+                let item = d[tab].find((r: R) => r.id === id);
+                if (!item) {
+                  const response = await fetch("/api/rnas?date=" + date);
+                  const current = await response.json();
+                  if (response.ok) {
+                    setData(current);
+                    item = current[tab].find((r: R) => r.id === id);
+                  }
+                }
+                if (item) openArchive(tab, item);
+                else
+                  setError(
+                    "The matching archive record is unavailable. Its source evidence remains preserved.",
+                  );
+              }}
+            />
           ) : (
             <>
+              {section === "New Record" && (
+                <NewRecordWorkspace
+                  key={newRecordSession}
+                  initialKind={newRecordKind}
+                  context={{
+                    entities: d.entities,
+                    currentEntities: d.currentEntities,
+                    offices: d.offices,
+                    units: d.units,
+                    locations: d.locations,
+                    sources: d.sources,
+                  }}
+                  onSaved={refresh}
+                  onSource={openSource}
+                  onRelated={openRelatedRecord}
+                  onOpen={(kind) =>
+                    go(
+                      kind === "bill"
+                        ? "Parliament"
+                        : kind === "appointment"
+                          ? "Cabinet & Institutions"
+                          : kind === "unit"
+                            ? "Armed Forces"
+                            : kind === "deployment"
+                              ? "Military Map"
+                              : kind === "treaty"
+                                ? "Foreign Relations"
+                                : "Historical Archive",
+                    )
+                  }
+                  onExisting={(definition: RecordDefinition) => {
+                    if (definition.mode !== "existing") return;
+                    if (
+                      ["Battles", "Imports & Backups"].includes(
+                        definition.destination,
+                      )
+                    ) {
+                      setBattleReportId(null);
+                      go(definition.destination);
+                    } else setForm(definition.destination);
+                  }}
+                />
+              )}
               {section === "Dashboard" && (
                 <>
                   <section className="panel split">
                     <div>
-                      <h2>Record what happened</h2>
+                      <h2>One place to create a national record</h2>
                       <p>
-                        Submit one report, review the proposed changes, and
-                        update Reunion together.
+                        Choose a category, complete the right form, and review
+                        the record before adding it to Reunion.
                       </p>
                     </div>
-                    <button onClick={() => go("National Report Center")}>
-                      Write a national report
-                    </button>
+                    <button onClick={() => startRecord()}>New Record</button>
                   </section>
                   <div className="date-band">
                     <div>
@@ -933,11 +1050,8 @@ export default function Console() {
                         <div>
                           <span>Royal heir</span>
                           <strong>
-                            {d.government.find(
-                              (r: R) =>
-                                r.entity_id === "crown" &&
-                                r.predicate === "Heir",
-                            )?.value ?? "Unknown for this historical date"}
+                            {d.cabinet.royal.find((r: R) => r.office === "Heir")
+                              ?.name ?? "Unknown for this historical date"}
                           </strong>
                         </div>
                       </div>
@@ -996,6 +1110,12 @@ export default function Console() {
               )}
               {section === "Historical Archive" && (
                 <ArchiveWorkspace
+                  key={archiveFocus?.session ?? "browse"}
+                  initialSelection={
+                    archiveFocus
+                      ? { kind: archiveFocus.kind, item: archiveFocus.item }
+                      : undefined
+                  }
                   records={d.records}
                   timeline={d.timeline}
                   sources={d.sources}
@@ -1003,7 +1123,11 @@ export default function Console() {
                   tab={tab}
                   onTabChange={setTab}
                   openSource={openSource}
-                  onAdd={setForm}
+                  onAdd={(form) =>
+                    form === "timeline"
+                      ? startRecord("historical_event")
+                      : setForm(form)
+                  }
                   initialQuery={filter}
                 />
               )}
@@ -1016,8 +1140,8 @@ export default function Console() {
                   </div>
                   <div className="toolbar">
                     <div className="tabs">
-                      <button onClick={() => go("National Report Center")}>
-                        Proposed additions and changes
+                      <button onClick={() => startRecord()}>
+                        Create a reviewed record
                       </button>
                       {["conflict", "missing"].map((t) => (
                         <button
@@ -1118,7 +1242,8 @@ export default function Console() {
                 <CabinetWorkspace
                   cabinet={d.cabinet}
                   leadershipOnly
-                  onAppoint={() => setForm("appointment")}
+                  onNavigate={() => go("Cabinet & Institutions")}
+                  onAppoint={() => startRecord("appointment")}
                   onOffice={() => setForm("office")}
                   onDecision={() => setForm("assertion")}
                   onSource={openSource}
@@ -1127,272 +1252,58 @@ export default function Console() {
               {section === "Cabinet & Institutions" && (
                 <CabinetWorkspace
                   cabinet={d.cabinet}
-                  onAppoint={() => setForm("appointment")}
+                  onNavigate={() => go("Government")}
+                  onAppoint={() => startRecord("appointment")}
                   onOffice={() => setForm("office")}
                   onSource={openSource}
                 />
               )}
               {section === "Parliament" && (
-                <>
-                  <div className="section-heading">
-                    <h2>Assembly record</h2>
-                    <div className="inline-controls">
-                      <button onClick={() => setForm("bill")}>+ Bill</button>
-                      <button
-                        className="secondary"
-                        onClick={() => setForm("vote")}
-                      >
-                        Record vote
-                      </button>
-                    </div>
-                  </div>
-                  {d.chambers.map((c: R) => (
-                    <section key={c.id} className="panel">
-                      <div className="split">
-                        <h2>{c.actual_seats} seats in practice</h2>
-                        <Badge tone="red">
-                          Constitutional maximum {c.legal_max}
-                        </Badge>
-                      </div>
-                      <p className="muted">
-                        Snapshot {c.date}. Occupied seats:{" "}
-                        {c.occupied_seats ?? "not separately documented"}.{" "}
-                        {c.session_status}.
-                      </p>
-                      <div className="seat-bar">
-                        {d.parties
-                          .filter((p: R) => p.chamber_id === c.id)
-                          .map((p: R, i: number) => (
-                            <div
-                              key={p.id}
-                              title={`${p.party}: ${p.seats}`}
-                              style={{
-                                flex: p.seats,
-                                background: [
-                                  "#374d72",
-                                  "#b36c54",
-                                  "#b3985b",
-                                  "#55675d",
-                                  "#8795a9",
-                                  "#b4b8bd",
-                                ][i % 6],
-                              }}
-                            />
-                          ))}
-                      </div>
-                      <Table
-                        headers={[
-                          "Party / bloc",
-                          "Seats",
-                          "Government support",
-                        ]}
-                        rows={d.parties
-                          .filter((p: R) => p.chamber_id === c.id)
-                          .map((p: R) => [p.party, p.seats, p.support])}
-                      />
-                    </section>
-                  ))}
-                  <h2>Legislation</h2>
-                  <p className="muted">
-                    The register shows the furthest reported stage. Use the
-                    sourced history below for dates; undated reports do not
-                    establish a dated snapshot.
-                  </p>
-                  <Table
-                    headers={[
-                      "Identifier",
-                      "Bill",
-                      "Stage",
-                      "Introduction",
-                      "Effective",
-                    ]}
-                    rows={d.bills.map((b: R) => [
-                      b.identifier,
-                      b.title || "Title not reported",
-                      b.stage,
-                      b.introduced_date,
-                      b.effective_date,
-                    ])}
-                  />
-                  <h2>Reported legislative history</h2>
-                  <Table
-                    headers={[
-                      "Bill",
-                      "Stage",
-                      "Reported date",
-                      "Effective date",
-                      "Evidence",
-                    ]}
-                    rows={d.billEvents.map((e: R) => [
-                      e.identifier,
-                      e.stage,
-                      e.date || "Unknown",
-                      e.effective_date || "Unknown",
-                      <span key={e.id}>
-                        {e.evidence.map((s: R) => (
-                          <button
-                            key={s.report_action_id}
-                            className="text-button"
-                            onClick={() => openSource(s.source_id)}
-                          >
-                            Source lines {s.line_start}–{s.line_end}
-                          </button>
-                        ))}
-                      </span>,
-                    ])}
-                  />
-                  <h2>Vote history</h2>
-                  <Table
-                    headers={[
-                      "Date",
-                      "Yes",
-                      "No",
-                      "Abstain",
-                      "Absent",
-                      "Vacant",
-                      "Result / configured rule",
-                    ]}
-                    rows={d.votes.map((v: R) => [
-                      v.date,
-                      v.yes,
-                      v.no,
-                      v.abstain,
-                      v.absent,
-                      v.vacancies,
-                      `${v.result}; ${v.rule_source}`,
-                    ])}
-                  />
-                </>
+                <ParliamentWorkspace
+                  date={date}
+                  chambers={d.chambers}
+                  parties={d.parties}
+                  bills={d.bills}
+                  events={d.billEvents}
+                  votes={d.votes}
+                  timeline={d.timeline}
+                  onBill={() => startRecord("bill")}
+                  onVote={() => setForm("vote")}
+                  onDate={setDate}
+                  openSource={openSource}
+                />
               )}
               {section === "Armed Forces" && (
-                <>
-                  <div className="toolbar">
-                    <button onClick={() => setForm("unit")}>
-                      + Military unit
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("unit_state")}
-                    >
-                      Update unit / hierarchy
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("movement")}
-                    >
-                      Order movement
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => {
-                        setBattleReportId(null);
-                        go("Battles");
-                      }}
-                    >
-                      Record battle
-                    </button>
-                  </div>
-                  <section className="panel">
-                    <h2>Order of battle · {date}</h2>
-                    <p className="muted">
-                      Only dated unit-state observations are shown. Undocumented
-                      subsequent strength remains unknown.
-                    </p>
-                    <Table
-                      headers={[
-                        "Formation",
-                        "Branch / type",
-                        "Parent",
-                        "Personnel",
-                        "Commander",
-                        "Readiness",
-                      ]}
-                      rows={d.units.map((u: R) => {
-                        const s = d.unitStates.find(
-                          (r: R) => r.unit_id === u.id && r.date === date,
-                        );
-                        return [
-                          u.name,
-                          `${u.branch} / ${u.unit_type}`,
-                          s?.parent_id
-                            ? d.units.find((r: R) => r.id === s.parent_id)?.name
-                            : "Unknown / independent not established",
-                          s?.personnel_low
-                            ? s.personnel_high
-                              ? `${s.personnel_low.toLocaleString()}–${s.personnel_high.toLocaleString()}`
-                              : `${s.personnel_low.toLocaleString()}+`
-                            : "Unknown",
-                          s?.commander,
-                          s?.readiness,
-                        ];
-                      })}
-                    />
-                  </section>
-                  <h2>Procurement batches</h2>
-                  <Table
-                    headers={[
-                      "Equipment",
-                      "Snapshot",
-                      "Ordered",
-                      "Delivered",
-                      "Operational",
-                      "Status",
-                    ]}
-                    rows={d.procurement.map((p: R) => [
-                      p.name,
-                      p.date,
-                      p.ordered,
-                      p.delivered,
-                      p.operational,
-                      <Badge>{p.operation}</Badge>,
-                    ])}
-                  />
-                  <div className="section-heading">
-                    <h2>Individually tracked assets</h2>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("asset")}
-                    >
-                      + Asset
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("assignment")}
-                    >
-                      Assign asset
-                    </button>
-                  </div>
-                  <Table
-                    headers={["Asset", "Type", "State"]}
-                    rows={d.assets.map((a: R) => [a.name, a.type, a.operation])}
-                  />
-                  <Table
-                    headers={["Asset", "Unit", "From", "Through"]}
-                    rows={d.assignments.map((a: R) => [
-                      a.asset,
-                      a.unit,
-                      a.start_date,
-                      a.end_date ?? "Open assignment",
-                    ])}
-                  />
-                  <section className="panel">
-                    <div className="section-heading">
-                      <h2>Battles and after-action records</h2>
-                      <button
-                        onClick={() => {
-                          setBattleReportId(null);
-                          go("Battles");
-                        }}
-                      >
-                        New Battle / After-Action Report
-                      </button>
-                    </div>
-                    <p className="muted">
-                      Create or select the battle and record participants, known
-                      casualties and equipment losses in one reviewed report.
-                    </p>
-                  </section>
-                </>
+                <MilitaryWorkspace
+                  date={date}
+                  units={d.units}
+                  snapshot={d.unitSnapshot}
+                  states={d.unitStates}
+                  assets={d.assets}
+                  assignments={d.assignments}
+                  procurement={d.procurement}
+                  movements={d.movements}
+                  phases={d.battleReports}
+                  casualties={d.casualties}
+                  battles={d.battles}
+                  selectedUnit={militaryUnitId}
+                  onUnit={setMilitaryUnitId}
+                  onCreate={() => startRecord("unit")}
+                  onUpdate={() => setForm("unit_state")}
+                  onOrder={() => startRecord("deployment")}
+                  onArrival={(m) => {
+                    setForm("complete_movement");
+                    setPreview(m);
+                  }}
+                  onAsset={() => setForm("asset")}
+                  onAssign={() => setForm("assignment")}
+                  onBattle={() => {
+                    setMilitaryUnitId(null);
+                    setBattleReportId(null);
+                    go("Battles");
+                  }}
+                  openSource={openSource}
+                />
               )}
               {section === "Battles" && (
                 <BattleWorkspace
@@ -1408,198 +1319,32 @@ export default function Console() {
                 />
               )}
               {section === "Military Map" && (
-                <>
-                  <div className="section-heading">
-                    <h2>Deployment register</h2>
-                    <button onClick={() => setForm("movement")}>
-                      + Movement order
-                    </button>
-                  </div>
-                  <div className="map-placeholder">
-                    <div className="map-grid" />
-                    <div>
-                      <span className="eyebrow">
-                        GEOGRAPHIC EVIDENCE REQUIRED
-                      </span>
-                      <h2>Named locations, no guessed coordinates.</h2>
-                      <p>
-                        No verified operational map or coordinates were
-                        supplied. The deployment register works with named
-                        places. Interactive markers and map annotation remain
-                        planned.
-                      </p>
-                    </div>
-                  </div>
-                  <Table
-                    headers={[
-                      "Unit",
-                      "Location",
-                      "Order date",
-                      "State",
-                      "Completed",
-                      "Treaty warning",
-                      "Action",
-                    ]}
-                    rows={d.movements.map((m: R) => [
-                      m.unit,
-                      m.location,
-                      m.date,
-                      <Badge>{m.operation}</Badge>,
-                      m.completed_date,
-                      m.warning,
-                      m.operation === "ordered" ? (
-                        <button
-                          className="secondary"
-                          onClick={() => {
-                            setForm("complete_movement");
-                            setPreview(m);
-                          }}
-                        >
-                          Confirm arrival
-                        </button>
-                      ) : null,
-                    ])}
-                  />
-                  <h2>Completed deployment history</h2>
-                  <Table
-                    headers={["Unit", "Location", "Arrival", "Mission"]}
-                    rows={d.movements
-                      .filter(
-                        (m: R) =>
-                          m.operation === "completed" &&
-                          m.completed_date <= date,
-                      )
-                      .map((m: R) => [
-                        m.unit,
-                        m.location,
-                        m.completed_date,
-                        m.mission,
-                      ])}
-                  />
-                </>
+                <DeploymentWorkspace
+                  date={date}
+                  movements={d.movements}
+                  onOrder={() => startRecord("deployment")}
+                  onArrival={(m) => {
+                    setForm("complete_movement");
+                    setPreview(m);
+                  }}
+                  onUnit={(id) => {
+                    setMilitaryUnitId(id);
+                    go("Armed Forces");
+                  }}
+                  openSource={openSource}
+                />
               )}
               {section === "Economy & Treasury" && (
-                <>
-                  <div className="toolbar">
-                    <button onClick={() => setForm("budget")}>
-                      + Appropriation
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("ledger")}
-                    >
-                      + Ledger entry
-                    </button>
-                    <button
-                      className="secondary"
-                      onClick={() => setForm("project")}
-                    >
-                      + Project
-                    </button>
-                  </div>
-                  <div className="record-grid">
-                    {selected
-                      .filter((r: R) => r.category === "economic")
-                      .map(factCard)}
-                  </div>
-                  <div className="alert">
-                    The reviewed annual framework is $255B, including $82B for
-                    defense. At the retained $160B revenue estimate, the
-                    projected deficit is $95B. Allocations, multi-year
-                    commitments, and actual cash spending remain separate.
-                  </div>
-                  <h2>Appropriation ledger</h2>
-                  <Table
-                    headers={[
-                      "Budget / program",
-                      "Fiscal year",
-                      "Appropriated",
-                      "Committed entries",
-                      "Disbursed entries",
-                      "Actual entries",
-                    ]}
-                    rows={d.budgets.map((b: R) => [
-                      b.name,
-                      b.fiscal_year,
-                      `${b.currency} ${b.appropriated_asof.toLocaleString()}`,
-                      ...["committed", "disbursed", "actual"].map((stage) =>
-                        d.ledger
-                          .filter(
-                            (l: R) =>
-                              l.budget_id === b.id &&
-                              l.stage === stage &&
-                              l.date <= date,
-                          )
-                          .reduce((sum: number, l: R) => sum + l.amount, 0)
-                          .toLocaleString(),
-                      ),
-                    ])}
-                  />
-                  <p className="footnote">
-                    Commitments, disbursements, and actuals are separate stage
-                    totals, never added together as spending. Transfers do not
-                    count as expenditure. Limits reflect recorded base amounts
-                    and dated report increases; the original base commencement
-                    may be unknown.
-                  </p>
-                  <Table
-                    headers={[
-                      "Date",
-                      "Stage",
-                      "Amount",
-                      "Budget / currency",
-                      "Reference",
-                      "Memo",
-                      "Authorization override",
-                      "Evidence",
-                    ]}
-                    rows={d.ledger.map((l: R) => [
-                      l.date,
-                      l.stage,
-                      l.amount.toLocaleString(),
-                      `${d.budgets.find((b: R) => b.id === l.budget_id)?.name || "Unknown"} / ${d.budgets.find((b: R) => b.id === l.budget_id)?.currency || "Unknown"}`,
-                      l.reference || "Legacy entry",
-                      l.memo,
-                      l.override_reason,
-                      <span key={l.id}>
-                        {l.evidence.map((s: R) => (
-                          <button
-                            key={s.report_action_id}
-                            className="text-button"
-                            onClick={() => openSource(s.source_id)}
-                          >
-                            Source lines {s.line_start}–{s.line_end}
-                          </button>
-                        ))}
-                      </span>,
-                    ])}
-                  />
-                  <h2>Economic project snapshots</h2>
-                  <Table
-                    headers={[
-                      "Project",
-                      "Observed",
-                      "Planned cost",
-                      "Approved",
-                      "Paid",
-                      "Committed",
-                      "State / evidence",
-                    ]}
-                    rows={d.projects.map((p: R) => [
-                      p.name,
-                      dateLabel(p),
-                      p.planned?.toLocaleString(),
-                      p.approved?.toLocaleString(),
-                      p.paid?.toLocaleString(),
-                      p.committed?.toLocaleString(),
-                      <>
-                        {p.operation}
-                        <br />
-                        {sourceLink(p)}
-                      </>,
-                    ])}
-                  />
-                </>
+                <TreasuryWorkspace
+                  date={date}
+                  snapshot={d.snapshot}
+                  records={d.records}
+                  projects={d.projects}
+                  budgets={d.budgets}
+                  ledger={d.ledger}
+                  onCreate={setForm}
+                  openSource={openSource}
+                />
               )}
               {section === "Territory & Population" && (
                 <>
@@ -1650,7 +1395,9 @@ export default function Console() {
                 <>
                   <div className="section-heading">
                     <h2>Treaty register</h2>
-                    <button onClick={() => setForm("treaty")}>+ Treaty</button>
+                    <button onClick={() => startRecord("treaty")}>
+                      + Treaty
+                    </button>
                   </div>
                   {d.treaties.map((t: R) => (
                     <article className="record" key={t.id}>
@@ -1682,21 +1429,6 @@ export default function Console() {
                     added now.
                   </Empty>
                 </>
-              )}
-              {section === "National Report Center" && (
-                <ReportCenter
-                  date={date}
-                  units={d.units}
-                  locations={d.locations}
-                  bills={d.bills}
-                  budgets={d.budgets}
-                  onChanged={refresh}
-                  openSource={openSource}
-                  openBattleReport={(id?: string) => {
-                    setBattleReportId(id ?? null);
-                    go("Battles");
-                  }}
-                />
               )}
               {section === "Events & Time" && (
                 <>
@@ -1759,6 +1491,12 @@ export default function Console() {
               )}
               {section === "Imports & Backups" && (
                 <>
+                  <p className="alert">
+                    National Report Center is mothballed pending reliable intake
+                    detection. Preserved reports remain in backups; Battles
+                    still supports reviewed after-action reports. Use New Record
+                    for other entries.
+                  </p>
                   <section className="panel">
                     <h2>Import original material</h2>
                     <p>
@@ -1865,12 +1603,7 @@ export default function Console() {
         </main>
       </div>
       {source && (
-        <div
-          className="overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Original source"
-        >
+        <SourceLayer onClose={() => setSource(null)}>
           <section className="source-drawer">
             <div className="drawer-heading">
               <div>
@@ -1933,7 +1666,7 @@ export default function Console() {
               ))}
             </div>
           </section>
-        </div>
+        </SourceLayer>
       )}
       {issue && !form && (
         <div
@@ -2057,8 +1790,6 @@ export default function Console() {
                       project: "Record economic project",
                       asset: "Register major asset",
                       assignment: "Assign major asset",
-                      battle: "Record a battle",
-                      casualty: "Record casualty report",
                       location: "Add geographic location",
                       treaty: "Register treaty",
                       parse_event: "Enter roleplay development",
@@ -2702,9 +2433,6 @@ export default function Console() {
                       "committed",
                       "disbursed",
                       "actual",
-                      "returned",
-                      "canceled",
-                      "transfer",
                     ]}
                     required
                   />
@@ -2715,8 +2443,27 @@ export default function Console() {
                     required
                   />
                   <Field
-                    name="memo"
-                    label="Purpose / transaction reference"
+                    name="reference"
+                    label="Transaction reference"
+                    help="Use the same reference for repeated evidence of one transaction."
+                    required
+                  />
+                  <Field
+                    name="appropriation_basis"
+                    label="Additional appropriation confirmation"
+                    options={[
+                      { value: "", label: "Not an additional appropriation" },
+                      {
+                        value: "increase",
+                        label: "Increase the existing limit by this amount",
+                      },
+                    ]}
+                    help="Required only for the appropriated stage. Other stages do not change the limit."
+                  />
+                  <Field name="memo" label="Purpose" type="textarea" required />
+                  <Field
+                    name="source_text"
+                    label="Original financial authority / evidence"
                     type="textarea"
                     required
                   />
@@ -2820,72 +2567,6 @@ export default function Console() {
                   <Field
                     name="explanation"
                     label="Assignment authority"
-                    type="textarea"
-                    required
-                  />
-                </>
-              )}
-              {form === "battle" && (
-                <>
-                  <Field name="name" label="Battle / operation" required />
-                  <Dates />
-                  <Field name="theater" label="Theater" />
-                  <Field
-                    name="outcome"
-                    label="Outcome, if resolved"
-                    type="textarea"
-                  />
-                  <Field
-                    name="canon"
-                    label="Canon approval"
-                    options={["provisional", "confirmed", "disputed"]}
-                    value="provisional"
-                  />
-                  <Field
-                    name="source_text"
-                    label="Original report"
-                    type="textarea"
-                    required
-                  />
-                </>
-              )}
-              {form === "casualty" && (
-                <>
-                  <Field
-                    name="battle_id"
-                    label="Battle"
-                    options={d.battles.map((b: R) => ({
-                      value: b.id,
-                      label: b.name,
-                    }))}
-                    required
-                  />
-                  <Field
-                    name="unit_id"
-                    label="Unit (optional)"
-                    options={unitOptions}
-                  />
-                  <Field
-                    name="report_group"
-                    label="Distinct report / phase identifier"
-                    required
-                  />
-                  <Field
-                    name="category"
-                    label="Casualty category"
-                    options={["KIA", "WIA", "MIA", "POW", "unspecified"]}
-                    required
-                  />
-                  <Field name="count" label="Count" type="number" required />
-                  <Field
-                    name="canon"
-                    label="Canon approval"
-                    options={["provisional", "confirmed", "disputed"]}
-                    value="provisional"
-                  />
-                  <Field
-                    name="source_text"
-                    label="Evidence and accounting caveats"
                     type="textarea"
                     required
                   />

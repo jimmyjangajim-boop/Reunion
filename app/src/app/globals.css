@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./new-records.css";
 :root {
   --navy: #14243a;
   --ink: #243349;
@@ -1914,4 +1915,649 @@ body {
   max-height: 35vh;
   overflow: auto;
   flex-shrink: 0;
+}
+
+/* Treasury: a dated financial overview with evidence below the registers. */
+.treasury-masthead {
+  background: var(--navy, #172e3b);
+  color: #f4f0e6;
+  padding: 1.6rem 1.8rem;
+  border-top: 3px solid var(--gold, #ad9361);
+}
+.treasury-masthead h2 {
+  color: inherit;
+  margin: 0.4rem 0;
+  font-family: Georgia, serif;
+  font-size: 2rem;
+}
+.treasury-masthead p {
+  max-width: 65ch;
+}
+.treasury-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  background: #faf8f2;
+}
+.treasury-metrics article {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+}
+.treasury-metrics h3 {
+  font-size: 0.85rem;
+  font-family: inherit;
+  margin: 0 0 0.5rem;
+}
+.treasury-metrics strong {
+  font:
+    1.8rem Georgia,
+    serif;
+  color: #234b46;
+}
+.treasury-metrics p,
+.treasury-panel p {
+  font-size: 0.85rem;
+}
+.treasury-comparisons {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.treasury-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: #faf8f2;
+}
+.treasury-panel h3 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+}
+.treasury-workspace meter {
+  display: block;
+  width: 100%;
+  height: 1.4rem;
+  accent-color: #416b60;
+}
+.treasury-bar {
+  margin: 1.2rem 0;
+}
+.treasury-bar > div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.treasury-share {
+  display: block;
+  font:
+    2.8rem Georgia,
+    serif;
+  color: #234b46;
+}
+.treasury-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+.treasury-workspace td {
+  max-width: 28rem;
+  overflow-wrap: anywhere;
+}
+.treasury-workspace details {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  margin-top: 1rem;
+}
+.treasury-workspace summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .treasury-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .treasury-comparisons {
+    grid-template-columns: 1fr;
+  }
+  .treasury-metrics article {
+    padding: 0.8rem;
+  }
+  .treasury-metrics strong {
+    font-size: 1.35rem;
+  }
+  .treasury-masthead {
+    padding: 1rem;
+  }
+}
+/* Keep complete currency amounts readable; the register scrolls on narrow screens. */
+.treasury-workspace td:nth-child(2),
+.treasury-workspace td:nth-child(3),
+.treasury-workspace td:nth-child(4),
+.treasury-workspace td:nth-child(5) {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.treasury-workspace table {
+  min-width: 900px;
+}
+.treasury-workspace meter::-webkit-meter-bar {
+  background: #e1e5df;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.treasury-workspace meter::-webkit-meter-optimum-value {
+  background: #416b60;
+}
+.treasury-workspace meter::-moz-meter-bar {
+  background: #416b60;
+}
+.project-totals {
+  border-block: 1px solid var(--line);
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+.project-totals dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+.project-totals dt {
+  font-size: 0.85rem;
+}
+.project-totals dd {
+  margin: 0.4rem 0;
+  font:
+    1.5rem Georgia,
+    serif;
+  color: #234b46;
+}
+.project-programs td {
+  vertical-align: top;
+}
+.project-programs details {
+  min-width: 12rem;
+}
+@media (max-width: 700px) {
+  .project-totals dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.parliament-masthead {
+  background: var(--navy, #172e3b);
+  color: #f4f0e6;
+  padding: 1.6rem;
+  border-top: 3px solid var(--gold, #ad9361);
+}
+.parliament-masthead h2 {
+  font:
+    2rem Georgia,
+    serif;
+  color: inherit;
+  margin: 0.5rem 0;
+}
+.parliament-constitutional {
+  border-left: 3px solid var(--gold, #ad9361);
+  background: #f0ecdf;
+  padding: 1rem;
+}
+.parliament-composition {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem;
+  background: #faf8f2;
+  border: 1px solid var(--line);
+}
+.parliament-seats {
+  width: 100%;
+  display: block;
+  max-height: 390px;
+}
+.parliament-seats text {
+  font:
+    18px Georgia,
+    serif;
+  fill: #243b4c;
+}
+.parliament-seats .chart-subtitle {
+  font:
+    11px Arial,
+    sans-serif;
+}
+.party-legend {
+  display: grid;
+  gap: 0.4rem;
+}
+.party-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+}
+.party-choice strong {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.party-choice[aria-pressed="true"] {
+  outline: 2px solid var(--gold, #ad9361);
+  outline-offset: 1px;
+}
+.party-swatch {
+  width: 0.8rem;
+  height: 0.8rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.party-choice small {
+  font-size: 0.75rem;
+}
+.party-profile,
+.bill-profile {
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  background: #f0f3ed;
+  border: 1px solid var(--line);
+}
+.parliament-workspace details {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+}
+.parliament-workspace summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.parliament-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+.parliament-filters {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.parliament-filters label:first-child {
+  flex: 1;
+  min-width: 12rem;
+}
+.parliament-workspace td {
+  max-width: 30rem;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 800px) {
+  .parliament-composition {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1rem;
+  }
+  .parliament-masthead {
+    padding: 1rem;
+  }
+  .party-choice {
+    min-height: 44px;
+  }
+}
+.parliament-filters label {
+  display: grid;
+  gap: 0.4rem;
+}
+.parliament-filters input,
+.parliament-filters select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+}
+.parliament-filters input:focus-visible,
+.parliament-filters select:focus-visible {
+  outline: 2px solid var(--gold, #ad9361);
+  outline-offset: 2px;
+}
+.parliament-seats text {
+  font-size: 16px;
+}
+.parliament-seats .chart-subtitle {
+  font-size: 9px;
+}
+.directory-navigation {
+  margin: 0 0 1rem;
+}
+.government-branch > h3 {
+  font-family: Georgia, serif;
+  margin: 1.2rem 0 0.65rem;
+}
+.profile-view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.profile-view-tabs button[aria-pressed="true"] {
+  outline: 2px solid var(--gold, #ad9361);
+  outline-offset: 1px;
+}
+.profile-date-context {
+  padding: 0.8rem;
+  border-left: 3px solid var(--gold, #ad9361);
+  background: #f4f1e8;
+}
+.ministry-link {
+  text-align: left;
+}
+.cabinet-table td small {
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+@media (max-width: 700px) {
+  .cabinet-roster {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+  .cabinet-roster table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+  .cabinet-roster thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .cabinet-roster tbody {
+    display: grid;
+    gap: 1rem;
+  }
+  .cabinet-roster tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border: 1px solid var(--line);
+    background: #fff;
+  }
+  .cabinet-roster tbody th {
+    grid-column: 1/-1;
+    padding: 0.85rem;
+  }
+  .cabinet-roster tbody td {
+    padding: 0.65rem 0.85rem;
+    min-width: 0;
+    border: 0;
+  }
+  .cabinet-roster tbody td:nth-child(2),
+  .cabinet-roster tbody td:last-child {
+    grid-column: 1/-1;
+  }
+  .cabinet-roster td::before {
+    display: block;
+    content: attr(data-label);
+    font-size: 0.7rem;
+    color: var(--muted, #63706d);
+    margin-bottom: 0.3rem;
+  }
+  .cabinet-roster td:nth-child(2) .person-link {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .cabinet-roster tbody th {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+}
+.military-masthead {
+  background: var(--navy, #172e3b);
+  color: #f4f0e6;
+  border-top: 3px solid var(--gold, #ad9361);
+  padding: 1.5rem;
+}
+.military-masthead h2 {
+  color: inherit;
+  font:
+    2rem Georgia,
+    serif;
+  margin: 0.5rem 0;
+}
+.military-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+.military-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.military-filters label,
+.military-scope {
+  display: grid;
+  gap: 0.4rem;
+}
+.military-filters label:first-child {
+  flex: 1;
+  min-width: 12rem;
+}
+.military-filters input,
+.military-filters select,
+.military-scope select {
+  min-height: 44px;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 4px;
+  font: inherit;
+}
+.military-note {
+  background: #f1eee2;
+  padding: 1rem;
+  border-left: 3px solid var(--gold, #ad9361);
+}
+.formation-tree,
+.formation-tree ul {
+  list-style: none;
+  padding-left: 0;
+}
+.formation-tree > li {
+  border: 1px solid var(--line);
+  margin: 0.6rem 0;
+  background: #faf8f2;
+}
+.formation-tree ul {
+  margin-left: 1rem;
+  border-left: 2px solid var(--line);
+  padding-left: 1rem;
+}
+.formation-tree summary {
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.formation-entry {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1.4fr) 1fr;
+  gap: 0.4rem 1rem;
+  padding: 1rem;
+}
+.formation-entry .formation-name {
+  font-family: Georgia, serif;
+  text-align: left;
+  font-size: 1.1rem;
+}
+.formation-entry small {
+  grid-column: 1/-1;
+  color: var(--muted, #64706d);
+}
+.formation-entry .formation-issue {
+  color: #7e402f;
+}
+.military-table table {
+  min-width: 680px;
+}
+.military-table td {
+  vertical-align: top;
+  max-width: 25rem;
+  overflow-wrap: anywhere;
+}
+.military-workspace details:not(.formation-tree details),
+.deployment-workspace details {
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+}
+.military-phase {
+  border-block: 1px solid var(--line);
+  margin: 1rem 0;
+  padding: 0.7rem 0;
+}
+.military-unit-profile .profile-facts {
+  margin: 1rem 0;
+}
+.military-unit-profile .military-table {
+  max-width: 100%;
+}
+@media (max-width: 700px) {
+  .formation-entry {
+    grid-template-columns: 1fr;
+  }
+  .military-filters label {
+    width: 100%;
+  }
+  .military-tabs button {
+    min-height: 44px;
+  }
+  .military-masthead {
+    padding: 1rem;
+  }
+}
+.military-table table {
+  table-layout: auto;
+}
+.military-table td,
+.military-table th {
+  min-width: 8rem;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.formation-name {
+  overflow-wrap: anywhere;
+}
+.record-choice-picker {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+  margin-bottom: 0.8rem;
+}
+.record-choice-picker > label {
+  font-size: 0.8rem;
+}
+.record-choice-picker select,
+.record-choice-picker input[type="search"] {
+  width: 100%;
+  min-width: 0;
+}
+.picker-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 0.6rem;
+}
+.picker-filters label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+}
+.picker-checks {
+  display: grid;
+  gap: 0.3rem;
+}
+.picker-checks label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  border: 1px solid #d5d5cb;
+  border-radius: 0.3rem;
+}
+.picker-checks input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+}
+.picker-checks span {
+  overflow-wrap: anywhere;
+}
+.picker-pages,
+.picker-selected {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.picker-selected small {
+  flex-basis: 100%;
+}
+.record-choice-picker small {
+  overflow-wrap: anywhere;
+}
+.saved-record-details dd {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.source-layer {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+}
+.search-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.search-filters label {
+  display: grid;
+  gap: 0.3rem;
+}
+.search-filters select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  background: white;
+}
+.search-results .record p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.global-search-workspace .saved-record-details {
+  margin-top: 1rem;
+}
+
+.archive-filter-row > .record-choice-picker {
+  grid-column: span 2;
+}
+@media (max-width: 700px) {
+  .archive-filter-row > .record-choice-picker {
+    grid-column: 1 / -1;
+  }
 }

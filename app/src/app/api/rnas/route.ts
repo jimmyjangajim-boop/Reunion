@@ -1,27 +1,26 @@
+import {
+  createEntity,
+  createSourcedAssertion,
+  createTimelineEntry,
+} from "../../../lib/record-commands.ts";
 import { NextRequest, NextResponse } from "next/server";
 import { searchArchiveText } from "../../../lib/archive-search.ts";
-import { randomUUID } from "node:crypto";
-import { getDb, all, one, transaction, audit } from "../../../lib/db.ts";
+import { getDb, all, one, transaction } from "../../../lib/db.ts";
 import {
   assertionRows,
   snapshot,
   search,
   evidenceFor,
-  addAssertion,
-  createUserSource,
   detectIssues,
   resolveIssue,
 } from "../../../lib/canon.ts";
-import {
-  exactDate,
-  historicalDateSchema,
-  dateValue,
-} from "../../../lib/dates.ts";
+import { exactDate } from "../../../lib/dates.ts";
 import { z } from "zod";
 import { cabinetView } from "../../../lib/cabinet-view.ts";
 import { administrationView } from "../../../lib/administration-view.ts";
 import { appropriationAt } from "../../../lib/financial-reports.ts";
 import { rollbackImport } from "../../../lib/importer.ts";
+import { unitSnapshot } from "../../../lib/admin.ts";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 function problem(e: unknown) {
@@ -175,11 +174,50 @@ export async function GET(req: NextRequest) {
       db,
       "SELECT a.*,e.name person,o.name office FROM appointments a JOIN entities e ON e.id=a.person_id JOIN offices o ON o.id=a.office_id ORDER BY a.sequence,a.start_date",
     );
+    const eventLinks = all(
+      db,
+      "SELECT l.timeline_id,e.id,e.name,e.kind FROM timeline_entities l JOIN entities e ON e.id=l.entity_id",
+    );
     const timeline = all(
       db,
       "SELECT t.*,s.filename,s.tier FROM timeline t LEFT JOIN sources s ON s.id=t.source_id",
+    ).map((event) => ({
+      ...event,
+      related_entities: eventLinks.filter(
+        (link) => link.timeline_id === event.id,
+      ),
+    }));
+    const bills = all(
+      db,
+      "SELECT b.*,s.person_id sponsor_id FROM bills b LEFT JOIN bill_sponsors s ON s.bill_id=b.id",
     );
-    const bills = all(db, "SELECT * FROM bills");
+    const billEvents = all(
+      db,
+      "SELECT e.*,b.identifier FROM bill_events e JOIN bills b ON b.id=e.bill_id ORDER BY e.date,e.recorded_at,e.rowid",
+    ).map((e) => ({
+      ...e,
+      evidence: all(
+        db,
+        "SELECT * FROM bill_event_evidence WHERE event_id=?",
+        e.id,
+      ),
+    }));
+    const movementCitations = all(
+      db,
+      "SELECT d.target_id,c.source_id,c.line_start,c.line_end FROM record_drafts d JOIN record_draft_citations c ON c.draft_id=d.id WHERE d.kind='deployment' AND d.status='saved'",
+    );
+    const movementAuthority = all(
+      db,
+      "SELECT DISTINCT target,action,explanation FROM audit WHERE action IN ('movement','complete_movement')",
+    );
+    const movements = all(
+      db,
+      "SELECT m.*,l.name location,u.name unit FROM movements m JOIN locations l ON l.id=m.location_id JOIN units u ON u.id=m.unit_id ORDER BY date",
+    ).map((m) => ({
+      ...m,
+      evidence: movementCitations.filter((c) => c.target_id === m.id),
+      authority: movementAuthority.filter((a) => a.target === m.id),
+    }));
     const cabinet = cabinetView({
       date,
       records: viewData.records,
@@ -190,6 +228,7 @@ export async function GET(req: NextRequest) {
       appointments,
       timeline,
       bills,
+      billEvents,
     });
     return NextResponse.json({
       date,
@@ -209,24 +248,12 @@ export async function GET(req: NextRequest) {
       chambers: all(db, "SELECT * FROM chambers"),
       parties: all(db, "SELECT * FROM party_seats"),
       bills,
-      billEvents: all(
-        db,
-        "SELECT e.*,b.identifier FROM bill_events e JOIN bills b ON b.id=e.bill_id ORDER BY e.date,e.recorded_at,e.rowid",
-      ).map((e) => ({
-        ...e,
-        evidence: all(
-          db,
-          "SELECT * FROM bill_event_evidence WHERE event_id=?",
-          e.id,
-        ),
-      })),
+      billEvents,
       votes: all(db, "SELECT * FROM votes"),
       units: all(db, "SELECT * FROM units"),
       unitStates: all(db, "SELECT * FROM unit_states ORDER BY date"),
-      movements: all(
-        db,
-        "SELECT m.*,l.name location,u.name unit FROM movements m JOIN locations l ON l.id=m.location_id JOIN units u ON u.id=m.unit_id ORDER BY date",
-      ),
+      unitSnapshot: unitSnapshot(db, date),
+      movements,
       procurement: all(db, "SELECT * FROM procurement"),
       assets: all(db, "SELECT * FROM assets"),
       assignments: all(
@@ -304,84 +331,13 @@ export async function POST(req: NextRequest) {
     let result: any;
     switch (data.action) {
       case "entity":
-        result = transaction(db, () => {
-          const e = z
-            .object({
-              name: z.string().trim().min(1).max(200),
-              kind: z.string().min(1).max(100),
-              description: z.string().max(5000).default(""),
-            })
-            .parse(data);
-          const id = randomUUID();
-          db.prepare(
-            "INSERT INTO entities(id,name,kind,description) VALUES(?,?,?,?)",
-          ).run(id, e.name, e.kind, e.description);
-          audit(
-            db,
-            "create_entity",
-            id,
-            null,
-            e,
-            "User entered entity; no inferred facts.",
-          );
-          return { id };
-        });
+        result = createEntity(db, data);
         break;
       case "assertion":
-        result = transaction(db, () => {
-          const source =
-            data.source_id ||
-            createUserSource(
-              db,
-              z.string().trim().min(3).parse(data.source_text),
-            );
-          const id = addAssertion(db, {
-            ...data,
-            source_id: source,
-            line_start: data.source_id ? data.line_start : 1,
-            line_end: data.source_id ? data.line_end : 1,
-          });
-          audit(db, "add_assertion", id, null, data, "Explicit user entry");
-          detectIssues(db);
-          return { id };
-        });
+        result = createSourcedAssertion(db, data);
         break;
       case "timeline":
-        result = transaction(db, () => {
-          const e = z
-            .object({
-              title: z.string().trim().min(3),
-              category: z.string().min(1),
-              date: historicalDateSchema,
-              canon: z.enum(["confirmed", "provisional", "disputed"]),
-              source_id: z.string().min(1),
-              line_start: z.coerce.number().int().positive(),
-              line_end: z.coerce.number().int().positive(),
-            })
-            .parse(data);
-          const src = one(db, "SELECT * FROM sources WHERE id=?", e.source_id);
-          if (
-            !src ||
-            e.line_start > e.line_end ||
-            e.line_end > src.content.split("\n").length
-          )
-            throw Error("Check source and line range");
-          const id = randomUUID();
-          db.prepare(
-            "INSERT INTO timeline(id,title,category,date_json,canon,source_id,line_start,line_end) VALUES(?,?,?,?,?,?,?,?)",
-          ).run(
-            id,
-            e.title,
-            e.category,
-            JSON.stringify(e.date),
-            e.canon,
-            e.source_id,
-            e.line_start,
-            e.line_end,
-          );
-          audit(db, "timeline_entry", id, null, e, "User timeline entry");
-          return { id };
-        });
+        result = createTimelineEntry(db, data);
         break;
       case "review":
         result = resolveIssue(db, { ...data, action: data.resolution });

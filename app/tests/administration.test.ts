@@ -169,6 +169,7 @@ describe("Bounded administration integrity", () => {
       stage: "committed",
       amount: 80,
       memo: "Contract A",
+      reference: "CONTRACT-A",
     });
     ledgerEntry(db, {
       budget_id: id,
@@ -176,6 +177,7 @@ describe("Bounded administration integrity", () => {
       stage: "actual",
       amount: 40,
       memo: "Invoice A",
+      reference: "INVOICE-A",
     });
     expect(all(db, "SELECT stage,amount FROM ledger")).toEqual(
       expect.arrayContaining([
@@ -190,6 +192,7 @@ describe("Bounded administration integrity", () => {
         stage: "actual",
         amount: 61,
         memo: "Invoice B",
+        reference: "INVOICE-B",
       }),
     ).toThrow("Authorization warning");
     ledgerEntry(db, {
@@ -198,6 +201,7 @@ describe("Bounded administration integrity", () => {
       stage: "actual",
       amount: 61,
       memo: "Invoice B",
+      reference: "INVOICE-B",
       override_reason: "Explicit emergency overrun approval",
     });
   });
@@ -220,22 +224,24 @@ describe("Bounded administration integrity", () => {
       "WIA",
     ]);
     expect(rows.every((r) => r.canon === "provisional")).toBe(true);
-    adminAction(db, {
-      action: "casualty",
-      battle_id: "B023",
-      report_group: "another phase",
-      category: "unspecified",
-      count: 100,
-      canon: "disputed",
-      source_text: "Unverified other phase",
-    });
+    expect(() =>
+      adminAction(db, {
+        action: "casualty",
+        battle_id: "B023",
+        report_group: "another phase",
+        category: "unspecified",
+        count: 100,
+        canon: "disputed",
+        source_text: "Unverified other phase",
+      }),
+    ).toThrow("reviewed report approval");
     expect(
       all(
         db,
         "SELECT DISTINCT report_group FROM casualties WHERE battle_id=?",
         "B023",
       ),
-    ).toHaveLength(2);
+    ).toHaveLength(1);
   });
   it("warns about treaty-restricted deployments and requires explicit override", () => {
     const loc = one(

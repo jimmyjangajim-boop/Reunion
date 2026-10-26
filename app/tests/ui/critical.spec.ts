@@ -4,10 +4,109 @@ async function navigate(page: any, name: string) {
   if (await page.getByRole("button", { name: "Toggle navigation" }).isVisible())
     await page.getByRole("button", { name: "Toggle navigation" }).click();
   await page
-    .getByRole("navigation")
+    .getByRole("navigation", { name: "Main navigation" })
     .getByRole("button", { name, exact: false })
     .click();
 }
+
+test("Treasury form shares reference validation and persists a sourced entry", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await navigate(page, "Economy & Treasury");
+  const name = "UI funding fixture " + Date.now();
+  const reference = "UI-PAY-" + Date.now();
+  await page
+    .getByRole("button", { name: "+ Appropriation", exact: true })
+    .click();
+  await page.getByLabel("Budget / program", { exact: true }).fill(name);
+  await page
+    .getByLabel("Legally appropriated amount, whole currency units")
+    .fill("100");
+  await page
+    .getByLabel("Appropriation authority / original decision")
+    .fill("Test-only funding authority");
+  await page.getByRole("button", { name: "Save record", exact: true }).click();
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
+  await page
+    .getByRole("button", { name: "+ Ledger entry", exact: true })
+    .click();
+  await page
+    .getByLabel("Appropriation", { exact: true })
+    .selectOption({ label: name });
+  await page
+    .getByLabel("Accounting stage", { exact: true })
+    .selectOption("disbursed");
+  await page
+    .getByLabel("Amount, whole currency units", { exact: true })
+    .fill("40");
+  await page
+    .getByLabel("Transaction reference", { exact: true })
+    .fill(reference);
+  await page.getByLabel("Purpose", { exact: true }).fill("Test-only payment");
+  await page
+    .getByLabel("Original financial authority / evidence")
+    .fill("Test-only payment evidence");
+  await page.getByRole("button", { name: "Save record", exact: true }).click();
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
+  await page.reload();
+  await navigate(page, "Economy & Treasury");
+  await page.getByRole("button", { name: "Transactions", exact: true }).click();
+  await expect(
+    page.getByRole("cell", { name: reference, exact: true }),
+  ).toBeVisible();
+});
+
+test("all department pages render without client errors", async ({
+  page,
+}, testInfo) => {
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/");
+  for (const name of [
+    "Dashboard",
+    "New Record",
+    "Government",
+    "Cabinet & Institutions",
+    "Parliament",
+    "Economy & Treasury",
+    "Territory & Population",
+    "Armed Forces",
+    "Battles",
+    "Military Map",
+    "Foreign Relations",
+    "Domestic Security",
+    "Historical Archive",
+    "Events & Time",
+    "Canon Review Center",
+    "Imports & Backups",
+  ]) {
+    await navigate(page, name);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    if (
+      [
+        "Dashboard",
+        "New Record",
+        "Cabinet & Institutions",
+        "Economy & Treasury",
+        "Historical Archive",
+      ].includes(name)
+    )
+      await page.screenshot({
+        path: testInfo.outputPath(name.replaceAll(/[^a-z]/gi, "-") + ".png"),
+        fullPage: true,
+      });
+  }
+  await expect(
+    page
+      .getByRole("navigation", { name: "Main navigation" })
+      .getByRole("button", { name: "National Report Center", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByText(/National Report Center is mothballed/),
+  ).toBeVisible();
+  expect(errors).toEqual([]);
+});
 test("baseline dashboard, global search and immutable cited source", async ({
   page,
 }) => {
@@ -18,11 +117,14 @@ test("baseline dashboard, global search and immutable cited source", async ({
   await expect(
     page.getByRole("button", { name: /VICE PRESIDENT Darius Younger/ }),
   ).toBeVisible();
-  await page.getByLabel("Search all sources").fill("Darius Younger");
+  await page.getByLabel("Search records and sources").fill("Darius Younger");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Search results" }),
   ).toBeVisible();
+  await page
+    .getByLabel("Search category", { exact: true })
+    .selectOption("Sources");
   await page
     .getByRole("button", { name: /CONFIRMED_USER_OVERRIDES.md/ })
     .first()
@@ -73,7 +175,7 @@ test("review side-by-side evidence, reasoned decision, and normal entity entry",
     .getByLabel("Reason for decision")
     .fill("Keep both identities distinct pending the original royal register.");
   await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("Saved");
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
   await navigate(page, "Historical Archive");
   await page.getByRole("button", { name: "+ Entity", exact: true }).click();
   await page
@@ -81,30 +183,58 @@ test("review side-by-side evidence, reasoned decision, and normal entity entry",
     .fill("UI audit entity " + Date.now());
   await page.getByLabel("Entity type").selectOption("organization");
   await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("Saved");
+  await expect(page.locator(".notice[role=status]")).toContainText("Saved");
 });
 test("ordered movement appears in register without completed deployment", async ({
   page,
 }) => {
+  const mission = "UI test reinforcement order " + Date.now();
   await page.goto("/");
   await navigate(page, "Military Map");
   await page
     .getByRole("button", { name: "+ Movement order", exact: true })
     .click();
-  await page.getByLabel("Unit", { exact: true }).selectOption("unit-3inf");
-  await page.getByLabel("Destination").selectOption({ label: "Dalmatia" });
+  await page.getByLabel("Formation", { exact: true }).selectOption("unit-3inf");
   await page
-    .getByLabel("Mission / movement type")
-    .fill("UI test reinforcement order");
-  await page.getByRole("button", { name: "Save record", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("Saved");
+    .getByLabel("Destination", { exact: true })
+    .selectOption({ label: "Dalmatia" });
+  await page.getByLabel("Order date", { exact: true }).fill("1992-10-08");
+  await page
+    .getByLabel("Movement status", { exact: true })
+    .selectOption("ordered");
+  await page.getByLabel("Mission or order", { exact: true }).fill(mission);
+  await page
+    .getByLabel("Original evidence or source citation", { exact: true })
+    .fill("UI test order authority");
+  await page
+    .getByRole("button", { name: "Review record", exact: true })
+    .click();
+  await page
+    .getByLabel("Approval reason", { exact: true })
+    .fill("Accept supplied test order");
+  await page
+    .getByRole("button", { name: "Approve and save record", exact: true })
+    .click();
   await expect(
-    page.getByRole("cell", { name: "ordered", exact: true }).first(),
+    page.getByRole("heading", { name: "Saved record", exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Open related registry", exact: true })
+    .click();
+  await page.getByLabel("Movement dates", { exact: true }).selectOption("all");
+  const order = page.getByRole("row").filter({ hasText: mission });
+  await expect(
+    order.getByRole("cell", { name: "ordered", exact: true }),
   ).toBeVisible();
   await expect(
-    page.getByRole("button", { name: "Confirm arrival" }).first(),
+    order.getByRole("button", { name: "Confirm arrival", exact: true }),
+  ).toHaveCount(0);
+  await page.getByLabel("Historical Date Selector").fill("1992-10-08");
+  await expect(
+    order.getByRole("button", { name: "Confirm arrival", exact: true }),
   ).toBeVisible();
 });
+
 test("uploads staged text, searches it, and exports database backup", async ({
   page,
 }) => {
@@ -191,10 +321,12 @@ test("government has one resolved entry per office and preserves 1725 in the arc
     page.getByText("No designated heir", { exact: true }),
   ).toBeVisible();
   await navigate(page, "Historical Archive");
-  await page.getByLabel("Filter records").fill("1725");
-  await expect(
-    page.getByText("King Aurelios Leandros Steiner I", { exact: true }).first(),
-  ).toBeVisible();
+  await page
+    .getByRole("combobox", { name: "Historical collection", exact: true })
+    .selectOption("1725");
+  await expect(page.locator(".archive-table")).toContainText(
+    "King Aurelios Leandros Steiner I",
+  );
 });
 test("Cabinet roster opens a source-backed minister profile with progressive evidence", async ({
   page,
@@ -281,7 +413,7 @@ test("Archive filters, source-linked details and original text search keep histo
   await navigate(page, "Historical Archive");
   await expect(page.locator(".archive-table tbody tr")).toHaveCount(25);
   await page
-    .getByLabel("Canon status", { exact: true })
+    .getByRole("combobox", { name: "Canon status", exact: true })
     .selectOption("superseded");
   await page.getByLabel("Filter records").fill("Jack Younger");
   await page.locator(".archive-title").first().click();
@@ -293,7 +425,9 @@ test("Archive filters, source-linked details and original text search keep histo
   await page
     .getByRole("button", { name: "Clear filters", exact: true })
     .click();
-  await page.getByLabel("Historical collection").selectOption("1725");
+  await page
+    .getByRole("combobox", { name: "Historical collection", exact: true })
+    .selectOption("1725");
   await expect(page.locator(".archive-table")).toContainText(
     "1725 archive only",
   );

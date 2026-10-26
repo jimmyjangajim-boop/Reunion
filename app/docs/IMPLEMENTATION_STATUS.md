@@ -1,81 +1,32 @@
-# Current implementation status, 20 October 2026
+# Current RNAS implementation status
 
-Existing foundation: Next.js App Router, TypeScript, Tailwind, Zod, Node 24 SQLite/FTS5. Existing government, parliamentary, military, fiscal, treaty and time tools remain bounded vertical slices, documented in the root application IMPLEMENTATION_STATUS.md.
+Verified consolidated baseline, 26 October 2026. Runtime code equals tested revision 87cd925; consolidation adds documentation and a schema-upgrade regression check. Source/review branch: release/verified-baseline-2026-10-26, targeting main. This is a review baseline, not a hosted deployment or a claim that every original specification is complete.
 
-## Prior completed slice
+Read [full feature rundown](FEATURE_RUNDOWN.md), [baseline verification](BASELINE_2026-10-26.md), [architecture](../../ARCHITECTURE.md) and [next work](ROADMAP.md). Older dated status notes remain in [history](history/before-verified-baseline-2026-10-26/IMPLEMENTATION_STATUS.md).
 
-- Migration 003: immutable report identity, proposed actions, append-only report review history and original-artifact metadata.
-- National Report Center with exact original preservation, history, partial/bulk selection, inline proposed-detail correction, reasoned approval and optimistic revision checks.
-- Deterministic extraction of exact-name movement orders and arrivals. Arrival requires an existing eligible order. Other prose is offered as archive events with unresolved administrative effects, not inferred subsystem mutations.
-- All selected effects and timeline/audit writes share one transaction and existing domain services. Duplicate submissions and repeat approvals cannot duplicate movements.
-- Scenario reports persist separately and cannot update national records. No AI or generated simulation engine is implemented.
-- Reproducible reviewed JSON import: 88 source metadata records, 82 nonempty extracted texts, 40 reviewed facts and 27 user answers. Existing rows are preserved. Eight old assertion aliases and three Altis chronology rows are explicitly superseded/corrected.
-- Current local database: migrations 1–7; 123 source rows, 157 assertions, 47 timeline rows including three superseded chronology rows, and 29 decision rows. No production/test reports were inserted into national data.
-- Online database backup, read-only integrity/migration-version check, and complete portable database-plus-evidence ZIP with verified hashes.
+## Working scope and boundaries
 
-## Parliamentary reports
+| Area | Implemented | Still limited or missing |
+| --- | --- | --- |
+| New Record | Five categories, nine guided types, seven routes to existing specialized workflows; drafts, review, explicit approval, receipts and related-record/source navigation | Not every proposed type or inline prerequisite is supported |
+| Search and Archive | Fourteen primary operational types plus identities/facts/events/source metadata/passages; broad filters, paging, exact details, full Archive/source provenance | Not every child-history row or native departmental dossier; search/stored details cover all recorded dates |
+| Dashboard, Government and Cabinet | Dated leadership, separate Presidency/Crown, searchable directory, office/person profiles and explicit appointment operations | Sparse source dates/affiliations/responsibilities remain unknown; full election/reign/institutional histories incomplete |
+| Parliament | Source-assigned 400-seat chart/party profiles, separate constitutional cap 300, dated composition and legislative/vote registers, sourced manual bill/vote operations | Occupied seats and named member mandates not established; no inferred amendment, restored session or enactment |
+| Armed Forces and deployments | Searchable hierarchy, latest sourced observations, profiles, personnel/equipment views and shared order/arrival register | No inferred national strength/readiness, complete procurement/service/attachment lifecycles or operational map geometry |
+| Battles | Combined reviewed engagement/phase/casualty/equipment workflow, explicit identities, unknown versus zero, provenance and transactional approval | No anonymous inventory deduction, incompatible casualty aggregation, automatic strengths or combat simulation |
+| Economy and projects | Dated source observations; six separate ledger stages and dated funding/reference validation; seven tracker-reconciled envelopes | No invented ledger entries, complete cash/accrual/debt/revenue accounting, balanced transfers/reversals or automatic project completion |
+| Territory and diplomacy | Named locations with separate sovereignty/control/administration, treaties/states, restrictions and explicit deployment warnings | No guessed map/borders, complete treaty article/compliance/negotiation workflows or automatic diplomatic effects |
+| Domestic Security | Sourced domestic/constitutional claims | Specialized investigations/incidents/secrecy/intelligence workflows remain planned |
+| Canon review and time | Source comparisons, reasoned preserved decisions, bounded legacy event previews and explicit clock changes | No semantic understanding of all prose or automatic national outcomes |
+| Import/export/recovery | Original staging, reviewed/idempotent seed imports, bounded rollback protections, dated snapshot exports, database and portable backups with verification | Staging is not OCR/canon extraction; subsystem exchange previews/sync/recurring off-machine backups are not implemented |
+| National Report Center | Mothballed at user request; existing originals/APIs/services retained for evidence and working Battles | General report intake/review UI unavailable; no reliable automatic detection added |
 
-- Migration 004 preserves existing report actions and adds append-only legislative events and source evidence.
-- Bounded explicit bill syntax proposes consideration, introduction, passage or enactment. Review supports existing-bill matching, unknown titles/dates, reported effective dates and reasoned corrections.
-- Approved actions update Parliament’s existing bill register and sourced timeline transactionally. Reported passage does not manufacture votes, enactment, appropriations or spending.
-- Corroboration reuses an identical legislative event and timeline entry while retaining additional original evidence. Earlier stages do not regress the register; inconsistent chronology and stale bill baselines block approval.
-- Bulk approval supports several stages of one bill and rolls back all department effects if any action fails.
-- Parliament shows sourced legislative history. The register is the furthest reported stage, not a date-filtered reconstruction. No production legislation or fixture records were added.
+## Verification and data
 
-## Financial reports
+219 domain/API tests, 66 desktop/emulated-phone browser checks, typecheck, production build, source verification and read-only integrity/FK checks passed for this baseline. The new regression covers schema-7 reconstruction → schema-8 upgrade without changing existing data/history. Browser tests use a temporary database; phone tests use Chromium emulation, not physical Safari.
 
-- Migration 005 preserves existing actions/legislative evidence and adds immutable report-linked ledger references, supporting sources and appropriation-adjustment history.
-- Review supports proposed, authorized, appropriated, committed, disbursed and actual records, requiring a known budget, exact currency/whole-unit amount/date and transaction reference. Explicit additional appropriations raise limits; ordinary appropriation prose requires a reviewed interpretation.
-- Financial actions reuse Treasury’s existing ledger service. Repeated references corroborate without duplicate money or limit increases. Conflicting references, stale budget state, missing funding and currency mismatch block approval.
-- A selected earlier additional appropriation can fund a later selected payment in the same atomic approval. Failure anywhere rolls back every selected department change. Over-authorization requires a recorded explicit override; checks account for dated increases and backdated spending.
-- Treasury shows references, source lines and limits adjusted for known dated increases. Original base-limit commencement can remain unknown. This is a bounded stage ledger, not full cash/accrual accounting or historical fiscal reconstruction.
-- The six reattached source texts match the stored originals byte for byte; no duplicate sources or obsolete-canon overrides were created. No financial fixtures or synthetic spending were inserted into production data.
+All 59 live tables equal the checkpoint and isolated portable restore. A fresh setup independently reproduces 25 core tables when recording timestamps are excluded; a second setup leaves all 59 fresh tables unchanged. Portable backup verifies 46 files; all 14 protected original text hashes match. No production fixtures or canonical/economic-budget changes in this consolidation.
 
-## Government display correction
+The live baseline contains 123 sources, 90 identities, 157 assertions, 47 timeline records, 27 battles, five formations, twelve procurement observations and seven projects. Operational appropriations, ledger entries, movements, tracked assets and guided drafts/reports are empty in the reviewed baseline; empty pages must not be filled with invented records. These counts describe verification time only.
 
-- Government now renders one resolved President, Vice President, monarch and heir card. Superseded VP/heir claims and generic royal designations remain in the archive rather than appearing as additional officeholders.
-- The heir decision is displayed as “No designated heir” with its undated status; no applicability or appointment date is invented. Dashboard heir wording uses the same register.
-- The 1725 campaign is archive-only per the latest user request. Its claims, sources, timeline and identities remain preserved/searchable. Active snapshots, department record views, appointment choices and the current review inbox exclude those historical entries.
-- Historical snapshot/export functions retain their records; the active overview is a separate read model. No canon text, date, identity, source or live database row was changed.
-
-## Usability refinement: shared layout and Cabinet
-
-- Implemented the first two steps of the new usability directive, preserved verbatim in repository docs/USER_USABILITY_DIRECTIVE.txt. See USABILITY_REFINEMENT.md for the phased status.
-- Grouped navigation into overview/administration/security/records; added useful section descriptions, compact spacing and responsive roster controls. Shared claim metadata/raw values move into expandable evidence/history, with readable labels and values in normal content.
-- Replaced Government/Cabinet claim grids with leadership tiles and a compact ministry roster. Separate deputy/institution/history tabs and a local search replace the unrelated political-card feed.
-- Source-backed officeholder profiles expose term history, supplied personal records and evidence on demand. Unknown affiliations/dates/responsibilities remain unknown; no portraits were invented. RIA director stays separate from ministries, and Rehn is historical rather than a second current Finance Minister.
-- Appoint Minister can create a supplied person inline within the existing appointment transaction. Validation failure rolls back all related creation.
-- Steps 1–2 preserved all 48 live tables. The subsequent battle slice below narrowly audits two legacy Altis year labels; accepted financial canon remains unchanged.
-- Browser interaction/visual QA remains pending under the managed-preview restriction. Broader Archive/Parliament/Treasury redesign remains unfinished.
-
-## Battles and after-action reports
-
-- Migrations 006–007 preserve report action IDs/status/targets and both prior evidence tables, adding append-only battle phase/participant/casualty/loss/evidence/asset-effect history and explicit loss participant attribution.
-- Dedicated Battles navigation and one New Battle / After-Action Report workflow create/select a battle, preserve an English original, enter participants, categorized known casualties, equipment losses and outcome, then review/correct/approve or reject. Supplied formations can be created inline; unresolved names need not become OOB units.
-- Approval uses the same report transaction for battle, formations, casualties, losses, selected asset state/assignment changes, timeline and audit. Scenarios cannot update canon. Null casualty counts remain unknown; explicit zero is preserved. Existing casualty groups remain accessible without aggregation.
-- A battle/reference identifies a combat phase. Equivalent facts add source evidence without duplicate casualties/losses/timeline; conflicting phase facts remain pending. Concurrent state changes require reasoned re-review. Source lines and review history survive restart.
-- Explicit tracked asset loss/damage requires count 1, exact date, eligible state and chronology/assignment checks. Prior asset states/assignments are preserved. No personnel/readiness, anonymous inventory, territory, procurement or financial effects are inferred.
-- Bounded read-only English suggestions propose limited date/place/formation/count fields. Review supplies name/reference, outcome, loss attribution and any missing details. This is not general language extraction or an AI provider.
-- B026/B027 now read relative “October 1992” with two before/after audits under reviewed user authority; original wording, provisional status and unknown exact days remain intact. All other preexisting data is unchanged except migration rows. No production reports or test fixtures were inserted.
-- The compact searchable Archive is implemented below. Browser interaction/visual QA remains pending; the separate hosted Site is unchanged.
-
-## Current completed slice: compact searchable Archive
-
-- Replaced the endless archive claim-card feed with paginated collections for Records, Timeline, Sources, Entities and Original text. Compact results open native detail dialogs with full values, source excerpts, exact replacement links and expandable historical/technical metadata.
-- Added word/category/canon/entity/source/1725-collection/date-window filters, stable ordering, bounded pages and explicit unknown-date inclusion. Historical precision is preserved; source/entity metadata is not misleadingly date-filtered. All statuses remain available, while 1725 stays outside active administration.
-- Original-text search uses a read-only validated FTS endpoint with true totals and pagination beyond the existing global search's 80-result cap. Source passages open the immutable line viewer. Original-artifact metadata is available separately from stored-text hashes. No search result is promoted to canon.
-- Existing creation forms remain accessible; this is not a new curation or general linked-event authoring service. Normalized lists reuse the overview payload and page in memory; FTS passages page in SQLite. Browser interaction/visual verification is pending.
-- All 54 live table contents remain unchanged, schema stays 1–7, and there are no production report/test fixtures. The six attached source files match their archived originals. Next is Parliament/Treasury usability with existing financial canon preserved.
-
-## Remaining limits
-
-- Report extraction supports movement orders/arrivals, explicit bill stages, six financial stages and bounded battle suggestions. Appointments, balanced reallocations, reversals, diplomacy and semantic contradiction extraction remain unfinished.
-- Unsupported prose can be recorded honestly; it does not update ministries, budgets or forces. One deferred detail issue per report avoids flooding the inbox.
-- Corrective reports link to earlier reports; automatic reversal/undo of already-applied department effects is not implemented.
-- Latest procurement/funding review remains available as reviewed evidence and canonical claims. Full domain-table reconciliation and lifecycle controls are unfinished; no equipment deliveries or actual spending were invented.
-- Per-message Discord import and all-prose normalization remain unfinished. Missing original attachments and maps remain missing.
-- The two proposed calendars remain open. No current-clock advancement or election calendar was silently approved.
-- The hosted Site exists and is active at version 1. These Next.js source changes have not been deployed to it. No framework or hosting migration was attempted.
-- Cloud SQLite persists across ordinary process restarts, not guaranteed task/container recreation. Restore from a portable backup or rebuild a fresh baseline from Git evidence and JSON seed.
-
-Validation results and restrictions are in VALIDATION.md. Git commit/push identifiers belong in the session handoff after the native operations succeed.
+The missing deleted-chat database was not recovered. Git reconstructs the reviewed source baseline and approved project reconciliation; a runtime backup is required to recover later user activity. Source material, superseded claims, uncertainty, current canon and approved financial values remain preserved. General National Report Center is mothballed, and simulation/AI-first expansion remains frozen.

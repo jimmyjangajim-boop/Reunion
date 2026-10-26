@@ -69,6 +69,96 @@ const edit = (r: Row, payload: Row, index = 0) =>
     reason: "Review the explicit funding record",
   });
 const count = (table: string) => one(db, `SELECT count(*) n FROM ${table}`)!.n;
+it("shares references between manual and report writes without duplicating spending", () => {
+  const entry = {
+    action: "ledger",
+    budget_id: budget,
+    date: "1992-10-04",
+    stage: "disbursed",
+    amount: 40,
+    reference: "PAY-1",
+    memo: "Ammunition",
+    source_text: "Test manual authority",
+  };
+  const manual = adminAction(db, entry);
+  const report = submit();
+  approve(report);
+  expect(count("ledger")).toBe(1);
+  expect(one(db, "SELECT * FROM ledger_report_evidence")!.ledger_id).toBe(
+    manual.id,
+  );
+  expect(adminAction(db, entry).corroboration).toBe(true);
+  expect(count("ledger")).toBe(1);
+  expect(() => adminAction(db, { ...entry, amount: 41 })).toThrow(
+    "different amount",
+  );
+  expect(count("ledger")).toBe(1);
+});
+it("manual entries respect dated increases and future cumulative spending", () => {
+  adminAction(db, {
+    action: "ledger",
+    budget_id: budget,
+    date: "1992-10-10",
+    stage: "appropriated",
+    amount: 100,
+    reference: "INC-1",
+    appropriation_basis: "increase",
+    memo: "Additional authority",
+  });
+  adminAction(db, {
+    action: "ledger",
+    budget_id: budget,
+    date: "1992-10-06",
+    stage: "actual",
+    amount: 80,
+    reference: "EXP-1",
+    memo: "First expense",
+  });
+  expect(() =>
+    adminAction(db, {
+      action: "ledger",
+      budget_id: budget,
+      date: "1992-10-05",
+      stage: "actual",
+      amount: 30,
+      reference: "EXP-2",
+      memo: "Backdated expense",
+    }),
+  ).toThrow("Authorization warning");
+  expect(
+    one(db, "SELECT appropriated FROM budgets WHERE id=?", budget)!
+      .appropriated,
+  ).toBe(200);
+  expect(count("ledger")).toBe(2);
+});
+it("manual appropriation requires explicit increase authority and unsupported stages reject atomically", () => {
+  const before = ["budgets", "ledger", "sources", "audit"].map((t) =>
+    all(db, `SELECT * FROM ${t}`),
+  );
+  const entry = {
+    action: "ledger",
+    budget_id: budget,
+    date: "1992-10-04",
+    stage: "appropriated",
+    amount: 50,
+    reference: "INC-1",
+    memo: "Proposed authority",
+  };
+  expect(() => adminAction(db, entry)).toThrow("additional appropriation");
+  for (const stage of ["returned", "canceled", "transfer"])
+    expect(() => adminAction(db, { ...entry, stage })).toThrow();
+  expect(
+    ["budgets", "ledger", "sources", "audit"].map((t) =>
+      all(db, `SELECT * FROM ${t}`),
+    ),
+  ).toEqual(before);
+  adminAction(db, { ...entry, appropriation_basis: "increase" });
+  expect(
+    one(db, "SELECT appropriated FROM budgets WHERE id=?", budget)!
+      .appropriated,
+  ).toBe(150);
+  expect(count("budget_adjustments")).toBe(1);
+});
 it("stages a preserved original without spending, then writes a sourced disbursement only", () => {
   const r = submit();
   expect(r.actions[0]).toMatchObject({ kind: "financial", ready: true });

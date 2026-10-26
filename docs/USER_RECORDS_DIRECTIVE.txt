@@ -1,0 +1,389 @@
+# RNAS DEVELOPMENT DIRECTIVE
+## Usability, Visual Redesign, and Unified Record Management
+
+Continue developing the existing Reunion National Administration System.
+
+The database architecture audit (Step 2) has already been completed. Do not restart that audit unless you encounter a specific new structural problem.
+
+We are intentionally reducing RNAS's scope.
+
+**RNAS is now primarily a comprehensive national records system, historical archive, and administrative database.**
+
+Its priority is accurate data, excellent organization, easy record creation, readable historical information, and a polished interface.
+
+Simulation features are not the current development priority.
+
+Do not rebuild the project from scratch.
+
+---
+
+# PHASE 1: FREEZE SIMULATION EXPANSION
+
+Stop expanding:
+
+- Autonomous political simulation.
+- Geopolitical crisis simulation.
+- Military combat simulation.
+- Automatic national decision-making.
+- AI-driven natural-language extraction as the primary interface.
+
+Do not delete functioning code or corrupt existing work.
+
+Preserve it for possible future development.
+
+The current priority is reliable administration and records management.
+
+---
+
+# PHASE 2: UNIFIED RECORD CREATION
+
+Create a central **New Record** interface accessible prominently from the RNAS homepage and persistent navigation.
+
+The user should not need to search through numerous departmental pages to find where to create an entry.
+
+Implement a guided workflow:
+
+**Choose Category → Choose Record Type → Complete Form → Review → Save**
+
+Example categories:
+
+### Government and Politics
+- Legislative bill
+- Parliamentary vote
+- Executive order
+- Government appointment
+- Political party event
+- Political investigation or conspiracy
+- Cabinet decision
+- Constitutional matter
+
+### Military
+- Military order
+- Battle or after-action report
+- Casualty report
+- Equipment loss
+- Unit formation
+- Deployment
+- Personnel appointment
+- Military procurement
+- Military reorganization
+
+### Diplomacy
+- Treaty
+- Diplomatic incident
+- Negotiation
+- Foreign relations event
+- International agreement
+
+### Economy and Treasury
+- Financial transaction
+- Budget record
+- Expenditure
+- Government program
+- Economic indicator
+- Infrastructure project
+- Debt or financing record
+
+### Historical Archive
+- Historical event
+- Person
+- Institution
+- Organization
+- Geographic location
+- Source document
+
+These categories should be driven by a typed record registry, not an enormous hardcoded component full of unrelated conditional logic.
+
+## Guided forms
+
+Each record type must have a purpose-built form with appropriate fields.
+
+Every record should support, where relevant:
+
+- Name or title.
+- Historical effective date or date range.
+- Description and notes.
+- Existing related entities.
+- Creating a missing related entity without abandoning the form.
+- Source references and citations.
+- Approval or canon status.
+- Uncertainty and unknown values.
+- Draft saving.
+- Validation before final submission.
+
+Do not force irrelevant fields onto every record.
+
+Offer both a full guided form and a compact quick-entry option where appropriate.
+
+## Review before saving
+
+Show a human-readable review screen.
+
+It should explain:
+
+1. What record will be created.
+2. Which related records it will link to.
+3. Whether existing records will change.
+4. What information remains unknown.
+5. Whether the change requires canon approval.
+
+Do not expose raw JSON in this review screen.
+
+Use transactions and existing application services to prevent incomplete or duplicated writes.
+
+---
+
+# PHASE 3: REPAIR DISCONNECTED WORKFLOWS
+
+Every record-creation workflow must be fully usable from its natural location.
+
+For example:
+
+- Create a new battle and its casualty report in the same workflow.
+- Create a bill and link its sponsor without leaving the bill form.
+- Appoint a new minister, selecting or creating the relevant person.
+- Record a military deployment and associate it with an existing formation.
+- Create a treaty and link the participating nations.
+- Create historical events and associate multiple people, places, and organizations.
+
+Use shared domain services rather than duplicating business logic across forms.
+
+Do not introduce a generic record creator that ignores important differences between record types.
+
+When necessary, use a guided multi-step workflow or inline entity-creation modal.
+
+All changes must preserve historical accuracy, approval state, and source provenance.
+
+---
+
+# PHASE 4: VISUAL REDESIGN
+
+RNAS currently feels cluttered, technical, and disconnected.
+
+Give it a cohesive visual identity.
+
+The target style is:
+
+**A professional European national administration interface with the information density and clarity of a polished grand-strategy game.**
+
+Use restrained institutional styling:
+
+- Deep navy.
+- Muted green.
+- Warm ivory and limestone.
+- Subtle brass accents.
+- Elegant serif headings.
+- Highly readable body typography.
+- Consistent spacing and restrained borders.
+
+Avoid:
+
+- Endless grids of identical cards.
+- Raw JSON as the main presentation.
+- Technical database labels shown to the user.
+- Redundant metadata.
+- Giant empty panels.
+- Excessive badges.
+- Decorative graphics that serve no functional purpose.
+
+Different departments should have distinct layouts appropriate to their tasks.
+
+Maintain responsiveness and accessibility.
+
+## Treasury redesign
+
+Make the Treasury one of the most visually polished sections.
+
+Introduce a cohesive financial dashboard with:
+
+- Large, prominent headline economic figures.
+- Revenue versus expenditure comparison.
+- Projected fiscal deficit.
+- Public debt.
+- GDP and inflation.
+- Spending allocations where verified data exists.
+- Defense share of expenditure.
+- Major infrastructure and government programs.
+- Authorization versus committed versus paid expenditure.
+- Tables for underlying transactions and programs.
+
+Use appropriate interactive visualizations:
+
+- Bar charts for comparisons.
+- Stacked bars for allocations.
+- Donut charts for distribution.
+- Line charts only when actual chronological data exists.
+- Progress indicators for project funding and implementation.
+
+Use a clear visual hierarchy.
+
+A user should be able to understand Reunion's fiscal position without opening eight separate assertion cards.
+
+**CRITICAL: Do not modify any approved budget figures, defense allocations, GDP figures, or established economic records.**
+
+This is a display and usability task, not an economic canon revision.
+
+Charts must derive from existing records. Do not fabricate numbers, time series, or categories.
+
+Distinguish budget authorization, commitments, actual spending, and projections.
+
+Historical date filters must be respected.
+
+## Parliament redesign
+
+Create a proper parliamentary workspace.
+
+Features should include:
+
+- An attractive semicircular seating chart showing the actual parliamentary composition.
+- Party-colored seats and an informative legend.
+- Party totals, percentages and historical composition.
+- Individual political party profiles.
+- Legislation and bill tracking.
+- Voting history.
+- Legislative calendar or historical event list.
+- Current parliamentary status.
+- Searchable member and bill registries.
+
+Preserve the historical distinction between the actual 400-seat Parliament and the constitutional 300-seat maximum.
+
+The application should explain the constitutional discrepancy rather than normalize it away.
+
+The October 3, 1992 parliamentary suspension must be presented appropriately in historical views.
+
+Avoid using the Parliament page as another generic database list.
+
+Use meaningful visualizations, but keep important tables easily accessible.
+
+## Cabinet and Government redesign
+
+Create a polished official government directory.
+
+At the top, display the President and Vice President.
+
+Below, display the ministries in a compact, organized roster.
+
+Each ministry should show:
+
+- Official ministry name.
+- Current minister.
+- Office title.
+- Appointment date if known.
+- Party affiliation if established.
+- Vacancy where appropriate.
+
+Provide clickable minister and ministry profiles.
+
+Support historical officeholders and appointments.
+
+Do not invent portraits, biographical information, or missing officials.
+
+Never show internal labels such as `baseline_minister` as a public-facing office title.
+
+The government interface must distinguish the monarchy, presidency, Cabinet, and ministries appropriately.
+
+Ensure officeholder records are valid for the selected historical date.
+
+## Military redesign
+
+Present the military using appropriate operational and organizational views.
+
+Create:
+
+- Searchable order of battle.
+- Expandable formation hierarchy.
+- Unit detail screens.
+- Equipment and manpower tables.
+- Deployment register.
+- Battle and casualty history.
+- Military order register.
+
+Do not build a combat simulator in this phase.
+
+Focus on reliable historical and administrative records.
+
+---
+
+# PHASE 5: SEARCH, NAVIGATION, AND INFORMATION DENSITY
+
+Add universal search capable of locating:
+
+- People.
+- Organizations.
+- Government offices.
+- Bills.
+- Treaties.
+- Military units.
+- Battles.
+- Places.
+- Historical events.
+- Economic programs.
+
+Search results should link directly to their record detail pages.
+
+Make navigation consistent.
+
+Use three levels of information:
+
+1. Overview: the information most useful at a glance.
+2. Registry and detail: complete operational and administrative records.
+3. Evidence: source texts, provenance, import details, and historical assertions.
+
+Raw technical information belongs in the evidence layer, not in prominent overview cards.
+
+All major sections should have an obvious primary action for creating records.
+
+---
+
+# PHASE 6: RELIABLE IMPORT AND EXPORT
+
+Establish portable export and import capabilities.
+
+Support:
+
+- Full database backup and restoration.
+- Structured JSON export of supported records.
+- Bulk exports by subsystem.
+- Human-readable historical reports.
+- Imported record validation.
+- Duplicate detection.
+- Explicit change previews.
+- Historical source and provenance preservation.
+
+Design the import/export format so a future separate military campaign simulator can exchange records with RNAS.
+
+Do not build that simulator or live integration yet.
+
+An external campaign should eventually be able to export battles, movements, losses, equipment changes, and after-action reports for review before canon approval.
+
+Do not automatically import hypothetical results as established history.
+
+Keep versioned, documented data formats.
+
+---
+
+# DEVELOPMENT RULES
+
+1. Preserve approved Reunion canon and all existing records.
+2. Do not modify the established national budget.
+3. Preserve and appropriately resolve the known Altis 1993 dating issue, which resulted from a mistyped year. Do not indiscriminately rewrite other 1993 records.
+4. Reuse existing database and domain services when appropriate.
+5. Do not create a parallel database architecture.
+6. Do not rewrite working subsystems without justification.
+7. Avoid large, monolithic components.
+8. Keep record schemas and form definitions modular.
+9. Verify database persistence and backup/restore behavior.
+10. Add tests for record creation, approval, data relationships, historical dates, and import/export.
+11. Use existing architectural documentation and update implementation status and session handoff notes.
+
+Work in small, testable increments.
+
+Do not attempt to deliver every phase in a single uncontrolled change.
+
+Prioritize the unified record-creation interface, followed by repairs to disconnected workflows, then Treasury, Parliament, Cabinet, and search.
+
+Preserve working features while improving them.
+
+The goal is not a larger RNAS.
+
+**The goal is a cleaner, more complete, easier-to-use RNAS that can serve as Reunion's authoritative national database for years of continued worldbuilding.**

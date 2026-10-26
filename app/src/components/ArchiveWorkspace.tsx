@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import RecordPicker from "./RecordPicker";
 import type { FormEvent } from "react";
 import {
   archiveRows,
@@ -112,7 +113,13 @@ export function ArchiveDetail({
         ? records.filter((r) => r.entity_id === item.id)
         : [];
   const linkedEvents =
-    kind === "sources" ? timeline.filter((r) => r.source_id === item.id) : [];
+    kind === "sources"
+      ? timeline.filter((r) => r.source_id === item.id)
+      : kind === "entities"
+        ? timeline.filter((r) =>
+            (r.related_entities ?? []).some((e: R) => e.id === item.id),
+          )
+        : [];
   const related =
     kind === "records"
       ? records.filter(
@@ -120,7 +127,6 @@ export function ArchiveDetail({
         )
       : [];
   const open = (e: R) => {
-    onClose();
     onSource(e.source_id, e.line_start ?? undefined, e.line_end ?? undefined);
   };
   const entity =
@@ -218,9 +224,31 @@ export function ArchiveDetail({
           </>
         )}
         {kind === "timeline" && (
-          <p className="archive-full-value">
-            {item.note || "No additional event notes recorded."}
-          </p>
+          <>
+            <p className="archive-full-value">
+              {item.note || "No additional event notes recorded."}
+            </p>
+            {item.related_entities?.length > 0 && (
+              <section>
+                <h3>Related people, places and organizations</h3>
+                {item.related_entities.map((e: R) => (
+                  <p key={e.id}>
+                    <button
+                      className="text-button"
+                      onClick={() =>
+                        onItem(
+                          "entities",
+                          entities.find((r) => r.id === e.id) ?? e,
+                        )
+                      }
+                    >
+                      {e.name}
+                    </button>
+                  </p>
+                ))}
+              </section>
+            )}
+          </>
         )}
         {kind === "entities" && (
           <>
@@ -326,7 +354,7 @@ export function ArchiveDetail({
             </button>
           </section>
         )}
-        {kind === "sources" && (
+        {(kind === "sources" || kind === "entities") && (
           <section>
             <h3>Linked events ({linkedEvents.length})</h3>
             {linkedEvents.slice(0, 8).map((r) => (
@@ -343,7 +371,13 @@ export function ArchiveDetail({
             {linkedEvents.length > 0 && (
               <button
                 className="secondary"
-                onClick={() => onBrowse("source", item.id, "timeline")}
+                onClick={() =>
+                  onBrowse(
+                    kind === "sources" ? "source" : "entity",
+                    item.id,
+                    "timeline",
+                  )
+                }
               >
                 Browse linked events
               </button>
@@ -396,6 +430,7 @@ export default function ArchiveWorkspace({
   openSource,
   onAdd,
   initialQuery = "",
+  initialSelection,
 }: {
   records: R[];
   timeline: R[];
@@ -406,6 +441,7 @@ export default function ArchiveWorkspace({
   openSource: (id: string, line?: number, end?: number) => void;
   onAdd: (form: string) => void;
   initialQuery?: string;
+  initialSelection?: { kind: ArchiveTab; item: R };
 }) {
   const [filters, setFilters] = useState<ArchiveFilters>({
       ...emptyArchiveFilters,
@@ -414,7 +450,7 @@ export default function ArchiveWorkspace({
     }),
     [page, setPage] = useState(1),
     [selected, setSelected] = useState<{ kind: ArchiveTab; item: R } | null>(
-      null,
+      initialSelection ?? null,
     );
   const [textDraft, setTextDraft] = useState(""),
     [textQuery, setTextQuery] = useState(""),
@@ -593,20 +629,16 @@ export default function ArchiveWorkspace({
         )}
         <div className="archive-filter-row">
           {(dated || tab === "text") && (
-            <label>
-              Source
-              <select
-                value={filters.source}
-                onChange={(e) => change("source", e.target.value)}
-              >
-                <option value="all">All sources</option>
-                {sources.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.filename}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <RecordPicker
+              label="Source"
+              options={sources.map((source) => ({
+                id: source.id,
+                name: source.filename,
+              }))}
+              value={filters.source === "all" ? "" : filters.source}
+              empty="All sources"
+              onChange={(id) => change("source", String(id) || "all")}
+            />
           )}
           {dated && (
             <>
@@ -651,21 +683,18 @@ export default function ArchiveWorkspace({
               </label>
             </>
           )}
-          {tab === "records" && (
-            <label>
-              Entity
-              <select
-                value={filters.entity}
-                onChange={(e) => change("entity", e.target.value)}
-              >
-                <option value="all">All entities</option>
-                {entities.map((e) => (
-                  <option key={e.id} value={e.id}>
-                    {e.name}
-                  </option>
-                ))}
-              </select>
-            </label>
+          {dated && (
+            <RecordPicker
+              label="Entity"
+              options={entities.map((e) => ({
+                id: e.id,
+                name: e.name,
+                kind: e.kind,
+              }))}
+              value={filters.entity === "all" ? "" : filters.entity}
+              empty="All entities"
+              onChange={(id) => change("entity", String(id) || "all")}
+            />
           )}
           {tab !== "text" && (
             <label>

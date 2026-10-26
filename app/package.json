@@ -11,16 +11,17 @@
     "db:migrate": "node --experimental-strip-types scripts/migrate.ts",
     "db:check": "node --experimental-strip-types scripts/check-integrity.ts",
     "db:import": "node --experimental-strip-types scripts/import.ts",
-    "dev": "next dev --hostname 0.0.0.0",
+    "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "next start --hostname 0.0.0.0",
+    "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:ui": "playwright test",
     "backup": "node --experimental-strip-types scripts/backup.ts",
     "backup:portable": "node --experimental-strip-types scripts/export-portable.ts",
     "restore": "node --experimental-strip-types scripts/restore.ts",
-    "check:sources": "node scripts/verify-sources.mjs"
+    "check:sources": "node scripts/verify-sources.mjs",
+    "reconcile:projects": "node --experimental-strip-types scripts/reconcile-projects.ts"
   },
   "dependencies": {
     "next": "16.4.2",

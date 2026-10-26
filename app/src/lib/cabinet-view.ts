@@ -1,5 +1,55 @@
 import type { Row } from "./db.ts";
 import { archiveOnly } from "./administration-view.ts";
+import { bounds, historicalDateSchema } from "./dates.ts";
+import { billAtDate } from "./parliament-view.ts";
+import type { Bill, BillEvent } from "./parliament-view.ts";
+const roleTitles = (name: string) => {
+  const office = [
+    "President",
+    "Vice President",
+    "Reigning monarch",
+    "Heir",
+  ].find((r) => r.toLowerCase() === name.trim().toLowerCase());
+  return office
+    ? {
+        ministry: ["President", "Vice President"].includes(office)
+          ? "Presidency"
+          : "The Crown",
+        office,
+        kind: ["President", "Vice President"].includes(office)
+          ? "leadership"
+          : "royal",
+      }
+    : null;
+};
+const isEstablishedTerm = (a: Row, date: string) =>
+  !archiveOnly(a) &&
+  a.canon === "confirmed" &&
+  a.start_date &&
+  a.start_date <= date &&
+  (!a.end_date || a.end_date >= date);
+const observedBy = (r: Row, date: string) => {
+  if (r.scope === "interval" && r.valid_from && r.valid_from <= date)
+    return true;
+  try {
+    const [lo, hi] = bounds(
+      historicalDateSchema.parse(JSON.parse(r.date_json)),
+    );
+    return !!lo && !!hi && hi <= date;
+  } catch {
+    return false;
+  }
+};
+const isUndated = (r: Row) => {
+  try {
+    const [lo, hi] = bounds(
+      historicalDateSchema.parse(JSON.parse(r.date_json)),
+    );
+    return !lo && !hi;
+  } catch {
+    return true;
+  }
+};
 const good = (r: Row) =>
   !archiveOnly(r) && !["superseded", "rejected"].includes(r.canon);
 const dateText = (r: Row) => {
@@ -12,6 +62,8 @@ const dateText = (r: Row) => {
 const same = (a: string, b: string) =>
   a.trim().toLocaleLowerCase() === b.trim().toLocaleLowerCase();
 export function officeTitles(name: string) {
+  const role = roleTitles(name);
+  if (role) return role;
   const clean = name.replaceAll("&", "and").trim();
   if (/Intelligence \(RIA Director\)/i.test(clean))
     return {
@@ -56,6 +108,7 @@ export function cabinetView(input: {
   appointments: Row[];
   timeline: Row[];
   bills: Row[];
+  billEvents?: Row[];
 }) {
   const {
     date,
@@ -67,6 +120,7 @@ export function cabinetView(input: {
     appointments,
     timeline,
     bills,
+    billEvents = [],
   } = input;
   const claims = records.filter(
     (r) => good(r) && ["Baseline minister", "Minister"].includes(r.predicate),
@@ -92,7 +146,13 @@ export function cabinetView(input: {
         ? holder.value
         : null;
     const people = name
-      ? entities.filter((e) => e.kind === "person" && same(e.name, name))
+      ? entities.filter(
+          (e) =>
+            e.kind === "person" &&
+            (holder?.person_id
+              ? e.id === holder.person_id
+              : same(e.name, name)),
+        )
       : [];
     const person = people.length === 1 ? people[0] : undefined;
     const personal = person
@@ -125,21 +185,14 @@ export function cabinetView(input: {
       /^(vacant|unfilled|no (?:minister|officeholder)(?: appointed)?)$/i.test(
         name,
       );
-    const personTerms = person
-      ? appointments.filter((a) => a.person_id === person.id)
-      : [];
     const currentTerm = terms.find(
-      (a) =>
-        a.start_date &&
-        a.start_date <= date &&
-        (!a.end_date || a.end_date >= date) &&
-        a.canon === "confirmed" &&
-        a.person === name,
+      (a) => isEstablishedTerm(a, date) && a.person === name,
     );
     const linked = personal.map((r) => ({
       id: r.id,
       title: r.predicate.replaceAll("_", " "),
       canon: r.canon,
+      operation: r.operation,
       value: r.value,
       date: dateText(r),
       evidence: r.evidence ?? [],
@@ -158,7 +211,18 @@ export function cabinetView(input: {
           : name
             ? "recorded"
             : "unknown",
-      observed_date: holder ? dateText(holder) : null,
+      selected_date: date,
+      office_id: office?.id ?? null,
+      context: currentTerm
+        ? "Dated appointment"
+        : holder?.register_context === "undated_canon"
+          ? "Undated canon reference"
+          : holder && !isUndated(holder)
+            ? "Dated observation"
+            : "No dated officeholder established",
+      observed_date:
+        currentTerm?.start_date ??
+        (holder && !isUndated(holder) ? dateText(holder) : null),
       appointment_date: currentTerm?.start_date ?? null,
       affiliation,
       responsibilities:
@@ -166,7 +230,7 @@ export function cabinetView(input: {
           ? office.authority
           : null,
       evidence,
-      history: terms.length ? terms : personTerms,
+      history: terms.filter((t) => !archiveOnly(t)),
       observations: observations.map((r) => ({
         id: r.id,
         name: r.value,
@@ -174,22 +238,40 @@ export function cabinetView(input: {
         canon: r.canon,
         evidence: r.evidence ?? [],
       })),
-      facts: linked,
+      facts: linked.filter((_, i) => observedBy(personal[i], date)),
+      undated_facts: linked.filter((_, i) => isUndated(personal[i])),
       events: timeline
-        .filter((t) => t.canon !== "superseded" && relevant(t.title))
+        .filter(
+          (t) =>
+            good(t) &&
+            observedBy(t, date) &&
+            (relevant(t.title) ||
+              (person &&
+                t.related_entities?.some(
+                  (e: Row) => (e.id ?? e.entity_id) === person.id,
+                ))),
+        )
         .map((t) => ({
           id: t.id,
           title: t.title,
           date: dateText(t),
           source_id: t.source_id,
+          canon: t.canon,
+          operation: t.operation,
         })),
       legislation: bills
-        .filter((b) => relevant(b.summary ?? "") || relevant(b.sponsor ?? ""))
+        .filter(
+          (b) =>
+            ((person && b.sponsor_id === person.id) ||
+              relevant(b.summary ?? "") ||
+              relevant(b.sponsor ?? "")) &&
+            billAtDate(b as Bill, billEvents as BillEvent[], date).visible,
+        )
         .map((b) => ({
           id: b.id,
           title: b.title,
           identifier: b.identifier,
-          stage: b.stage,
+          stage: billAtDate(b as Bill, billEvents as BillEvent[], date).stage,
           source_id: b.source_id,
         })),
     };
@@ -226,13 +308,7 @@ export function cabinetView(input: {
           canon: values.length > 1 ? "disputed" : ranked[0].canon,
         }
       : undefined;
-    const established = terms.filter(
-      (a) =>
-        a.canon === "confirmed" &&
-        a.start_date &&
-        a.start_date <= date &&
-        (!a.end_date || a.end_date >= date),
-    );
+    const established = terms.filter((a) => isEstablishedTerm(a, date));
     // Explicit dated appointments take priority over an observation on that date.
     if (established.length === 1)
       holder = { ...established[0], value: established[0].person };
@@ -253,15 +329,11 @@ export function cabinetView(input: {
       ),
     );
   }
-  for (const office of offices.filter((o) => !knownOfficeNames.has(o.id))) {
+  for (const office of offices.filter(
+    (o) => !knownOfficeNames.has(o.id) && !roleTitles(o.name),
+  )) {
     const terms = appointments.filter((a) => a.office_id === office.id);
-    const dated = terms.filter(
-      (a) =>
-        a.canon === "confirmed" &&
-        a.start_date &&
-        a.start_date <= date &&
-        (!a.end_date || a.end_date >= date),
-    );
+    const dated = terms.filter((a) => isEstablishedTerm(a, date));
     const holder = dated.length
       ? {
           ...dated[0],
@@ -280,30 +352,39 @@ export function cabinetView(input: {
       rowFor("office-" + office.id, titles, holder, [], office, terms),
     );
   }
+  const roleRow = (r: Row) => {
+    const titles = roleTitles(r.predicate)!;
+    const office = offices.find(
+      (o) => roleTitles(o.name)?.office === r.predicate,
+    );
+    const terms = office
+      ? appointments.filter((a) => a.office_id === office.id)
+      : [];
+    const dated = terms.filter((a) => isEstablishedTerm(a, date));
+    const holder = dated.length
+      ? {
+          ...dated[0],
+          value: [...new Set(dated.map((a) => a.person))].join(" / "),
+          canon: dated.length > 1 ? "disputed" : "confirmed",
+        }
+      : r.canon === "unknown"
+        ? undefined
+        : r;
+    return rowFor(
+      (titles.kind === "royal" ? "royal-" : "leadership-") + r.predicate,
+      titles,
+      holder,
+      [r],
+      office,
+      terms,
+    );
+  };
   const leadership = government
     .filter((r) => ["President", "Vice President"].includes(r.predicate))
-    .map((r) =>
-      rowFor(
-        "leadership-" + r.predicate,
-        { ministry: "Presidency", office: r.predicate, kind: "leadership" },
-        r.canon === "unknown" ? undefined : r,
-        [r],
-        undefined,
-        [],
-      ),
-    );
+    .map(roleRow);
   const royal = government
     .filter((r) => ["Reigning monarch", "Heir"].includes(r.predicate))
-    .map((r) =>
-      rowFor(
-        "royal-" + r.predicate,
-        { ministry: "The Crown", office: r.predicate, kind: "royal" },
-        r.canon === "unknown" ? undefined : r,
-        [r],
-        undefined,
-        [],
-      ),
-    );
+    .map(roleRow);
   return {
     date,
     leadership,

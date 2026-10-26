@@ -1,8 +1,9 @@
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { z } from "zod";
-import { all, one, audit } from "./db.ts";
+import { all, one, audit, transaction } from "./db.ts";
 import type { DB, Row } from "./db.ts";
-import { ledgerEntry } from "./admin.ts";
+import { createUserSource } from "./canon.ts";
+import { exactDate } from "./dates.ts";
 export const financialStages = [
   "proposed",
   "authorized",
@@ -293,22 +294,26 @@ export function validateFinancial(db: DB, p: Row, funding: Row[] = []) {
     existing,
   };
 }
-/** Shares the ledger service and must run inside report approval's transaction. */
-export function recordFinancial(db: DB, p: Row, source: Row, reason: string) {
+/** Single validated write used by forms and report approval inside their transaction. */
+function writeFinancial(db: DB, p: Row, sourceId: string) {
   const check = validateFinancial(db, p);
   if (!check.ready) throw Error(check.missing.join(" "));
   const budget = check.budget!;
   let id = check.existing?.id;
   if (!id) {
-    id = ledgerEntry(db, {
-      budget_id: budget.id,
-      stage: p.financial_stage,
-      amount: p.financial_amount,
-      date: p.date,
-      memo: p.financial_memo ?? p.statement,
-      override_reason: p.override_reason,
-      source_id: source.source_id,
-    }).id;
+    id = randomUUID();
+    db.prepare(
+      "INSERT INTO ledger(id,budget_id,date,stage,amount,memo,override_reason,source_id) VALUES(?,?,?,?,?,?,?,?)",
+    ).run(
+      id,
+      budget.id,
+      p.date,
+      p.financial_stage,
+      p.financial_amount,
+      p.financial_memo ?? p.statement,
+      p.override_reason || null,
+      sourceId,
+    );
     db.prepare(
       "INSERT INTO ledger_report_records(ledger_id,budget_id,stage,reference,currency) VALUES(?,?,?,?,?)",
     ).run(
@@ -329,6 +334,77 @@ export function recordFinancial(db: DB, p: Row, source: Row, reason: string) {
       );
     }
   }
+  return { id, budget, corroboration: !!check.existing };
+}
+
+/** Manual input is explicit authorization, with exactly the report accounting rules. */
+export function recordManualFinancial(db: DB, input: Row) {
+  return transaction(db, () => {
+    const budget = one(db, "SELECT * FROM budgets WHERE id=?", input.budget_id);
+    if (!budget) throw Error("Record not found: budgets");
+    const p = {
+      ...z.object(financialFields).parse({
+        budget_id: budget.id,
+        financial_stage: input.stage,
+        financial_amount: z.coerce
+          .number()
+          .int()
+          .nonnegative()
+          .safe()
+          .parse(input.amount),
+        financial_currency: budget.currency,
+        financial_reference: input.reference,
+        financial_memo: input.memo,
+        appropriation_basis: input.appropriation_basis || null,
+      }),
+      statement: z.string().trim().min(1).max(20000).parse(input.memo),
+      date: exactDate.parse(input.date),
+      override_reason: z
+        .string()
+        .trim()
+        .max(20000)
+        .parse(input.override_reason ?? ""),
+    };
+    p.expected_budget_state = financialState(db, p);
+    const check = validateFinancial(db, p);
+    if (!check.ready)
+      throw Error(
+        [
+          ...check.warnings.filter((w) =>
+            w.startsWith("Authorization warning"),
+          ),
+          ...check.missing,
+        ].join(" "),
+      );
+    const sourceId = createUserSource(
+      db,
+      z
+        .string()
+        .trim()
+        .min(1)
+        .max(20000)
+        .parse(input.source_text ?? input.memo),
+    );
+    const result = writeFinancial(db, p, sourceId);
+    audit(
+      db,
+      "record_manual_financial",
+      result.id,
+      { budget },
+      { ...result, source_id: sourceId, entry: p },
+      "Explicit user financial entry; " + p.statement,
+    );
+    return {
+      id: result.id,
+      corroboration: result.corroboration,
+      warnings: check.warnings,
+    };
+  });
+}
+
+/** Report approval owns the transaction and adds exact report evidence. */
+export function recordFinancial(db: DB, p: Row, source: Row, reason: string) {
+  const { id, budget, corroboration } = writeFinancial(db, p, source.source_id);
   db.prepare(
     "INSERT INTO ledger_report_evidence(ledger_id,source_id,line_start,line_end,report_action_id) VALUES(?,?,?,?,?)",
   ).run(
@@ -346,11 +422,11 @@ export function recordFinancial(db: DB, p: Row, source: Row, reason: string) {
     {
       budget: one(db, "SELECT * FROM budgets WHERE id=?", budget.id),
       ledger: one(db, "SELECT * FROM ledger WHERE id=?", id),
-      corroboration: !!check.existing,
+      corroboration,
     },
     reason,
   );
-  return { id, corroboration: !!check.existing };
+  return { id, corroboration };
 }
 export function extractFinancial(statement: string): Row | null {
   if (statement.length > 20000) return null;
