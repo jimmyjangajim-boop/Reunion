@@ -2,11 +2,11 @@
 
 RNAS is a local-first historical archive and administration app for the fictional country Reunion. SQLite stores national records on your laptop. No AI account, subscription, cloud database, or hosted service is required.
 
-This delivery implements the Stage 1 archive and canon review workflows, plus bounded government, military, accounting, treaty, and event workflows. See `IMPLEMENTATION_STATUS.md` for exact boundaries. It is not a finished implementation of every proposed national subsystem.
+This baseline includes guided New Record entry, preserved drafts/receipts, unified primary-register search, connected Cabinet/Parliament/military/Treasury views and reviewed Battles. General National Report Center is mothballed. See [full feature coverage and limits](docs/FEATURE_RUNDOWN.md) and [current status](docs/IMPLEMENTATION_STATUS.md).
 
 ## Install and start
 
-Requirements: **Node.js 24 or newer**, npm, and **Python 3.10+** on PATH (`python3`; needed for ZIP import). An internet connection is needed to install dependencies. Normal operation after installation is offline.
+Requirements: **Node.js 24 or newer**, npm, and **Python 3.10+** on PATH (`python` on Windows, `python3` elsewhere; needed for ZIP import and portable backups). An internet connection is needed to install dependencies. Normal operation after installation is offline.
 
 Clone the Reunion repository, open a terminal in its `app` directory, then run:
 
@@ -31,38 +31,22 @@ Keep that terminal open while using RNAS. Stop with Ctrl+C. Your database surviv
 
 ### Updating an existing copy
 
-Stop the app and make a backup first. Update `app/src`, `app/migrations` and `app/scripts` together (or pull the complete repository). Keep your existing `data` and `evidence` directories and the same `RNAS_DB` selection. Run `npm run setup`, then `npm run db:check` and restart. On Windows use `npm.cmd run setup` and `npm.cmd run dev`. This update applies migrations 006–007 and narrowly audits the two reviewed Altis year corrections; copying only `src` is insufficient.
+Stop the app and make a backup first. Update `app/src`, `app/migrations` and `app/scripts` together (or pull the complete repository). Keep your existing `data` and `evidence` directories and the same `RNAS_DB` selection. Run `npm run setup`, then `npm run db:check` and restart. On Windows use `npm.cmd run setup` and `npm.cmd run dev`. The baseline uses migrations 001–008 and retains the narrowly approved Altis corrections and guarded project reconciliation. Setup refuses conflicting project edits rather than silently overwriting them. Copying only `src` is insufficient.
 
-### iPhone on the same network
+### Laptop and phone testing
 
-Start RNAS on your laptop. Find the laptop's local IP address in its network settings. Connect the iPhone to the same trusted Wi-Fi network and open `http://LAPTOP_IP:3000` in Safari. You may need to allow the Node process through your laptop's firewall.
-
-The development/start scripts listen on all interfaces for this use. The app is a single-user local tool without authentication. Do not port-forward it or expose it on the public internet. Cross-origin writes are rejected; anyone with access to the local app can still read and edit it.
-
-For access only on the laptop:
-
-```sh
-npx next dev --hostname 127.0.0.1
-```
+The supplied start/dev scripts bind 127.0.0.1 for laptop-only access. Another physical device cannot connect through the laptop's network IP with these defaults. Phone browser checks emulate an iPhone-sized Chromium browser; they do not certify physical iPhone/Safari behavior. Network access is a separate configuration task and is not enabled by this baseline.
 
 ## Daily use
 
-- **National Report Center:** preserve the exact report, review typed movement orders, arrivals, explicit legislative stages or financial stages, correct proposed details, then approve selected changes together. Other prose can be retained as archive events with unresolved administrative effects. Hypothetical reports remain scenarios; AI generation is not implemented.
-- **Dashboard:** choose an in-world date. A 3 October 1992 observation does not fill an undocumented date in 1993. Date comparisons show Unknown where evidence is insufficient.
-- **Historical Archive:** browse compact, paginated Records, Timeline, Sources and Entities. Search/filter by words, category, canon status, entity, source, historical collection and date window. Open a record for its full value, replacement history and cited evidence. The Original text tab searches preserved documents with paginated FTS results and source-line links; sources retain distinct original-artifact provenance. All dates and statuses, including superseded and 1725 records, remain available. The global Historical Date Selector does not limit this library.
-- **Add sourced fact:** choose an entity, field, value, canon approval, operational state, and date precision. Choose original lines or write a decision preserved as a new source. Explicit ongoing intervals require an earliest validity bound.
-- **Canon Review Center:** compare linked claims and excerpts. Accept A/B, merge, replace, preserve different dates, dismiss, leave unresolved, supply a gap, or postpone. Every decision requires a reason. Older text survives.
-- **Cabinet:** browse a searchable ministry roster, open officeholder profiles and expand evidence or term history. Create offices and appointments; a supplied new person can be created in the appointment form. Dated reshuffles can explicitly close a preceding dated term. Uncertain historical terms are not silently assigned departure dates.
-- **Armed Forces:** add units, dated strength/hierarchy observations, major assets and assignments. Each observation is separate. An ordered move requires a later explicit arrival confirmation.
-- **Battles:** use **New Battle / After-Action Report** to create/select a battle, preserve the English account, enter participants, categorized casualties, equipment losses and outcome, then review and approve once. A supplied formation can be created inline. Blank counts remain unknown; zero is explicit. Suggestions require review. Reuse a phase reference for corroborating evidence, and use a new reference for a distinct phase. An explicitly selected tracked asset can be marked lost/damaged; no strength, readiness, cost or anonymous inventory change is inferred. Original historical casualties remain under Historical casualty records.
-- **Treasury reports:** record six separate financial stages against known budgets. Explicit additional appropriations increase limits; referenced payments/expenses remain separate and repeated reports only add evidence. No automatic FX conversion or revenue/debt changes.
-- **Parliament:** preserve the actual 400 seats and constitutional maximum of 300. Create a bill and record manual vote totals. Supply occupied voting capacity and a sourced threshold; a recorded vote alone does not enact a bill. Reviewed reports can record consideration, introduction, passage or explicit enactment, with sourced legislative history and unknown details preserved.
-- **Treasury:** create an actual appropriation before entering stage-specific financial entries. Warnings require an explicit explanation to overrun an appropriation. Commitments, disbursements, and actuals are not summed together as one expense.
-- **Military Map:** named-location deployments work now. Interactive cartography and annotations are still planned. No coordinates were invented.
-- **Events & Time:** deterministic parsing recognizes `Order [exact unit name] to [exact location name]`, for example `Order 3rd Infantry Division to Dalmatia`. It creates a draft for approval. Unsupported or ambiguous prose remains unresolved. Time advancement changes only the approved clock and lists pending orders.
-- **Imports & Backups:** upload originals to staging; add sourced facts after review. Repeating an identical import is idempotent. Rollback rejects linked normalized claims but preserves evidence. Imports do not silently extract or approve lore.
+1. Select the relevant historical date. Search/Archive and stored-record details explicitly cover all recorded dates; they do not silently change the selector.
+2. Use **New Record** for explicit entries, or **Battles** for combined battle/after-action/casualty reporting. General National Report Center is mothballed; its underlying data/services remain preserved.
+3. Supply the known evidence, identity links and date precision; leave unsupported details unknown. Review before final approval. Drafts are saved separately from national facts.
+4. Open the saved record, connected records and preserved source lines. Source viewing keeps the current profile selected underneath.
+5. Use global category/type search or the specialized Cabinet, Parliament, Armed Forces, Treasury and Archive views. Source funding, appropriations, commitments and actual spending are separate.
+6. Keep portable database-plus-evidence backups independently of chats after meaningful activity.
 
-The audit distinguishes real-world recording timestamps from historical validity dates. An unknown appointment date remains unknown even when a succession sequence is established.
+The [full feature rundown](docs/FEATURE_RUNDOWN.md) covers every implemented area and its missing workflows. [Baseline verification](docs/BASELINE_2026-10-26.md) records the current checks and recovery limits. Known canon safeguards below remain unchanged.
 
 ## Canon safeguards
 
@@ -118,8 +102,8 @@ Restore checks integrity and expected tables, then creates a `.before-restore` d
 ### Upgrades
 
 1. Stop the server and back up the database and evidence.
-2. Replace application code while retaining your `data/` and `evidence/` directories. Do not overwrite your database with the example database from a new delivery.
-3. Run `npm ci`, `npm run db:migrate`, `npm run build`, and `npm start`.
+2. Replace application code while retaining your `data/` and `evidence/` directories. Do not replace your existing database with a fresh setup database.
+3. Run `npm ci`, `npm run setup`, `npm run db:check`, `npm run build`, and `npm start`.
 4. Never modify an already-applied migration; add a numbered migration.
 
 Git tracks code, migrations, documentation, and supplied evidence. Runtime database changes are backed up separately.

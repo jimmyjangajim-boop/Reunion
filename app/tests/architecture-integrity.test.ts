@@ -1,14 +1,51 @@
 import { it, expect } from "vitest";
 import { DatabaseSync } from "node:sqlite";
-import { mkdtempSync, rmSync, readFileSync } from "node:fs";
+import { mkdtempSync, rmSync, readFileSync, readdirSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
-import { openDatabase, all } from "../src/lib/db.ts";
+import { openDatabase, all, migrate } from "../src/lib/db.ts";
 import { importRecovery, rollbackImport } from "../src/lib/importer.ts";
 import { importReviewedCanon } from "../src/lib/review-import.ts";
 import { adminAction } from "../src/lib/admin.ts";
 import { verifyDatabase } from "../src/lib/database-validation.ts";
+
+it("upgrades the reconstructed schema-7 baseline without changing existing canonical or historical rows", () => {
+  const db = new DatabaseSync(":memory:");
+  try {
+    db.exec(
+      "PRAGMA foreign_keys=ON; CREATE TABLE migrations(version INTEGER PRIMARY KEY,applied_at TEXT NOT NULL)",
+    );
+    for (const file of readdirSync("migrations")
+      .filter((f) => f.endsWith(".sql") && Number(f.split("_")[0]) <= 7)
+      .sort()) {
+      db.exec(readFileSync(path.join("migrations", file), "utf8"));
+      db.prepare("INSERT INTO migrations VALUES(?,?)").run(
+        Number(file.split("_")[0]),
+        "schema-7-test-fixture",
+      );
+    }
+    importRecovery(db);
+    importReviewedCanon(db);
+    const tables = all(
+      db,
+      "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name <> 'migrations' ORDER BY name",
+    ).map((r) => String(r.name));
+    const rows = (table: string) =>
+      all(db, 'SELECT * FROM "' + table.replaceAll('"', '""') + '"')
+        .map((r) => JSON.stringify(r))
+        .sort();
+    const before = tables.map(rows);
+    expect(tables).toHaveLength(53);
+    migrate(db);
+    expect(tables.map(rows)).toEqual(before);
+    expect(all(db, "PRAGMA foreign_key_check")).toEqual([]);
+    expect(() => verifyDatabase(db)).not.toThrow();
+    expect(all(db, "SELECT * FROM record_drafts")).toEqual([]);
+  } finally {
+    db.close();
+  }
+});
 
 it("blocks reviewed rollback without altering decisions, predecessors or projections", () => {
   const db = openDatabase(":memory:");

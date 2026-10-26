@@ -1,13 +1,21 @@
 # Reunion National Administration System
 
-RNAS is primarily a national records system, historical archive and administrative database. The latest [records directive](docs/USER_RECORDS_DIRECTIVE.txt) supersedes earlier simulation/AI-first priorities. [New Record](app/docs/UNIFIED_RECORDS.md) provides category → type → form → review → save, durable drafts and shared domain operations. Existing Report Center and specialized workflows remain available. Simulation expansion is frozen.
+RNAS is a local national records system, historical archive and administrative database for Reunion. The latest [records directive](docs/USER_RECORDS_DIRECTIVE.txt) makes explicit records and preserved evidence primary. **General National Report Center is mothballed**; reviewed Battles still works. Simulation/AI-first expansion remains frozen.
 
-GitHub is the main store for application source, original evidence, canonical JSON seeds, migrations and project documentation. Live SQLite data and runtime backups are stored separately.
+Start here:
 
-Start with [session handoff](app/docs/SESSION_HANDOFF.md), [implementation status](app/docs/IMPLEMENTATION_STATUS.md) and the [governing V3 directive](docs/USER_DIRECTIVE_V3.txt). The latest user canon review is under canon/2026-10-20/revised/.
+- [Full feature rundown and limits](app/docs/FEATURE_RUNDOWN.md)
+- [Install, run and update](app/README.md)
+- [Verified consolidated baseline](app/docs/BASELINE_2026-10-26.md)
+- [Current implementation status](app/docs/IMPLEMENTATION_STATUS.md)
+- [Architecture and database boundaries](ARCHITECTURE.md)
+- [Backup and restore](app/docs/BACKUP_AND_RESTORE.md)
+- [Continuation handoff](app/docs/SESSION_HANDOFF.md)
 
-From app/: install Node 24+, Python 3.10+ and dependencies with npm ci, then run npm run setup, npm run db:check, and npm run dev. Open localhost:3000. Setup recreates the reviewed baseline from immutable evidence and JSON; restore a portable backup to recover later live reports.
+The working baseline combines the ten incremental review branches without rewriting their history. Its combined review targets main; no hosted deployment or automatic main-branch promotion is implied. Application runtime code is unchanged from verified tip 87cd925. Consolidation adds current documentation and an upgrade-preservation regression check.
 
-The National Report Center supports original report preservation, reviewed movement orders/arrivals, archive entries, partial approval, duplicates and scenarios kept outside canon. Further report domains remain planned. The hosted Site is a separate existing publication and has not been updated by this source commit.
+GitHub stores application source, migrations, immutable original evidence, reviewed JSON seeds and project documentation. **Live SQLite records and portable backups are separate, ignored runtime files.** A fresh checkout rebuilds the reviewed source baseline, including the approved project reconciliation; only a matching runtime backup recovers later live entries. The deleted chat's missing live database was not recovered.
 
-The older pending SQLite upload plan is retired under the newer V3 storage rule. No live database is committed. See app/docs/BACKUP_AND_RESTORE.md.
+From app/, use Node 24+ and Python 3.10+, install with npm ci, run npm run setup, npm run db:check, npm run build and npm start. On Windows PowerShell use npm.cmd. Open http://127.0.0.1:3000. Stop an existing server before rebuilding. Existing installations must be backed up before updates; keep their data and evidence folders.
+
+The user remains the authority over canon. Read [canon authority](app/docs/CANON_AUTHORITY.md) and the latest reviewed sources under canon/2026-10-20/revised/. National budget, projected deficit, source project funding, actual spending and physical completion remain distinct.

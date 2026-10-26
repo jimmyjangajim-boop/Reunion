@@ -1,5 +1,7 @@
 # Backup and restore
 
+Current baseline verification (26 October 2026): schema 8, 59 tables, 46 portable files, and an isolated restore matching all live rows. Fresh setup and upgrade-preservation checks are described in [BASELINE_2026-10-26.md](BASELINE_2026-10-26.md). A Git bundle preserves source/history/branch references; it is separate from the portable SQLite-plus-evidence backup. Older dated audit counts below describe their own earlier schema, not the current table count.
+
 SQLite is stored at `data/reunion.sqlite` or RNAS_DB. It persists through normal process restarts, as tested against a file-backed database. Cloud task/container recreation and a fresh checkout do not retain that runtime file automatically.
 
 From app/: `npm run backup -- /absolute/database-backup.sqlite` creates a consistent online snapshot including WAL data. `npm run backup:portable -- /absolute/reunion-portable.zip` creates an online SQLite snapshot, the complete evidence directory, migration versions and a verified SHA-256 manifest. It excludes API keys, private configuration, dependencies and build caches. Store these mutable backups outside Git.

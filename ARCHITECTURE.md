@@ -1,6 +1,6 @@
 # RNAS architecture
 
-Updated 26 October 2026. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed. The newest product directive is `docs/USER_RECORDS_DIRECTIVE.txt`: records and administration are primary; simulation expansion and AI-first extraction are frozen.
+Updated 26 October 2026. The [verified baseline](app/docs/BASELINE_2026-10-26.md) consolidates the existing runtime without changing its boundaries; [current feature coverage](app/docs/FEATURE_RUNDOWN.md) distinguishes working and partial systems. Application source lives in `app/`. This is one Next.js application and one SQLite database; no service split or framework replacement is needed. The newest product directive is `docs/USER_RECORDS_DIRECTIVE.txt`: records and administration are primary; simulation expansion and AI-first extraction are frozen.
 
 ## Unified record entry
 
